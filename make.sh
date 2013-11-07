@@ -24,10 +24,10 @@ echo "...done"
 
 # move any existing dotfiles in homedir to dotfiles_old directory, then create symlinks 
 for file in $files; do
-    if [[ -f ~/.$file ]]; then
+    if [ -f ~/.$file ]; then
         echo "Moving existing file .$file from ~ to $olddir"
         mv ~/.$file $olddir
-    if [[ -f ~/.$file ]]; then
+    elif [ -d ~/.$file ]; then
         echo "Moving existing dir .$file from ~ to $olddir"
         mv ~/.$file $olddir
     else
