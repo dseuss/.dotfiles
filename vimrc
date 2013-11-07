@@ -576,6 +576,9 @@ if snipper ==? 'ultisnips'
    let g:UltiSnipsJumpForwardTrigger="<tab>"
    let g:UltiSnipsJumpBackwardTrigger="<C-B>"
 
+   "" set directories
+   let g:UltiSnipsSnippetDirectories = ["snippets"]
+
    "" from ftdetect/UltiSnips.vim
    autocmd FileType * call UltiSnips_FileTypeChanged()
    autocmd BufNewFile,BufRead *.snippets setf snippets
