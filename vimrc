@@ -869,8 +869,7 @@ nmap <silent> <Leader>oJ :FSSplitBelow<cr>
 
 " vim-latex -- LaTeX suite {{{2
 "" using local file, since its modified to disable imap, ...
-"set rtp+=~/.vim/bundle/vim-latex/
-Bundle 'file:///home/dsuess/.vim/sbundle/vim-latex/'
+set rtp+=~/.vim/sbundle/vim-latex/
 
 "" disable all input mappings
 let g:Imap_FreezeImap=1
