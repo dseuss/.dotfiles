@@ -4,7 +4,10 @@ if [ "$TERM" = "xterm" ]; then
 fi
 
 export PATH=/home/dsuess/bin:/home/dsuess/local/librsb/bin/:$PATH
-source /opt/intel/bin/compilervars.sh ia32
+
+if [ -f /opt/intel/bin/compilervars.sh ]; then
+  source /opt/intel/bin/compilervars.sh ia32
+fi
 
 
 ## OH-MY-ZSH SPECIFIC STUFF ###################################################
@@ -61,7 +64,6 @@ alias qtconsole="ipython qtconsole --pylab inline"
 alias notebook="ipython notebook --browser=\"/usr/bin/firefox\" --pylab inline "
 
 # Admin/Sudo-Stuff
-alias apt-get='sudo apt-get'
 alias l.='ls -d .* --color=auto'    # Display hidden files
 alias tardir='tar -zcvf'
 alias untar='tar -zxvf'
@@ -69,6 +71,11 @@ alias mkdir='mkdir -pv'             # Create parent dirs on demand
 alias ports='netstat -tulanp'
 alias reboot='sudo reboot'
 alias shutdown='sudo shutdown -h now'
+
+# Apt-get shortcuts
+alias agi="sudo apt-get install"
+alias agd="sudo apt-get update"
+alias agg="sudo apt-get upgrade"
 
 # Div. Application shortcuts
 alias hamster='hamster-cli'
