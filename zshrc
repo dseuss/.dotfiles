@@ -8,40 +8,9 @@ export PATH=/home/dsuess/bin:/home/dsuess/local/librsb/bin/:$PATH
 if [ -f /opt/intel/bin/compilervars.sh ]; then
   source /opt/intel/bin/compilervars.sh ia32
 fi
-
-
-## OH-MY-ZSH SPECIFIC STUFF ###################################################
-ZSH=$HOME/.oh-my-zsh
-ZSH_THEME="robbyrussell"
-
-# Uncomment following line if you want to disable command autocorrection
-# DISABLE_CORRECTION="true"
-
-# Uncomment following line if you want red dots to be displayed while waiting for completion
-COMPLETION_WAITING_DOTS="true"
-
-# Case sensetive completion
-CASE_SENSETIVE="true"
-
-# Load the oh-my-zsh plugins and settings
-plugins=(command-not-found pass)
-source $ZSH/oh-my-zsh.sh
-
-
-## Final customization of zsh #################################################
-
-# Write history of multiple zsh-sessions chronologicaly ordered
-setopt inc_append_history
-
-# Share history over multiple sessions
-setopt share_history
-
-# Disable the anoying autocorrect
-unsetopt correct
-
-# Hit escape twice to clear the current input line 
-bindkey "" vi-change-whole-line
-
+if [ -f /opt/intel/composer_xe_2013/bin/compilervars.sh ]; then
+  source /opt/intel/composer_xe_2013/bin/compilervars.sh ia32
+fi
 
 ## Personal aliases ###########################################################
 
@@ -89,3 +58,36 @@ alias ln='ln -i'
 alias chown='chown --preserve-root'
 alias chmod='chmod --preserve-root'
 alias chgrp='chgrp --preserve-root'
+
+
+## OH-MY-ZSH SPECIFIC STUFF ###################################################
+ZSH=$HOME/.oh-my-zsh
+ZSH_THEME="robbyrussell"
+
+# Uncomment following line if you want to disable command autocorrection
+# DISABLE_CORRECTION="true"
+
+# Uncomment following line if you want red dots to be displayed while waiting for completion
+COMPLETION_WAITING_DOTS="true"
+
+# Case sensetive completion
+CASE_SENSETIVE="true"
+
+# Load the oh-my-zsh plugins and settings
+plugins=(command-not-found pass)
+source $ZSH/oh-my-zsh.sh
+
+
+## Final customization of zsh #################################################
+
+# Write history of multiple zsh-sessions chronologicaly ordered
+setopt inc_append_history
+
+# Share history over multiple sessions
+setopt share_history
+
+# Disable the anoying autocorrect
+unsetopt correct
+
+# Hit escape twice to clear the current input line 
+bindkey "" vi-change-whole-line
