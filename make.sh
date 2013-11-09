@@ -8,7 +8,7 @@
 
 dir=~/.dotfiles                    # dotfiles directory
 olddir=~/.dotfiles/old             # old dotfiles backup directory
-files="zshrc virc vimrc vim tmux.conf i3 Xmodmap oh-my-zsh"    # list of files/folders to symlink in homedir
+files="zshrc virc vimrc vim tmux.conf i3 Xmodmap oh-my-zsh git_template"    # list of files/folders to symlink in homedir
 
 ##########
 
@@ -37,3 +37,6 @@ for file in $files; do
     echo "Creating symlink to $file in home directory."
     ln -s $dir/$file ~/.$file
 done
+
+# set global git template dir
+git config --global init.templatedir ~/.git_template

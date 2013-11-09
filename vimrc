@@ -553,7 +553,7 @@ if completer ==? 'ycm'
   let g:ycm_key_list_previous_completion = ['<UP>']
 
   "" Also use tag file entries
-  let g:ycm_collect_indetifiers_from_tags_files = 1
+  let g:ycm_collect_identifiers_from_tags_files = 1
 
   "" Enable autocompletion in comments
   let g:ycm_complete_in_comments = 1
@@ -779,17 +779,17 @@ nnoremap N NzzzO
 " PROJECTS & TAGS {{{1
 
 " vim-easytags -- create tag files {{{2
-Bundle 'xolox/vim-misc'
-Bundle 'xolox/vim-easytags'
+"Bundle 'xolox/vim-misc'
+"Bundle 'xolox/vim-easytags'
 
-"" location of global file
-let g:easytags_file = '~/.vim/tags'
-"" write into local .vimtags (if exists), otherwise global
-let g:easytags_dynamic_files = 1
-"" dont update updatetime yourself
-let g:easytags_updatetime_autodisable = 0
-"" create tags
-nnoremap <leader>ct :UpdateTags<CR>
+""" location of global file
+"let g:easytags_file = '~/.vim/tags'
+""" write into local .vimtags (if exists), otherwise global
+"let g:easytags_dynamic_files = 1
+""" dont update updatetime yourself
+"let g:easytags_updatetime_autodisable = 0
+""" create tags
+"nnoremap <leader>ct :UpdateTags<CR>
 
 
 " tagbar -- show tag structure in side bar {{{2
