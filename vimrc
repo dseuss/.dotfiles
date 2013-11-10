@@ -811,6 +811,11 @@ nmap <silent> <Leader>tl <Plug>TagmaTasks
 " vim-fugitive -- git interface {{{2
 Bundle 'tpope/vim-fugitive'
 
+nnoremap <leader>GS :Gstatus<CR>
+nnoremap <leader>GW :Gwrite<CR>
+nnoremap <leader>GL :Glog<CR>
+nnoremap <leader>GC :Gcommit<CR>
+
 "" automatically delete fugitive buffers on close
 autocmd BufReadPost fugitive://* set bufhidden=delete
 
@@ -819,6 +824,9 @@ autocmd BufReadPost fugitive://* set bufhidden=delete
 "" location of tag files (use first existend one)
 set tags=.vimtags,/home/dsuess/.vim/tags
 nnoremap gT :exe "ptjump " . expand("<cword>")<CR>
+
+"" In help files navigate using enter
+autocmd filetype help nnoremap <buffer> <cr> <C-]>
 
 " BUILDING & LANGUAGE SPECIFICS {{{1
 " set a custom make target {{{2
