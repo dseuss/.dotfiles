@@ -27,7 +27,7 @@ alias conf="vim ~/.zshrc"
 #alias ssh="ssh -Y"
 alias chromium-proxified="chromium-browser --proxy-server=\"socket5://localhost:8080\""
 alias mount-remote-home="sshfs -C dsuess@tqo11:/home/dsuess /media/rhome/"
-alias ssh-keychain="eval $(keychain --eval --agents ssh -Q --quiet id_rsa)"
+alias ssh-keychain="eval \$(keychain --eval --agents ssh -Q --quiet id_rsa)"
 
 # Science stuff
 alias qtconsole="ipython qtconsole --pylab inline"
@@ -75,7 +75,7 @@ COMPLETION_WAITING_DOTS="true"
 CASE_SENSETIVE="true"
 
 # Load the oh-my-zsh plugins and settings
-plugins=(command-not-found pass)
+plugins=(command-not-found pass tmux git)
 source $ZSH/oh-my-zsh.sh
 
 
