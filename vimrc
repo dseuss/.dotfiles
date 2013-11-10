@@ -116,9 +116,11 @@ endif
 "" show cursorline
 set cursorline
 
-"" relative line numbering (disabled for quickfix,...)
+"" relative line numbering with absolute numbering of current line
 set relativenumber
-au FileType qf,taglist, set norelativenumber
+set number
+"" Hide all line numbers for quickfix, taglist, etc.
+au FileType qf,taglist, set norelativenumber|set nonumber
 
 "" always show status line
 set laststatus=2
