@@ -2,5 +2,5 @@
 
 set -e
 trap "rm -f .git/tags.$$" EXIT
-ctags --tag-relative -Rf.git/tags.$$ --exclude=.git --languages=-javascript,sql --sort=foldcase --fields=+ialS --extra=-q
+ctags --tag-relative --sort=foldcase -Rf.git/tags.$$ --exclude=.git --languages=-javascript,sql --sort=foldcase --fields=+ialS --extra=-q
 mv .git/tags.$$ .git/tags

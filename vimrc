@@ -649,7 +649,7 @@ vnoremap a<space> aW
 
 "" Goto first quickfix/location list entry
 nnoremap <leader>p :cc<CR>
-nnoremap <leader><leader>p :ll<CR>
+nnoremap <leader>P :ll<CR>
 
 "" Escape from autocompleted brackets/quotes/etc
 inoremap <c-l> <Right>
@@ -963,10 +963,14 @@ map <silent> <leader>cT !ctags-exuberant -R -f .vimtags & <CR>
 
 " FILETYPES {{{1
 
-"" enable filetype detection
-filetype plugin indent on
+" edit the ftplugin file {{{2
+function! OpenFiletypeFile()
+  let path_to_file = '~/.vim/after/ftplugin/' .  &filetype . '.vim'
+  exe "edit " . path_to_file
+endfunction
+command! EditFiletype call OpenFiletypeFile()
 
-"" custom filetypes {{{2
+" custom filetypes {{{2
 "" pyf -- f2py interface file
 autocmd BufRead,BufNewFile *.pyf setf fortran
 "" tikz -- drawing pictures with latex
@@ -976,3 +980,7 @@ autocmd BufRead,BufNewFile *.xmds setf xml
 autocmd BufRead,BufNewFile *.xmds compiler xmds2
 
 "2}}}
+
+"" enable filetype detection
+filetype plugin indent on
+
