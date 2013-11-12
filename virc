@@ -90,7 +90,7 @@ set nowritebackup
 set noswapfile
 
 "" Save file using s
-nnoremap <silent> s :w<CR>
+nnoremap <silent> s :w
 "" enter sudo mode by w!!
 cmap w!! w !sudo tee % > /dev/null
 

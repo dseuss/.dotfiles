@@ -16,7 +16,7 @@ fi
 ## Personal aliases ###########################################################
 
 # Programming
-alias vi="vi -u ~/.virc"
+alias vi="/usr/bin/vim -u ~/.virc"
 alias svi="sudo vi -u ~/.virc"
 alias latexmk="latexmk -pdf"
 alias cleanlatex="sh -c 'rm --force *.aux *.fdb_latexmk *.fls *.log *.synctex.gz *.out *.toc *.bib.bak *.end *.bbl *.blg *.toc *.auxlock'"
