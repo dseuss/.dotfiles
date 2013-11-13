@@ -299,6 +299,9 @@ nnoremap <silent> <leader>§ :MarkClear<CR>
 " nerd-comment -- insert/delete/modify comments {{{2
 Bundle 'scrooloose/nerdcommenter'
 
+"" Always add a space in front of text when commented
+let NERDSpaceDelims = 1
+
 " remove trailing whitspaces on save {{{2
 fun! <SID>StripTrailingWhitespaces()
   let l = line(".")
@@ -969,6 +972,13 @@ function! OpenFiletypeFile()
   exe "edit " . path_to_file
 endfunction
 command! EditFiletype call OpenFiletypeFile()
+
+" and reload the thing
+function! ReloadFiletypeFile()
+  let path_to_file = '~/.vim/after/ftplugin/' .  &filetype . '.vim'
+  exe "source " . path_to_file
+endfunction
+command! ReloadFiletype call ReloadFiletypeFile()
 
 " custom filetypes {{{2
 "" pyf -- f2py interface file

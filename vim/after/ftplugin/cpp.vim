@@ -2,6 +2,19 @@ nnoremap <leader>sd :FocusDispatch g++ % -g -o test; ./test<CR>
 
 let b:fswitchlocs='reg:/src/src'
 
-"" dont indent private/public keywords
+" CINDENT
 set cindent
-set cinoptions=g0
+"" dont indent private/public keywords
+set cinoptions+=g0
+"" Indent additional function parameters to "("
+set cino+=(0
+
+" ALIGN
+vnoremap <leader>a// :Align\/\/<CR>
+
+" Add highlighting for function definition in C++
+function! EnhanceCppSyntax()
+  syn match cppFuncDef "::\~\?\zs\h\w*\ze([^)]*\()\s*\(const\)\?\)\?$"
+  hi def link cppFuncDef Special
+endfunction
+autocmd Syntax cpp call EnhanceCppSyntax()

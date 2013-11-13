@@ -143,8 +143,8 @@ struct ${1:`!p snip.rv = (snip.basename or "name") + "_t"`}
 endsnippet
 
 snippet fun "function" b
+// ${4:comments}
 ${1:void} ${2:function_name}(${3})
-/* ${4:comments} */
 {
 	${VISUAL}${0:${VISUAL/(.*)/(?1::\/* code *\/)/}}
 }
