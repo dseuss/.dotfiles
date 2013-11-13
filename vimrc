@@ -827,11 +827,13 @@ autocmd BufReadPost fugitive://* set bufhidden=delete
 "2}}}
 
 "" location of tag files (use first existend one)
-set tags=.vimtags,/home/dsuess/.vim/tags
+set tags=
+" set tags=.vimtags,/home/dsuess/.vim/tags
 nnoremap gT :exe "ptjump " . expand("<cword>")<CR>
 
-"" In help files navigate using enter
-autocmd filetype help nnoremap <buffer> <cr> <C-]>
+"" Goto tag using enter
+nnoremap <cr> <C-]>
+" autocmd filetype help nnoremap <buffer> <cr> <C-]>
 
 " BUILDING & LANGUAGE SPECIFICS {{{1
 " set a custom make target {{{2
