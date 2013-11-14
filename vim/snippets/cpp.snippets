@@ -50,4 +50,27 @@ snippet ustd "std namespace"
 using namespace std;
 endsnippet
 
+###############################################################################
+#                            GoogleTests Snippets                             #
+###############################################################################
+snippet gtestmain "GoogleTest main"
+#include "gtest/gtest.h"
+
+
+${0}
+
+GTEST_API_ int main(int argc, char **argv)
+{
+  testing::InitGoogleTest(&argc, argv);
+  return RUN_ALL_TESTS();
+}
+endsnippet
+
+snippet gtest "GoogleTest case"
+TEST(${1:testcase}, ${2:test})
+{
+	${0}
+}
+endsnippet
+
 # vim:ft=snippets:

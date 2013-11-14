@@ -832,8 +832,7 @@ set tags=
 nnoremap gT :exe "ptjump " . expand("<cword>")<CR>
 
 "" Goto tag using enter
-nnoremap <cr> <C-]>
-" autocmd filetype help nnoremap <buffer> <cr> <C-]>
+autocmd filetype help nnoremap <buffer> <cr> <C-]>
 
 " BUILDING & LANGUAGE SPECIFICS {{{1
 " set a custom make target {{{2
@@ -841,7 +840,7 @@ function! SetMake()
   "let mpath = input('? ')
   "execute 'setlocal makeprg=' . mpath
   let mpath = input('?make ')
-  execute 'set makeprg=make\ ' . mpath
+  exec 'set makeprg=make\ ' . mpath
 endfunction
 
 nnoremap <leader>sm :call SetMake()<CR>
