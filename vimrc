@@ -549,13 +549,14 @@ endfunction
 inoremap <silent><C-j> <C-R>=OmniPopup('j')<CR>
 inoremap <silent><C-k> <C-R>=OmniPopup('k')<CR>
 
-" YouCompleteMe -- autocompletion {{{2
+" YouCompleteMe -- autocompletion & more {{{2
 if completer ==? 'ycm'
   Bundle 'Valloric/YouCompleteMe'
 
   "" Tab completion is run through SuperTab
   let g:ycm_key_list_select_completion = ['<S-TAB>', '<Down>']
   let g:ycm_key_list_previous_completion = ['<UP>']
+  nnoremap <leader>di :YcmShowDetailedDiagnostic<CR>
 
   "" Also use tag file entries
   let g:ycm_collect_identifiers_from_tags_files = 1
