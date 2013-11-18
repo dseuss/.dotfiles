@@ -179,6 +179,7 @@ function! GetBufferList()
   redir END
   return buflist
 endfunction
+
 function! ToggleList(bufname, pfx)
   let buflist = GetBufferList()
   for bufnum in map(filter(split(buflist, '\n'), 'v:val =~ "'.a:bufname.'"'), 'str2nr(matchstr(v:val, "\\d\\+"))')
@@ -198,8 +199,44 @@ function! ToggleList(bufname, pfx)
     wincmd p
   endif
 endfunction
-nmap <silent> <leader>bl :call ToggleList("Location List", 'l')<CR>
-nmap <silent> <leader>bq :call ToggleList("Quickfix List", 'c')<CR>
+
+function! OpenList(pfx)
+  let winnr = winnr()
+  exec(a:pfx.'open')
+  if winnr() != winnr
+    wincmd p
+  endif
+endfunction
+
+function! CloseList(bufname, pfx)
+  let buflist = GetBufferList()
+  for bufnum in map(filter(split(buflist, '\n'), 'v:val =~ "'.a:bufname.'"'), 'str2nr(matchstr(v:val, "\\d\\+"))')
+    if bufwinnr(bufnum) != -1
+      exec(a:pfx.'close')
+      return
+    endif
+  endfor
+endfunction
+
+nnoremap <silent> coo :call ToggleList("Location List", 'l')<CR>
+nnoremap <silent> [oo :call OpenList('l')<CR>
+nnoremap <silent> ]oo :call CloseList("Location List", 'l')<CR>
+nnoremap <silent> coq :call ToggleList("Quickfix List", 'c')<CR>
+nnoremap <silent> [oq :call OpenList('c')<CR>
+nnoremap <silent> ]oq :call CloseList("Quickfix List", 'c')<CR>
+
+
+" Always show/hide quickfix window when it gets populated {{{2
+function! ToggleListAC(pfx)
+  let winnr = winnr()
+  exec(a:pfx.'window')
+  if winnr() != winnr
+    wincmd p
+  endif
+endfunction
+
+autocmd QuickFixCmdPost [^l]* nested call ToggleListAC('c')
+autocmd QuickFixCmdPost    l* nested call ToggleListAC('l')
 
 
 " set the height of the preview windows {{{2
@@ -232,7 +269,6 @@ autocmd FileType qf call AdjustWindowHeight(3, 10)
 "" ..and open on bottom of screen
 autocmd FileType qf wincmd J
 "2}}}
-
 
 "" Scroll through windows with hjkl
 nnoremap <c-h> <c-w>h
@@ -915,12 +951,13 @@ nmap <silent> <Leader>oJ :FSSplitBelow<cr>
 
 " ATP -- automatic LaTeX Plugin {{{2
 Bundle 'git://git.code.sf.net/p/atp-vim/code'
+"" Dont forget to symlink ftplugin-files
 
 "" Remap the motion keys, so that the correct mappings are not overwritten
-nnoremap <leader><C-k> <Plug>TexJMotionForward
-inoremap <leader><C-k> <Plug>TexJMotionForward
-nnoremap <leader><C-l> <Plug>TexJMotionBackward
-inoremap <leader><C-l> <Plug>TexJMotionBackward
+nnoremap <F4><C-k> <Plug>TexJMotionForward
+inoremap <F4><C-k> <Plug>TexJMotionForward
+nnoremap <F4><C-l> <Plug>TexJMotionBackward
+inoremap <F4><C-l> <Plug>TexJMotionBackward
 
 
 " " vim-latex -- LaTeX suite {{{2

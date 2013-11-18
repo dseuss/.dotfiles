@@ -36,6 +36,9 @@ nnoremap <buffer> <leader>lv :View<CR>
 " Always enable spell checking (english on default)
 setlocal spell
 
+" Local Tag file
+set tags+=tags
+
 " Enable the Buffer Tags for tex files
 let g:ctrlp_buftag_types =  {
          \ 'tex' : '',
