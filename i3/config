@@ -132,6 +132,7 @@ bindsym XF86Display exec /home/dsuess/bin/toggle-monitor position
 bindsym XF86Sleep exec sudo /usr/sbin/pm-suspend
 bindsym XF86Battery exec sudo /sbin/hdparm -Y /dev/sdb
 bindsym XF86ScreenSaver exec /usr/bin/xflock4
+bindsym XF86Touchpad exec /home/dsuess/bin/toggle-touchpad
 
 # Media keys for clementine
 bindsym XF86AudioPlay exec clementine -t
