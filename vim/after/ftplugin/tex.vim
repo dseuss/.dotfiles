@@ -15,23 +15,29 @@ setlocal sw=2
 " all the figure labels. Very useful!
 setlocal iskeyword+=:
 
-setlocal wrap
 
 " Disable column marker
 setlocal textwidth=0
 setlocal colorcolumn=0
-setlocal relativenumber
+setlocal wrap
+
+" Mappings for ATP
+nnoremap <buffer> <leader>ll :MakeLatex<CR>
+nnoremap <buffer> <leader>ls :SyncTex<CR>
+nnoremap <buffer> <leader>lv :View<CR>
 
 " Disable folding -> should speed up
-setlocal foldmethod=manual
-setlocal foldnestmax=0
-
+" setlocal foldmethod=manual
+" setlocal foldnestmax=0
 " Try this for further speed up
-syntax sync maxlines=100
-syntax sync minlines=20
+" syntax sync maxlines=100
+" syntax sync minlines=20
 
 " Always enable spell checking (english on default)
 setlocal spell
+
+" Local Tag file
+set tags+=tags
 
 " Enable the Buffer Tags for tex files
 let g:ctrlp_buftag_types =  {
@@ -46,8 +52,6 @@ nnoremap <leader>l% i\left<esc>l%i\right<esc>l
 
 " Fill line with comments
 let b:fillchar = '%'
-
-exec "set makeprg=latexmk\\ -pdf\\ " . Tex_GetMainFileName()
 
 " Add some custom surround environments
 " see help surround-customizing

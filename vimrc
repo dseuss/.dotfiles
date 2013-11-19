@@ -179,6 +179,7 @@ function! GetBufferList()
   redir END
   return buflist
 endfunction
+
 function! ToggleList(bufname, pfx)
   let buflist = GetBufferList()
   for bufnum in map(filter(split(buflist, '\n'), 'v:val =~ "'.a:bufname.'"'), 'str2nr(matchstr(v:val, "\\d\\+"))')
@@ -198,8 +199,44 @@ function! ToggleList(bufname, pfx)
     wincmd p
   endif
 endfunction
-nmap <silent> <leader>bl :call ToggleList("Location List", 'l')<CR>
-nmap <silent> <leader>bq :call ToggleList("Quickfix List", 'c')<CR>
+
+function! OpenList(pfx)
+  let winnr = winnr()
+  exec(a:pfx.'open')
+  if winnr() != winnr
+    wincmd p
+  endif
+endfunction
+
+function! CloseList(bufname, pfx)
+  let buflist = GetBufferList()
+  for bufnum in map(filter(split(buflist, '\n'), 'v:val =~ "'.a:bufname.'"'), 'str2nr(matchstr(v:val, "\\d\\+"))')
+    if bufwinnr(bufnum) != -1
+      exec(a:pfx.'close')
+      return
+    endif
+  endfor
+endfunction
+
+nnoremap <silent> coo :call ToggleList("Location List", 'l')<CR>
+nnoremap <silent> [oo :call OpenList('l')<CR>
+nnoremap <silent> ]oo :call CloseList("Location List", 'l')<CR>
+nnoremap <silent> coq :call ToggleList("Quickfix List", 'c')<CR>
+nnoremap <silent> [oq :call OpenList('c')<CR>
+nnoremap <silent> ]oq :call CloseList("Quickfix List", 'c')<CR>
+
+
+" Always show/hide quickfix window when it gets populated {{{2
+function! ToggleListAC(pfx)
+  let winnr = winnr()
+  exec(a:pfx.'window')
+  if winnr() != winnr
+    wincmd p
+  endif
+endfunction
+
+autocmd QuickFixCmdPost [^l]* nested call ToggleListAC('c')
+autocmd QuickFixCmdPost    l* nested call ToggleListAC('l')
 
 
 " set the height of the preview windows {{{2
@@ -232,7 +269,6 @@ autocmd FileType qf call AdjustWindowHeight(3, 10)
 "" ..and open on bottom of screen
 autocmd FileType qf wincmd J
 "2}}}
-
 
 "" Scroll through windows with hjkl
 nnoremap <c-h> <c-w>h
@@ -281,6 +317,13 @@ endfunction
 let g:fillchar = '-'
 nnoremap <silent> <leader>cf :call FillLine()<CR>
 
+
+" GUNDO -- graphical representation of undo tree {{{2
+Bundle 'sjl/gundo.vim'
+
+nnoremap cog :GundoToggle<CR>
+nnoremap [og :GundoShow<CR>
+nnoremap ]og :GundoHide<CR>
 
 " Mark--Karkat -- mark text, words with colors {{{2
 "" Dont use github, since we disabled all default mappings
@@ -885,60 +928,92 @@ nmap <silent> <Leader>oj :FSBelow<cr>
 "" Switch to the file and load it into a new window split below >
 nmap <silent> <Leader>oJ :FSSplitBelow<cr>
 
-" vim-latex -- LaTeX suite {{{2
-"" using local file, since its modified to disable imap, ...
-set rtp+=~/.vim/sbundle/vim-latex/
+" LaTeX Box -- Building latex files {{{2
+" Bundle 'LaTeX-Box-Team/LaTeX-Box'
 
-"" disable all input mappings
-let g:Imap_FreezeImap=1
-let g:Tex_SmartKeyBS=0
-let g:Tex_SmartKeyQuote=0
-let g:Tex_SmartKeyDot=0
+" "" Compile options
+" let g:LatexBox_latexmk_async = 0
+" let g:LatexBox_viewer = "okular"
+" let g:LatexBox_quickfix = 2
+" let g:LatexBox_ignore_warnings
+"       \ = ['Underfull', 'Overfull', 'specifier changed to', 'LaTex Font']
 
-"" dont place any placeholders
-let g:Imap_UsePlaceHolders = 0
+" "" Forward PDF with okular
+" function! SyncTexForward()
+"      let execstr = "silent !okular --unique %:p:r.pdf\#src:".line(".")."%:p &"
+"      exec execstr
+"    endfunction
 
-"" ???
-set complete+=k
+" nnoremap <Leader>ll :Latexmk<CR>
+" nnoremap <Leader>lv :LatexView<CR>
+" nnoremap <Leader>ls :call SyncTexForward()<CR>
 
-"" Recognizing eq:... as one label when jumping to label
-"" Also recognize words with german special characters as one word
-"nnoremap <leader>ü :tjump /<c-r>=expand('<cword>')<cr><cr>"
 
-"" No folding please
-let g:tex_fold_enabled = 0
-let Tex_FoldedSections=""
-let Tex_FoldedEnvironments=""
-let Tex_FoldedMisc=""
+" ATP -- automatic LaTeX Plugin {{{2
+Bundle 'git://git.code.sf.net/p/atp-vim/code'
+"" Dont forget to symlink ftplugin-files
 
-"" Compile Options
-let g:Tex_MultipleCompileFormats='pdf'
-let g:Tex_DefaultTargetFormat = 'pdf'
-let g:tex_flavor='latex'
-let g:Tex_ViewRule_pdf = 'okular'
-let g:Tex_CompileRule_pdf = 'pdflatex -shell-escape -synctex=1 -file-line-error -interaction=nonstopmode'
-"" shell-escape -- allow for externalized tikz
-"" synctex -- forward/backward search
-"" file-line-error -- parsable error format for quickfix
-"" interaction=nonstopmode -- dont halt pdflatex on error, just report!
-" Since all errors are nicely presented in the quickview dont change
-" anything when an error is encountered!
+"" Remap the motion keys, so that the correct mappings are not overwritten
+nnoremap <F4><C-k> <Plug>TexJMotionForward
+inoremap <F4><C-k> <Plug>TexJMotionForward
+nnoremap <F4><C-l> <Plug>TexJMotionBackward
+inoremap <F4><C-l> <Plug>TexJMotionBackward
 
-"" dont change view when there are errors
-let g:Tex_ShowErrorContext = 0
-let g:Tex_GotoError = 0
 
-"" Ignore certain warnings
-let g:Tex_IgnoredWarnings =
-      \"Underfull\n".
-      \"Overfull\n".
-      \"specifier changed to\n".
-      \"You have requested\n".
-      \"Missing number, treated as zero.\n".
-      \"There were undefined references\n".
-      \"Citation %.%# undefined\n".
-      \"LaTeX Warning:"
-let g:Tex_IgnoreLevel = 8
+" " vim-latex -- LaTeX suite {{{2
+" "" using local file, since its modified to disable imap, ...
+" set rtp+=~/.vim/sbundle/vim-latex/
+
+" "" disable all input mappings
+" let g:Imap_FreezeImap=1
+" let g:Tex_SmartKeyBS=0
+" let g:Tex_SmartKeyQuote=0
+" let g:Tex_SmartKeyDot=0
+
+" "" dont place any placeholders
+" let g:Imap_UsePlaceHolders = 0
+
+" "" ???
+" set complete+=k
+
+" "" Recognizing eq:... as one label when jumping to label
+" "" Also recognize words with german special characters as one word
+" "nnoremap <leader>ü :tjump /<c-r>=expand('<cword>')<cr><cr>"
+
+" "" No folding please
+" let g:tex_fold_enabled = 0
+" let Tex_FoldedSections=""
+" let Tex_FoldedEnvironments=""
+" let Tex_FoldedMisc=""
+
+" "" Compile Options
+" let g:Tex_MultipleCompileFormats='pdf'
+" let g:Tex_DefaultTargetFormat = 'pdf'
+" let g:tex_flavor='latex'
+" let g:Tex_ViewRule_pdf = 'okular'
+" let g:Tex_CompileRule_pdf = 'pdflatex -shell-escape -synctex=1 -file-line-error -interaction=nonstopmode'
+" "" shell-escape -- allow for externalized tikz
+" "" synctex -- forward/backward search
+" "" file-line-error -- parsable error format for quickfix
+" "" interaction=nonstopmode -- dont halt pdflatex on error, just report!
+" " Since all errors are nicely presented in the quickview dont change
+" " anything when an error is encountered!
+
+" "" dont change view when there are errors
+" let g:Tex_ShowErrorContext = 0
+" let g:Tex_GotoError = 0
+
+" "" Ignore certain warnings
+" let g:Tex_IgnoredWarnings =
+"       \"Underfull\n".
+"       \"Overfull\n".
+"       \"specifier changed to\n".
+"       \"You have requested\n".
+"       \"Missing number, treated as zero.\n".
+"       \"There were undefined references\n".
+"       \"Citation %.%# undefined\n".
+"       \"LaTeX Warning:"
+" let g:Tex_IgnoreLevel = 8
 
 "" conceal greek letters as \alpha
 let g:tex_conceal="adgm"
