@@ -80,7 +80,6 @@ snippet sec "Section" b
 
 ${0}
 
-% section $2 (end)
 endsnippet
 
 
@@ -90,7 +89,6 @@ snippet sub "Subsection" b
 
 ${0}
 
-% subsection $2 (end)
 endsnippet
 
 snippet ssub "Subsubsection" b
@@ -99,7 +97,6 @@ snippet ssub "Subsubsection" b
 
 ${0}
 
-% subsubsection $2 (end)
 
 endsnippet
 
@@ -109,7 +106,6 @@ snippet par "Paragraph" b
 
 ${0}
 
-% paragraph $2 (end)
 endsnippet
 
 
@@ -122,6 +118,15 @@ ${0}
 % subparagraph $2 (end)
 endsnippet
 
+########################
+#  Beamer Class stuff  #
+########################
+snippet frame "Beamer Frame"
+\begin{frame}{${1:Title}}
+	$0
+\end{frame}
+endsnippet
+
 ###############
 #  Utilities  #
 ###############
@@ -131,7 +136,7 @@ snippet pac "Package" b
 endsnippet
 
 
-snippet lp "Long parenthesis" 
+snippet lp "Long parenthesis"
 \left(${1:${VISUAL:contents}}\right)$0
 endsnippet
 # vim:ft=snippets:

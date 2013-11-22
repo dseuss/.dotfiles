@@ -22,9 +22,9 @@ setlocal colorcolumn=0
 setlocal wrap
 
 " Mappings for ATP
-nnoremap <buffer> <leader>ll :MakeLatex<CR>
-nnoremap <buffer> <leader>ls :SyncTex<CR>
-nnoremap <buffer> <leader>lv :View<CR>
+nnoremap <silent><buffer> <leader>ll :MakeLatex<CR>
+nnoremap <silent><buffer> <leader>ls :SyncTex<CR>
+nnoremap <silent><buffer> <leader>lv :View<CR>
 
 " Disable folding -> should speed up
 " setlocal foldmethod=manual
