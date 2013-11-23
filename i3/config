@@ -234,3 +234,4 @@ exec --no-startup-id nitrogen --restore
 #exec --no-startup-id hamster-indicator
 #exec cd /home/dsuess/Documents/Notebooks/; /home/dsuess/bin/nbserver start
 exec /home/dsuess/bin/toggle-monitor position
+exec /usr/local/bin/firefox 
