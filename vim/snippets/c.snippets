@@ -127,7 +127,21 @@ struct ${1:`!p snip.rv = (snip.basename or "name") + "_t"`} {
 };
 endsnippet
 
-snippet fun "function" b
+snippet ) "Parentheses" w
+)
+{
+	$0
+}
+endsnippet
+
+snippet fun "function"
+${1:void} ${2:function_name}(${3})
+{
+	${VISUAL}${0:${VISUAL/(.*)/(?1::\/* code *\/)/}}
+}
+endsnippet
+
+snippet func "function with comment"
 // ${4:comments}
 ${1:void} ${2:function_name}(${3})
 {
@@ -135,7 +149,7 @@ ${1:void} ${2:function_name}(${3})
 }
 endsnippet
 
-snippet fund "function declaration" b
+snippet fund "function declaration"
 ${1:void} ${2:function_name}(${3});
 endsnippet
 
