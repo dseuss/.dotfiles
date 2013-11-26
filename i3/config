@@ -130,7 +130,7 @@ bindsym $mod+d exec gnome-do
 # bind the ThinkPad function keys
 bindsym XF86Display exec /home/dsuess/bin/toggle-monitor position
 bindsym XF86Sleep exec sudo /usr/sbin/pm-suspend
-bindsym XF86Battery exec sudo /sbin/hdparm -Y /dev/sdb
+bindsym XF86Battery exec sudo /sbin/hdparm -Y /dev/disk/by-id/ata-HITACHI_HTS723216L9SA60_081218FC1223NPG7V38C
 bindsym XF86ScreenSaver exec /usr/bin/xflock4
 bindsym XF86Touchpad exec /home/dsuess/bin/toggle-touchpad
 
