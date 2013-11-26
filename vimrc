@@ -951,13 +951,14 @@ nmap <silent> <Leader>oJ :FSSplitBelow<cr>
 
 " ATP -- automatic LaTeX Plugin {{{2
 Bundle 'git://git.code.sf.net/p/atp-vim/code'
-"" Dont forget to symlink ftplugin-files
+"" Dont forget to symlink ftplugin-files and install python-psutil
 
 "" Remap the motion keys, so that the correct mappings are not overwritten
 nnoremap <F4><C-k> <Plug>TexJMotionForward
 inoremap <F4><C-k> <Plug>TexJMotionForward
 nnoremap <F4><C-l> <Plug>TexJMotionBackward
 inoremap <F4><C-l> <Plug>TexJMotionBackward
+
 
 
 " " vim-latex -- LaTeX suite {{{2
