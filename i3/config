@@ -113,6 +113,8 @@ mode "resize" {
         bindsym Escape mode "default"
 }
 
+bindsym $mod+Shift+M exec ~/bin/toggle-monitor brightness
+
 ########################################################################### }}}
 # APPLICATION SHORTCUTS # {{{
 ###############################################################################
