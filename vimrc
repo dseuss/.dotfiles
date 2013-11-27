@@ -614,6 +614,11 @@ if completer ==? 'ycm'
   "" always ask if it's save to run
   let g:ycm_confirm_extra_conf = 1
 
+  "" My own tex plugin
+  let g:ycm_semantic_triggers =  {
+        \   'tex' : ['cite{', ':'],
+        \ }
+
 endif
 
 " UltiSnips -- snippets {{{2
