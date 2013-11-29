@@ -70,6 +70,11 @@ nnoremap ! :!
 nnoremap [ov :set virtualedit=all<CR>
 nnoremap ]ov :set virtualedit=block<CR>
 
+"" switch between tabs
+nnoremap <leader>tp :tabprevious<CR>
+nnoremap <leader>tn :tabnext<CR>
+nnoremap <leader>tN :tabnew<CR>
+
 " APPERANCE & BEHAVIOR {{{1
 
 " vim-airline -- pure vimscript replacement for powerline {{{2
