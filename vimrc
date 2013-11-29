@@ -884,6 +884,18 @@ nnoremap gT :exe "ptjump " . expand("<cword>")<CR>
 autocmd filetype help nnoremap <buffer> <cr> <C-]>
 
 " BUILDING & LANGUAGE SPECIFICS {{{1
+
+" ATP -- automatic LaTeX Plugin {{{2
+Bundle 'git://git.code.sf.net/p/atp-vim/code'
+"" Dont forget to symlink ftplugin-files and install python-psutil
+
+"" Remap the motion keys, so that the correct mappings are not overwritten
+nnoremap <F4><C-k> <Plug>TexJMotionForward
+inoremap <F4><C-k> <Plug>TexJMotionForward
+nnoremap <F4><C-l> <Plug>TexJMotionBackward
+inoremap <F4><C-l> <Plug>TexJMotionBackward
+
+
 " set a custom make target {{{2
 function! SetMake()
   "let mpath = input('? ')
@@ -897,6 +909,47 @@ nnoremap <leader>sm :call SetMake()<CR>
 
 " closetag.vim -- close xml tags {{{2
 Bundle 'closetag.vim'
+
+" python-mode -- the name says it all {{{2
+Bundle 'klen/python-mode'
+
+"" Disable all unused stuff
+let g:pymode_doc = 0
+let g:pymode_run = 0
+let g:pymode_lint = 0
+let g:pymode_folding = 0
+let g:pymode_virtualenv = 0
+let g:pymode_breakpoint = 0
+let g:pymode_utils_whitespaces = 0
+let g:pymode_indent = 0
+
+"" Refactoring stuff
+let g:pymode_rope = 1
+"" Dont clutter usefull keys -- jedi is better!
+let g:pymode_rope_autocomplete_map = '<F4>aztklj'
+let g:pymode_rope_autoimport_modules = ["os","shutil","datetime", "numpy", "matplotlib.pyplot"]
+
+"" and motions
+let g:pymode_motion = 1
+
+"" Enable pymode's custom syntax highlighting
+let g:pymode_syntax = 1
+let g:pymode_syntax_all = 1
+let g:pymode_syntax_print_as_function = 1
+let g:pymode_syntax_indent_errors = g:pymode_syntax_all
+let g:pymode_syntax_space_errors = g:pymode_syntax_all
+let g:pymode_syntax_string_formatting = g:pymode_syntax_all
+let g:pymode_syntax_string_format = g:pymode_syntax_all
+let g:pymode_syntax_string_templates = g:pymode_syntax_all
+let g:pymode_syntax_doctests = g:pymode_syntax_all
+let g:pymode_syntax_builtin_objs = g:pymode_syntax_all
+let g:pymode_syntax_builtin_funcs = g:pymode_syntax_all
+let g:pymode_syntax_highlight_exceptions = g:pymode_syntax_all
+let g:pymode_syntax_highlight_equal_operator = g:pymode_syntax_all
+let g:pymode_syntax_highlight_stars_operator = g:pymode_syntax_all
+let g:pymode_syntax_highlight_self = g:pymode_syntax_all
+let g:pymode_syntax_slow_sync = 0
+
 
 " vim-dispatch -- asynchroneous building {{{2
 Bundle 'tpope/vim-dispatch'
@@ -933,100 +986,6 @@ nmap <silent> <Leader>oj :FSBelow<cr>
 "" Switch to the file and load it into a new window split below >
 nmap <silent> <Leader>oJ :FSSplitBelow<cr>
 
-" LaTeX Box -- Building latex files {{{2
-" Bundle 'LaTeX-Box-Team/LaTeX-Box'
-
-" "" Compile options
-" let g:LatexBox_latexmk_async = 0
-" let g:LatexBox_viewer = "okular"
-" let g:LatexBox_quickfix = 2
-" let g:LatexBox_ignore_warnings
-"       \ = ['Underfull', 'Overfull', 'specifier changed to', 'LaTex Font']
-
-" "" Forward PDF with okular
-" function! SyncTexForward()
-"      let execstr = "silent !okular --unique %:p:r.pdf\#src:".line(".")."%:p &"
-"      exec execstr
-"    endfunction
-
-" nnoremap <Leader>ll :Latexmk<CR>
-" nnoremap <Leader>lv :LatexView<CR>
-" nnoremap <Leader>ls :call SyncTexForward()<CR>
-
-
-" ATP -- automatic LaTeX Plugin {{{2
-Bundle 'git://git.code.sf.net/p/atp-vim/code'
-"" Dont forget to symlink ftplugin-files and install python-psutil
-
-"" Remap the motion keys, so that the correct mappings are not overwritten
-nnoremap <F4><C-k> <Plug>TexJMotionForward
-inoremap <F4><C-k> <Plug>TexJMotionForward
-nnoremap <F4><C-l> <Plug>TexJMotionBackward
-inoremap <F4><C-l> <Plug>TexJMotionBackward
-
-
-
-" " vim-latex -- LaTeX suite {{{2
-" "" using local file, since its modified to disable imap, ...
-" set rtp+=~/.vim/sbundle/vim-latex/
-
-" "" disable all input mappings
-" let g:Imap_FreezeImap=1
-" let g:Tex_SmartKeyBS=0
-" let g:Tex_SmartKeyQuote=0
-" let g:Tex_SmartKeyDot=0
-
-" "" dont place any placeholders
-" let g:Imap_UsePlaceHolders = 0
-
-" "" ???
-" set complete+=k
-
-" "" Recognizing eq:... as one label when jumping to label
-" "" Also recognize words with german special characters as one word
-" "nnoremap <leader>ü :tjump /<c-r>=expand('<cword>')<cr><cr>"
-
-" "" No folding please
-" let g:tex_fold_enabled = 0
-" let Tex_FoldedSections=""
-" let Tex_FoldedEnvironments=""
-" let Tex_FoldedMisc=""
-
-" "" Compile Options
-" let g:Tex_MultipleCompileFormats='pdf'
-" let g:Tex_DefaultTargetFormat = 'pdf'
-" let g:tex_flavor='latex'
-" let g:Tex_ViewRule_pdf = 'okular'
-" let g:Tex_CompileRule_pdf = 'pdflatex -shell-escape -synctex=1 -file-line-error -interaction=nonstopmode'
-" "" shell-escape -- allow for externalized tikz
-" "" synctex -- forward/backward search
-" "" file-line-error -- parsable error format for quickfix
-" "" interaction=nonstopmode -- dont halt pdflatex on error, just report!
-" " Since all errors are nicely presented in the quickview dont change
-" " anything when an error is encountered!
-
-" "" dont change view when there are errors
-" let g:Tex_ShowErrorContext = 0
-" let g:Tex_GotoError = 0
-
-" "" Ignore certain warnings
-" let g:Tex_IgnoredWarnings =
-"       \"Underfull\n".
-"       \"Overfull\n".
-"       \"specifier changed to\n".
-"       \"You have requested\n".
-"       \"Missing number, treated as zero.\n".
-"       \"There were undefined references\n".
-"       \"Citation %.%# undefined\n".
-"       \"LaTeX Warning:"
-" let g:Tex_IgnoreLevel = 8
-
-"" conceal greek letters as \alpha
-let g:tex_conceal="adgm"
-"" but disable for now in all modes
-set concealcursor=
-
-
 " vim-ipython -- integration with ipython kernels {{{2
 Bundle 'ivanov/vim-ipython'
 
@@ -1046,6 +1005,10 @@ map <silent> <LEADER>M :make!<CR>
 
 "" Build ctags in current dir
 map <silent> <leader>cT !ctags-exuberant -R -f .vimtags & <CR>
+
+"" Dont hide anything
+set concealcursor=
+
 
 " FILETYPES {{{1
 
