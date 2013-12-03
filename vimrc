@@ -1032,6 +1032,8 @@ endfunction
 command! ReloadFiletype call ReloadFiletypeFile()
 
 " custom filetypes {{{2
+"" pyx -- cython source file
+autocmd BufRead,BufNewFile *.pyx set filetype=python
 "" pyf -- f2py interface file
 autocmd BufRead,BufNewFile *.pyf setf fortran
 "" tikz -- drawing pictures with latex
