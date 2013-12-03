@@ -5,13 +5,18 @@ fi
 
 export PATH=/home/dsuess/bin:/home/dsuess/local/librsb/bin/:$PATH
 
-if [ -f /opt/intel/fcomposer/bin/compilervars.sh ]; then
-  source /opt/intel/fcomposer/bin/compilervars.sh ia32
+if [ -f /opt/intel/bin/compilervars.sh ]; then
+  source /opt/intel/bin/compilervars.sh intel64
+else
+  if [ -f /opt/intel/fcomposer/bin/compilervars.sh ]; then
+    source /opt/intel/fcomposer/bin/compilervars.sh ia32
+  fi
+
+  if [ -f /opt/intel/ccomposer/bin/compilervars.sh ]; then
+    source /opt/intel/ccomposer/bin/compilervars.sh ia32
+  fi
 fi
 
-if [ -f /opt/intel/ccomposer/bin/compilervars.sh ]; then
-  source /opt/intel/ccomposer/bin/compilervars.sh ia32
-fi
 
 ## Personal aliases ###########################################################
 
