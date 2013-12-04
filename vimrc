@@ -86,6 +86,7 @@ let g:airline_powerline_fonts = 1
 "" Disable python-virtualenv plugin
 let g:airline#extensions#virtualenv#enabled = 0
 
+nnoremap coa :AirlineToggle<CR>
 
 " vim-colors-solarized -- solarized color scheme {{{2
 Bundle 'altercation/vim-colors-solarized'
