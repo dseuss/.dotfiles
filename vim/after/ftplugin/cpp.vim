@@ -18,3 +18,6 @@ function! EnhanceCppSyntax()
   hi def link cppFuncDef Special
 endfunction
 autocmd Syntax cpp call EnhanceCppSyntax()
+
+set number
+set relativenumber
