@@ -2,6 +2,8 @@
 " http://chriskempson.com
 "
 " Hex colour conversion functions borrowed from the theme "Desert256""
+"
+" Modified by dseuss
 
 " Default GUI Colours
 let s:foreground = "c5c8c6"
@@ -392,3 +394,5 @@ if has("gui_running") || &t_Co == 88 || &t_Co == 256
 endif
 
 set background=dark
+
+hi TODO cterm=bold ctermfg=166 gui=bold guifg=#df5f00
