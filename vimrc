@@ -474,6 +474,8 @@ nnoremap com :DelimitMateSwitch<CR>
 " jedi.vim -- python completion and more {{{2
 Bundle 'davidhalter/jedi-vim'
 
+"" Disable autocompletion key since we use YCM
+let g:jedi#completions_command = ""
 "" Better use the tags-based goto
 let g:jedi#goto_assignments_command = "<leader>rg"
 "" ... since get_definition works alot better
