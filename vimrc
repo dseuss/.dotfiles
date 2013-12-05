@@ -916,46 +916,48 @@ nnoremap <leader>sm :call SetMake()<CR>
 " closetag.vim -- close xml tags {{{2
 Bundle 'closetag.vim'
 
-" " python-mode -- the name says it all {{{2
-" Bundle 'klen/python-mode'
+" python-mode -- the name says it all {{{2
+Bundle 'klen/python-mode'
 
-" "" Disable all unused stuff
-" let g:pymode_doc = 0
-" let g:pymode_run = 0
-" let g:pymode_lint = 0
-" let g:pymode_folding = 0
-" let g:pymode_virtualenv = 0
-" let g:pymode_breakpoint = 0
-" let g:pymode_utils_whitespaces = 0
-" let g:pymode_indent = 0
+"" Disable all unused stuff
+let g:pymode_doc = 0
+let g:pymode_run = 0
+let g:pymode_lint = 0
+let g:pymode_folding = 0
+let g:pymode_virtualenv = 0
+let g:pymode_breakpoint = 0
+let g:pymode_utils_whitespaces = 0
+let g:pymode_indent = 0
 
-" "" Refactoring stuff
-" let g:pymode_rope = 1
-" "" Dont clutter usefull keys -- jedi is better!
-" let g:pymode_rope_autocomplete_map = '<F4>aztklj'
-" let g:pymode_rope_autoimport_modules = ["os","shutil","datetime", "numpy", "matplotlib.pyplot"]
+"" Refactoring stuff
+let g:pymode_rope = 0
+"" Dont clutter usefull keys -- jedi is better!
+let g:pymode_rope_autocomplete_map = '<F4>aztklj'
+let g:pymode_rope_autoimport_modules = ["os","shutil","datetime", "numpy", "matplotlib.pyplot"]
 
-" "" and motions
-" let g:pymode_motion = 1
+"" and motions
+let g:pymode_motion = 1
 
-" "" Enable pymode's custom syntax highlighting
-" let g:pymode_syntax = 1
-" let g:pymode_syntax_all = 1
-" let g:pymode_syntax_print_as_function = 1
-" let g:pymode_syntax_indent_errors = g:pymode_syntax_all
-" let g:pymode_syntax_space_errors = g:pymode_syntax_all
-" let g:pymode_syntax_string_formatting = g:pymode_syntax_all
-" let g:pymode_syntax_string_format = g:pymode_syntax_all
-" let g:pymode_syntax_string_templates = g:pymode_syntax_all
-" let g:pymode_syntax_doctests = g:pymode_syntax_all
-" let g:pymode_syntax_builtin_objs = g:pymode_syntax_all
-" let g:pymode_syntax_builtin_funcs = g:pymode_syntax_all
-" let g:pymode_syntax_highlight_exceptions = g:pymode_syntax_all
-" let g:pymode_syntax_highlight_equal_operator = g:pymode_syntax_all
-" let g:pymode_syntax_highlight_stars_operator = g:pymode_syntax_all
-" let g:pymode_syntax_highlight_self = g:pymode_syntax_all
-" let g:pymode_syntax_slow_sync = 0
+"" Enable pymode's custom syntax highlighting
+let g:pymode_syntax = 1
+let g:pymode_syntax_all = 1
+let g:pymode_syntax_print_as_function = 1
+let g:pymode_syntax_indent_errors = g:pymode_syntax_all
+let g:pymode_syntax_space_errors = g:pymode_syntax_all
+let g:pymode_syntax_string_formatting = g:pymode_syntax_all
+let g:pymode_syntax_string_format = g:pymode_syntax_all
+let g:pymode_syntax_string_templates = g:pymode_syntax_all
+let g:pymode_syntax_doctests = g:pymode_syntax_all
+let g:pymode_syntax_builtin_objs = g:pymode_syntax_all
+let g:pymode_syntax_builtin_funcs = g:pymode_syntax_all
+let g:pymode_syntax_highlight_exceptions = g:pymode_syntax_all
+let g:pymode_syntax_highlight_equal_operator = g:pymode_syntax_all
+let g:pymode_syntax_highlight_stars_operator = g:pymode_syntax_all
+let g:pymode_syntax_highlight_self = g:pymode_syntax_all
+let g:pymode_syntax_slow_sync = 0
 
+" MatchTagAlways -- Visual marking of HTML/XML/... tags {{{2
+Bundle 'Valloric/MatchTagAlways'
 
 " vim-dispatch -- asynchroneous building {{{2
 Bundle 'tpope/vim-dispatch'
