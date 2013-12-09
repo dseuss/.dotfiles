@@ -233,16 +233,15 @@ nnoremap <silent> ]oq :call CloseList("Quickfix List", 'c')<CR>
 
 
 " Always show/hide quickfix window when it gets populated {{{2
-function! ToggleListAC(pfx)
-  let winnr = winnr()
-  exec(a:pfx.'window')
-  if winnr() != winnr
-    wincmd p
-  endif
-endfunction
-
-autocmd QuickFixCmdPost [^l]* nested call ToggleListAC('c')
-autocmd QuickFixCmdPost    l* nested call ToggleListAC('l')
+" function! ToggleListAC(pfx)
+"   let winnr = winnr()
+"   exec(a:pfx.'window')
+"   if winnr() != winnr
+"     wincmd p
+"   endif
+" endfunction
+" autocmd QuickFixCmdPost [^l]* nested call ToggleListAC('c')
+" autocmd QuickFixCmdPost    l* nested call ToggleListAC('l')
 
 
 " set the height of the preview windows {{{2
@@ -893,18 +892,27 @@ autocmd filetype help nnoremap <buffer> <cr> <C-]>
 
 " BUILDING & LANGUAGE SPECIFICS {{{1
 
-" ATP -- automatic LaTeX Plugin {{{2
-Bundle 'git://git.code.sf.net/p/atp-vim/code'
-"" Dont forget to symlink ftplugin-files and install python-psutil
+" " ATP -- automatic LaTeX Plugin {{{2
+" Bundle 'git://git.code.sf.net/p/atp-vim/code'
+" "" Dont forget to symlink ftplugin-files and install python-psutil
 
-"" Remap the motion keys, so that the correct mappings are not overwritten
-nnoremap <F4><C-k> <Plug>TexJMotionForward
-inoremap <F4><C-k> <Plug>TexJMotionForward
-nnoremap <F4><C-l> <Plug>TexJMotionBackward
-inoremap <F4><C-l> <Plug>TexJMotionBackward
+" "" Remap the motion keys, so that the correct mappings are not overwritten
+" nnoremap <F4><C-k> <Plug>TexJMotionForward
+" inoremap <F4><C-k> <Plug>TexJMotionForward
+" nnoremap <F4><C-l> <Plug>TexJMotionBackward
+" inoremap <F4><C-l> <Plug>TexJMotionBackward
 
 
-" set a custom make target {{{2
+" LaTeXBox {{{2
+Bundle 'LaTeX-Box-Team/LaTeX-Box'
+
+let g:LatexBox_latexmk_async = 1
+let g:LatexBox_viewer = 'okular'
+let g:LatexBox_quickfix = 2
+let g:LatexBox_split_side = 'rightbelow'
+
+
+"u set a custom make target {{{2
 function! SetMake()
   "let mpath = input('? ')
   "execute 'setlocal makeprg=' . mpath
