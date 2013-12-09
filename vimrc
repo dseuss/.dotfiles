@@ -273,6 +273,12 @@ endfunction
 autocmd FileType qf call AdjustWindowHeight(3, 10)
 "" ..and open on bottom of screen
 autocmd FileType qf wincmd J
+
+
+" vim-accordion -- manage vsplits {{{2
+Bundle 'mattboehm/vim-accordion'
+
+
 "2}}}
 
 "" Scroll through windows with hjkl
@@ -284,9 +290,6 @@ nnoremap <c-l> <c-w>l
 "" close all but active window
 nnoremap <silent> <leader>q :only<CR>
 
-"" Next/Prev buffer
-"noremap <leader>j :bn<CR>
-"noremap <leader>k :bp<CR>
 
 " TEXT EDITING {{{1
 
@@ -786,6 +789,8 @@ nnoremap <silent> <leader><F12> :so $MYVIMRC<CR>
 " ag.vim -- advanced searching inside files {{{2
 Bundle 'rking/ag.vim'
 
+nnoremap <leader>a :Ag |" Dont strip space!
+
 " ctrlp.vim -- file navigation, searching and much more {{{2
 Bundle 'kien/ctrlp.vim'
 
@@ -1016,6 +1021,9 @@ Bundle 'tristen/vim-sparkup'
 
 " vim-markup -- syntax and matching for markdown {{{2
 Bundle 'plasticboy/vim-markdown'
+
+" vim-unstack -- nice representation of stack-traces
+Bundle 'mattboehm/vim-unstack'
 
 "2}}}
 
