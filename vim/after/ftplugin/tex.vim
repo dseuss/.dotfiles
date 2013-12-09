@@ -43,3 +43,4 @@ command! LatexForwardSearch call LatexForwardSearch()
 nnoremap <buffer> <silent> <leader>ls :call LatexForwardSearch()<CR>
 nnoremap <buffer> <leader>ll :Latexmk<CR>
 nnoremap <buffer> <leader>lv :LatexView<CR>
+nnoremap <buffer> <leader>le :LatexErrors<CR>

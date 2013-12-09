@@ -358,7 +358,7 @@ fun! <SID>StripTrailingWhitespaces()
   call cursor(l, c)
 endfun
 
-autocmd FileType c,cpp,java,php,ruby,python,tex,fortran autocmd BufWritePre * :call <SID>StripTrailingWhitespaces()
+autocmd BufWritePre * :call <SID>StripTrailingWhitespaces()
 
 
 " synastic -- on-the-fly code checking {{{2
@@ -892,23 +892,18 @@ autocmd filetype help nnoremap <buffer> <cr> <C-]>
 
 " BUILDING & LANGUAGE SPECIFICS {{{1
 
-" " ATP -- automatic LaTeX Plugin {{{2
-" Bundle 'git://git.code.sf.net/p/atp-vim/code'
-" "" Dont forget to symlink ftplugin-files and install python-psutil
-
-" "" Remap the motion keys, so that the correct mappings are not overwritten
-" nnoremap <F4><C-k> <Plug>TexJMotionForward
-" inoremap <F4><C-k> <Plug>TexJMotionForward
-" nnoremap <F4><C-l> <Plug>TexJMotionBackward
-" inoremap <F4><C-l> <Plug>TexJMotionBackward
-
 
 " LaTeXBox {{{2
 Bundle 'LaTeX-Box-Team/LaTeX-Box'
 
+"" Use background-contious compilation
 let g:LatexBox_latexmk_async = 1
-let g:LatexBox_viewer = 'okular'
+let g:LatexBox_latexmk_preview_continuously = 1
+let g:LatexBox_viewer = 'okular\ --unique'
+"" Show errors in quickfix but dont loose focus
+"" !! NEEDS RECENT VERSION OF LATEXMK TO WORK PROPERLY WITH CONTINOUS MODE !!
 let g:LatexBox_quickfix = 2
+"" TOC on the right side
 let g:LatexBox_split_side = 'rightbelow'
 
 
