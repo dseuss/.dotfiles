@@ -433,7 +433,7 @@ set colorcolumn=80
 "" Sane backspace key
 set backspace=indent,eol,start
 "" with ctrl-bs deleting the last word
-imap <C-BS> <C-W>
+inoremap <C-BS> <C-W>
 
 "" cursor may be placed anywhere in block selection mode
 set virtualedit=block
@@ -1013,6 +1013,8 @@ nmap <silent> <Leader>oJ :FSSplitBelow<cr>
 
 " vim-ipython -- integration with ipython kernels {{{2
 Bundle 'ivanov/vim-ipython'
+
+nnoremap <F10> :call system('ipython qtconsole --pylab inline &')<CR>
 
 "" shortcut config in ftplugin/python.vim
 
