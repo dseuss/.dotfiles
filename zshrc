@@ -5,6 +5,7 @@ fi
 
 export PATH=/home/dsuess/bin:/home/dsuess/local/librsb/bin/:$PATH
 
+emulate bash
 if [ -f /opt/intel/bin/compilervars.sh ]; then
   source /opt/intel/bin/compilervars.sh intel64
 else
@@ -16,6 +17,7 @@ else
     source /opt/intel/ccomposer/bin/compilervars.sh ia32
   fi
 fi
+emulate zsh
 
 
 ## Personal aliases ###########################################################
@@ -59,7 +61,7 @@ alias hamster='hamster-cli'
 alias mv='mv -i'
 alias cp='cp -i'
 alias ln='ln -i'
- 
+
 # Parenting changing perms on / #
 alias chown='chown --preserve-root'
 alias chmod='chmod --preserve-root'
@@ -95,5 +97,5 @@ setopt share_history
 # Disable the anoying autocorrect
 unsetopt correct
 
-# Hit escape twice to clear the current input line 
+# Hit escape twice to clear the current input line
 bindkey "" vi-change-whole-line
