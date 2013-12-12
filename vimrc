@@ -278,7 +278,6 @@ autocmd FileType qf wincmd J
 " vim-accordion -- manage vsplits {{{2
 Bundle 'mattboehm/vim-accordion'
 
-
 "2}}}
 
 "" Scroll through windows with hjkl
@@ -938,13 +937,19 @@ Bundle 'klen/python-mode'
 
 "" Disable all unused stuff
 let g:pymode_doc = 0
-let g:pymode_run = 0
 let g:pymode_lint = 0
 let g:pymode_folding = 0
 let g:pymode_virtualenv = 0
-let g:pymode_breakpoint = 0
 let g:pymode_utils_whitespaces = 0
 let g:pymode_indent = 0
+
+"" Run current file
+let g:pymode_run = 1
+let g:pymode_run_bind = '<leader>rr'
+
+"" Breakpoint support
+let g:pymode_breakpoint = 1
+let g:pymode_breakpoint_bind = '<leader>rb'
 
 "" Refactoring stuff
 let g:pymode_rope = 0
@@ -987,6 +992,7 @@ nnoremap <leader>DD :Dispatch!<CR>
 
 "" shortcut to build with dispatch
 map <silent> <LEADER>m :Make<CR>
+map <silent> <LEADER>M :Dispatch make<CR>
 
 
 " vim-fswitch -- Easily switch between header and cpp file
@@ -1014,7 +1020,7 @@ nmap <silent> <Leader>oJ :FSSplitBelow<cr>
 " vim-ipython -- integration with ipython kernels {{{2
 Bundle 'ivanov/vim-ipython'
 
-nnoremap <F10> :call system('ipython qtconsole --pylab inline &')<CR>
+nnoremap <F3> :call system('ipython qtconsole --pylab inline &')<CR>
 
 "" shortcut config in ftplugin/python.vim
 
@@ -1029,9 +1035,6 @@ Bundle 'mattboehm/vim-unstack'
 
 "2}}}
 
-
-"" set commands for project building/running
-map <silent> <LEADER>M :make!<CR>
 
 "" Build ctags in current dir
 map <silent> <leader>cT !ctags-exuberant -R -f .vimtags & <CR>
