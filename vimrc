@@ -137,9 +137,9 @@ set noshowmode
 "" use syntax highlighting
 syntax on
 
-"" fast terminal connection is natural
-set ttyfast
-set nolazyredraw
+"" Better performance
+set nottyfast
+set lazyredraw
 
 "" dont beep, please
 set novisualbell
@@ -331,6 +331,7 @@ Bundle 'sjl/gundo.vim'
 nnoremap cog :GundoToggle<CR>
 nnoremap [og :GundoShow<CR>
 nnoremap ]og :GundoHide<CR>
+command! Gundo GundoToggle
 
 " Mark--Karkat -- mark text, words with colors {{{2
 "" Dont use github, since we disabled all default mappings
