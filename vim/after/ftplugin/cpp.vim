@@ -21,3 +21,6 @@ autocmd Syntax cpp call EnhanceCppSyntax()
 
 set number
 set relativenumber
+
+" Shortcuts for YCM-commands
+nnoremap <buffer> <leader>rd :YcmCompleter GoToDefinitionElseDeclaration<CR>
