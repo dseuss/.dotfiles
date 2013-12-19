@@ -24,3 +24,5 @@ set relativenumber
 
 " Shortcuts for YCM-commands
 nnoremap <buffer> <leader>rd :YcmCompleter GoToDefinitionElseDeclaration<CR>
+
+compiler icc
