@@ -917,7 +917,9 @@ let g:LatexBox_ignore_warnings = [
       \'Overfull',
       \'specifier changed to',
       \'Package natbib Warning',
-      \'A float is stuck']
+      \'A float is stuck',
+      \'Package hyperref Warning',
+      \'LaTeX Font Warning']
 
 "u set a custom make target {{{2
 function! SetMake()
