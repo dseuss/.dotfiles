@@ -806,6 +806,7 @@ nnoremap <LEADER>bm :CtrlPBookmarkDir<CR>
 nnoremap <LEADER>u :CtrlPUndo<CR>
 nnoremap <LEADER>BQ :CtrlPQuickfix<CR>
 nnoremap <LEADER>g :CtrlPLine<CR>
+nnoremap <LEADER>~ :CtrlPRoot<CR>
 
 "" Disply window on bottom
 let g:ctrlp_match_window_bottom = 1
