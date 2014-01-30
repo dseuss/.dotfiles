@@ -1,0 +1,65 @@
+###############
+#  Structure  #
+###############
+snippet mod "module" !b
+module ${1:modulename}
+implicit none
+${0}
+contains
+
+end module $1
+endsnippet
+
+snippet prog "program" !b
+program ${1:modulename}
+implicit none
+${0}
+contains
+
+end program $1
+endsnippet
+
+##################
+#  Declarations  #
+##################
+snippet fun "function definion" !b
+function ${1:function_name}(${3}) result(${2:$1})
+   implicit none
+	${0}
+end function $1
+endsnippet
+
+snippet sub "subroutine definition" !b
+subroutine ${1:subroutine_name}(${2})
+   implicit none
+	${0}
+end subroutine $1
+endsnippet
+
+snippet in "intent(in)"
+intent(in)
+endsnippet
+
+snippet out "intent(out)"
+intent(out)
+endsnippet
+
+####################
+#  Variable types  #
+####################
+snippet int "integer" i
+integer${1} :: ${2}
+endsnippet
+
+snippet ty "type()" i
+type(${1}) :: ${2}
+endsnippet
+
+##################
+#  Flow control  #
+##################
+snippet if "if"
+if (${1}) then
+${0}
+end if
+endsnippet
