@@ -27,7 +27,7 @@ vnoremap <leader>d& :s/&//g <CR>
 setlocal omnifunc=fortran
 
 " We use ifort on default
-compiler ifort
+" compiler ifort
 
 " Fill Line up with comments
 let b:fillchar = '-'

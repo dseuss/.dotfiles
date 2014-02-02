@@ -3,7 +3,7 @@ if [ "$TERM" = "xterm" ]; then
        export TERM=xterm-256color
 fi
 
-export PATH=/home/dsuess/bin:/home/dsuess/local/librsb/bin/:$PATH
+export PATH=/home/dsuess/bin:/home/dsuess/.local/src/gcc-4.9-32bit/bin/:$PATH
 
 emulate bash
 if [ -f /opt/intel/bin/compilervars.sh ]; then
@@ -15,6 +15,10 @@ else
 
   if [ -f /opt/intel/ccomposer/bin/compilervars.sh ]; then
     source /opt/intel/ccomposer/bin/compilervars.sh ia32
+  fi
+
+  if [ -f /opt/intel/inspector_xe_2013/inspxe-vars.sh ]; then
+    source /opt/intel/inspector_xe_2013/inspxe-vars.sh ia32 > /dev/null
   fi
 fi
 emulate zsh

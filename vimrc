@@ -1034,8 +1034,11 @@ Bundle 'tristen/vim-sparkup'
 " vim-markup -- syntax and matching for markdown {{{2
 Bundle 'plasticboy/vim-markdown'
 
-" vim-unstack -- nice representation of stack-traces
+" vim-unstack -- nice representation of stack-traces{{{2
 Bundle 'mattboehm/vim-unstack'
+
+" vim-makeshift -- switch makeprg
+Bundle 'dseuss/vim-makeshift'
 
 "2}}}
 
@@ -1073,6 +1076,9 @@ autocmd BufRead,BufNewFile *.tikz setf tex
 "" xmds -- markup file for xmds2 pde-integrator
 autocmd BufRead,BufNewFile *.xmds setf xml
 autocmd BufRead,BufNewFile *.xmds compiler xmds2
+"" SCONS build files
+autocmd BufRead,BufNewFile SConstruct set filetype=python
+autocmd BufRead,BufNewFile SConscript set filetype=python
 
 "2}}}
 

@@ -16,7 +16,7 @@ vnoremap <leader>a-- :Align --<CR>
 vnoremap <leader>a- :Align -<CR>
 
 " Setup the python interpreter + errorformat
-setlocal makeprg=python\ '%'
+" setlocal makeprg=python\ '%'
 "setlocal errorformat=\ \ File\ \"%f\"\\,\ line\ %l\\,\ %m
 "setlocal errorformat=%C\ %.%#,%A\ \ File\ \"%f\"\\,\ line\ %l%.%#,%Z%[%^\ ]%\\@=%m
 setlocal errorformat=%E\ \ File\ \"%f\"\\,\ line\ %l%.%#,%Z%m
