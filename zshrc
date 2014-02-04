@@ -17,9 +17,9 @@ else
     source /opt/intel/ccomposer/bin/compilervars.sh ia32
   fi
 
-  if [ -f /opt/intel/inspector_xe_2013/inspxe-vars.sh ]; then
-    source /opt/intel/inspector_xe_2013/inspxe-vars.sh ia32 > /dev/null
-  fi
+  # if [ -f /opt/intel/inspector_xe_2013/inspxe-vars.sh ]; then
+    # source /opt/intel/inspector_xe_2013/inspxe-vars.sh ia32 > /dev/null
+  # fi
 fi
 emulate zsh
 

@@ -111,7 +111,7 @@ set ssop-=options
 if &t_Co >= 256
   "" 256-color terminal
   "let g:airline_theme="powerlineish"
-  colorscheme Tomorrow-Night
+  colorscheme zenburn
 endif
 if has('gui_running')
   colorscheme solarized
@@ -1039,6 +1039,10 @@ Bundle 'mattboehm/vim-unstack'
 
 " vim-makeshift -- switch makeprg
 Bundle 'dseuss/vim-makeshift'
+let g:makeshift_on_startup = 1
+let g:makeshift_on_bufread = 1
+let g:makeshift_on_bufnewfile = 1
+let g:makeshift_on_bufenter = 1
 
 "2}}}
 

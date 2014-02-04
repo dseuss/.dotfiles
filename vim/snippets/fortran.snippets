@@ -36,46 +36,55 @@ subroutine ${1:subroutine_name}(${2})
 end subroutine $1
 endsnippet
 
-snippet in "intent(in)"
+snippet in "intent(in)" w
 intent(in)
 endsnippet
 
-snippet out "intent(out)"
+snippet out "intent(out)" w
 intent(out)
 endsnippet
 
 ####################
 #  Variable types  #
 ####################
-snippet int "integer" i
+snippet int "integer" w
 integer${1} :: ${2}
 endsnippet
 
-snippet ty "type()" i
+snippet ty "type()" w
 type(${1}) :: ${2}
 endsnippet
 
-snippet rs "real(sp)" i
+snippet rs "real(sp)" w
 real(sp)${1} :: ${2}
 endsnippet
-snippet rd "real(dp)" i
+snippet rd "real(dp)" w
 real(dp)${1} :: ${2}
 endsnippet
 
-snippet cs "complex(sp)" i
+snippet cs "complex(sp)" w
 complex(sp)${1} :: ${2}
 endsnippet
-snippet cd "complex(dp)" i
+snippet cd "complex(dp)" w
 complex(dp)${1} :: ${2}
+endsnippet
+
+snippet proc "procedure" w
+procedure${1} :: ${2}
 endsnippet
 
 ##################
 #  Flow control  #
 ##################
-snippet if "if"
+snippet if "if" b
 if (${1}) then
    ${0}
 end if
+endsnippet
+
+snippet elif "else if then" b
+else if (${1}) then
+   ${0}
 endsnippet
 
 snippet do "do" !b

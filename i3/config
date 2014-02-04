@@ -134,7 +134,7 @@ bindsym XF86Display exec /home/dsuess/bin/toggle-monitor position
 bindsym XF86Sleep exec sudo /usr/sbin/pm-suspend
 bindsym XF86Battery exec sudo /sbin/hdparm -Y /dev/disk/by-id/ata-HITACHI_HTS723216L9SA60_081218FC1223NPG7V38C
 bindsym XF86ScreenSaver exec /usr/bin/xflock4
-bindsym XF86Touchpad exec /home/dsuess/bin/toggle-touchpad
+bindsym XF86TouchpadToggle exec /home/dsuess/bin/toggle-touchpad
 
 # Media keys for clementine
 bindsym XF86AudioPlay exec clementine -t
@@ -209,7 +209,7 @@ bar {
         mode hide
         position bottom
 }
-        
+
 
 bar {
         output VGA1
@@ -221,7 +221,7 @@ bar {
 ########################################################################### }}}
 # AUTOSTART # {{{
 ###############################################################################
- 
+
 #exec xfsettingsd
 #exec xcompmgr -f -F -r 0 -D 2
 exec gnome-do
@@ -236,4 +236,4 @@ exec --no-startup-id nitrogen --restore
 #exec --no-startup-id hamster-indicator
 #exec cd /home/dsuess/Documents/Notebooks/; /home/dsuess/bin/nbserver start
 exec /home/dsuess/bin/toggle-monitor position
-exec /usr/local/bin/firefox 
+exec /usr/local/bin/firefox
