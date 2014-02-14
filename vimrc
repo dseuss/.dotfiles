@@ -379,6 +379,8 @@ let g:syntastic_python_flake8_post_args='--ignore=E111,E121,E127,E128,E226 --max
 "" E127, E128 -- continuation line is over indented
 "" E226 -- white space around operator (since x**2 looks way better then x ** 2)
 
+let g:syntastic_tex_chktex_post_args='--nowarn 1'
+"" 1 -- Command terminated with space
 
 " UnconditionalPaste -- Paste registers linewise/characterwise {{{2
 "Bundle 'mutewinter/UnconditionalPaste'
@@ -926,8 +928,8 @@ let g:LatexBox_ignore_warnings = [
 function! SetMake()
   "let mpath = input('? ')
   "execute 'setlocal makeprg=' . mpath
-  let mpath = input('?make ')
-  exec 'set makeprg=make\ ' . mpath
+  let g:makeprg_param = input('?make ')
+  call g:makeshift()
 endfunction
 
 nnoremap <leader>sm :call SetMake()<CR>
@@ -938,6 +940,8 @@ Bundle 'closetag.vim'
 
 " python-mode -- the name says it all {{{2
 Bundle 'klen/python-mode'
+
+" let g:pymode_breakpoint_cmd = "import ipdb; ipdb.set_trace()  # XXX BREAKPOINT"
 
 "" Disable all unused stuff
 let g:pymode_doc = 0

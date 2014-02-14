@@ -14,7 +14,7 @@ setlocal foldmethod=marker
 setlocal foldnestmax=3
 
 " Setting align command for variables
-vnoremap <leader>a:: :Align ::<CR>
+vnoremap <leader>a.. :Align ::<CR>
 vnoremap <leader>a= :Align =<CR>
 vnoremap <leader>a-- :Align --<CR>
 vnoremap <leader>a- :Align -<CR>

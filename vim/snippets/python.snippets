@@ -375,6 +375,19 @@ from ${1:module} import ${2:Stuff}
 endsnippet
 
 
+snippet prop "Property getter" !b
+@property
+def ${1:name}(self):
+	return self._$1
+endsnippet
+
+snippet set "Property setter" !b
+@${1:name}.setter
+def $1(self, value):
+	# TODO Value checks
+	self._$1 = value
+endsnippet
+
 ##############
 # PROPERTIES #
 ##############
