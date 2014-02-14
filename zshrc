@@ -86,7 +86,7 @@ COMPLETION_WAITING_DOTS="true"
 CASE_SENSETIVE="true"
 
 # Load the oh-my-zsh plugins and settings
-plugins=(command-not-found pass tmux git)
+plugins=(command-not-found pass git)
 source $ZSH/oh-my-zsh.sh
 
 
