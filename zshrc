@@ -33,6 +33,7 @@ alias latexmk="latexmk -pdf"
 alias cleanlatex="sh -c 'rm --force *.aux *.fdb_latexmk *.fls *.log *.synctex.gz *.out *.toc *.bib.bak *.end *.bbl *.blg *.toc *.auxlock'"
 alias py="python2.7"
 alias conf="vim ~/.zshrc"
+alias nb="ipython notebook"
 
 # Network stuff
 #alias ssh="ssh -Y"
