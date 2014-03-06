@@ -1057,6 +1057,9 @@ map <silent> <leader>cT !ctags-exuberant -R -f .vimtags & <CR>
 "" Dont hide anything
 set concealcursor=
 
+"" Add spell-stuff here
+set spellfile=$HOME/.vim/dictionary.add
+
 
 " FILETYPES {{{1
 
