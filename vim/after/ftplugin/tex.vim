@@ -33,6 +33,7 @@ let b:fillchar = '%'
 " see help surround-customizing
 let b:surround_36 = "$\r$"
 let g:surround_99 = "\\\1command: \1{\r}"
+let g:surround_101 = "\\begin{equation}\r\\label{eq\:\1label: \1}\n\\end{equation}"
 
 function! LatexForwardSearch()
    execute "call system(\"okular --unique \'" . LatexBox_GetOutputFile() .
