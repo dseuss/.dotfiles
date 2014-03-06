@@ -628,7 +628,7 @@ if completer ==? 'ycm'
 
   "" My own tex plugin
   let g:ycm_semantic_triggers =  {
-        \   'tex' : ['cite{', ':'],
+        \   'tex' : ['cite{'],
         \ }
 
 endif
