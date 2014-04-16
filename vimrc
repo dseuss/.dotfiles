@@ -1042,11 +1042,13 @@ Bundle 'plasticboy/vim-markdown'
 Bundle 'mattboehm/vim-unstack'
 
 " vim-makeshift -- switch makeprg
+" Bundle 'johnsyweb/vim-makeshift'
 Bundle 'dseuss/vim-makeshift'
 let g:makeshift_on_startup = 1
 let g:makeshift_on_bufread = 1
 let g:makeshift_on_bufnewfile = 1
 let g:makeshift_on_bufenter = 1
+let g:makeshift_chdir = 1
 
 "2}}}
 
