@@ -2,3 +2,4 @@
 
 setxkbmap -option caps:swapescape
 xmodmap ~/.Xmodmap
+xinput disable "SynPS/2 Synaptics TouchPad"
