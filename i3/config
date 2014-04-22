@@ -133,7 +133,7 @@ bindsym $mod+d exec gnome-do
 bindsym XF86Display exec /home/dsuess/bin/toggle-monitor position
 bindsym XF86Sleep exec sudo /usr/sbin/pm-suspend
 bindsym XF86Battery exec sudo /sbin/hdparm -Y /dev/disk/by-id/ata-HITACHI_HTS723216L9SA60_081218FC1223NPG7V38C
-bindsym XF86ScreenSaver exec /usr/bin/xflock4
+bindsym XF86ScreenSaver exec /usr/bin/i3lock --color=000000
 bindsym XF86TouchpadToggle exec /home/dsuess/bin/toggle-touchpad
 
 # Media keys for clementine
@@ -197,7 +197,7 @@ hide_edge_borders horizontal
 #focus_follows_mouse no
 
 # Font used
-font xft:Anonymous Pro 10
+font xft:Anonymous Pro for Powerline 10
 
 # Start in tabbed mode
 #workspace_layout tabbed
