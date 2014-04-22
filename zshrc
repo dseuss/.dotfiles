@@ -4,22 +4,11 @@ if [ "$TERM" = "xterm" ]; then
 fi
 
 export PATH=/home/dsuess/bin:/home/dsuess/.local/src/gcc-4.9-32bit/bin/:$PATH
+export PATH=~/.cabal/bin:$PATH
 
 emulate bash
 if [ -f /opt/intel/bin/compilervars.sh ]; then
   source /opt/intel/bin/compilervars.sh intel64
-else
-  if [ -f /opt/intel/fcomposer/bin/compilervars.sh ]; then
-    source /opt/intel/fcomposer/bin/compilervars.sh ia32
-  fi
-
-  if [ -f /opt/intel/ccomposer/bin/compilervars.sh ]; then
-    source /opt/intel/ccomposer/bin/compilervars.sh ia32
-  fi
-
-  # if [ -f /opt/intel/inspector_xe_2013/inspxe-vars.sh ]; then
-    # source /opt/intel/inspector_xe_2013/inspxe-vars.sh ia32 > /dev/null
-  # fi
 fi
 emulate zsh
 
@@ -34,6 +23,7 @@ alias cleanlatex="sh -c 'rm --force *.aux *.fdb_latexmk *.fls *.log *.synctex.gz
 alias py="python2.7"
 alias conf="vim ~/.zshrc"
 alias nb="ipython notebook"
+# alias IHaskell="IHaskell --ipython=$(which ipython)"
 
 # Network stuff
 #alias ssh="ssh -Y"
