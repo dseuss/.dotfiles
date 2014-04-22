@@ -8,7 +8,7 @@
 
 dir=~/.dotfiles                    # dotfiles directory
 olddir=~/.dotfiles/old             # old dotfiles backup directory
-files="zshrc virc vimrc vim tmux.conf Xmodmap oh-my-zsh git_template ctags xsessionrc latexmkrc"
+files="zshrc virc vimrc vim tmux.conf Xmodmap oh-my-zsh gitconfig git_template ctags xsessionrc latexmkrc"
 
 ##########
 
@@ -22,7 +22,7 @@ echo "Changing to the $dir directory"
 cd $dir
 echo "...done"
 
-# move any existing dotfiles in homedir to dotfiles_old directory, then create symlinks 
+# move any existing dotfiles in homedir to dotfiles_old directory, then create symlinks
 for file in $files; do
     if [ -f ~/.$file ]; then
         echo "Moving existing file .$file from ~ to $olddir"
