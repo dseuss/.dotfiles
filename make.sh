@@ -8,7 +8,7 @@
 
 dir=~/.dotfiles                    # dotfiles directory
 olddir=~/.dotfiles/old             # old dotfiles backup directory
-files="zshrc virc vimrc vim tmux.conf Xmodmap oh-my-zsh gitconfig git_template ctags xsessionrc latexmkrc"
+files="zshrc virc vimrc vim tmux.conf Xmodmap oh-my-zsh gitconfig git_template ctags xsessionrc latexmkrc fonts"
 
 ##########
 
