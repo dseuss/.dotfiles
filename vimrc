@@ -11,7 +11,7 @@ if has('gui_running')
   let completer = 'neocomplete'
 else
   "" for real coding use youcompleteme
-  "let completer = 'ycm'
+  " let completer = 'ycm'
   let completer = 'neocomplete'
 endif
 
@@ -629,6 +629,7 @@ if completer ==? 'ycm'
   "" My own tex plugin
   let g:ycm_semantic_triggers =  {
         \   'tex' : ['cite{'],
+        \   'haskell': ['.']
         \ }
 
 endif
@@ -1042,13 +1043,22 @@ Bundle 'plasticboy/vim-markdown'
 Bundle 'mattboehm/vim-unstack'
 
 " vim-makeshift -- switch makeprg
-" Bundle 'johnsyweb/vim-makeshift'
-Bundle 'dseuss/vim-makeshift'
+Bundle 'johnsyweb/vim-makeshift'
+" Bundle 'dseuss/vim-makeshift'
 let g:makeshift_on_startup = 1
 let g:makeshift_on_bufread = 1
 let g:makeshift_on_bufnewfile = 1
 let g:makeshift_on_bufenter = 1
 let g:makeshift_chdir = 1
+
+" vim2hs -- Haskell for vim {{{2
+Bundle 'dag/vim2hs'
+
+" neco-ghc -- omni completion for Haskell
+Bundle 'eagletmt/neco-ghc'
+let g:necoghc_enable_detailed_browse = 1
+
+"" Requires ghc-mod
 
 "2}}}
 
