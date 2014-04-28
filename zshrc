@@ -59,9 +59,10 @@ alias nb="ipython notebook"
 # alias IHaskell="IHaskell --ipython=$(which ipython)"
 
 # Git aliases
-alias gs="git status"
+alias gs="git --no-pager status"
 alias ga="git add"
-alias gl="git log"
+alias gl="git --no-pager lg"
+alias gd="git vimdiff"
 
 # Network stuff
 #alias ssh="ssh -Y"
