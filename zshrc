@@ -49,7 +49,7 @@ bindkey "" vi-change-whole-line
 ## Personal aliases ###########################################################
 
 # Programming
-alias vi="/usr/bin/vim -u ~/.virc"
+alias vi="/usr/local/bin/vim -u ~/.virc"
 alias svi="sudo vi -u ~/.virc"
 alias latexmk="latexmk -pdf"
 alias cleanlatex="sh -c 'rm --force *.aux *.fdb_latexmk *.fls *.log *.synctex.gz *.out *.toc *.bib.bak *.end *.bbl *.blg *.toc *.auxlock'"
@@ -61,7 +61,8 @@ alias nb="ipython notebook"
 # Git aliases
 alias gs="git --no-pager status"
 alias ga="git add"
-alias gl="git --no-pager lg"
+alias gl="git --no-pager lv -50"
+alias gll="git lg"
 alias gd="git vimdiff"
 
 # Network stuff
