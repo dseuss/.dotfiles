@@ -1,0 +1,15 @@
+{
+ "display_name": "Python 2", 
+ "language": "python", 
+ "argv": [
+  "python2", 
+  "-c", 
+  "from IPython.kernel.zmq.kernelapp import main; main()", 
+  "-f", 
+  "{connection_file}"
+ ], 
+ "codemirror_mode": {
+  "version": 2, 
+  "name": "python"
+ }
+}
