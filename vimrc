@@ -373,9 +373,7 @@ let g:syntastic_always_populate_loc_list=1
 "" Syntastics for python, only use flake8
 let g:syntastic_python_checkers=['flake8']
 "" Ignore certain errors and check complexity
-let g:syntastic_python_flake8_post_args='--ignore=E111,E121,E127,E128,E226 --max-complexity 10'
-"" E111 -- identation is not a multiple of 4 (I love 3)
-"" E121 -- continuation line is not multiple of 4
+let g:syntastic_python_flake8_post_args='--ignore=E127,E128,E226 --max-complexity 10'
 "" E127, E128 -- continuation line is over indented
 "" E226 -- white space around operator (since x**2 looks way better then x ** 2)
 
@@ -875,7 +873,7 @@ nnoremap <silent> ]ot :TagbarClose<CR>
 "" replacement for vim-tasklist
 Bundle 'LStinson/TagmaTasks'
 
-nmap <silent> <Leader>tl <Plug>TagmaTasks
+nmap <silent> coT <Plug>TagmaTasks
 
 
 " vim-fugitive -- git interface {{{2
@@ -1054,11 +1052,10 @@ let g:makeshift_chdir = 1
 " vim2hs -- Haskell for vim {{{2
 Bundle 'dag/vim2hs'
 
-" neco-ghc -- omni completion for Haskell
+" neco-ghc -- omni completion for Haskell {{{2
+"" Requires ghc-mod
 Bundle 'eagletmt/neco-ghc'
 let g:necoghc_enable_detailed_browse = 1
-
-"" Requires ghc-mod
 
 "2}}}
 

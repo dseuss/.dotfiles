@@ -1,9 +1,9 @@
 " Set style conventions
 setlocal expandtab
 setlocal textwidth=79
-setlocal tabstop=3
-setlocal softtabstop=3
-setlocal shiftwidth=3
+setlocal tabstop=4
+setlocal softtabstop=4
+setlocal shiftwidth=4
 
 " Fold method
 setlocal foldmethod=marker
