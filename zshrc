@@ -6,6 +6,8 @@ fi
 export PATH=/home/dsuess/bin:/home/dsuess/.local/src/gcc-4.9-32bit/bin/:$PATH
 export PATH=~/.cabal/bin:$PATH
 
+export PYTHONPATH=~/Documents/python:$PYTHONPATH
+
 emulate bash
 if [ -f /opt/intel/bin/compilervars.sh ]; then
   source /opt/intel/bin/compilervars.sh intel64
@@ -56,6 +58,7 @@ alias cleanlatex="sh -c 'rm --force *.aux *.fdb_latexmk *.fls *.log *.synctex.gz
 alias py="python2.7"
 alias conf="vim ~/.zshrc"
 alias nb="ipython notebook"
+# alias pipupdate="pip#  freeze --local | grep -v '^\-e' | cut -d = -f 1  | xargs sudo pip install -U"
 # alias IHaskell="IHaskell --ipython=$(which ipython)"
 
 # Git aliases

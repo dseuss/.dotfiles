@@ -1,0 +1,8 @@
+profile_haskell
+extensions
+profile_default/static/custom/comment-uncomment.js
+profile_default/static/custom/hide_input.js
+profile_default/static/custom/hide_input_all.js
+profile_default/static/custom/shift-tab.js
+
+profile_default/db
