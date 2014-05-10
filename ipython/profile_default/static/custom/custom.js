@@ -14,4 +14,6 @@ $([IPython.events]).on('notebook_loaded.Notebook', function(){
 
    require(['/static/custom/hide_input.js'])
    require(['/static/custom/hide_input_all.js'])
+   require(['/static/custom/shift-tab.js'])
+   require(['/static/custom/comment-uncomment.js'])
 })
