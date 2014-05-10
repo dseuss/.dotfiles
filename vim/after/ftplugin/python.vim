@@ -33,6 +33,9 @@ nnoremap <buffer> <silent> <leader>ic :py if update_subchannel_msgs(force=True):
 nnoremap <buffer> <silent> <leader>is :python dedent_run_this_line()<CR>
 vnoremap <buffer> <silent> <leader>is :python dedent_run_these_lines()<CR>
 nnoremap <buffer> <silent> <leader>ii <Plug>(IPython-RunFile)
+nnoremap <buffer> <silent> <leader>ii <Plug>(IPython-RunFile)
+
+nnoremap <buffer> <leader>ri :Dispatch ipython -i %<CR>
 
 " Dont let ipython do the completion
 let g:ipy_completefunc = 'none'

@@ -940,7 +940,7 @@ Bundle 'closetag.vim'
 " python-mode -- the name says it all {{{2
 Bundle 'klen/python-mode'
 
-" let g:pymode_breakpoint_cmd = "import ipdb; ipdb.set_trace()  # XXX BREAKPOINT"
+let g:pymode_breakpoint_cmd = "import ipdb; ipdb.set_trace()  # XXX BREAKPOINT"
 
 "" Disable all unused stuff
 let g:pymode_doc = 0
