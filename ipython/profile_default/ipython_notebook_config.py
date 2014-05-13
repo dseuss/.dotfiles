@@ -98,7 +98,7 @@ c.NotebookApp.open_browser = True
 # If not specified, the default browser will be determined by the `webbrowser`
 # standard library module, which allows setting of the BROWSER environment
 # variable to override it.
-c.NotebookApp.browser = u'/usr/bin/firefox'
+c.NotebookApp.browser = u'/usr/bin/google-chrome'
 
 #------------------------------------------------------------------------------
 # IPKernelApp configuration
