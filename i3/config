@@ -160,6 +160,8 @@ new_window pixel 3
 for_window [class="Xfce4-notifyd"] floating enable; border none; focus mode_toggle
 ## Gnome do
 for_window [class="Do"] floating enable; border none; focus mode_toggle
+## Plot window
+for_window [class="Tk"] floating enable; border 2px; focus mode_toggle
 
 ## Hamster time tracking app
 for_window [class="Hamster-time-tracker"] floating enable; border 2px; focus mode_toggle
@@ -213,9 +215,10 @@ bar {
 
 bar {
         output VGA1
+        status_command i3status --conf ~/.i3/status
         mode hide
         position bottom
-        tray_output LVDS1
+        # tray_output LVDS1
 }
 
 ########################################################################### }}}
