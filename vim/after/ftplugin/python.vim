@@ -37,6 +37,8 @@ nnoremap <buffer> <silent> <leader>ii <Plug>(IPython-RunFile)
 
 nnoremap <buffer> <leader>ri :Dispatch ipython -i %<CR>
 
+nnoremap <buffer> <leader>df :FocusDispatch python %<CR>
+
 " Dont let ipython do the completion
 let g:ipy_completefunc = 'none'
 
