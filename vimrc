@@ -927,8 +927,8 @@ let g:LatexBox_ignore_warnings = [
 function! SetMake()
   "let mpath = input('? ')
   "execute 'setlocal makeprg=' . mpath
-  let g:makeprg_param = input('?make ')
-  call g:makeshift()
+  let mkprg = input('?make ')
+  execute 'setlocal makeprg=' . mkprg
 endfunction
 
 nnoremap <leader>sm :call SetMake()<CR>
