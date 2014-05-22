@@ -925,10 +925,8 @@ let g:LatexBox_ignore_warnings = [
 
 "u set a custom make target {{{2
 function! SetMake()
-  "let mpath = input('? ')
-  "execute 'setlocal makeprg=' . mpath
-  let g:makeprg_param = input('?make ')
-  call g:makeshift()
+  let mkprg = input('?make ')
+  execute 'setlocal makeprg=' . substitute(mkprg, ' ', '\\ ', 'g')
 endfunction
 
 nnoremap <leader>sm :call SetMake()<CR>
