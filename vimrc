@@ -925,7 +925,7 @@ let g:LatexBox_ignore_warnings = [
 
 "u set a custom make target {{{2
 function! SetMake()
-  let mkprg = input('?make ')
+  let mkprg = input('? ')
   execute 'setlocal makeprg=' . substitute(mkprg, ' ', '\\ ', 'g')
 endfunction
 
