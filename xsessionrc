@@ -1,5 +1,12 @@
 #!/bin/bash
 
-setxkbmap -option caps:swapescape
 xmodmap ~/.Xmodmap
 xinput disable "SynPS/2 Synaptics TouchPad"
+
+XCAPSEXEC=~/.dotfiles/xcape/xcape
+if [[ -a $XCAPSEXEC ]]; then
+   setxkbmap -option ctrl:nocaps
+   eval "$XCAPSEXEC" -e 'Control_L=Escape' -t 250
+else
+   setxkbmap -option caps:swapescape
+fi
