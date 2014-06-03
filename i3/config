@@ -139,8 +139,8 @@ bindsym XF86TouchpadToggle exec /home/dsuess/bin/toggle-touchpad
 # Media keys for clementine
 bindsym XF86AudioPlay exec clementine -t
 bindsym XF86AudioStop exec clementine -s
-bindsym XF86AudioNext exec clementine -r
-bindsym XF86AudioPrev exec clementine -f
+bindsym XF86AudioNext exec clementine -f
+bindsym XF86AudioPrev exec clementine -r
 
 # show the "task manager"
 bindsym $mod+F12 exec "gnome-terminal -x sh -c 'i3-msg floating enable; htop'"
