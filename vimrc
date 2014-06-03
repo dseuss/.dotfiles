@@ -289,6 +289,9 @@ nnoremap <c-l> <c-w>l
 "" close all but active window
 nnoremap <silent> <leader>q :only<CR>
 
+"" close current buffer
+nnoremap <C-q> :q<CR>
+
 
 " TEXT EDITING {{{1
 
