@@ -19,6 +19,12 @@ contains
 end program $1
 endsnippet
 
+snippet typ "Type declaration" !b
+type${1} :: ${2:TypeName}
+   ${0}
+end type $2
+endsnippet
+
 ##################
 #  Declarations  #
 ##################
@@ -48,11 +54,16 @@ endsnippet
 #  Variable types  #
 ####################
 snippet int "integer" w
-integer${1} :: ${2}
+integer${1} :: ${0}
 endsnippet
 
 snippet ty "type()" w
-type(${1}) :: ${2}
+type(${1})${2} :: ${0}
+endsnippet
+
+snippet cl "class()" w
+class(${1:ClassName}) :: self
+${0}
 endsnippet
 
 snippet rs "real(sp)" w
