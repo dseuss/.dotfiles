@@ -109,3 +109,17 @@ do while(${1})
    ${0}
 end do
 endsnippet
+
+snippet select "select .. case" !b
+select case (${1:selector})
+case (${2:value})${3:
+
+case default
+	${0}}
+end select
+endsnippet
+
+snippet case "case (..)" !b
+case (${1:value})
+	$0
+endsnippet
