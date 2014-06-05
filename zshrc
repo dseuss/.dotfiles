@@ -1,6 +1,3 @@
-# Load custom terminals
-cd ~/.dotfiles/terms && sh load.sh
-
 # Proper color support for vim
 if [ "$TERM" = "xterm" ]; then
    export TERM=xterm-256color-italic
