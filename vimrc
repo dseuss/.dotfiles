@@ -85,6 +85,7 @@ Bundle 'bling/vim-airline'
 let g:airline_powerline_fonts = 1
 "" Disable python-virtualenv plugin
 let g:airline#extensions#virtualenv#enabled = 0
+" let g:airline#extensions#tabline#enabled = 1
 
 nnoremap coa :AirlineToggle<CR>
 
@@ -292,6 +293,8 @@ nnoremap <silent> <leader>q :only<CR>
 "" close current buffer
 nnoremap <C-q> :q<CR>
 
+set splitbelow
+set splitright
 
 " TEXT EDITING {{{1
 
