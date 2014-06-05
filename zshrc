@@ -1,6 +1,9 @@
+# Load custom terminals
+cd ~/.dotfiles/terms && sh load.sh
+
 # Proper color support for vim
 if [ "$TERM" = "xterm" ]; then
-       export TERM=xterm-256color
+   export TERM=xterm-256color-italic
 fi
 
 export PATH=/home/dsuess/bin:/home/dsuess/.local/src/gcc-4.9-32bit/bin/:$PATH
@@ -10,7 +13,7 @@ export PYTHONPATH=~/Documents/python:$PYTHONPATH
 
 emulate bash
 if [ -f /opt/intel/bin/compilervars.sh ]; then
-  source /opt/intel/bin/compilervars.sh intel64
+   source /opt/intel/bin/compilervars.sh intel64
 fi
 emulate zsh
 
@@ -71,7 +74,7 @@ alias gd="git vimdiff"
 # Network stuff
 #alias ssh="ssh -Y"
 alias chromium-proxified="chromium-browser --proxy-server=\"socket5://localhost:8080\""
-alias mount-remote-home="sshfs -C dsuess@tqo11:/home/dsuess /media/rhome/"
+alias mount-remote-home="sshfs -C dsuess@vesta:/home/dsuess /media/rhome/"
 alias ssh-keychain="eval \$(keychain --eval --agents ssh -Q --quiet id_rsa)"
 
 # Science stuff
