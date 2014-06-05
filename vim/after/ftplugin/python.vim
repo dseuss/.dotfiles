@@ -47,3 +47,5 @@ let b:fillchar = '#'
 
 " Dont unindent line starting with #
 inoremap # X#
+
+let b:dispatch = 'python %'

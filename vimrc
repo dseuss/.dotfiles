@@ -995,6 +995,10 @@ Bundle 'Valloric/MatchTagAlways'
 " vim-dispatch -- asynchroneous building {{{2
 Bundle 'tpope/vim-dispatch'
 
+let g:dispatch_compilers = {
+      \ 'python': 'python'
+      \ }
+
 "" start a shell in a new window
 nnoremap <leader>ds :Dispatch zsh<CR>
 nnoremap <leader>dd :Dispatch<CR>
