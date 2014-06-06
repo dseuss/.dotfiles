@@ -1,9 +1,7 @@
-" Compiler: GNU Fortran Compiler
-" Maintainer: H Xu <xuhdev@gmail.com>
-" Version: 0.1.3
-" Last Change: 2012 Apr 30
-" Homepage: http://www.vim.org/scripts/script.php?script_id=3496
-"           https://bitbucket.org/xuhdev/compiler-gfortran.vim
+" Compiler: XMDS2 compiler
+" Maintainer: D Suess <daniel.suess@web.de>
+" Version: 0.1
+" Last Change: 2014-06-06
 " License: Same as Vim
 
 if exists('current_compiler')
