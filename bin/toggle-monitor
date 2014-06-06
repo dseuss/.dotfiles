@@ -1,0 +1,66 @@
+#!/bin/bash
+# Some actions to controll the suplementary monitor
+xrandr --output LVDS1 --auto
+
+if [ $1 == 'position' ]; then
+   STATUS=$(xrandr --query | grep VGA1 | awk '{print $2}')
+
+   echo $STATUS
+   if [ $STATUS = 'connected' ]; then
+      POSITION=$(xrandr --query | grep LVDS1 | awk '{print $3}')
+      # VGA1 right of LVDS1?
+      if [ $POSITION = '1440x900+0+0' ]; then
+         xrandr --output VGA1 --auto --left-of LVDS1
+         notify-send 'Setting RANDR' 'Setting VGA1 left of LVDS1...'
+      else
+         xrandr --output VGA1 --auto --right-of LVDS1
+         notify-send 'Setting RANDR' 'Setting VGA1 right of LVDS1...'
+      fi
+
+   # Set the wallpaper right
+   nitrogen --restore
+   else
+      xrandr --output LVDS1 --mode 1440x900 --pos 0x0 --output VGA1 --off
+   fi
+
+elif [ $1 == 'brightness' ]; then
+   STATUS=$(xrandr --query | grep VGA1 | awk '{print $2}')
+
+   echo $STATUS
+   if [ $STATUS = 'connected' ]; then
+      BRIGHT=$(xrandr --verbose --query | grep Brightness | awk '{print $2}')
+      bright=( $BRIGHT )
+      if [ ${bright[1]} == '1.0' ]; then
+         xrandr --output VGA1 --brightness 0.10
+      else
+         xrandr --output VGA1 --brightness 1
+      fi 
+   fi
+
+elif [ $1 == 'brightness-up' ]; then
+   STATUS=$(xrandr --query | grep VGA1 | awk '{print $2}')
+   if [ $STATUS = 'connected' ]; then
+      BRIGHT=$(xrandr --verbose --query | grep Brightness | awk '{print $2}')
+      bright=( $BRIGHT )
+      newbright=$(echo ${bright[1]} + 0.1 | bc)
+      if [ $(echo $newbright'>'1.0 | bc -l) -eq 1 ]; then
+         xrandr --output VGA1 --brightness 1.00
+      else
+         xrandr --output VGA1 --brightness $newbright 
+      fi 
+   fi
+
+elif [ $1 == 'brightness-down' ]; then
+   STATUS=$(xrandr --query | grep VGA1 | awk '{print $2}')
+   if [ $STATUS = 'connected' ]; then
+      BRIGHT=$(xrandr --verbose --query | grep Brightness | awk '{print $2}')
+      bright=( $BRIGHT )
+      newbright=$(echo ${bright[1]} - 0.1 | bc)
+      if [ $(echo $newbright'<'0.0 | bc -l) -eq 1 ]; then
+         echo $newbright
+         xrandr --output VGA1 --brightness 0.00
+      else
+         xrandr --output VGA1 --brightness $newbright 
+      fi 
+   fi
+fi

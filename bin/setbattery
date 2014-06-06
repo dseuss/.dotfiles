@@ -1,0 +1,5 @@
+#!/bin/bash
+
+sudo modprobe tp_smapi
+echo "$1" | sudo tee /sys/devices/platform/smapi/BAT0/start_charge_thresh
+echo "$2" | sudo tee /sys/devices/platform/smapi/BAT0/stop_charge_thresh
