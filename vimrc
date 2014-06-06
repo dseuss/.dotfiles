@@ -633,7 +633,8 @@ if completer ==? 'ycm'
   "" My own tex plugin
   let g:ycm_semantic_triggers =  {
         \   'tex' : ['cite{'],
-        \   'haskell': ['.']
+        \   'haskell': ['.'],
+        \   'cython': ['.']
         \ }
 
 endif
@@ -832,6 +833,12 @@ let g:ctrlp_cache_dir = $HOME . '/.vim/.ctrlp/'
 
 "" list LaTeX tags correctly
 let tlist_tex_settings = 'latex;l:labels;s:sections;t:subsections;u:subsubsections'
+
+"" Define additional file types
+let g:ctrlp_buftag_types = {
+      \ 'cython': '--language-force=python'
+      \ }
+
 
 " SearchComplete -- Tab completion for searching {{{2
 Bundle 'vim-scripts/SearchComplete'
