@@ -1039,6 +1039,11 @@ nmap <silent> <Leader>oj :FSBelow<cr>
 "" Switch to the file and load it into a new window split below >
 nmap <silent> <Leader>oJ :FSSplitBelow<cr>
 
+
+autocmd BufRead,BufNewFile *.pxd let b:fswitchdst = 'pyx'
+autocmd BufRead,BufNewFile *.pyx let b:fswitchdst = 'pyd'
+autocmd BufRead,BufNewFile *.pyx,*.pxd let b:fswitchlocs = 'rel:.'
+
 " vim-ipython -- integration with ipython kernels {{{2
 Bundle 'ivanov/vim-ipython'
 
@@ -1103,7 +1108,7 @@ command! ReloadFiletype call ReloadFiletypeFile()
 
 " custom filetypes {{{2
 "" pyx -- cython source file
-autocmd BufRead,BufNewFile *.pyx set filetype=cython
+autocmd BufRead,BufNewFile *.pyx,*.pxd set filetype=cython
 "" pyf -- f2py interface file
 autocmd BufRead,BufNewFile *.pyf setf fortran
 "" tikz -- drawing pictures with latex
