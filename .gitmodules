@@ -10,6 +10,3 @@
 [submodule "xcape"]
 	path = xcape
 	url = https://github.com/alols/xcape
-[submodule "ghc_sandbox"]
-	path = ghc_sandbox
-	url = https://gist.github.com/9365969.git

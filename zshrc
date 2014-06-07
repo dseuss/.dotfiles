@@ -15,7 +15,7 @@ fi
 emulate zsh
 
 # sandbox aware wrappers for ghc/ghci
-. ~/.dotfiles/ghc_sandbox/ghc_sandbox.sh
+source ~/.dotfiles/zsh/cabal.zsh
 
 
 ## OH-MY-ZSH SPECIFIC STUFF ###################################################
@@ -32,7 +32,7 @@ COMPLETION_WAITING_DOTS="true"
 CASE_SENSETIVE="true"
 
 # Load the oh-my-zsh plugins and settings
-plugins=(command-not-found pass git)
+plugins=(command-not-found pass git cabal)
 source $ZSH/oh-my-zsh.sh
 
 
