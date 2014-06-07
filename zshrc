@@ -14,6 +14,9 @@ if [ -f /opt/intel/bin/compilervars.sh ]; then
 fi
 emulate zsh
 
+# sandbox aware wrappers for ghc/ghci
+. ~/.dotfiles/ghc_sandbox/ghc_sandbox.sh
+
 
 ## OH-MY-ZSH SPECIFIC STUFF ###################################################
 ZSH=$HOME/.oh-my-zsh
