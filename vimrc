@@ -1069,6 +1069,10 @@ let g:makeshift_on_bufnewfile = 1
 let g:makeshift_on_bufenter = 1
 let g:makeshift_chdir = 1
 
+let g:makeshift_systems = {
+    \'*.cabal': 'cabal build',
+    \}
+
 " vim2hs -- Haskell for vim {{{2
 Bundle 'dag/vim2hs'
 
