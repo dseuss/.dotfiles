@@ -17,11 +17,11 @@ from IPython.core.pylabtools import figsize
 figsize(10, 4)
 
 # Use mpld3 to display interactive graphs
-try:
-    import mpld3
-    mpld3.enable_notebook()
-except ImportError:
-    pass
+# try:
+#     import mpld3
+#     mpld3.enable_notebook()
+# except ImportError:
+#     pass
 
 # my sweet little progress bar
 try:
