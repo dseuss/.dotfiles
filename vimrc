@@ -1087,6 +1087,7 @@ let g:makeshift_systems = {
 " vim2hs -- Haskell for vim {{{2
 Bundle 'dag/vim2hs'
 
+let g:haskell_conceal = 0
 " neco-ghc -- omni completion for Haskell {{{2
 "" Requires ghc-mod
 Bundle 'eagletmt/neco-ghc'
