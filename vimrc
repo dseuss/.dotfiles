@@ -30,6 +30,11 @@ set rtp+=~/.vim/bundle/vundle/
 call vundle#rc()
 Bundle 'gmarik/vundle'
 
+"" Disable <c-s> for locking screen
+nnoremap <c-s> <nop>
+vnoremap <c-s> <nop>
+inoremap <c-s> abc
+
 
 " KEY SETTINGS {{{1
 " vim-repeat -- repeat commands in tpope plugins{{{2
@@ -658,6 +663,10 @@ endif
 "2}}}
 
 set completeopt=menuone,longest
+
+"" File name completion
+inoremap <C-f> <C-x><C-f>
+
 
 "" Move digraphs out of the way of autocompletion
 inoremap <C-D> <C-K>

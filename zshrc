@@ -50,6 +50,9 @@ unsetopt correct
 # Hit escape twice to clear the current input line
 bindkey "" vi-change-whole-line
 
+# Disable <c-s> for stopping terminal
+stty -ixon
+
 
 ## Personal aliases ###########################################################
 
