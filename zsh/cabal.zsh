@@ -46,3 +46,10 @@ ghc() {
       command ghc $@
    fi
 }
+runhaskell() {
+   if [[ -e "cabal.sandbox.config" ]]; then
+      command cabal exec runhaskell $@
+   else
+      command runhaskell $@
+   fi
+}

@@ -1013,7 +1013,8 @@ Bundle 'Valloric/MatchTagAlways'
 Bundle 'tpope/vim-dispatch'
 
 let g:dispatch_compilers = {
-      \ 'python': 'python'
+      \ 'python': 'python',
+      \ 'haskell': 'ghc'
       \ }
 
 "" start a shell in a new window
@@ -1079,9 +1080,9 @@ let g:makeshift_on_bufnewfile = 1
 let g:makeshift_on_bufenter = 1
 let g:makeshift_chdir = 1
 
-" let g:makeshift_systems = {
-"     \'*.cabal': 'cabal build',
-"     \}
+let g:makeshift_systems = {
+    \'Main.hs': 'source ~/.dotfiles/zsh/cabal.zsh;runhaskell Main.hs',
+    \}
 
 " vim2hs -- Haskell for vim {{{2
 Bundle 'dag/vim2hs'
