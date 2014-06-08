@@ -33,7 +33,7 @@ Bundle 'gmarik/vundle'
 "" Disable <c-s> for locking screen
 nnoremap <c-s> <nop>
 vnoremap <c-s> <nop>
-inoremap <c-s> abc
+inoremap <c-s> <nop>
 
 
 " KEY SETTINGS {{{1
@@ -760,6 +760,7 @@ set foldopen=block,insert,jump,mark,percent,quickfix,search,tag,undo
 
 "" Use bash instead of default shell
 set shell=bash
+set shellcmdflag=-ic
 
 "" show the keyboard command entered
 set showcmd
@@ -1078,9 +1079,9 @@ let g:makeshift_on_bufnewfile = 1
 let g:makeshift_on_bufenter = 1
 let g:makeshift_chdir = 1
 
-let g:makeshift_systems = {
-    \'*.cabal': 'cabal build',
-    \}
+" let g:makeshift_systems = {
+"     \'*.cabal': 'cabal build',
+"     \}
 
 " vim2hs -- Haskell for vim {{{2
 Bundle 'dag/vim2hs'
