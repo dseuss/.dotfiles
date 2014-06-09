@@ -1,5 +1,3 @@
-from __future__ import print_function, division
-
 # Start scipy libaries
 import numpy as np
 import matplotlib.pyplot as pl
