@@ -848,6 +848,9 @@ let tlist_tex_settings = 'latex;l:labels;s:sections;t:subsections;u:subsubsectio
 let g:ctrlp_buftag_types = {
       \ 'cython': '--language-force=python'
       \ }
+if executable('lushtags')
+  call extend(g:ctrlp_buftag_types, { 'haskell': { 'args': '--ignore-parse-error', 'bin': 'lushtags' } })
+end
 
 
 " SearchComplete -- Tab completion for searching {{{2
