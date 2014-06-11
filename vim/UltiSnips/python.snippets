@@ -66,14 +66,16 @@ def format_arg(arg, style):
 	elif style == SPHINX:
 		return ":param %s: @todo" % arg
 	elif style == NORMAL:
-		return ":%s: @todo" % arg
+		return "%s -- TODO" % arg
 
 
 def format_return(style):
 	if style == DOXYGEN:
 		return "@return: @todo"
-	elif style in (NORMAL, SPHINX):
+	elif style == SPHINX:
 		return ":returns: @todo"
+	elif style == NORMAL:
+		return "Returns:\n"
 
 
 def write_docstring_args(args, snip):
