@@ -474,6 +474,9 @@ set pastetoggle=<F12>
 "" case toggling is an operator
 set tildeop
 
+"" Merge lines
+nnoremap L J
+vnoremap L J
 
 " INPUT HELPS {{{1
 
@@ -760,7 +763,7 @@ set foldopen=block,insert,jump,mark,percent,quickfix,search,tag,undo
 
 "" Use bash instead of default shell
 set shell=bash
-set shellcmdflag=-ic
+" set shellcmdflag=-ic
 
 "" show the keyboard command entered
 set showcmd
