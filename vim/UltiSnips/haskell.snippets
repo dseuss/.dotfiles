@@ -124,6 +124,10 @@ instance ${1:Class} ${2:Type} where
 		$0
 endsnippet
 
+snippet error "Error message" !w
+error $ "`!v expand('%')`:${1:function_name} " ++ $0
+endsnippet
+
 # }}} Statements
 
 # Definitions {{{
