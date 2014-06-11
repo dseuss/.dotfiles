@@ -4,6 +4,7 @@
 "-----------------------------------------------------------------------------
 
 
+set rtp=
 
 "" Set marks using Ü, since m is used by vim-seek
 noremap Ü m
