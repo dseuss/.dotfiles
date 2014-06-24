@@ -863,6 +863,22 @@ end
 " SearchComplete -- Tab completion for searching {{{2
 Bundle 'vim-scripts/SearchComplete'
 
+" vim-signify -- show changes in gutter {{{2
+Bundle 'mhinz/vim-signify'
+
+let g:signify_vcs_list = ['git']
+let g:signify_mapping_next_hunk = ']h'
+let g:signify_mapping_prev_hunk = '[h'
+let g:signify_mapping_toggle_highlight = '<space>h'
+
+let g:signify_sign_add               = '+'
+let g:signify_sign_change            = '~'
+let g:signify_sign_delete            = '_'
+let g:signify_sign_delete_first_line = '‾'
+
+let g:signify_cursorhold_normal = 1
+let g:signify_cursorhold_insert = 1
+
 "2}}}
 
 "" Goto first search hit while typing
