@@ -57,9 +57,6 @@ endif
 "" remap leader key for German layout
 let mapleader = ' '
 
-"" Set marks using Ü, since m is used by vim-seek
-noremap Ü m
-
 "" Fix the yank-inconsistency (Y yanks to end of line)
 nnoremap Y y$
 "" show yank registers
@@ -688,11 +685,6 @@ Bundle 'Lokaltog/vim-easymotion'
 "" Use , as its leader key
 let g:EasyMotion_leader_key = ','
 
-" vim-seek -- two-character motions in one line {{{2
-Bundle 'goldfeld/vim-seek'
-"" m/M for forward/backward search
-let g:SeekKey = 'm'
-let g:SeekBackKey = 'M'
 
 " Extened Text Motions (i$, i/,...) {{{2
 "" http://connermcd.com/blog/2012/10/01/extending-vim%27s-text-objects/
@@ -710,6 +702,9 @@ for [key, value] in items(pairs)
   exe "nnoremap yi".key." T".key."yt".value
   exe "nnoremap ya".key." F".key."yf".value
 endfor
+
+" vim-signature -- manage and display marks {{{2
+Bundle 'kshenoy/vim-signature'
 
 "2}}}
 
