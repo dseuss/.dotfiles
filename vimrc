@@ -408,6 +408,18 @@ let g:surround_indent = 1
 nmap S ys
 nmap SS yss
 
+" Matching pairs
+set matchpairs=(:),[:],{:},<:>
+
+" persistent undo files after closing
+if exists('+undofile')
+  set undofile
+  set undodir=$HOME/.vim/undo
+  if !isdirectory($HOME.'/.vim/undo')
+    call mkdir($HOME.'/.vim/undo', "p")
+  endif
+endif
+
 
 " text indenation and breaking {{{2
 "" indenting uses spaces
