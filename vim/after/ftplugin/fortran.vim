@@ -2,12 +2,12 @@
 " source code.
 let fortran_free_source=1
 let fortran_do_enddo=1
-set nowrap
+setlocal nowrap
 let g:fortran_indent_less=1
 
 " Textwidth
-set textwidth=80
-set colorcolumn=81
+setlocal textwidth=80
+setlocal colorcolumn=80
 
 " Folding stuff
 setlocal foldmethod=marker

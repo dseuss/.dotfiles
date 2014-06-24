@@ -32,8 +32,8 @@ let b:fillchar = '%'
 " Add some custom surround environments
 " see help surround-customizing
 let b:surround_36 = "$\r$"
-let g:surround_99 = "\\\1command: \1{\r}"
-let g:surround_101 = "\\begin{equation}\r\\label{eq\:\1label: \1}\n\\end{equation}"
+let b:surround_99 = "\\\1command: \1{\r}"
+let b:surround_101 = "\\begin{equation}\r\\label{eq\:\1label: \1}\n\\end{equation}"
 let b:surround_106 = "\\(\r\\)"
 let b:surround_114 = "\\[\r\\]"
 

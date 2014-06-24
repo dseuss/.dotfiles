@@ -8,7 +8,7 @@ setlocal softtabstop=4
 setlocal shiftwidth=4
 
 " Use all conceal features in all modes
-set conceallevel=1
+set conceallevel=0
 set concealcursor=nvc
 
 " Dispatch = load current file in ghci
