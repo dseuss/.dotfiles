@@ -303,8 +303,12 @@ set splitright
 
 " TEXT EDITING {{{1
 
-" Align -- align text in neat tables {{{2
-set rtp+=~/.vim/sbundle/Align
+" EasyAlign -- align text in neat tables {{{2
+Bundle 'junegunn/vim-easy-align'
+" Start interactive EasyAlign in visual mode (e.g. vip<Enter>)
+vmap <Enter> <Plug>(EasyAlign)
+" Start interactive EasyAlign for a motion/text object (e.g. <Leader>aip)
+nmap <Leader>a <Plug>(EasyAlign)
 
 
 " fill lines with certain character {{{2

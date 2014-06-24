@@ -10,3 +10,5 @@ if [[ -a $XCAPSEXEC ]]; then
 else
    setxkbmap -option caps:swapescape
 fi
+
+xmodmap ~/.Xmodmap
