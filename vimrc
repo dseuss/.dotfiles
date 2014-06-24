@@ -712,6 +712,9 @@ Bundle 'kshenoy/vim-signature'
 map ü [
 map + ]
 
+"" And for jump-key
+map # '
+
 "" Scroll through paragraphs with J/K
 noremap K {
 noremap J }
