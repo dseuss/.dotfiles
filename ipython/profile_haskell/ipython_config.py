@@ -1,4 +1,4 @@
-exe = '/home/dsuess/.cabal/bin/IHaskell'.replace(' ', '\\ ')
+exe = '/home/dsuess/.local/src/IHaskell/.cabal-sandbox/bin/IHaskell'.replace(' ', '\\ ')
 # Available Variables:
 # exe:    Path to IHaskell kernel.
 c = get_config()
