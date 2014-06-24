@@ -32,7 +32,7 @@ COMPLETION_WAITING_DOTS="true"
 CASE_SENSETIVE="true"
 
 # Load the oh-my-zsh plugins and settings
-plugins=(command-not-found pass git cabal)
+plugins=(command-not-found pass git cabal pylint z)
 source $ZSH/oh-my-zsh.sh
 
 
