@@ -892,8 +892,8 @@ let g:signify_sign_change            = '~'
 let g:signify_sign_delete            = '_'
 let g:signify_sign_delete_first_line = '‾'
 
-let g:signify_cursorhold_normal = 1
-let g:signify_cursorhold_insert = 1
+let g:signify_cursorhold_normal = 0
+let g:signify_cursorhold_insert = 0
 
 "2}}}
 
