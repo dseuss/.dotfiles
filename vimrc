@@ -236,15 +236,15 @@ nnoremap <silent> ]oq :call CloseList("Quickfix List", 'c')<CR>
 
 
 " Always show/hide quickfix window when it gets populated {{{2
-" function! ToggleListAC(pfx)
-"   let winnr = winnr()
-"   exec(a:pfx.'window')
-"   if winnr() != winnr
-"     wincmd p
-"   endif
-" endfunction
-" autocmd QuickFixCmdPost [^l]* nested call ToggleListAC('c')
-" autocmd QuickFixCmdPost    l* nested call ToggleListAC('l')
+function! ToggleListAC(pfx)
+  let winnr = winnr()
+  exec(a:pfx.'window')
+  if winnr() != winnr
+    wincmd p
+  endif
+endfunction
+autocmd QuickFixCmdPost [^l]* nested call ToggleListAC('c')
+autocmd QuickFixCmdPost    l* nested call ToggleListAC('l')
 
 
 " set the height of the preview windows {{{2
@@ -272,8 +272,8 @@ function! AdjustWindowHeight(minheight, maxheight)
   exe max([min([n_lines, a:maxheight]), a:minheight]) . "wincmd _"
 endfunction
 
-"" Set quickfixwindow height to fit the number of errors, but 10 max, 3 min
-autocmd FileType qf call AdjustWindowHeight(3, 10)
+"" Set quickfixwindow height to fit the number of errors, but 15 max, 3 min
+autocmd FileType qf call AdjustWindowHeight(3, 15)
 "" ..and open on bottom of screen
 autocmd FileType qf wincmd J
 
@@ -1005,7 +1005,7 @@ let g:pymode_lint = 0
 let g:pymode_folding = 0
 let g:pymode_virtualenv = 0
 let g:pymode_utils_whitespaces = 0
-let g:pymode_indent = 0
+let g:pymode_indent = 1
 
 "" Run current file
 let g:pymode_run = 1
