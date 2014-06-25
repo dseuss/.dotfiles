@@ -8,3 +8,5 @@ nnoremap <leader>cf :call FillLine('-')<CR>
 inoremap <C-T> <C-R>=GetCloseTag()<CR>
 map <C-T> a<C-_><ESC>
 let b:closetag_html_style = 0
+
+setlocal matchpairs=(:),[:],{:},<:>

@@ -415,7 +415,7 @@ nmap S ys
 nmap SS yss
 
 " Matching pairs
-set matchpairs=(:),[:],{:},<:>
+set matchpairs=(:),[:],{:}
 
 " persistent undo files after closing
 if exists('+undofile')
