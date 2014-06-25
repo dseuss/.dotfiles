@@ -241,16 +241,16 @@ nnoremap <silent> [oq :call OpenList('c')<CR>
 nnoremap <silent> ]oq :call CloseList("Quickfix List", 'c')<CR>
 
 
-" Always show/hide quickfix window when it gets populated {{{2
-function! ToggleListAC(pfx)
-  let winnr = winnr()
-  exec(a:pfx.'window')
-  if winnr() != winnr
-    wincmd p
-  endif
-endfunction
-autocmd QuickFixCmdPost [^l]* nested call ToggleListAC('c')
-autocmd QuickFixCmdPost    l* nested call ToggleListAC('l')
+" " Always show/hide quickfix window when it gets populated {{{2
+" function! ToggleListAC(pfx)
+"   let winnr = winnr()
+"   exec(a:pfx.'window')
+"   if winnr() != winnr
+"     wincmd p
+"   endif
+" endfunction
+" autocmd QuickFixCmdPost [^l]* nested call ToggleListAC('c')
+" autocmd QuickFixCmdPost    l* nested call ToggleListAC('l')
 
 
 " set the height of the preview windows {{{2
@@ -885,6 +885,7 @@ Bundle 'mhinz/vim-signify'
 let g:signify_vcs_list = ['git']
 let g:signify_mapping_next_hunk = ']h'
 let g:signify_mapping_prev_hunk = '[h'
+let g:signify_mapping_toggle = 'coS'
 let g:signify_mapping_toggle_highlight = '<space>h'
 
 let g:signify_sign_add               = '+'
