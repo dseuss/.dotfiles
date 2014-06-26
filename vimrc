@@ -1,22 +1,7 @@
 " vim: set fdm=marker expandtab ts=2 sw=2 foldnestmax=2:
 "
 " Vim configuration file - Daniel Suess
-" Last modified: 2013-09-20
 "-----------------------------------------------------------------------------
-
-"" Posible combinations: (ycm, ultisnips), (neocomplete, ultisnips),
-""                       (neocomplete, neosnippet)
-if has('gui_running')
-  "" use neocomplete for prose writing
-  let completer = 'neocomplete'
-else
-  "" for real coding use youcompleteme
-  " let completer = 'ycm'
-  let completer = 'neocomplete'
-endif
-
-let completer = 'ycm'
-let snipper = 'ultisnips'
 
 " INITIAL SETUP {{{1
 
@@ -45,12 +30,10 @@ Bundle 'tpope/vim-repeat'
 Bundle 'tpope/vim-unimpaired'
 
 " SuperTab -- share the tab key {{{2
-if snipper ==? 'ultisnips'
-  Bundle 'ervandew/supertab'
+Bundle 'ervandew/supertab'
 
-  "" Sync with YouCompleteMe
-  let g:SuperTabDefaultCompletionType = '<S-TAB>'
-endif
+"" Sync with YouCompleteMe
+let g:SuperTabDefaultCompletionType = '<S-TAB>'
 
 "2}}}
 
@@ -538,81 +521,6 @@ let g:jedi#auto_initialization = 1
 let g:jedi#auto_vim_configuration = 0
 
 
-" neocomplete.vim -- completion framework {{{2
-if completer ==? 'neocomplete'
-  "" Requires compilation
-  Bundle 'Shougo/vimproc.vim'
-  "" Requires lua support!
-  Bundle 'Shougo/neocomplete.vim'
-  "" English dictionary for neocomplete
-  Bundle 'ujihisa/neco-look'
-
-  "" enable/disable
-  nnoremap coC :NeoCompleteToggle<CR>
-  nnoremap [oC :NeoCompleteLock<CR>
-  nnoremap ]oC :NeoCompleteUnlock<CR>
-
-  "" launches neocomplete automatically on vim startup
-  let g:neocomplete#enable_at_startup = 1
-  "" neo case sensivity as long as complete-phrase is lowercase
-  let g:neocomplete#enable_smart_case = 1
-  "" use underscore completion
-  let g:neocomplete#enable_underbar_completion = 1
-  "" sets minimum char length of syntax keyword.
-  let g:neocomplete#sources#syntax#min_keyword_length = 3
-  let g:neocomplete#lock_buffer_name_pattern = '\*ku\*'
-  "" make caching asyc using vimproc
-  let g:neocomplete#use_vimproc = 1
-
-  "" define keywords
-  if !exists('g:neocomplete#keyword_patterns')
-    let g:neocomplete#keyword_patterns = {}
-  endif
-  let g:neocomplete#keyword_patterns['default'] = '\h\w*'
-
-  "" setup omnifunctions
-  let g:neocomplete#force_overwrite_completefunc = 1
-  if !exists('g:neocomplete#omni_functions')
-    let g:neocomplete#omni_functions = {}
-  endif
-  if !exists('g:neocomplete#force_omni_patterns')
-    let g:neocomplete#force_omni_patterns = {}
-  endif
-  let g:neocomplete#force_omni_patterns.python = '[^. \t]\.\w*'
-  set omnifunc=syntaxcomplete#Complete
-
-  "" dont complete on enter
-  inoremap <silent> <CR> <C-r>=<SID>my_cr_function()<CR>
-  function! s:my_cr_function()
-    return neocomplete#smart_close_popup() . "\<CR>"
-  endfunction
-
-  if snipper ==? 'ultisnips'
-    inoremap <expr><S-TAB>  pumvisible() ? "\<C-n>" : "\<TAB>"
-  endif
-endif
-
-" neosnippet.vim -- snippets {{{2
-if snipper ==? 'neosnippet'
-  Bundle 'Shougo/neosnippet.vim'
-
-  "" change snippet directory
-  let g:neosnippet#snippets_directory='~/.vim/snippets'
-  "" conceal jump markers
-  ""if has('conceal')
-  ""  set conceallevel=2 concealcursor=i
-  ""endif
-
-  "" SuperTab like snippets behavior
-  imap <expr><TAB> neosnippet#expandable_or_jumpable() ? "\<Plug>(neosnippet_expand_or_jump)" : pumvisible() ? "\<C-n>" : "\<TAB>"
-  smap <expr><TAB> neosnippet#expandable_or_jumpable() ? "\<Plug>(neosnippet_expand_or_jump)" : "\<TAB>"
-
-  "" Expand or complete with tab, jump with <c-f>
-  "imap <expr><TAB> neosnippet#expandable() ? "\<Plug>(neosnippet_expand)" : pumvisible() ? "\<C-n>" : "\<TAB>"
-  "smap <expr><TAB> neosnippet#expandable() ? "\<Plug>(neosnippet_expand)" : "\<TAB>"
-  "imap <C-F> <Plug>(neosnippet_jump)
-endif
-
 " omnicomplete navigation using j/k {{{2
 function! OmniPopup(action)
   if pumvisible()
@@ -636,52 +544,48 @@ inoremap <silent><C-j> <C-R>=OmniPopup('j')<CR>
 inoremap <silent><C-k> <C-R>=OmniPopup('k')<CR>
 
 " YouCompleteMe -- autocompletion & more {{{2
-if completer ==? 'ycm'
-  Bundle 'Valloric/YouCompleteMe'
+Bundle 'Valloric/YouCompleteMe'
 
-  "" Tab completion is run through SuperTab
-  let g:ycm_key_list_select_completion = ['<S-TAB>', '<Down>']
-  let g:ycm_key_list_previous_completion = ['<UP>']
-  nnoremap <leader>di :YcmShowDetailedDiagnostic<CR>
+"" Tab completion is run through SuperTab
+let g:ycm_key_list_select_completion = ['<S-TAB>', '<Down>']
+let g:ycm_key_list_previous_completion = ['<UP>']
+nnoremap <leader>di :YcmShowDetailedDiagnostic<CR>
 
-  "" Also use tag file entries
-  let g:ycm_collect_identifiers_from_tags_files = 1
+"" Also use tag file entries
+let g:ycm_collect_identifiers_from_tags_files = 1
 
-  "" Enable autocompletion in comments
-  let g:ycm_complete_in_comments = 1
-  "" Keep YCM from mapping to <CR>
-  inoremap <expr><CR>  pumvisible() ? "\<CR>" : "\<CR>"
+"" Enable autocompletion in comments
+let g:ycm_complete_in_comments = 1
+"" Keep YCM from mapping to <CR>
+inoremap <expr><CR>  pumvisible() ? "\<CR>" : "\<CR>"
 
-  "" use global clang config file
-  let g:ycm_global_ycm_extra_conf = '/home/dsuess/.vim/.ycm_extra_conf.py'
-  "" always ask if it's save to run
-  let g:ycm_confirm_extra_conf = 1
+"" use global clang config file
+let g:ycm_global_ycm_extra_conf = '/home/dsuess/.vim/.ycm_extra_conf.py'
+"" always ask if it's save to run
+let g:ycm_confirm_extra_conf = 1
 
-  "" My own tex plugin
-  let g:ycm_semantic_triggers =  {
-        \   'tex' : ['cite{'],
-        \   'haskell': ['.'],
-        \   'cython': ['.']
-        \ }
+"" My own tex plugin
+let g:ycm_semantic_triggers =  {
+      \   'tex' : ['cite{'],
+      \   'haskell': ['.'],
+      \   'cython': ['.']
+      \ }
 
-endif
 
 " UltiSnips -- snippets {{{2
-if snipper ==? 'ultisnips'
-  Bundle 'SirVer/ultisnips'
+Bundle 'SirVer/ultisnips'
 
-  "" Next/Last snippet
-   let g:UltiSnipsExpandTrigger="<tab>"
-   let g:UltiSnipsJumpForwardTrigger="<tab>"
-   let g:UltiSnipsJumpBackwardTrigger="<C-B>"
+"" Next/Last snippet
+ let g:UltiSnipsExpandTrigger="<tab>"
+ let g:UltiSnipsJumpForwardTrigger="<tab>"
+ let g:UltiSnipsJumpBackwardTrigger="<C-B>"
 
-   "" set directories
-   let g:UltiSnipsSnippetDirectories = ["UltiSnips"]
+ "" set directories
+ let g:UltiSnipsSnippetDirectories = ["UltiSnips"]
 
-   "" from ftdetect/UltiSnips.vim
-   autocmd FileType * call UltiSnips#FileTypeChanged()
-   autocmd BufNewFile,BufRead *.snippets setf snippets
-endif
+ "" from ftdetect/UltiSnips.vim
+ autocmd FileType * call UltiSnips#FileTypeChanged()
+ autocmd BufNewFile,BufRead *.snippets setf snippets
 "2}}}
 
 set completeopt=menuone,longest
