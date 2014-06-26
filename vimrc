@@ -86,14 +86,8 @@ Bundle 'altercation/vim-colors-solarized'
 " vim-startify -- startup screen {{{2
 Bundle 'mhinz/vim-startify'
 
-let g:startify_custom_header = [
-      \' _    ___                                          __   _____  _____',
-      \'| |  / (_)___ ___  ____  _________ _   _____  ____/ /  /__  / |__  /',
-      \'| | / / / __ `__ \/ __ \/ ___/ __ \ | / / _ \/ __  /     / /   /_ < ',
-      \'| |/ / / / / / / / /_/ / /  / /_/ / |/ /  __/ /_/ /     / /_ ___/ / ',
-      \'|___/_/_/ /_/ /_/ .___/_/   \____/|___/\___/\__,_/     /_/(_)____/  ',
-      \'                     /_/                                            '
-      \ ]
+let g:startify_custom_header =
+  \ map(split(system('fortune | cowsay'), '\n'), '"   ". v:val') + ['','']
 
 "" session options -- dont save option
 set ssop-=options
@@ -222,18 +216,6 @@ nnoremap <silent> ]oo :call CloseList("Location List", 'l')<CR>
 nnoremap <silent> coq :call ToggleList("Quickfix List", 'c')<CR>
 nnoremap <silent> [oq :call OpenList('c')<CR>
 nnoremap <silent> ]oq :call CloseList("Quickfix List", 'c')<CR>
-
-
-" " Always show/hide quickfix window when it gets populated {{{2
-" function! ToggleListAC(pfx)
-"   let winnr = winnr()
-"   exec(a:pfx.'window')
-"   if winnr() != winnr
-"     wincmd p
-"   endif
-" endfunction
-" autocmd QuickFixCmdPost [^l]* nested call ToggleListAC('c')
-" autocmd QuickFixCmdPost    l* nested call ToggleListAC('l')
 
 
 " set the height of the preview windows {{{2
@@ -380,9 +362,6 @@ let g:syntastic_python_flake8_post_args='--ignore=E127,E128,E226 --max-complexit
 
 let g:syntastic_tex_chktex_post_args='--nowarn 1'
 "" 1 -- Command terminated with space
-
-" UnconditionalPaste -- Paste registers linewise/characterwise {{{2
-"Bundle 'mutewinter/UnconditionalPaste'
 
 " vim-multiple-cursor -- many cursors, may good {{{2
 Bundle 'terryma/vim-multiple-cursors'
@@ -893,7 +872,7 @@ let g:LatexBox_ignore_warnings = [
       \'Package hyperref Warning',
       \'LaTeX Font Warning']
 
-"u set a custom make target {{{2
+"set a custom make target {{{2
 function! SetMake()
   let mkprg = input('? ')
   execute 'setlocal makeprg=' . substitute(mkprg, ' ', '\\ ', 'g')
