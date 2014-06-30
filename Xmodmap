@@ -1,5 +1,5 @@
-keycode 10  = 1                 exclam       1                 exclam        onesuperior   exclamdown          onesuperior
-keycode 11  = 2                 quotedbl     2                 quotedbl      twosuperior   oneeighth           twosuperior
+keycode 10  = 1                 exclam       1                 exclam        U2297         exclamdown          onesuperior
+keycode 11  = 2                 quotedbl     2                 quotedbl      U2026         oneeighth           twosuperior
 keycode 12  = 3                 section      3                 section       threesuperior sterling            threesuperior
 keycode 13  = 4                 dollar       4                 dollar        onequarter    currency            onequarter
 keycode 14  = 5                 percent      5                 percent       onehalf       threeeighths        onehalf
@@ -23,7 +23,7 @@ keycode 31  = i                 I            i                 I             gre
 keycode 32  = o                 O            Greek_omicron     Greek_OMICRON equal         9                   oslash  Oslash
 keycode 33  = p                 P            Greek_pi          Greek_PI      ampersand     THORN               thorn   THORN
 keycode 34  = udiaeresis        Udiaeresis   udiaeresis        Udiaeresis    diaeresis     diaeresis           diaeresis
-keycode 35  = plus              asterisk     plus              asterisk      asciitilde    macron              asciitilde
+keycode 35  = plus              asterisk     plus              asterisk      dagger        macron              asciitilde
 keycode 36  = Return            NoSymbol     Return            NoSymbol      Return
 keycode 37  = Control_L         NoSymbol     Control_L         NoSymbol      Control_L
 keycode 38  = a                 A            Greek_alpha       Greek_ALPHA   backslash     slash               slash
