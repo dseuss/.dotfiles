@@ -1,0 +1,13 @@
+# If you want ipython to appear in a linux app launcher ("start menu"), install this by doing:
+# sudo desktop-file-install ipython-qtconsole.desktop
+
+[Desktop Entry]
+Comment=IHaskell notebook
+Exec=sh -c "tmux new -d -s ipython; tmux new-window -t ipython '/home/dsuess/.local/src/IHaskell/.cabal-sandbox/bin/IHaskell notebook'"
+GenericName=IHaskell notebook
+Icon=~/.icons/ihaskell.jpg
+Name=IHaskell Notebook
+Categories=Development;Utility;
+StartupNotify=true
+Terminal=false
+Type=Application
