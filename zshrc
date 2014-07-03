@@ -58,6 +58,7 @@ stty -ixon
 
 # Programming
 alias vi="/usr/local/bin/vim -u ~/.virc"
+alias gvim="gvim --remote-silent"
 alias svi="sudo vi -u ~/.virc"
 alias latexmk="latexmk -pdf"
 alias cleanlatex="sh -c 'rm --force *.aux *.fdb_latexmk *.fls *.log *.synctex.gz *.out *.toc *.bib.bak *.end *.bbl *.blg *.toc *.auxlock'"
