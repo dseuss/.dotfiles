@@ -562,6 +562,8 @@ Bundle 'SirVer/ultisnips'
  "" set directories
  let g:UltiSnipsSnippetDirectories = ["UltiSnips"]
 
+let g:ultisnips_python_style = "sphinx"
+
  "" from ftdetect/UltiSnips.vim
  autocmd FileType * call UltiSnips#FileTypeChanged()
  autocmd BufNewFile,BufRead *.snippets setf snippets
