@@ -464,40 +464,11 @@ vnoremap L J
 " delimitMate -- insert pairs (like brackets) automatically {{{2
 Bundle 'Raimondi/delimitMate'
 
+" rainbox_parentheses -- nice coloring for parentheses {{{2
+Bundle 'kien/rainbow_parentheses.vim'
+
 "" Enable/Disable
 nnoremap com :DelimitMateSwitch<CR>
-
-
-" jedi.vim -- python completion and more {{{2
-Bundle 'davidhalter/jedi-vim'
-
-"" Disable autocompletion key since we use YCM
-let g:jedi#completions_command = ""
-"" Better use the tags-based goto
-let g:jedi#goto_assignments_command = "<leader>rg"
-"" ... since get_definition works alot better
-let g:jedi#goto_definitions_command = "<leader>rd"
-"" Show the documentation
-let g:jedi#documentation_command = "<leader>rh"
-
-"" Show everything in the same tab using windows
-let g:jedi#use_tabs_not_buffers = 0
-
-"" Neocomplete does all the hard lifting!
-let g:jedi#popup_on_dot = 0
-let g:jedi#popup_select_first = 0
-
-"" Simple refactoring
-let g:jedi#rename_command = "<leader>rn"
-"" Show similar commands
-let g:jedi#usages_command = "<leader>rs"
-
-"" Dont show the information in the preview window
-let g:jedi#show_call_signatures = "0"
-
-"" Automatically setup vim-jedi
-let g:jedi#auto_initialization = 1
-let g:jedi#auto_vim_configuration = 0
 
 
 " omnicomplete navigation using j/k {{{2
@@ -874,19 +845,8 @@ let g:LatexBox_ignore_warnings = [
       \'Package hyperref Warning',
       \'LaTeX Font Warning']
 
-"set a custom make target {{{2
-function! SetMake()
-  let mkprg = input('? ')
-  execute 'setlocal makeprg=' . substitute(mkprg, ' ', '\\ ', 'g')
-endfunction
-
-nnoremap <leader>sm :call SetMake()<CR>
-
-
-" closetag.vim -- close xml tags {{{2
-Bundle 'closetag.vim'
-
-" python-mode -- the name says it all {{{2
+" PYTHON {{{2
+" python-mode -- the name says it all
 Bundle 'klen/python-mode'
 
 let g:pymode_breakpoint_cmd = "import ipdb; ipdb.set_trace()  # XXX BREAKPOINT"
@@ -933,6 +893,57 @@ let g:pymode_syntax_highlight_equal_operator = g:pymode_syntax_all
 let g:pymode_syntax_highlight_stars_operator = g:pymode_syntax_all
 let g:pymode_syntax_highlight_self = g:pymode_syntax_all
 let g:pymode_syntax_slow_sync = 0
+
+
+" jedi.vim -- python completion and more
+Bundle 'davidhalter/jedi-vim'
+
+"" Disable autocompletion key since we use YCM
+let g:jedi#completions_command = ""
+"" Better use the tags-based goto
+let g:jedi#goto_assignments_command = "<leader>rg"
+"" ... since get_definition works alot better
+let g:jedi#goto_definitions_command = "<leader>rd"
+"" Show the documentation
+let g:jedi#documentation_command = "<leader>rh"
+
+"" Show everything in the same tab using windows
+let g:jedi#use_tabs_not_buffers = 0
+
+"" Neocomplete does all the hard lifting!
+let g:jedi#popup_on_dot = 0
+let g:jedi#popup_select_first = 0
+
+"" Simple refactoring
+let g:jedi#rename_command = "<leader>rn"
+"" Show similar commands
+let g:jedi#usages_command = "<leader>rs"
+
+"" Dont show the information in the preview window
+let g:jedi#show_call_signatures = "0"
+
+"" Automatically setup vim-jedi
+let g:jedi#auto_initialization = 1
+let g:jedi#auto_vim_configuration = 0
+
+
+" vim-ipython -- integration with ipython kernels
+Bundle 'ivanov/vim-ipython'
+
+nnoremap <F3> :call system('ipython qtconsole --pylab inline &')<CR>
+
+" HASKELL {{{2
+" vim2hs -- Haskell for vim
+Bundle 'dag/vim2hs'
+
+let g:haskell_conceal = 0
+" neco-ghc -- omni completion for Haskell
+"" Requires ghc-mod
+Bundle 'eagletmt/neco-ghc'
+let g:necoghc_enable_detailed_browse = 1
+
+" julia-vim -- syntax & co for julia {{{2
+Bundle 'JuliaLang/julia-vim'
 
 " MatchTagAlways -- Visual marking of HTML/XML/... tags {{{2
 Bundle 'Valloric/MatchTagAlways'
@@ -983,10 +994,6 @@ autocmd BufRead,BufNewFile *.pxd let b:fswitchdst = 'pyx'
 autocmd BufRead,BufNewFile *.pyx let b:fswitchdst = 'pyd'
 autocmd BufRead,BufNewFile *.pyx,*.pxd let b:fswitchlocs = 'rel:.'
 
-" vim-ipython -- integration with ipython kernels {{{2
-Bundle 'ivanov/vim-ipython'
-
-nnoremap <F3> :call system('ipython qtconsole --pylab inline &')<CR>
 
 "" shortcut config in ftplugin/python.vim
 
@@ -995,6 +1002,18 @@ Bundle 'tristen/vim-sparkup'
 
 " vim-markup -- syntax and matching for markdown {{{2
 Bundle 'plasticboy/vim-markdown'
+
+"set a custom make target {{{2
+function! SetMake()
+  let mkprg = input('? ')
+  execute 'setlocal makeprg=' . substitute(mkprg, ' ', '\\ ', 'g')
+endfunction
+
+nnoremap <leader>sm :call SetMake()<CR>
+
+
+" closetag.vim -- close xml tags {{{2
+Bundle 'closetag.vim'
 
 " vim-unstack -- nice representation of stack-traces{{{2
 Bundle 'mattboehm/vim-unstack'
@@ -1011,15 +1030,6 @@ let g:makeshift_chdir = 1
 let g:makeshift_systems = {
     \'Main.hs': 'source ~/.dotfiles/zsh/cabal.zsh;runhaskell Main.hs',
     \}
-
-" vim2hs -- Haskell for vim {{{2
-Bundle 'dag/vim2hs'
-
-let g:haskell_conceal = 0
-" neco-ghc -- omni completion for Haskell {{{2
-"" Requires ghc-mod
-Bundle 'eagletmt/neco-ghc'
-let g:necoghc_enable_detailed_browse = 1
 
 "2}}}
 
