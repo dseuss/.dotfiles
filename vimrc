@@ -13,7 +13,7 @@ filetype off
 "" Load Vundle
 set rtp+=~/.vim/bundle/vundle/
 call vundle#rc()
-Bundle 'gmarik/vundle'
+Plugin 'gmarik/vundle'
 
 "" Disable <c-s> for locking screen
 nnoremap <c-s> <nop>
@@ -23,14 +23,14 @@ inoremap <c-s> <nop>
 
 " KEY SETTINGS {{{1
 " vim-repeat -- repeat commands in tpope plugins{{{2
-Bundle 'tpope/vim-repeat'
+Plugin 'tpope/vim-repeat'
 
 
 " vim-unimpaired -- pairs commands using bracket mappings {{{2
-Bundle 'tpope/vim-unimpaired'
+Plugin 'tpope/vim-unimpaired'
 
 " SuperTab -- share the tab key {{{2
-Bundle 'ervandew/supertab'
+Plugin 'ervandew/supertab'
 
 "" Sync with YouCompleteMe
 let g:SuperTabDefaultCompletionType = '<S-TAB>'
@@ -69,7 +69,7 @@ vnoremap qö q:
 " APPERANCE & BEHAVIOR {{{1
 
 " vim-airline -- pure vimscript replacement for powerline {{{2
-Bundle 'bling/vim-airline'
+Plugin 'bling/vim-airline'
 
 "" Theme is set below together with colorscheme
 "" Use powerline fonts
@@ -81,10 +81,10 @@ let g:airline#extensions#virtualenv#enabled = 0
 nnoremap coa :AirlineToggle<CR>
 
 " vim-colors-solarized -- solarized color scheme {{{2
-Bundle 'altercation/vim-colors-solarized'
+Plugin 'altercation/vim-colors-solarized'
 
 " vim-startify -- startup screen {{{2
-Bundle 'mhinz/vim-startify'
+Plugin 'mhinz/vim-startify'
 
 let g:startify_custom_header =
   \ map(split(system('fortune | cowsay'), '\n'), '"   ". v:val') + ['','']
@@ -152,14 +152,14 @@ set mousehide
 " WINDOW & BUFFER MANAGMENT {{{1
 
 " bclose -- close current buffer, open empty file if it's the last {{{2
-Bundle 'rbgrouleff/bclose.vim'
+Plugin 'rbgrouleff/bclose.vim'
 
 " Close active window buffer file
 nnoremap <silent> <LEADER>bc :Bclose<CR>
 
 
 " vim-bufferline -- Display bufferlist in statusline {{{2
-"Bundle 'bling/vim-bufferline'
+"Plugin 'bling/vim-bufferline'
 "" Dont print messages in statusline
 let g:bufferline_echo = 0
 
@@ -250,7 +250,7 @@ autocmd FileType qf wincmd J
 
 
 " vim-accordion -- manage vsplits {{{2
-Bundle 'mattboehm/vim-accordion'
+Plugin 'mattboehm/vim-accordion'
 
 "2}}}
 
@@ -272,7 +272,7 @@ set splitright
 " TEXT EDITING {{{1
 
 " EasyAlign -- align text in neat tables {{{2
-Bundle 'junegunn/vim-easy-align'
+Plugin 'junegunn/vim-easy-align'
 " Start interactive EasyAlign in visual mode (e.g. vip<Enter>)
 vmap <Enter> <Plug>(EasyAlign)
 " Start interactive EasyAlign for a motion/text object (e.g. <Leader>aip)
@@ -309,7 +309,7 @@ nnoremap <silent> <leader>cf :call FillLine()<CR>
 
 
 " GUNDO -- graphical representation of undo tree {{{2
-Bundle 'sjl/gundo.vim'
+Plugin 'sjl/gundo.vim'
 
 nnoremap cog :GundoToggle<CR>
 nnoremap [og :GundoShow<CR>
@@ -331,7 +331,7 @@ nnoremap <silent> <leader>§ :MarkClear<CR>
 
 
 " nerd-comment -- insert/delete/modify comments {{{2
-Bundle 'scrooloose/nerdcommenter'
+Plugin 'scrooloose/nerdcommenter'
 
 "" Always add a space in front of text when commented
 let NERDSpaceDelims = 1
@@ -348,7 +348,7 @@ autocmd BufWritePre * :call <SID>StripTrailingWhitespaces()
 
 
 " synastic -- on-the-fly code checking {{{2
-Bundle 'scrooloose/syntastic'
+Plugin 'scrooloose/syntastic'
 
 "" Always show errors on save
 let g:syntastic_always_populate_loc_list=1
@@ -364,11 +364,11 @@ let g:syntastic_tex_chktex_post_args='--nowarn 1'
 "" 1 -- Command terminated with space
 
 " vim-multiple-cursor -- many cursors, may good {{{2
-Bundle 'terryma/vim-multiple-cursors'
+Plugin 'terryma/vim-multiple-cursors'
 
 
 " vim-surround -- handling quotes, parentheses, tags, ... {{{2
-Bundle 'tpope/vim-surround'
+Plugin 'tpope/vim-surround'
 
 "" Reindent after insertion
 let g:surround_indent = 1
@@ -462,10 +462,10 @@ vnoremap L J
 " INPUT HELPS {{{1
 
 " delimitMate -- insert pairs (like brackets) automatically {{{2
-Bundle 'Raimondi/delimitMate'
+Plugin 'Raimondi/delimitMate'
 
 " rainbox_parentheses -- nice coloring for parentheses {{{2
-Bundle 'kien/rainbow_parentheses.vim'
+Plugin 'kien/rainbow_parentheses.vim'
 
 "" Enable/Disable
 nnoremap com :DelimitMateSwitch<CR>
@@ -494,7 +494,7 @@ inoremap <silent><C-j> <C-R>=OmniPopup('j')<CR>
 inoremap <silent><C-k> <C-R>=OmniPopup('k')<CR>
 
 " YouCompleteMe -- autocompletion & more {{{2
-Bundle 'Valloric/YouCompleteMe'
+Plugin 'Valloric/YouCompleteMe'
 
 "" Tab completion is run through SuperTab
 let g:ycm_key_list_select_completion = ['<S-TAB>', '<Down>']
@@ -523,7 +523,7 @@ let g:ycm_semantic_triggers =  {
 
 
 " UltiSnips -- snippets {{{2
-Bundle 'SirVer/ultisnips'
+Plugin 'SirVer/ultisnips'
 
 "" Next/Last snippet
  let g:UltiSnipsExpandTrigger="<tab>"
@@ -545,17 +545,19 @@ set completeopt=menuone,longest
 "" File name completion
 inoremap <C-f> <C-x><C-f>
 
-
 "" Move digraphs out of the way of autocompletion
 inoremap <C-D> <C-K>
+
+"" Use shortened list of spell suggestions
+set spellsuggest=best,9
 
 " MOTIONS {{{1
 
 " matchit -- extended % matching {{{2
-Bundle 'tmhedberg/matchit'
+Plugin 'tmhedberg/matchit'
 
 " vim-easymotion -- even faster vim-motions {{{2
-Bundle 'Lokaltog/vim-easymotion'
+Plugin 'Lokaltog/vim-easymotion'
 "" Use , as its leader key
 let g:EasyMotion_leader_key = ','
 
@@ -578,7 +580,7 @@ for [key, value] in items(pairs)
 endfor
 
 " vim-signature -- manage and display marks {{{2
-Bundle 'kshenoy/vim-signature'
+Plugin 'kshenoy/vim-signature'
 
 "2}}}
 
@@ -684,12 +686,12 @@ nnoremap <silent> <leader><F12> :so $MYVIMRC<CR>
 " NAVIGATION & SEARCHING {{{1
 
 " ag.vim -- advanced searching inside files {{{2
-Bundle 'rking/ag.vim'
+Plugin 'rking/ag.vim'
 
 nnoremap <leader>a :Ag |" Dont strip space!
 
 " ctrlp.vim -- file navigation, searching and much more {{{2
-Bundle 'kien/ctrlp.vim'
+Plugin 'kien/ctrlp.vim'
 
 "" Key Settings
 let g:ctrlp_map = '<LEADER>e'
@@ -733,10 +735,10 @@ end
 
 
 " SearchComplete -- Tab completion for searching {{{2
-Bundle 'vim-scripts/SearchComplete'
+Plugin 'vim-scripts/SearchComplete'
 
 " vim-signify -- show changes in gutter {{{2
-Bundle 'mhinz/vim-signify'
+Plugin 'mhinz/vim-signify'
 
 let g:signify_vcs_list = ['git']
 let g:signify_mapping_next_hunk = ']h'
@@ -769,8 +771,8 @@ nnoremap N NzzzO
 " PROJECTS & TAGS {{{1
 
 " vim-easytags -- create tag files {{{2
-"Bundle 'xolox/vim-misc'
-"Bundle 'xolox/vim-easytags'
+"Plugin 'xolox/vim-misc'
+"Plugin 'xolox/vim-easytags'
 
 """ location of global file
 "let g:easytags_file = '~/.vim/tags'
@@ -783,7 +785,7 @@ nnoremap N NzzzO
 
 
 " tagbar -- show tag structure in side bar {{{2
-Bundle 'majutsushi/tagbar'
+Plugin 'majutsushi/tagbar'
 
 "" open/close similar to vim-unimpaired
 nnoremap <silent> cot :TagbarToggle<CR>
@@ -793,13 +795,13 @@ nnoremap <silent> ]ot :TagbarClose<CR>
 
 " TagmaTasks -- TODO list manager (disabled) {{{2
 "" replacement for vim-tasklist
-Bundle 'LStinson/TagmaTasks'
+Plugin 'LStinson/TagmaTasks'
 
 nmap <silent> coT <Plug>TagmaTasks
 
 
 " vim-fugitive -- git interface {{{2
-Bundle 'tpope/vim-fugitive'
+Plugin 'tpope/vim-fugitive'
 
 nnoremap <leader>GS :Gstatus<CR>
 nnoremap <leader>GW :Gwrite<CR>
@@ -823,7 +825,7 @@ autocmd filetype help nnoremap <buffer> <cr> <C-]>
 
 
 " LaTeXBox {{{2
-Bundle 'LaTeX-Box-Team/LaTeX-Box'
+Plugin 'LaTeX-Box-Team/LaTeX-Box'
 
 "" Use background-contious compilation
 let g:LatexBox_latexmk_options = "-pdflatex='pdflatex -synctex=1 \%O \%S'"
@@ -847,7 +849,7 @@ let g:LatexBox_ignore_warnings = [
 
 " PYTHON {{{2
 " python-mode -- the name says it all
-Bundle 'klen/python-mode'
+Plugin 'klen/python-mode'
 
 let g:pymode_breakpoint_cmd = "import ipdb; ipdb.set_trace()  # XXX BREAKPOINT"
 
@@ -896,7 +898,7 @@ let g:pymode_syntax_slow_sync = 0
 
 
 " jedi.vim -- python completion and more
-Bundle 'davidhalter/jedi-vim'
+Plugin 'davidhalter/jedi-vim'
 
 "" Disable autocompletion key since we use YCM
 let g:jedi#completions_command = ""
@@ -928,28 +930,28 @@ let g:jedi#auto_vim_configuration = 0
 
 
 " vim-ipython -- integration with ipython kernels
-Bundle 'ivanov/vim-ipython'
+Plugin 'ivanov/vim-ipython'
 
 nnoremap <F3> :call system('ipython qtconsole --pylab inline &')<CR>
 
 " HASKELL {{{2
 " vim2hs -- Haskell for vim
-Bundle 'dag/vim2hs'
+Plugin 'dag/vim2hs'
 
 let g:haskell_conceal = 0
 " neco-ghc -- omni completion for Haskell
 "" Requires ghc-mod
-Bundle 'eagletmt/neco-ghc'
+Plugin 'eagletmt/neco-ghc'
 let g:necoghc_enable_detailed_browse = 1
 
 " julia-vim -- syntax & co for julia {{{2
-Bundle 'JuliaLang/julia-vim'
+Plugin 'JuliaLang/julia-vim'
 
 " MatchTagAlways -- Visual marking of HTML/XML/... tags {{{2
-Bundle 'Valloric/MatchTagAlways'
+Plugin 'Valloric/MatchTagAlways'
 
 " vim-dispatch -- asynchroneous building {{{2
-Bundle 'tpope/vim-dispatch'
+Plugin 'tpope/vim-dispatch'
 
 let g:dispatch_compilers = {
       \ 'python': 'python',
@@ -968,7 +970,7 @@ map <silent> <LEADER>M :Dispatch make<CR>
 
 
 " vim-fswitch -- Easily switch between header and cpp file
-Bundle 'derekwyatt/vim-fswitch'
+Plugin 'derekwyatt/vim-fswitch'
 
 "" Switch to the file and load it into the current window >
 nmap <silent> <Leader>oo :FSHere<cr>
@@ -998,10 +1000,10 @@ autocmd BufRead,BufNewFile *.pyx,*.pxd let b:fswitchlocs = 'rel:.'
 "" shortcut config in ftplugin/python.vim
 
 " vim-sparkup -- zen coding with html/xml {{{2
-Bundle 'tristen/vim-sparkup'
+Plugin 'tristen/vim-sparkup'
 
 " vim-markup -- syntax and matching for markdown {{{2
-Bundle 'plasticboy/vim-markdown'
+Plugin 'plasticboy/vim-markdown'
 
 "set a custom make target {{{2
 function! SetMake()
@@ -1013,14 +1015,14 @@ nnoremap <leader>sm :call SetMake()<CR>
 
 
 " closetag.vim -- close xml tags {{{2
-Bundle 'closetag.vim'
+Plugin 'closetag.vim'
 
 " vim-unstack -- nice representation of stack-traces{{{2
-Bundle 'mattboehm/vim-unstack'
+Plugin 'mattboehm/vim-unstack'
 
 " vim-makeshift -- switch makeprg
-Bundle 'johnsyweb/vim-makeshift'
-" Bundle 'dseuss/vim-makeshift'
+Plugin 'johnsyweb/vim-makeshift'
+" Plugin 'dseuss/vim-makeshift'
 let g:makeshift_on_startup = 1
 let g:makeshift_on_bufread = 1
 let g:makeshift_on_bufnewfile = 1
