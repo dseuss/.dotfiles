@@ -13,6 +13,7 @@ filetype off
 "" Load Vundle
 set rtp+=~/.vim/bundle/vundle/
 call vundle#rc()
+let g:vundle_default_git_proto = 'git'
 Plugin 'gmarik/vundle'
 
 "" Disable <c-s> for locking screen
