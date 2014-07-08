@@ -65,6 +65,7 @@ alias cleanlatex="sh -c 'rm --force *.aux *.fdb_latexmk *.fls *.log *.synctex.gz
 alias py="python2.7"
 alias conf="vim ~/.zshrc"
 alias nb="ipython notebook"
+alias ijulia="ipython notebook --profile julia"
 # alias pipupdate="pip#  freeze --local | grep -v '^\-e' | cut -d = -f 1  | xargs sudo pip install -U"
 # alias IHaskell="IHaskell --ipython=$(which ipython)"
 
