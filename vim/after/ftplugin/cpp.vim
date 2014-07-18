@@ -1,5 +1,3 @@
-nnoremap <leader>sd :FocusDispatch g++ % -g -o test; ./test<CR>
-
 let b:fswitchlocs='reg:/src/src'
 
 " CINDENT
@@ -8,9 +6,6 @@ set cindent
 set cinoptions+=g0
 "" Indent additional function parameters to "("
 set cino+=(0
-
-" ALIGN
-vnoremap <leader>a// :Align\/\/<CR>
 
 " Add highlighting for function definition in C++
 function! EnhanceCppSyntax()
