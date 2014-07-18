@@ -13,7 +13,7 @@ filetype off
 "" Load Vundle
 set rtp+=~/.vim/bundle/vundle/
 call vundle#rc()
-let g:vundle_default_git_proto = 'git'
+" let g:vundle_default_git_proto = 'git'
 Plugin 'gmarik/vundle'
 
 "" Disable <c-s> for locking screen
@@ -77,7 +77,8 @@ Plugin 'bling/vim-airline'
 let g:airline_powerline_fonts = 1
 "" Disable python-virtualenv plugin
 let g:airline#extensions#virtualenv#enabled = 0
-" let g:airline#extensions#tabline#enabled = 1
+"" Hide lineending type info
+let g:airline_section_y = ''
 
 nnoremap coa :AirlineToggle<CR>
 
@@ -278,6 +279,13 @@ Plugin 'junegunn/vim-easy-align'
 vmap <Enter> <Plug>(EasyAlign)
 " Start interactive EasyAlign for a motion/text object (e.g. <Leader>aip)
 nmap <Leader>a <Plug>(EasyAlign)
+
+let g:easy_align_delimiters = {
+\ '/': {
+\     'pattern':         '//\+\|/\*\|\*/',
+\     'delimiter_align': 'l',
+\     'ignore_groups':   ['!Comment'] }
+\ }
 
 
 " fill lines with certain character {{{2
@@ -550,7 +558,7 @@ inoremap <C-f> <C-x><C-f>
 inoremap <C-D> <C-K>
 
 "" Use shortened list of spell suggestions
-set spellsuggest=best,9
+set spellsuggest=fast,9
 
 " MOTIONS {{{1
 
@@ -738,22 +746,25 @@ end
 " SearchComplete -- Tab completion for searching {{{2
 Plugin 'vim-scripts/SearchComplete'
 
-" vim-signify -- show changes in gutter {{{2
-Plugin 'mhinz/vim-signify'
+" " vim-signify -- show changes in gutter {{{2
+" Plugin 'mhinz/vim-signify'
 
-let g:signify_vcs_list = ['git']
-let g:signify_mapping_next_hunk = ']h'
-let g:signify_mapping_prev_hunk = '[h'
-let g:signify_mapping_toggle = 'coS'
-let g:signify_mapping_toggle_highlight = '<space>h'
+" let g:signify_vcs_list = ['git']
+" let g:signify_mapping_next_hunk = ']h'
+" let g:signify_mapping_prev_hunk = '[h'
+" let g:signify_mapping_toggle = 'coS'
+" let g:signify_mapping_toggle_highlight = '<space>h'
 
-let g:signify_sign_add               = '+'
-let g:signify_sign_change            = '~'
-let g:signify_sign_delete            = '_'
-let g:signify_sign_delete_first_line = '‾'
+" let g:signify_sign_add               = '+'
+" let g:signify_sign_change            = '~'
+" let g:signify_sign_delete            = '_'
+" let g:signify_sign_delete_first_line = '‾'
 
-let g:signify_cursorhold_normal = 0
-let g:signify_cursorhold_insert = 0
+" let g:signify_cursorhold_normal = 0
+" let g:signify_cursorhold_insert = 0
+
+" vim-gitgutter -- show changes in gutter {{{2
+Plugin 'airblade/vim-gitgutter'
 
 "2}}}
 
