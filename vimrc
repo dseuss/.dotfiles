@@ -540,7 +540,7 @@ Plugin 'SirVer/ultisnips'
  let g:UltiSnipsJumpBackwardTrigger="<C-B>"
 
  "" set directories
- let g:UltiSnipsSnippetDirectories = ["UltiSnips"]
+ let g:UltiSnipsSnippetDirectories = ["ultisnippets"]
 
 let g:ultisnips_python_style = "sphinx"
 
