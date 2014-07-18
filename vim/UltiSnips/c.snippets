@@ -127,6 +127,12 @@ struct ${1:`!p snip.rv = (snip.basename or "name") + "_t"`} {
 };
 endsnippet
 
+snippet tst "typedef struct"
+typedef struct {
+	${0:/* data */}
+} ${1:`!p snip.rv = (snip.basename or "name") + "_t"`};
+endsnippet
+
 snippet ) "Parentheses" w
 )
 {
