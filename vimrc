@@ -91,6 +91,9 @@ Plugin 'mhinz/vim-startify'
 let g:startify_custom_header =
   \ map(split(system('fortune | cowsay'), '\n'), '"   ". v:val') + ['','']
 
+let g:startify_skiplist = [
+           \ 'COMMIT_EDITMSG',
+           \ ]
 "" session options -- dont save option
 set ssop-=options
 "2}}}
@@ -720,6 +723,7 @@ nnoremap <LEADER>~ :CtrlPRoot<CR>
 "" Disply window on bottom
 let g:ctrlp_match_window_bottom = 1
 let g:ctrlp_match_window_reversed = 1
+let g:ctrlp_reuse_window = 'startify'
 "" Ignore certain filetypes
 let g:ctrlp_custom_ignore = '\v\~$|\.(o|swp|pyc|wav|mp3|ogg|blend|idb|so|mod|aux|fls|blg|bbl)$|(^|[/\\])\.(hg|git|bzr)($|[/\\])|__init__\.py'
 "" Directory to start searching for files
