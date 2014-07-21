@@ -148,7 +148,7 @@ hi Visual                 cterm=NONE             ctermbg=67    ctermfg=16
 hi WarningMsg             cterm=NONE             ctermbg=234   ctermfg=208
 hi WildMenu               cterm=NONE             ctermbg=116   ctermfg=16
 
-hi Comment                cterm=ITALIC           ctermbg=bg    ctermfg=65
+hi Comment                cterm=italic           ctermbg=bg    ctermfg=65
 hi Boolean                cterm=NONE             ctermbg=bg    ctermfg=208
 hi String                 cterm=NONE             ctermbg=bg    ctermfg=101
 hi Identifier             cterm=NONE             ctermbg=bg    ctermfg=145
