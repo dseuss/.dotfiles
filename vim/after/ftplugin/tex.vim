@@ -31,11 +31,24 @@ let b:fillchar = '%'
 
 " Add some custom surround environments
 " see help surround-customizing
+" $
 let b:surround_36 = "$\r$"
-let b:surround_99 = "\\\1command: \1{\r}"
-let b:surround_101 = "\\begin{equation}\r\\label{eq\:\1label: \1}\n\\end{equation}"
-let b:surround_106 = "\\(\r\\)"
+" e
+let b:surround_101 = "\\left[ \r \\right]"
+" r
 let b:surround_114 = "\\[\r\\]"
+" c
+let b:surround_99 = "\\\1command: \1{\r}"
+" q
+let b:surround_113 = "\\begin{equation}\r\\label{eq\:\1label: \1}\n\\end{equation}"
+" j
+let b:surround_106 = "\\left( \r \\right)"
+" k
+let b:surround_107 = "\\(\r\\)"
+" d
+let b:surround_100 = "\\left\\\{ \r \\right\\\}"
+" f
+let b:surround_102 = "\\\{\r\\\}"
 
 function! LatexForwardSearch()
    execute "call system(\"okular --unique \'" . LatexBox_GetOutputFile() .
