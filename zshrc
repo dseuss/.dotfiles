@@ -51,7 +51,8 @@ unsetopt correct
 bindkey "" vi-change-whole-line
 
 # Disable <c-s> for stopping terminal
-stty -ixon
+stty stop undef
+stty start undef
 
 
 ## Personal aliases ###########################################################
