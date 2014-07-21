@@ -541,6 +541,7 @@ Plugin 'SirVer/ultisnips'
 
  "" set directories
  let g:UltiSnipsSnippetDirectories = ["ultisnippets"]
+ let g:UltiSnipsSnippetsDir = "~/.vim/ultisnippets/"
 
 let g:ultisnips_python_style = "sphinx"
 
