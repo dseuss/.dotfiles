@@ -1,21 +1,5 @@
 extends texmath
 
-###########################################################################
-#                             LATEX SNIPPETS                              #
-###########################################################################
-
-snippet ! r! "\\ref{}" r
-~\ref{$1}
-endsnippet
-
-snippet ! er! "\\ref{}" r
-~\eqref{eq:$1}
-endsnippet
-
-###########################################################################
-#                            TEXTMATE SNIPPETS                            #
-###########################################################################
-
 #################
 # GENERAL STUFF #
 #################
@@ -120,6 +104,26 @@ snippet subp "Subparagraph" b
 ${0}
 
 % subparagraph $2 (end)
+endsnippet
+
+######################
+#  REFERENCES, etc.  #
+######################
+
+snippet ! r! "\\ref{}" r
+~\ref{$1}
+endsnippet
+
+snippet ! er! "\\ref{}" r
+~\eqref{eq:$1}
+endsnippet
+
+snippet ! ci! "\\cite{}" r
+~\cite{$1}
+endsnippet
+
+snippet ! cite! "\\cite[]{}" r
+~\cite[$2]{$1}
 endsnippet
 
 ########################
