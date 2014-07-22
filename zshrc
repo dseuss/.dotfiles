@@ -75,7 +75,7 @@ alias ijulia="ipython notebook --profile julia"
 # Git aliases
 alias gs="git --no-pager status"
 alias ga="git add"
-alias gl="git --no-pager --no-merges lv -50"
+alias gl="git --no-pager lv -50 --no-merges"
 alias gll="git lg"
 alias gd="git difftool"
 alias gf="git fetch"
