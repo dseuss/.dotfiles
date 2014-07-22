@@ -1,7 +1,0 @@
-#!/bin/bash
-# Important! Add following line to /etc/modprobe.d/tp_smapi.conf:
-#    options thinkpad_ec force_io=1
-
-sudo modprobe tp-smapi
-echo 40 | sudo tee /sys/devices/platform/smapi/BAT0/start_charge_thresh
-echo 80 | sudo tee /sys/devices/platform/smapi/BAT0/stop_charge_thresh

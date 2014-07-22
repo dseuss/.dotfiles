@@ -57,9 +57,10 @@ stty start undef
 
 ## Personal aliases ###########################################################
 
+source ~/.dotfiles/commands.sh
+
 # Programming
 alias vi="/usr/local/bin/vim -u ~/.virc"
-alias vim="~/bin/vim_in_tmux"
 alias gvim="gvim --remote-silent"
 alias svi="sudo vi -u ~/.virc"
 alias latexmk="latexmk -pdf"
