@@ -59,6 +59,7 @@ stty start undef
 
 # Programming
 alias vi="/usr/local/bin/vim -u ~/.virc"
+alias vim="~/bin/vim_in_tmux"
 alias gvim="gvim --remote-silent"
 alias svi="sudo vi -u ~/.virc"
 alias latexmk="latexmk -pdf"
@@ -76,6 +77,8 @@ alias ga="git add"
 alias gl="git --no-pager --no-merges lv -50"
 alias gll="git lg"
 alias gd="git difftool"
+alias gf="git fetch"
+alias gv="git difftool ...FETCH_HEAD"
 
 # Network stuff
 #alias ssh="ssh -Y"
