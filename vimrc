@@ -102,7 +102,8 @@ set ssop-=options
 if &t_Co >= 256
   "" 256-color terminal
   "let g:airline_theme="powerlineish"
-  colorscheme zenburn
+  colorscheme apprentice
+  let g:airline_theme = 'zenburn'
 endif
 if has('gui_running')
   colorscheme solarized
