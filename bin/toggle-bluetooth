@@ -1,0 +1,11 @@
+#!/bin/bash
+
+STATUS=($(sudo rfkill list bluetooth | grep Soft | awk '{print $3}'))
+
+if [ $STATUS = 'yes' ]; then
+   sudo rfkill unblock bluetooth
+   notify-send 'Enabling bluetooth'
+else
+   sudo rfkill block bluetooth
+   notify-send 'Disabling bluetooth'
+fi

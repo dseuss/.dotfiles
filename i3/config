@@ -91,7 +91,7 @@ bindsym $mod+Shift+equal move container to workspace number 10
 
 # cycle between workspaces on same screen
 bindsym $mod+Tab workspace back_and_forth
-bindsym $mod+Shift+Tab workspace next_on_output
+bindsym $mod+Ctrl+Tab workspace next_on_output
 
 # reload the configuration file
 bindsym $mod+Shift+C reload
@@ -135,6 +135,7 @@ bindsym XF86Sleep exec sudo /usr/sbin/pm-suspend
 bindsym XF86Battery exec sudo /sbin/hdparm -Y /dev/disk/by-id/ata-HITACHI_HTS723216L9SA60_081218FC1223NPG7V38C
 bindsym XF86ScreenSaver exec /usr/bin/i3lock --color=000000
 bindsym XF86TouchpadToggle exec /home/dsuess/bin/toggle-touchpad
+bindsym XF86WebCam exec /home/dsuess/bin/toggle-bluetooth
 
 # Media keys for clementine
 bindsym XF86AudioPlay exec clementine -t
