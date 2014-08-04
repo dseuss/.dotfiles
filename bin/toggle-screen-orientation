@@ -1,0 +1,15 @@
+#!/bin/bash
+
+
+OLD_ORIENTATION=$(xrandr --query | grep LVDS1 | awk '{print $4}')
+echo $OLD_ORIENTATION
+case $OLD_ORIENTATION in
+   "right" ) NEW_ORIENTATION=inverted ;;
+   "inverted" ) NEW_ORIENTATION=left ;;
+   "left" ) NEW_ORIENTATION=normal ;;
+   * ) NEW_ORIENTATION=right
+esac
+
+echo $NEW_ORIENTATION
+xrandr --output LVDS1 --left-of DP1 --rotate $NEW_ORIENTATION --auto
+~/bin/set-wacom-orientation

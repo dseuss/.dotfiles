@@ -1,0 +1,24 @@
+#!/bin/bash
+
+DEVICES=$(xsetwacom --list | awk -F "  " '{print $1}')
+
+if [ -z "$1" ]
+then
+   SCREEN_ORIENTATION=$(xrandr --query | grep LVDS1 | awk '{print $4}')
+   echo SCREEN: $SCREEN_ORIENTATION
+   case $SCREEN_ORIENTATION in
+      "right" ) ORIENTATION=cw ;;
+      "left" ) ORIENTATION=ccw ;;
+      "inverted" ) ORIENTATION=half ;;
+      * ) ORIENTATION=none
+   esac
+else
+   ORIENTATION="$1"
+fi
+
+echo "$DEVICES" | while read dev; do
+   # Always bind to internal display
+   xsetwacom --set "$dev" MapToOutput LVDS1
+   # And set orientation according to paramter
+   xsetwacom --set "$dev" ROTATE $ORIENTATION
+done
