@@ -12,3 +12,7 @@ else
 fi
 
 xmodmap ~/.Xmodmap
+
+xsetwacom --set "Wacom ISDv4 90 Pen stylus" Button 1 "button +1"
+xsetwacom --set "Wacom ISDv4 90 Pen stylus" Button 2 "button +2"
+xsetwacom --set "Wacom ISDv4 90 Pen eraser" Button 1 "button +3"
