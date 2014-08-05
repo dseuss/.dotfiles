@@ -1,11 +1,15 @@
 #!/bin/bash
+# Sets up ALL wacom input devices to the orientation passed as argument.
+# Possible values: none,cw,ccw,half
+#
+# If no argument is passed, the orientation is set to the orientation of the
+# screen.
 
 DEVICES=$(xsetwacom --list | awk -F "  " '{print $1}')
 
 if [ -z "$1" ]
 then
    SCREEN_ORIENTATION=$(xrandr --query | grep LVDS1 | awk '{print $4}')
-   echo SCREEN: $SCREEN_ORIENTATION
    case $SCREEN_ORIENTATION in
       "right" ) ORIENTATION=cw ;;
       "left" ) ORIENTATION=ccw ;;

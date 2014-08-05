@@ -11,5 +11,5 @@ case $OLD_ORIENTATION in
 esac
 
 echo $NEW_ORIENTATION
-xrandr --output LVDS1 --left-of DP1 --rotate $NEW_ORIENTATION --auto
+xrandr --output LVDS1 --right-of DP1 --rotate $NEW_ORIENTATION --auto
 ~/bin/set-wacom-orientation
