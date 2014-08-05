@@ -136,6 +136,7 @@ bindsym XF86Battery exec sudo /sbin/hdparm -Y /dev/disk/by-id/ata-HITACHI_HTS723
 bindsym XF86ScreenSaver exec /usr/bin/i3lock --color=000000
 bindsym XF86TouchpadToggle exec /home/dsuess/bin/toggle-touchpad
 bindsym XF86WebCam exec /home/dsuess/bin/toggle-bluetooth
+bindsym XF86RotateWindows exec /home/dsuess/bin/toggle-screen-orientation
 
 # Media keys for clementine
 bindsym XF86AudioPlay exec clementine -t
@@ -149,6 +150,9 @@ bindsym $mod+F12 exec "gnome-terminal -x sh -c 'i3-msg floating enable; htop'"
 # our all beloved gvim...
 bindsym $mod+g exec gvim
 
+# Run Writer app
+bind 161 exec /opt/Write/Write
+
 ########################################################################### }}}
 # WINDOWS CLASSES # {{{
 ###############################################################################
@@ -161,6 +165,8 @@ new_window pixel 3
 for_window [class="Xfce4-notifyd"] floating enable; border none; focus mode_toggle
 ## Gnome do
 for_window [class="Do"] floating enable; border none; focus mode_toggle
+## Kupfer
+for_window [class="Kupfer.py"] floating enable; border none; focus mode_toggle
 ## Plot window
 for_window [class="Tk"] floating enable; border 2px; focus mode_toggle
 
@@ -176,6 +182,11 @@ for_window [instance="Msgcompose" class="Thunderbird"] floating enable; border 2
 
 ## xfce4-terminal
 for_window [class="Xfce4-terminal"] floating enable; border 2px; focus mode_toggle
+
+## Writer app, see http://www.styluslabs.com/
+for_window [class="Write"] fullscreen;
+assign [class="Write"] 10
+workspace 10 output LVDS1
 
 ########################################################################### }}}
 # APPERANCE & BEHAVIOR# {{{
@@ -215,7 +226,7 @@ bar {
 
 
 bar {
-        output VGA1
+        output DP1
         status_command i3status --conf ~/.i3/status
         mode hide
         position bottom
@@ -241,3 +252,4 @@ exec --no-startup-id nitrogen --restore
 #exec cd /home/dsuess/Documents/Notebooks/; /home/dsuess/bin/nbserver start
 exec /home/dsuess/bin/toggle-monitor position
 exec /usr/local/bin/firefox
+exec ~/.screenlayout/default.sh
