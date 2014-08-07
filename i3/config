@@ -183,8 +183,10 @@ for_window [instance="Msgcompose" class="Thunderbird"] floating enable; border 2
 ## xfce4-terminal
 for_window [class="Xfce4-terminal"] floating enable; border 2px; focus mode_toggle
 
+for_window [class="Spread0r.pl"] floating enable; border none; focus mode_toggle
+
 ## Writer app, see http://www.styluslabs.com/
-for_window [class="Write"] fullscreen;
+for_window [class="Write"] fullscreen
 assign [class="Write"] 10
 workspace 10 output LVDS1
 
@@ -212,6 +214,8 @@ hide_edge_borders horizontal
 
 # Font used
 font xft:Anonymous Pro for Powerline 10
+
+popup_during_fullscreen smart
 
 # Start in tabbed mode
 #workspace_layout tabbed

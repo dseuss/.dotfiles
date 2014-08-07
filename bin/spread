@@ -1,0 +1,10 @@
+#!/bin/bash
+
+OUTFILE=$(mktemp)
+SPREADDIR=~/.local/src/spread0r
+DEFAULTSPEED=550
+
+xsel -p -o > $OUTFILE
+cd $SPREADDIR
+./spread0r.pl -w $DEFAULTSPEED $OUTFILE
+rm $OUTFILE
