@@ -153,6 +153,9 @@ bindsym $mod+g exec gvim
 # Run Writer app
 bind 161 exec /opt/Write/Write
 
+# Spead reading app
+bindsym $mod+p exec "bash -c ~/bin/spread"
+
 ########################################################################### }}}
 # WINDOWS CLASSES # {{{
 ###############################################################################
