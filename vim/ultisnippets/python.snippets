@@ -367,6 +367,14 @@ snip += tripple_quotes(snip) `
 endsnippet
 
 
+snippet defn "function without docstrings" b
+def ${1:function}(`!p
+if snip.indent:
+	snip.rv = 'self' + (", " if len(t[2]) else "")`${2:arg1}):
+	${0:pass}
+endsnippet
+
+
 # doesn't expand when there is a word in front
 snippet /(^|(?<=\W))\./ "self." r
 self.
