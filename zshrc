@@ -6,7 +6,7 @@ fi
 export PATH=/home/dsuess/bin:/home/dsuess/.local/src/gcc-4.9-32bit/bin/:$PATH
 export PATH=~/.cabal/bin:$PATH
 
-export PYTHONPATH=~/Documents/python:$PYTHONPATH
+export PYTHONPATH=~/Documents/pythonlibs:$PYTHONPATH
 
 emulate bash
 if [ -f /opt/intel/bin/compilervars.sh ]; then
