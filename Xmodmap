@@ -107,7 +107,8 @@ keycode 117 = Next              NoSymbol     Next              NoSymbol      Nex
 keycode 118 = Insert            NoSymbol     Insert            NoSymbol      Insert
 keycode 119 = Delete            NoSymbol     Delete            NoSymbol      Delete
 keycode 135 = Super_R
-
+keycode 166 = Prior
+keycode 167 = Next
 
 keycode  92 = ISO_Level3_Shift NoSymbol ISO_Level3_Shift NoSymbol ISO_Level3_Shift
 keycode 94 =  ISO_Group_Shift ISO_Group_Shift ISO_First_Group  NoSymbol
