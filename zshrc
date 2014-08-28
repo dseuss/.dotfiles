@@ -7,6 +7,7 @@ export PATH=/home/dsuess/bin:/home/dsuess/.local/src/gcc-4.9-32bit/bin/:$PATH
 export PATH=~/.cabal/bin:$PATH
 
 export PYTHONPATH=~/Documents/pythonlibs:$PYTHONPATH
+export PYTHONSTARTUP=~/.pythonrc
 
 emulate bash
 if [ -f /opt/intel/bin/compilervars.sh ]; then
@@ -68,6 +69,7 @@ alias cleanlatex="sh -c 'rm --force *.aux *.fdb_latexmk *.fls *.log *.synctex.gz
 alias py="python2.7"
 alias conf="vim ~/.zshrc"
 alias nb="ipython notebook"
+alias bpy="sh -c \"tmux new -d -s ipython; tmux new-window -t ipython 'ipython kernel'; bipython\""
 alias ijulia="ipython notebook --profile julia"
 # alias pipupdate="pip#  freeze --local | grep -v '^\-e' | cut -d = -f 1  | xargs sudo pip install -U"
 # alias IHaskell="IHaskell --ipython=$(which ipython)"
