@@ -3,6 +3,7 @@
    name = Daniel Suess
 [core]
    editor = /usr/local/bin/vim -u ~/.virc
+	excludesfile = /home/dsuess/.dotfiles/gitignore
 [init]
    templatedir = /home/dsuess/.git_template
 [push]
