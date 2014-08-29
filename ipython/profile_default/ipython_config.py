@@ -194,7 +194,7 @@ c.InteractiveShellApp.exec_lines = ['from __future__ import division']
 # c.TerminalInteractiveShell.screen_length = 0
 
 # Set the editor used by IPython (default to $EDITOR/vi/notepad).
-c.TerminalInteractiveShell.editor = '/usr/local/bin/vim'
+c.TerminalInteractiveShell.editor = '/usr/local/bin/gvim'
 
 # Deprecated, use PromptManager.justify
 # c.TerminalInteractiveShell.prompts_pad_left = True
