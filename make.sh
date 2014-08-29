@@ -38,5 +38,8 @@ for file in $files; do
     ln -s $dir/$file ~/.$file
 done
 
+# More stuff
+ln -s ~/.dotfiles/matplotlibrc ~/.config/matplotlib/matplotlibrc
+
 # set global git template dir
 git config --global init.templatedir ~/.git_template
