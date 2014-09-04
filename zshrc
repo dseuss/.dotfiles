@@ -69,7 +69,7 @@ alias cleanlatex="sh -c 'rm --force *.aux *.fdb_latexmk *.fls *.log *.synctex.gz
 alias py="python2.7"
 alias conf="vim ~/.zshrc"
 alias nb="ipython notebook"
-alias bpy="sh -c \"tmux new -d -s ipython; tmux new-window -t ipython 'ipython kernel'; bipython\""
+alias bpy="bpython"
 alias ijulia="ipython notebook --profile julia"
 # alias pipupdate="pip#  freeze --local | grep -v '^\-e' | cut -d = -f 1  | xargs sudo pip install -U"
 # alias IHaskell="IHaskell --ipython=$(which ipython)"
@@ -106,6 +106,7 @@ alias shutdown='sudo shutdown -h now'
 alias agi="sudo apt-get install"
 alias agd="sudo apt-get update"
 alias agg="sudo apt-get upgrade"
+alias agp="sudo apt-get purge"
 
 # Div. Application shortcuts
 alias hamster='hamster-cli'
