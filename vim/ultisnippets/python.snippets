@@ -363,7 +363,7 @@ style = get_style(snip)
 snip += format_return(style)
 snip.rv += '\n' + snip.mkline('', indent='')
 snip += tripple_quotes(snip) `
-	${0:pass}
+	${0:${VISUAL:pass}}
 endsnippet
 
 
@@ -371,7 +371,7 @@ snippet defn "function without docstrings" b
 def ${1:function}(`!p
 if snip.indent:
 	snip.rv = 'self' + (", " if len(t[2]) else "")`${2:arg1}):
-	${0:pass}
+	${0:${VISUAL:pass}}
 endsnippet
 
 
