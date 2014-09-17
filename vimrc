@@ -956,6 +956,9 @@ Plugin 'ivanov/vim-ipython'
 
 nnoremap <F3> :call system('ipython qtconsole --pylab inline &')<CR>
 
+" pytest-vim-compiler
+Plugin '5long/pytest-vim-compiler'
+
 " HASKELL {{{2
 " vim2hs -- Haskell for vim
 Plugin 'dag/vim2hs'
