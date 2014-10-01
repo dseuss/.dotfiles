@@ -565,7 +565,7 @@ inoremap <C-D> <C-K>
 "" Use shortened list of spell suggestions
 set spellsuggest=fast,9
 "" Quickly correct spelling mistakes by using first suggestion
-imap <c-s> <c-g>u<Esc>[s1z=`]a<c-g>u<Esc>ea
+imap <c-s> <c-g>u<Esc>[s1z=<c-o>a
 nmap <c-s> [s1z=<c-o>
 
 " MOTIONS {{{1
