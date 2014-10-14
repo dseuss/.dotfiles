@@ -115,3 +115,5 @@
 
 # # User changes
 source ~/.dotfiles/zsh/cabal.zsh
+export PYTHONPATH=~/Documents/pythonlibs:$PYTHONPATH
+export PYTHONSTARTUP=~/.pythonrc
