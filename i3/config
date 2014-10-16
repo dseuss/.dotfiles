@@ -189,7 +189,7 @@ for_window [class="Xfce4-terminal"] floating enable; border 2px; focus mode_togg
 for_window [class="Spread0r.pl"] floating enable; border none; focus mode_toggle
 
 ## Writer app, see http://www.styluslabs.com/
-for_window [class="Write"] fullscreen
+# for_window [id='0x3a0005b'] floating enable
 assign [class="Write"] 10
 workspace 10 output LVDS1
 
@@ -234,6 +234,14 @@ bar {
 
 bar {
         output DP1
+        status_command i3status --conf ~/.i3/status
+        mode hide
+        position bottom
+        # tray_output LVDS1
+}
+
+bar {
+        output VGA1
         status_command i3status --conf ~/.i3/status
         mode hide
         position bottom
