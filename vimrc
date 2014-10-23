@@ -21,6 +21,10 @@ nnoremap <c-s> <nop>
 vnoremap <c-s> <nop>
 inoremap <c-s> <nop>
 
+"" Enable (secure) local configuration
+set secure
+set exrc
+
 
 " KEY SETTINGS {{{1
 " vim-repeat -- repeat commands in tpope plugins{{{2
