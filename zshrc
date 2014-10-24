@@ -107,6 +107,7 @@ alias agi="sudo apt-get install"
 alias agd="sudo apt-get update"
 alias agg="sudo apt-get upgrade"
 alias agp="sudo apt-get purge"
+alias acs="apt-cache show"
 
 # Div. Application shortcuts
 alias hamster='hamster-cli'
