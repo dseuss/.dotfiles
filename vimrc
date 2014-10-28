@@ -1104,6 +1104,8 @@ autocmd BufRead,BufNewFile *.xmds compiler xmds2
 "" SCONS build files
 autocmd BufRead,BufNewFile SConstruct set filetype=python
 autocmd BufRead,BufNewFile SConscript set filetype=python
+"" jl -- Julia source files
+autocmd BufRead,BufNewFile *.jl set filetype=julia
 
 "2}}}
 
