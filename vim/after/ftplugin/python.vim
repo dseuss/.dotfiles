@@ -29,10 +29,12 @@ nnoremap <F2> :IPython<CR>
 vnoremap <F2> :IPython<CR>
 inoremap <F2> <esc>:IPython<CR>a
 " Sending using <leader>is
-nnoremap <buffer> <silent> <leader>ic :py if update_subchannel_msgs(force=True): echo("vim-ipython shell updated",'Operator')<CR>
+" nnoremap <buffer> <silent> <leader>ic :py if update_subchannel_msgs(force=True): echo("vim-ipython shell updated",'Operator')<CR>
 nnoremap <buffer> <silent> <leader>is :python dedent_run_this_line()<CR>
 vnoremap <buffer> <silent> <leader>is :python dedent_run_these_lines()<CR>
-nnoremap <buffer> <silent> <leader>ii <Plug>(IPython-RunFile)
+nnoremap <buffer> <silent> <leader>ii :python run_this_file()<CR>
+nnoremap <buffer> <silent> <leader>ic :python run_this_cell()<CR>
+
 
 nnoremap <buffer> <leader>ri :Dispatch ipython -i %<CR>
 
