@@ -87,7 +87,7 @@ alias gv="git difftool ...FETCH_HEAD"
 #alias ssh="ssh -Y"
 alias chromium-proxified="chromium-browser --proxy-server=\"socket5://localhost:8080\""
 alias mount-remote-home="sshfs -C dsuess@vesta:/home/dsuess /media/rhome/"
-alias ssh-keychain="eval \$(keychain --eval --agents ssh -Q --quiet id_rsa)"
+alias ssh='eval $(/usr/bin/keychain --eval --agents ssh -Q --quiet ~/.ssh/*_rsa) && ssh'
 
 # Science stuff
 alias qtconsole="ipython qtconsole --pylab inline"
