@@ -963,6 +963,10 @@ nnoremap <F3> :call system('ipython qtconsole --pylab inline &')<CR>
 " pytest-vim-compiler
 Plugin '5long/pytest-vim-compiler'
 
+" vim-isort -- sorting imports
+Plugin 'fisadev/vim-isort'
+let g:vim_isort_map = ''
+
 " HASKELL {{{2
 " vim2hs -- Haskell for vim
 Plugin 'dag/vim2hs'
