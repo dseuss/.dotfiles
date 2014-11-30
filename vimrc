@@ -371,7 +371,7 @@ Plugin 'scrooloose/syntastic'
 let g:syntastic_always_populate_loc_list=1
 
 "" Syntastics for python, only use flake8
-let g:syntastic_python_checkers=['flake8']
+let g:syntastic_python_checkers=['flake8', 'python']
 "" Ignore certain errors and check complexity
 let g:syntastic_python_flake8_post_args='--ignore=E127,E128,E226 --max-complexity 10'
 "" E127, E128 -- continuation line is over indented
