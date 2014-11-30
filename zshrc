@@ -7,7 +7,7 @@ export PATH=/home/dsuess/bin:/home/dsuess/.local/src/gcc-4.9-32bit/bin/:$PATH
 export PATH=~/.cabal/bin:$PATH
 
 export PYTHONPATH=~/Documents/pythonlibs:$PYTHONPATH
-export PYTHONSTARTUP=~/.pythonrc
+# export PYTHONSTARTUP=~/.pythonrc
 
 emulate bash
 if [ -f /opt/intel/bin/compilervars.sh ]; then
@@ -88,6 +88,7 @@ alias gv="git difftool ...FETCH_HEAD"
 alias chromium-proxified="chromium-browser --proxy-server=\"socket5://localhost:8080\""
 alias mount-remote-home="sshfs -C dsuess@vesta:/home/dsuess /media/rhome/"
 alias ssh='eval $(/usr/bin/keychain --eval --agents ssh -Q --quiet ~/.ssh/*_rsa) && TERM=xterm-256color ssh'
+alias scp='eval $(/usr/bin/keychain --eval --agents ssh -Q --quiet ~/.ssh/*_rsa) && TERM=xterm-256color scp'
 
 # Science stuff
 alias qtconsole="ipython qtconsole --pylab inline"
