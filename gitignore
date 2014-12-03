@@ -1,3 +1,17 @@
+## PYTHON
 *.pyc
-
 .ipynb_checkpoints
+
+## TEX
+*.tex
+*.aux
+*.bbl
+*.blg
+*.fdb_latexmk
+*.fls
+*.log
+*.out
+*.pdf
+*.pdfsync
+*.synctex.gz
+
