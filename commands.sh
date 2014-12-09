@@ -1,15 +1,16 @@
 vim() {
+   VIM=vim
    if [ -z "$TMUX" ]; then
       if [ -z "$1" ]; then
-         tmux new "/usr/local/bin/vim"
+         tmux new "${VIM}"
       else
-         tmux new "/usr/local/bin/vim $(printf ' %q' "$@")"
+         tmux new "${VIM} $(printf ' %q' "$@")"
       fi
    else
       if [ -z "$1" ]; then
-         /usr/local/bin/vim
+         "${VIM}"
       else
-         /usr/local/bin/vim $(printf ' %q' "$@")
+         "${VIM}" $(printf ' %q' "$@")
       fi
    fi
 }
