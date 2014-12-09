@@ -21,7 +21,8 @@ source ~/.dotfiles/zsh/cabal.zsh
 
 ## OH-MY-ZSH SPECIFIC STUFF ###################################################
 ZSH=$HOME/.oh-my-zsh
-ZSH_THEME="robbyrussell"
+ZSH_CUSTOM=$HOME/.dotfiles/my-zsh
+ZSH_THEME="customrobby"
 
 # Uncomment following line if you want to disable command autocorrection
 # DISABLE_CORRECTION="true"
