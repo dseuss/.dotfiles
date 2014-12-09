@@ -3,7 +3,7 @@ if [ "$TERM" = "xterm" ]; then
    export TERM=xterm-256color-italic
 fi
 
-export PATH=/home/dsuess/bin:/home/dsuess/.local/src/gcc-4.9-32bit/bin/:$PATH
+export PATH=~/bin:$PATH
 export PATH=~/.cabal/bin:$PATH
 
 export PYTHONPATH=~/Documents/pythonlibs:$PYTHONPATH
