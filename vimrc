@@ -871,7 +871,8 @@ let g:LatexBox_ignore_warnings = [
       \'Package natbib Warning',
       \'A float is stuck',
       \'Package hyperref Warning',
-      \'LaTeX Font Warning']
+      \'LaTeX Font Warning',
+      \'** WARNING: IEEEtran.bst: No hyphenation']
 
 " PYTHON {{{2
 " python-mode -- the name says it all
