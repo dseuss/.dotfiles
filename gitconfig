@@ -5,7 +5,7 @@
    editor = /usr/local/bin/vim -u ~/.virc
 	excludesfile = ~/.gitignore
 [init]
-   templatedir = /home/dsuess/.git_template
+   templatedir = ~/.git_template
 [push]
    default = simple
 [merge]
