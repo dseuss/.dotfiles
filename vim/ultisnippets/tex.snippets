@@ -9,14 +9,28 @@ snippet "b(egin)?" "begin{} / end{}" br
 \end{$1}
 endsnippet
 
-####################
-# TABULARS, ARRAYS #
-####################
+##############################
+#  TABULARS, ARRAYS, IMAGES  #
+##############################
+
 
 snippet tab
 \begin{${1:t}${1/(t)$|(a)$|(.*)/(?1:abular)(?2:rray)/}}{${2:c}}
 $0${2/((?<=.)c|l|r)|./(?1: & )/g}
 \end{$1${1/(t)$|(a)$|(.*)/(?1:abular)(?2:rray)/}}
+endsnippet
+
+
+snippet fig "Figure" b
+\begin{figure}[h]
+	\begin{center}
+		\includegraphics[width=\columnwidth]{${1:path_to_image}}
+	\end{center}
+	\caption{%
+		\label{fig:${2:image_label}}
+		${0}
+	}
+\end{figure}
 endsnippet
 
 ########################
