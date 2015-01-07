@@ -1,4 +1,4 @@
-vim() {
+vim_tmuxed() {
    VIM=vim
    if [ -z "$TMUX" ]; then
       if [ -z "$1" ]; then

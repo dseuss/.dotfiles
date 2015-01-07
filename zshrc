@@ -63,6 +63,7 @@ source ~/.dotfiles/commands.sh
 
 # Programming
 alias vi="/usr/local/bin/vim -u ~/.virc"
+alias vim="vim_tmuxed"
 alias gvim="gvim --remote-silent"
 alias svi="sudo vi -u ~/.virc"
 alias latexmk="latexmk -pdf"
@@ -87,7 +88,7 @@ alias gv="git difftool ...FETCH_HEAD"
 # Network stuff
 #alias ssh="ssh -Y"
 alias chromium-proxified="chromium-browser --proxy-server=\"socket5://localhost:8080\""
-alias mount-remote-home="sshfs -C dsuess@vesta:/home/dsuess /media/rhome/"
+alias mount-remote-home="sshfs -C work:/home/daniel /media/rhome/"
 alias ssh='eval $(/usr/bin/keychain --eval --agents ssh -Q --quiet ~/.ssh/*_rsa) && TERM=xterm-256color ssh'
 alias scp='eval $(/usr/bin/keychain --eval --agents ssh -Q --quiet ~/.ssh/*_rsa) && TERM=xterm-256color scp'
 
