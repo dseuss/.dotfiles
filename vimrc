@@ -872,7 +872,8 @@ let g:LatexBox_ignore_warnings = [
       \'A float is stuck',
       \'Package hyperref Warning',
       \'LaTeX Font Warning',
-      \'** WARNING: IEEEtran.bst: No hyphenation']
+      \'** WARNING: IEEEtran.bst: No hyphenation',
+      \'multiple pdfs with page group included in a single page']
 
 " PYTHON {{{2
 " python-mode -- the name says it all
@@ -983,6 +984,9 @@ Plugin 'JuliaLang/julia-vim'
 
 " MatchTagAlways -- Visual marking of HTML/XML/... tags {{{2
 Plugin 'Valloric/MatchTagAlways'
+
+" vim-fireplace -- Clojure needs you! {{{2
+Plugin 'tpope/vim-fireplace'
 
 " vim-dispatch -- asynchroneous building {{{2
 Plugin 'tpope/vim-dispatch'
