@@ -1,7 +1,0 @@
-[Desktop Entry]
-Type=Application
-Name=Zotero
-Icon=~/.icons/Zotero.jpg
-Exec=/opt/Zotero_linux-x86_64/run-zotero.sh
-Terminal=false
-StartupWMClass=Zotero

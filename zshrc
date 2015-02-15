@@ -1,22 +1,4 @@
-# Proper color support for vim
-if [ "$TERM" = "xterm" ]; then
-   export TERM=xterm-256color-italic
-fi
-
-export PATH=~/bin:$PATH
-export PATH=~/.cabal/bin:$PATH
-
-export PYTHONPATH=~/Documents/pythonlibs:$PYTHONPATH
-# export PYTHONSTARTUP=~/.pythonrc
-
-emulate bash
-if [ -f /opt/intel/bin/compilervars.sh ]; then
-   source /opt/intel/bin/compilervars.sh intel64
-fi
-emulate zsh
-
-# sandbox aware wrappers for ghc/ghci
-source ~/.dotfiles/zsh/cabal.zsh
+export PYTHONPATH=~/Code/pythonlibs:$PYTHONPATH
 
 
 ## OH-MY-ZSH SPECIFIC STUFF ###################################################
@@ -24,17 +6,12 @@ ZSH=$HOME/.oh-my-zsh
 ZSH_CUSTOM=$HOME/.dotfiles/my-zsh
 ZSH_THEME="customrobby"
 
-# Uncomment following line if you want to disable command autocorrection
-# DISABLE_CORRECTION="true"
-
-# Uncomment following line if you want red dots to be displayed while waiting for completion
+DISABLE_CORRECTION="false"
 COMPLETION_WAITING_DOTS="true"
-
-# Case sensetive completion
-CASE_SENSETIVE="true"
+CASE_SENSETIVE="false"
 
 # Load the oh-my-zsh plugins and settings
-plugins=(command-not-found pass git cabal pylint z lein)
+plugins=(command-not-found pass git z brew pip)
 source $ZSH/oh-my-zsh.sh
 
 
@@ -71,10 +48,6 @@ alias cleanlatex="sh -c 'rm --force *.aux *.fdb_latexmk *.fls *.log *.synctex.gz
 alias py="python2.7"
 alias conf="vim ~/.zshrc"
 alias nb="ipython notebook"
-alias bpy="bpython"
-alias ijulia="ipython notebook --profile julia"
-# alias pipupdate="pip#  freeze --local | grep -v '^\-e' | cut -d = -f 1  | xargs sudo pip install -U"
-# alias IHaskell="IHaskell --ipython=$(which ipython)"
 
 # Git aliases
 alias gs="git --no-pager status"
@@ -84,36 +57,19 @@ alias gll="git lg"
 alias gd="git difftool"
 alias gf="git fetch"
 alias gv="git difftool ...FETCH_HEAD"
-
-# Network stuff
-#alias ssh="ssh -Y"
-alias chromium-proxified="chromium-browser --proxy-server=\"socket5://localhost:8080\""
-alias mount-remote-home="sshfs -C work:/home/daniel /media/rhome/"
-alias ssh='eval $(/usr/bin/keychain --eval --agents ssh -Q --quiet ~/.ssh/*_rsa) && TERM=xterm-256color ssh'
-alias scp='eval $(/usr/bin/keychain --eval --agents ssh -Q --quiet ~/.ssh/*_rsa) && TERM=xterm-256color scp'
+alias gr="git rm"
 
 # Science stuff
 alias qtconsole="ipython qtconsole --pylab inline"
 alias notebook="ipython notebook --browser=\"/usr/bin/firefox\" --pylab inline "
 
 # Admin/Sudo-Stuff
-alias l.='ls -d .* --color=auto'    # Display hidden files
 alias tardir='tar -zcvf'
 alias untar='tar -zxvf'
 alias mkdir='mkdir -pv'             # Create parent dirs on demand
 alias ports='netstat -tulanp'
-alias reboot='sudo reboot'
-alias shutdown='sudo shutdown -h now'
-
-# Apt-get shortcuts
-alias agi="sudo apt-get install"
-alias agd="sudo apt-get update"
-alias agg="sudo apt-get upgrade"
-alias agp="sudo apt-get purge"
-alias acs="apt-cache show"
-
-# Div. Application shortcuts
-alias hamster='hamster-cli'
+alias du="du -h"
+alias df="df -h"
 
 # confirmation #
 alias mv='mv -i'

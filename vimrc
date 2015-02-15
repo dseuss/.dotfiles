@@ -78,7 +78,7 @@ Plugin 'bling/vim-airline'
 
 "" Theme is set below together with colorscheme
 "" Use powerline fonts
-let g:airline_powerline_fonts = 1
+let g:airline_powerline_fonts = 0
 "" Disable python-virtualenv plugin
 let g:airline#extensions#virtualenv#enabled = 0
 "" Hide lineending type info
@@ -453,7 +453,7 @@ set sidescrolloff=0
 set display+=lastline
 
 "" show hidden characters, but hide on default
-set listchars=trail:⋅,eol:¬,tab:▸\
+" set listchars=trail:⋅,eol:¬,tab:▸\
 set nolist
 
 "" use Q for formatting selection/paragraph
