@@ -42,7 +42,7 @@ set scrolloff=1
 set sidescrolloff=0
 set display+=lastline
 "" show hidden characters, but hide on default
-set listchars=trail:⋅,eol:¬,tab:▸\
+"" set listchars=trail:⋅,eol:¬,tab:▸\
 set list
 "" use Q for formatting selection/paragraph
 nnoremap Q gqap
