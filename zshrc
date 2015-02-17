@@ -1,4 +1,4 @@
-export PATH=~/Library/Miniconda3/bin:$PATH
+export PATH=~/Library/miniconda/bin:$PATH
 export PYTHONPATH=~/Code/pythonlibs:$PYTHONPATH
 
 
@@ -40,7 +40,7 @@ stty start undef
 source ~/.dotfiles/commands.sh
 
 # Programming
-alias vi="/usr/local/bin/vim -u ~/.virc"
+alias vi="vim -u ~/.virc"
 alias vim="vim_tmuxed"
 alias gvim="gvim --remote-silent"
 alias svi="sudo vi -u ~/.virc"
