@@ -2,7 +2,7 @@
    email = daniel.suess@web.de
    name = Daniel Suess
 [core]
-   editor = /usr/local/bin/vim -u ~/.virc
+   editor = vim -u ~/.virc
 	excludesfile = ~/.gitignore
 [init]
 	templatedir = /Users/dsuess/.git_template
