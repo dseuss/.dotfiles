@@ -1,3 +1,4 @@
+export PATH=~/Library/Miniconda3/bin:$PATH
 export PYTHONPATH=~/Code/pythonlibs:$PYTHONPATH
 
 
@@ -11,7 +12,7 @@ COMPLETION_WAITING_DOTS="true"
 CASE_SENSETIVE="false"
 
 # Load the oh-my-zsh plugins and settings
-plugins=(command-not-found pass git z brew pip)
+plugins=(command-not-found pass git z brew pip sublime zsh-syntax-highlighting)
 source $ZSH/oh-my-zsh.sh
 
 
@@ -70,6 +71,7 @@ alias mkdir='mkdir -pv'             # Create parent dirs on demand
 alias ports='netstat -tulanp'
 alias du="du -h"
 alias df="df -h"
+alias pip="echo Use conda!"
 
 # confirmation #
 alias mv='mv -i'
@@ -77,9 +79,9 @@ alias cp='cp -i'
 alias ln='ln -i'
 
 # Parenting changing perms on / #
-alias chown='chown --preserve-root'
-alias chmod='chmod --preserve-root'
-alias chgrp='chgrp --preserve-root'
+# alias chown='chown --reserve-root'
+# alias chmod='chmod --preserve-root'
+# alias chgrp='chgrp --preserve-root'
 
 # Printing
 alias print-ls='lpstat -p -d'
