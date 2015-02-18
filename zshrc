@@ -73,6 +73,7 @@ alias du="du -h"
 alias df="df -h"
 alias pip="echo Use conda!"
 alias f="find . | grep"
+alias ssh="TERM=${TERM%-italic} ssh"
 
 # confirmation #
 alias mv='mv -i'
