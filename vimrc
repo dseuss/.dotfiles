@@ -513,6 +513,9 @@ inoremap <silent><C-k> <C-R>=OmniPopup('k')<CR>
 " YouCompleteMe -- autocompletion & more {{{2
 Plugin 'Valloric/YouCompleteMe'
 
+" let g:ycm_path_to_python_interpreter = '/usr/local/bin/python2.7'
+let g:ycm_path_to_python_interpreter = '/Users/dsuess/.dotfiles/python_for_ycmd'
+
 "" Tab completion is run through SuperTab
 let g:ycm_key_list_select_completion = ['<S-TAB>', '<Down>']
 let g:ycm_key_list_previous_completion = ['<UP>']
@@ -527,7 +530,7 @@ let g:ycm_complete_in_comments = 1
 inoremap <expr><CR>  pumvisible() ? "\<CR>" : "\<CR>"
 
 "" use global clang config file
-let g:ycm_global_ycm_extra_conf = '/home/dsuess/.vim/.ycm_extra_conf.py'
+let g:ycm_global_ycm_extra_conf = '~/.vim/.ycm_extra_conf.py'
 "" always ask if it's save to run
 let g:ycm_confirm_extra_conf = 1
 
