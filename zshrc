@@ -5,7 +5,7 @@ export PYTHONPATH=~/Code/pythonlibs:$PYTHONPATH
 ## OH-MY-ZSH SPECIFIC STUFF ###################################################
 ZSH=$HOME/.oh-my-zsh
 ZSH_CUSTOM=$HOME/.dotfiles/my-zsh
-ZSH_THEME="customrobby"
+ZSH_THEME="mrtazz"
 
 DISABLE_CORRECTION="false"
 COMPLETION_WAITING_DOTS="true"
@@ -40,7 +40,7 @@ stty start undef
 source ~/.dotfiles/commands.sh
 
 # Programming
-alias vi="vim -u ~/.virc"
+alias vi="/Applications/MacVim.app/Contents/MacOS/Vim -u ~/.virc"
 alias vim="vim_tmuxed"
 alias gvim="gvim --remote-silent"
 alias svi="sudo vi -u ~/.virc"
@@ -72,6 +72,7 @@ alias ports='netstat -tulanp'
 alias du="du -h"
 alias df="df -h"
 alias pip="echo Use conda!"
+alias f="find . | grep"
 
 # confirmation #
 alias mv='mv -i'
