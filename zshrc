@@ -1,5 +1,6 @@
-export PATH=~/Library/miniconda/bin:$PATH
+export PATH=~/Library/miniconda/bin:~/bin/:$PATH
 export PYTHONPATH=~/Code/pythonlibs:$PYTHONPATH
+export EDITOR=vim
 
 
 ## OH-MY-ZSH SPECIFIC STUFF ###################################################
