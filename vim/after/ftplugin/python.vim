@@ -38,7 +38,7 @@ nnoremap <buffer> <silent> <leader>ic :python run_this_cell()<CR>
 
 nnoremap <buffer> <leader>ri :Dispatch ipython -i %<CR>
 
-nnoremap <buffer> <leader>df :FocusDispatch python %<CR>
+nnoremap <buffer> <leader>df :FocusDispatch py %<CR>
 
 " Dont let ipython do the completion
 let g:ipy_completefunc = 'none'
@@ -50,7 +50,7 @@ let b:fillchar = '#'
 inoremap # X#
 
 " Run current file with dispatch by default
-let b:dispatch = 'python %'
+let b:dispatch = 'py %'
 
 " Surround with block (i.e. if:, else:, ...)
 let b:surround_98 = "\1block: \1:\n\r"
