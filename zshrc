@@ -13,7 +13,7 @@ COMPLETION_WAITING_DOTS="true"
 CASE_SENSETIVE="false"
 
 # Load the oh-my-zsh plugins and settings
-plugins=(command-not-found pass git z brew pip sublime zsh-syntax-highlighting)
+plugins=(command-not-found pass git z brew pip sublime zsh-syntax-highlighting tmux)
 source $ZSH/oh-my-zsh.sh
 
 
@@ -47,7 +47,6 @@ alias gvim="gvim --remote-silent"
 alias svi="sudo vi -u ~/.virc"
 alias latexmk="latexmk -pdf"
 alias cleanlatex="sh -c 'rm --force *.aux *.fdb_latexmk *.fls *.log *.synctex.gz *.out *.toc *.bib.bak *.end *.bbl *.blg *.toc *.auxlock'"
-alias py="python2.7"
 alias conf="vim ~/.zshrc"
 alias nb="ipython notebook"
 

@@ -665,7 +665,7 @@ set foldopen=block,insert,jump,mark,percent,quickfix,search,tag,undo
 
 "" Use bash instead of default shell
 set shell=bash
-" set shellcmdflag=-ic
+set shellcmdflag=-ic
 
 "" show the keyboard command entered
 set showcmd
