@@ -48,7 +48,7 @@ alias svi="sudo vi -u ~/.virc"
 alias latexmk="latexmk -pdf"
 alias cleanlatex="sh -c 'rm *.aux *.fdb_latexmk *.fls *.log *.synctex.gz *.out *.toc *.bib.bak *.end *.bbl *.blg *.toc *.auxlock'"
 alias conf="vim ~/.zshrc"
-alias nb="ipython notebook"
+alias nb="tmux new -d -s ipython; tmux new-window -t ipython 'ipython notebook'"
 
 # Git aliases
 alias gs="git --no-pager status"
