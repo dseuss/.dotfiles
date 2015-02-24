@@ -98,7 +98,7 @@ c.NotebookApp.open_browser = True
 # If not specified, the default browser will be determined by the `webbrowser`
 # standard library module, which allows setting of the BROWSER environment
 # variable to override it.
-c.NotebookApp.browser = u'open -a Safari'
+# c.NotebookApp.browser = r'open\ -a\ Safari'
 
 #------------------------------------------------------------------------------
 # IPKernelApp configuration
