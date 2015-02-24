@@ -1,5 +1,5 @@
 export PATH=~/Library/miniconda/bin:~/bin/:$PATH
-export PYTHONPATH=~/Code/pythonlibs:$PYTHONPATH
+export PYTHONPATH=~/Code/Pythonlibs:$PYTHONPATH
 export EDITOR=vim
 
 
@@ -41,12 +41,12 @@ stty start undef
 source ~/.dotfiles/commands.sh
 
 # Programming
-alias vi="/Applications/MacVim.app/Contents/MacOS/Vim -u ~/.virc"
+alias vi="vim -u ~/.virc"
 alias vim="vim_tmuxed"
 alias gvim="gvim --remote-silent"
 alias svi="sudo vi -u ~/.virc"
 alias latexmk="latexmk -pdf"
-alias cleanlatex="sh -c 'rm --force *.aux *.fdb_latexmk *.fls *.log *.synctex.gz *.out *.toc *.bib.bak *.end *.bbl *.blg *.toc *.auxlock'"
+alias cleanlatex="sh -c 'rm *.aux *.fdb_latexmk *.fls *.log *.synctex.gz *.out *.toc *.bib.bak *.end *.bbl *.blg *.toc *.auxlock'"
 alias conf="vim ~/.zshrc"
 alias nb="ipython notebook"
 
@@ -71,7 +71,6 @@ alias mkdir='mkdir -pv'             # Create parent dirs on demand
 alias ports='netstat -tulanp'
 alias du="du -h"
 alias df="df -h"
-alias pip="echo Use conda!"
 alias f="find . | grep"
 alias ssh="TERM=${TERM%-italic} ssh"
 
