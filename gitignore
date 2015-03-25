@@ -3,7 +3,6 @@
 .ipynb_checkpoints
 
 ## TEX
-*.tex
 *.aux
 *.bbl
 *.blg
@@ -16,4 +15,3 @@
 *.synctex.gz
 *.bcf
 *.run.xml
-
