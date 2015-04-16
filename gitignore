@@ -1,3 +1,6 @@
+## SYSTEM
+.DS_STORE
+
 ## PYTHON
 *.pyc
 .ipynb_checkpoints

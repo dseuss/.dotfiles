@@ -104,7 +104,7 @@ c = get_config()
 
 # The font size. If unconfigured, Qt will be entrusted with the size of the
 # font.
-c.IPythonWidget.font_size = 11
+c.IPythonWidget.font_size = 13
 
 # Whether to draw information calltips on open-parentheses.
 # c.IPythonWidget.enable_calltips = True
