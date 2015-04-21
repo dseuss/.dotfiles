@@ -514,7 +514,7 @@ inoremap <silent><C-k> <C-R>=OmniPopup('k')<CR>
 Plugin 'Valloric/YouCompleteMe'
 
 " let g:ycm_path_to_python_interpreter = '/usr/local/bin/python2.7'
-let g:ycm_path_to_python_interpreter = '/Users/dsuess/.dotfiles/python_for_ycmd'
+" let g:ycm_path_to_python_interpreter = '/Users/dsuess/.dotfiles/python_for_ycmd'
 
 "" Tab completion is run through SuperTab
 let g:ycm_key_list_select_completion = ['<S-TAB>', '<Down>']

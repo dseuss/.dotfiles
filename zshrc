@@ -1,4 +1,4 @@
-export PATH=~/Library/miniconda/bin:~/bin/:$PATH
+export PATH=~/bin/:$PATH
 export PYTHONPATH=~/Code/Pythonlibs:$PYTHONPATH
 export EDITOR=vim
 
@@ -62,7 +62,7 @@ alias gr="git rm"
 
 # Science stuff
 alias qtconsole="ipython qtconsole --pylab inline"
-alias nb="tmux new -s ipython -d; tmux new-window -t ipython '~/Library/miniconda/bin/ipython notebook'"
+alias nb="tmux new -s ipython -d; tmux new-window -t ipython 'ipython notebook'"
 
 # Admin/Sudo-Stuff
 alias tardir='tar -zcvf'
