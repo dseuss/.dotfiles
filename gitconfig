@@ -6,8 +6,6 @@
 	excludesfile = ~/.gitignore
 [init]
    templatedir = ~/.git_template
-[push]
-   default = simple
 [merge]
    tool = vimdiff
 [difftool]
