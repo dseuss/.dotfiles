@@ -50,7 +50,7 @@ let b:fillchar = '#'
 inoremap # X#
 
 " Run current file with dispatch by default
-let b:dispatch = 'py %'
+let b:dispatch = 'python %'
 
 " Surround with block (i.e. if:, else:, ...)
 let b:surround_98 = "\1block: \1:\n\r"
