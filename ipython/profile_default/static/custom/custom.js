@@ -1,7 +1,7 @@
 $([IPython.events]).on('notebook_loaded.Notebook', function(){
-	$('div#header').hide()
-	$('div#maintoolbar').hide()
-	IPython.layout_manager.do_resize();
+   // $('div#header').hide()
+   $('div#maintoolbar').hide()
+   IPython.layout_manager.do_resize();
 
    require(['/static/custom/hide_input.js'])
    require(['/static/custom/hide_input_all.js'])
@@ -34,5 +34,5 @@ $([IPython.events]).on('notebook_loaded.Notebook', function(){
    ].join("\n"));
 
    // uncomment next line to *always* start in vimception
-   $('#vimception a').click();
+   // $('#vimception a').click();
 });

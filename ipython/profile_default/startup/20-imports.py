@@ -15,17 +15,4 @@ except ImportError:
 
 # Set figsize on the fly
 from IPython.core.pylabtools import figsize
-figsize(10, 4)
-
-# Use mpld3 to display interactive graphs
-# try:
-#     import mpld3
-#     mpld3.enable_notebook()
-# except ImportError:
-#     pass
-
-# my sweet little progress bar
-try:
-    from progressbar import Monitor
-except ImportError:
-    pass
+figsize(15, 5)
