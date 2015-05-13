@@ -49,7 +49,7 @@ c = get_config()
 # c.IPythonQtConsoleApp.sshkey = ''
 
 # Path to an extra config file to load.
-# 
+#
 # If specified, load this config file in addition to any other IPython config.
 # c.IPythonQtConsoleApp.extra_config_file = u''
 
@@ -72,7 +72,7 @@ c = get_config()
 # c.IPythonQtConsoleApp.profile = u'default'
 
 # JSON file in which to store connection info [default: kernel-<pid>.json]
-# 
+#
 # This file will contain the IP, ports, and authentication key needed to connect
 # clients to this kernel. By default, this file will be created in the security
 # dir of the current profile, but can be specified by absolute path.
@@ -106,7 +106,7 @@ c = get_config()
 # The Logging format template
 # c.IPythonQtConsoleApp.log_format = '[%(name)s]%(highlevel)s %(message)s'
 
-# 
+#
 # c.IPythonQtConsoleApp.transport = 'tcp'
 
 #------------------------------------------------------------------------------
@@ -119,7 +119,7 @@ c = get_config()
 # ConsoleWidget
 
 # The type of completer to use. Valid values are:
-# 
+#
 # 'plain'   : Show the available completion as a text list
 #             Below the editing area.
 # 'droplist': Show the completion in a drop down list navigable
@@ -142,16 +142,16 @@ c = get_config()
 # with `vsplit` paging)
 # c.IPythonWidget.height = 25
 
-# 
+#
 # c.IPythonWidget.out_prompt = 'Out[<span class="out-prompt-number">%i</span>]: '
 
-# 
+#
 # c.IPythonWidget.input_sep = '\n'
 
 # Whether to draw information calltips on open-parentheses.
 # c.IPythonWidget.enable_calltips = True
 
-# 
+#
 # c.IPythonWidget.in_prompt = 'In [<span class="in-prompt-number">%i</span>]: '
 
 # The width of the console at start time in number of characters (will double
@@ -169,18 +169,18 @@ c = get_config()
 
 # Whether to include output from clients other than this one sharing the same
 # kernel.
-# 
+#
 # Outputs are not displayed until enter is pressed.
 # c.IPythonWidget.include_other_output = False
 
 # The pygments lexer class to use.
 # c.IPythonWidget.lexer_class = <IPython.utils.traitlets.Undefined object at 0x10cc21250>
 
-# 
+#
 # c.IPythonWidget.output_sep2 = ''
 
 # Whether to automatically execute on syntactically complete input.
-# 
+#
 # If False, Shift-Enter is required to submit each execution. Disabling this is
 # mainly useful for non-Python kernels, where the completion check would be
 # wrong.
@@ -190,10 +190,10 @@ c = get_config()
 # positive number disables text truncation (not recommended).
 # c.IPythonWidget.buffer_size = 500
 
-# 
+#
 # c.IPythonWidget.history_lock = False
 
-# 
+#
 # c.IPythonWidget.banner = u''
 
 # The type of underlying text widget to use. Valid values are 'plain', which
@@ -218,10 +218,10 @@ c = get_config()
 # The font family to use for the console. On OSX this defaults to Monaco, on
 # Windows the default is Consolas with fallback of Courier, and on other
 # platforms the default is Monospace.
-# c.IPythonWidget.font_family = u''
+c.IPythonWidget.font_family = u'Anonymous Pro'
 
 # The type of paging to use. Valid values are:
-# 
+#
 # 'inside'
 #    The widget pages like a traditional terminal.
 # 'hsplit'
@@ -236,7 +236,7 @@ c = get_config()
 #    The text is written directly to the console.
 # c.IPythonWidget.paging = 'inside'
 
-# 
+#
 # c.IPythonWidget.output_sep = ''
 
 #------------------------------------------------------------------------------
@@ -244,13 +244,13 @@ c = get_config()
 #------------------------------------------------------------------------------
 
 # Manages a single kernel in a subprocess on this host.
-# 
+#
 # This version starts kernels with Popen.
 
 # KernelManager will inherit config from: ConnectionFileMixin
 
 # DEPRECATED: Use kernel_name instead.
-# 
+#
 # The Popen Command to launch the kernel. Override this if you have a custom
 # kernel. If kernel_cmd is specified in a configuration file, IPython does not
 # pass any arguments to the kernel, because it cannot make any assumptions about
@@ -271,7 +271,7 @@ c = get_config()
 # c.KernelManager.ip = u''
 
 # JSON file in which to store connection info [default: kernel-<pid>.json]
-# 
+#
 # This file will contain the IP, ports, and authentication key needed to connect
 # clients to this kernel. By default, this file will be created in the security
 # dir of the current profile, but can be specified by absolute path.
@@ -286,7 +286,7 @@ c = get_config()
 # set the shell (ROUTER) port [default: random]
 # c.KernelManager.shell_port = 0
 
-# 
+#
 # c.KernelManager.transport = 'tcp'
 
 # set the iopub (PUB) port [default: random]
@@ -297,10 +297,10 @@ c = get_config()
 #------------------------------------------------------------------------------
 
 # An object to manage the profile directory and its resources.
-# 
+#
 # The profile directory is used by all IPython applications, to manage
 # configuration, logging and security.
-# 
+#
 # This object knows how to find, create and manage these directories. This
 # should be used by any code that wants to handle profiles.
 
@@ -313,27 +313,27 @@ c = get_config()
 #------------------------------------------------------------------------------
 
 # Object for handling serialization and sending of messages.
-# 
+#
 # The Session object handles building messages and sending them with ZMQ sockets
 # or ZMQStream objects.  Objects can communicate with each other over the
 # network via Session objects, and only need to work with the dict-based IPython
 # message spec. The Session will handle serialization/deserialization, security,
 # and metadata.
-# 
+#
 # Sessions support configurable serialization via packer/unpacker traits, and
 # signing with HMAC digests via the key/keyfile traits.
-# 
+#
 # Parameters ----------
-# 
+#
 # debug : bool
 #     whether to trigger extra debugging statements
 # packer/unpacker : str : 'json', 'pickle' or import_string
 #     importstrings for methods to serialize message parts.  If just
 #     'json' or 'pickle', predefined JSON and pickle packers will be used.
 #     Otherwise, the entire importstring must be used.
-# 
+#
 #     The functions must accept at least valid JSON input, and output *bytes*.
-# 
+#
 #     For example, to use msgpack:
 #     packer = 'msgpack.packb', unpacker='msgpack.unpackb'
 # pack/unpack : callables
@@ -364,7 +364,7 @@ c = get_config()
 # c.Session.packer = 'json'
 
 # The maximum number of digests to remember.
-# 
+#
 # The digest history will be culled when it exceeds this value.
 # c.Session.digest_history_size = 65536
 
