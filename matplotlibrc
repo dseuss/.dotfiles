@@ -1,4 +1,3 @@
-# NOTE: Link as ~/.config/matplotlib/matplotlibrc
 ### MATPLOTLIBRC FORMAT
 
 # This is a sample matplotlib configuration file - you can find a copy
@@ -300,8 +299,8 @@ legend.fancybox      : True  # if True, use a rounded box for the
 
 ### FIGURE
 # See http://matplotlib.org/api/figure_api.html#matplotlib.figure.Figure
-figure.figsize   : 11, 8    # figure size in inches
-figure.dpi       : 100     # figure dots per inch
+figure.figsize   : 15, 5    # figure size in inches
+figure.dpi       : 400     # figure dots per inch
 #figure.facecolor : 0.75    # figure facecolor; 0.75 is scalar gray
 #figure.edgecolor : white   # figure edgecolor
 #figure.autolayout : False  # When True, automatically adjust subplot
@@ -319,7 +318,7 @@ figure.dpi       : 100     # figure dots per inch
 ### IMAGES
 #image.aspect : equal             # equal | auto | a number
 #image.interpolation  : bilinear  # see help(imshow) for options
-image.cmap   : gray               # gray | jet etc...
+#image.cmap   : jet               # gray | jet etc...
 #image.lut    : 256               # the size of the colormap lookup table
 #image.origin : upper             # lower | upper
 #image.resample  : False
