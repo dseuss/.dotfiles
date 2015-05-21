@@ -65,6 +65,7 @@ alias gr="git rm"
 # Science stuff
 alias qtconsole="ipython qtconsole --pylab inline"
 alias nb="tmux new -s ipython -d; tmux new-window -t ipython 'ipython notebook'"
+alias evalnb="ipython nbconvert --to=html --ExecutePreprocessor.enabled=True"
 
 # Admin/Sudo-Stuff
 alias tardir='tar -zcvf'
