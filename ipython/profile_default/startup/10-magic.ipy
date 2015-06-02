@@ -1,3 +1,7 @@
+import IPython
 %load_ext autoreload
-%pylab inline
-%config InlineBackend.figure_format = 'retina'
+try:
+   %matplotlib inline
+   %config InlineBackend.figure_format = 'retina'
+except IPython.core.error.UsageError:
+   pass

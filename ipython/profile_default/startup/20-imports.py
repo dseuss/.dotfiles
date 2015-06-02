@@ -15,8 +15,9 @@ except ImportError:
 
 try:
     import seaborn as sns
-except ImportError:
     sns.set_style('darkgrid')
+except ImportError:
+    pass
 
 # Set figsize on the fly
 from IPython.core.pylabtools import figsize
