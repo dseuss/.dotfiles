@@ -53,6 +53,7 @@ alias cleanlatex="sh -c 'rm *.aux *.fdb_latexmk *.fls *.log *.synctex.gz *.out *
 alias conf="vim ~/.zshrc"
 # alias nb="tmux new -d -s ipython; tmux new-window -t ipython 'ipython notebook'"
 alias pip-upgrade="pip install --upgrade"
+alias pip-upgrade-all="pip freeze --local | grep -v '^\-e' | cut -d = -f 1  | xargs -n1 pip install -U"
 
 # Git aliases
 alias gs="git --no-pager status"
