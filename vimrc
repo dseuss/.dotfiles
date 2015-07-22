@@ -255,6 +255,7 @@ endfunction
 
 "" Set quickfixwindow height to fit the number of errors, but 15 max, 3 min
 autocmd FileType qf call AdjustWindowHeight(3, 15)
+autocmd FileType qf set nowrap nolinebreak colorcolumn=0
 "" ..and open on bottom of screen
 autocmd FileType qf wincmd J
 
