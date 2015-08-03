@@ -539,7 +539,9 @@ let g:ycm_confirm_extra_conf = 1
 let g:ycm_semantic_triggers =  {
       \   'tex' : ['cite{'],
       \   'haskell': ['.'],
-      \   'cython': ['.']
+      \   'cython': ['.'],
+      \   'html': ['.'],
+      \   'javascript': ['.']
       \ }
 
 
@@ -986,6 +988,9 @@ let g:necoghc_enable_detailed_browse = 1
 " julia-vim -- syntax & co for julia {{{2
 Plugin 'JuliaLang/julia-vim'
 
+" tern_for_vim -- JavaScript code completion
+Plugin 'marijnh/tern_for_vim'
+
 " MatchTagAlways -- Visual marking of HTML/XML/... tags {{{2
 Plugin 'Valloric/MatchTagAlways'
 
@@ -1069,11 +1074,15 @@ let g:makeshift_on_startup = 1
 let g:makeshift_on_bufread = 1
 let g:makeshift_on_bufnewfile = 1
 let g:makeshift_on_bufenter = 1
-let g:makeshift_chdir = 1
+let g:makeshift_chdir = 0
 
 let g:makeshift_systems = {
     \'Main.hs': 'source ~/.dotfiles/zsh/cabal.zsh;runhaskell Main.hs',
     \}
+
+" vim-rooter -- switch pwd smarter
+Plugin 'airblade/vim-rooter'
+
 
 "2}}}
 
