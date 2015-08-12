@@ -3,7 +3,9 @@ sys.path.append('/home/dsuess/Documents/python')
 del sys
 # Start scipy libaries
 import numpy as np
+import numpy.random as rd
 import matplotlib.pyplot as pl
+
 pl.style.use('ggplot')
 
 # Set figsize on the fly
