@@ -112,7 +112,7 @@ endif
 if has('gui_running')
   colorscheme solarized
   set background=light
-  set guifont=Anonymous\ Pro\ for\ Powerline\ 11
+  set guifont=Anonymous\ Pro\ for\ Powerline\ 12
 endif
 
 "" show cursorline
@@ -578,6 +578,9 @@ set spellsuggest=fast,9
 imap <c-s> <c-g>u<Esc>[s1z=<c-o>a
 nmap <c-s> [s1z=<c-o>
 
+"" select the last changed block
+nnoremap <expr> gp '`[' . strpart(getregtype(), 0, 1) . '`]'
+
 " MOTIONS {{{1
 
 " matchit -- extended % matching {{{2
@@ -885,8 +888,6 @@ let g:LatexBox_ignore_warnings = [
 " python-mode -- the name says it all
 Plugin 'klen/python-mode'
 
-let g:pymode_breakpoint_cmd = "import ipdb; ipdb.set_trace()  # XXX BREAKPOINT"
-
 "" Disable all unused stuff
 let g:pymode_doc = 0
 let g:pymode_lint = 0
@@ -901,6 +902,7 @@ let g:pymode_run_bind = '<leader>rr'
 
 "" Breakpoint support
 let g:pymode_breakpoint = 1
+let g:pymode_breakpoint_cmd = 'import pdb; pdb.set_trace()  # XXX Breakpoint'
 let g:pymode_breakpoint_bind = '<leader>rb'
 
 "" Refactoring stuff
