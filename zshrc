@@ -93,3 +93,4 @@ alias ln='ln -i'
 
 # Printing
 alias print-ls='lpstat -p -d'
+alias clipboard='pbcopy'
