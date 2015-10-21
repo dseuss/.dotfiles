@@ -165,7 +165,7 @@ c = get_config()
 
 # If not empty, use this Pygments style for syntax highlighting. Otherwise, the
 # style sheet is queried for Pygments style information.
-# c.IPythonWidget.syntax_style = u''
+c.IPythonWidget.syntax_style = u'fruity'
 
 # Whether to include output from clients other than this one sharing the same
 # kernel.
