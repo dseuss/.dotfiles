@@ -25,3 +25,9 @@
 [github]
 	user = dseuss
 	token = 696699226924a36484ec6d211afe866350c4f910
+[filter "lfs"]
+	clean = git lfs clean %f
+	smudge = git lfs smudge %f
+	required = true
+[gui]
+	recentrepo = /Users/dsuess/Code/mp numerics
