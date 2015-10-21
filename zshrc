@@ -48,8 +48,7 @@ alias vi="vim -u ~/.virc"
 alias vim="vim_tmuxed"
 alias gvim="gvim --remote-silent"
 alias svi="sudo vi -u ~/.virc"
-alias latexmk="latexmk -pdf"
-alias cleanlatex="sh -c 'rm *.aux *.fdb_latexmk *.fls *.log *.synctex.gz *.out *.toc *.bib.bak *.end *.bbl *.blg *.toc *.auxlock'"
+alias cleanlatex="sh -c 'rm *.aux *.fdb_latexmk *.fls *.log *.synctex.gz *.out *.toc *.bib.bak *.end *.bbl *.blg *.toc *.auxlock *.table *.gnuplot'"
 alias conf="vim ~/.zshrc"
 # alias nb="tmux new -d -s ipython; tmux new-window -t ipython 'ipython notebook'"
 alias pip-upgrade="pip install --upgrade"
@@ -69,6 +68,7 @@ alias gr="git rm"
 # Science stuff
 alias qtconsole="ipython qtconsole --pylab inline"
 alias nb="tmux new -s ipython -d; tmux new-window -t ipython 'ipython notebook'"
+alias nb-kernels="tmux new -s ipython -d; tmux new-window -t ipython 'ipcluster start'"
 alias evalnb="ipython nbconvert --to html --ExecutePreprocessor.enabled=True"
 
 # Admin/Sudo-Stuff
