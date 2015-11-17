@@ -5,7 +5,7 @@
    editor = /usr/local/bin/vim -u ~/.virc
 	excludesfile = ~/.gitignore
 [init]
-   templatedir = ~/.git_template
+	templatedir = /home/dsuess/.git_template
 [merge]
    tool = vimdiff
 [difftool]

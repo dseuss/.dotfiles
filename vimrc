@@ -78,7 +78,7 @@ Plugin 'bling/vim-airline'
 
 "" Theme is set below together with colorscheme
 "" Use powerline fonts
-let g:airline_powerline_fonts = 1
+let g:airline_powerline_fonts = 0
 "" Disable python-virtualenv plugin
 let g:airline#extensions#virtualenv#enabled = 0
 "" Hide lineending type info
@@ -89,24 +89,12 @@ nnoremap coa :AirlineToggle<CR>
 " vim-colors-solarized -- solarized color scheme {{{2
 Plugin 'altercation/vim-colors-solarized'
 
-" vim-startify -- startup screen {{{2
-Plugin 'mhinz/vim-startify'
-
-let g:startify_custom_header =
-  \ map(split(system('fortune | cowsay'), '\n'), '"   ". v:val') + ['','']
-
-let g:startify_skiplist = [
-           \ 'COMMIT_EDITMSG',
-           \ ]
-"" session options -- dont save option
-set ssop-=options
-"2}}}
 
 "" Set colorscheme depending on terminal/gui-vim
 if &t_Co >= 256
   "" 256-color terminal
   "let g:airline_theme="powerlineish"
-  colorscheme apprentice
+  " colorscheme apprentice
   let g:airline_theme = 'zenburn'
 endif
 if has('gui_running')
@@ -430,7 +418,6 @@ set wrap
 "au FileType qf, set wrap
 "" linewraping respects indentation (requires breakindent patch)
 set showbreak=
-set breakindent
 
 "" use 79 colum textwidth and display "forbidden column"
 set textwidth=79
@@ -509,35 +496,6 @@ endfunction
 
 inoremap <silent><C-j> <C-R>=OmniPopup('j')<CR>
 inoremap <silent><C-k> <C-R>=OmniPopup('k')<CR>
-
-" YouCompleteMe -- autocompletion & more {{{2
-Plugin 'Valloric/YouCompleteMe'
-
-"" Tab completion is run through SuperTab
-let g:ycm_key_list_select_completion = ['<S-TAB>', '<Down>']
-let g:ycm_key_list_previous_completion = ['<UP>']
-nnoremap <leader>di :YcmShowDetailedDiagnostic<CR>
-
-"" Also use tag file entries
-let g:ycm_collect_identifiers_from_tags_files = 1
-
-"" Enable autocompletion in comments
-let g:ycm_complete_in_comments = 1
-"" Keep YCM from mapping to <CR>
-inoremap <expr><CR>  pumvisible() ? "\<CR>" : "\<CR>"
-
-"" use global clang config file
-let g:ycm_global_ycm_extra_conf = '/home/dsuess/.vim/.ycm_extra_conf.py'
-"" always ask if it's save to run
-let g:ycm_confirm_extra_conf = 1
-
-"" My own tex plugin
-let g:ycm_semantic_triggers =  {
-      \   'tex' : ['cite{'],
-      \   'haskell': ['.'],
-      \   'cython': ['.']
-      \ }
-
 
 " UltiSnips -- snippets {{{2
 Plugin 'SirVer/ultisnips'
@@ -731,7 +689,6 @@ nnoremap <LEADER>~ :CtrlPRoot<CR>
 "" Disply window on bottom
 let g:ctrlp_match_window_bottom = 1
 let g:ctrlp_match_window_reversed = 1
-let g:ctrlp_reuse_window = 'startify'
 "" Ignore certain filetypes
 let g:ctrlp_custom_ignore = '\v\~$|\.(o|swp|pyc|wav|mp3|ogg|blend|idb|so|mod|aux|fls|blg|bbl)$|(^|[/\\])\.(hg|git|bzr)($|[/\\])|__init__\.py'
 "" Directory to start searching for files
