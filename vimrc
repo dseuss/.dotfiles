@@ -94,7 +94,7 @@ Plugin 'altercation/vim-colors-solarized'
 if &t_Co >= 256
   "" 256-color terminal
   "let g:airline_theme="powerlineish"
-  " colorscheme apprentice
+  colorscheme apprentice
   let g:airline_theme = 'zenburn'
 endif
 if has('gui_running')
@@ -1072,6 +1072,8 @@ autocmd BufRead,BufNewFile SConstruct set filetype=python
 autocmd BufRead,BufNewFile SConscript set filetype=python
 "" jl -- Julia source files
 autocmd BufRead,BufNewFile *.jl set filetype=julia
+"" md -- Markdown
+autocmd BufRead,BufNewFile *.md set filetype=markdown
 
 "2}}}
 
