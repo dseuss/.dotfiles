@@ -497,24 +497,6 @@ endfunction
 inoremap <silent><C-j> <C-R>=OmniPopup('j')<CR>
 inoremap <silent><C-k> <C-R>=OmniPopup('k')<CR>
 
-" UltiSnips -- snippets {{{2
-Plugin 'SirVer/ultisnips'
-
-"" Next/Last snippet
- let g:UltiSnipsExpandTrigger="<tab>"
- let g:UltiSnipsJumpForwardTrigger="<tab>"
- let g:UltiSnipsJumpBackwardTrigger="<C-B>"
-
- "" set directories
- let g:UltiSnipsSnippetDirectories = ["ultisnippets"]
- let g:UltiSnipsSnippetsDir = "~/.vim/ultisnippets/"
-
-let g:ultisnips_python_style = "sphinx"
-
- "" from ftdetect/UltiSnips.vim
- autocmd FileType * call UltiSnips#FileTypeChanged()
- autocmd BufNewFile,BufRead *.snippets setf snippets
-"2}}}
 
 set completeopt=menuone,longest
 
