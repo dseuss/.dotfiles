@@ -9,7 +9,7 @@
 [push]
    default = simple
 [merge]
-   tool = vimdiff
+   tool = /usr/local/bin/vimdiff
 [difftool]
 	prompt = false
 [diff]
