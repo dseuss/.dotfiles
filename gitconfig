@@ -1,5 +1,5 @@
 [user]
-   email = daniel.suess@web.de
+   email = daniel@dsuess.me
    name = Daniel Suess
 [core]
    editor = vim -u ~/.virc
