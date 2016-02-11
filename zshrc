@@ -4,7 +4,7 @@ export PATH=~/bin/:$GOPATH/bin:$PATH
 export EDITOR=vim
 export LC_ALL=en_US.UTF-8
 export LANG=en_US.UTF-8
-
+export MOSEKLM_LICENSE_FILE=$HOME/Library/mosek/mosek.lic
 
 ## OH-MY-ZSH SPECIFIC STUFF ###################################################
 ZSH=$HOME/.oh-my-zsh
@@ -38,6 +38,8 @@ bindkey "" vi-change-whole-line
 stty stop undef
 stty start undef
 
+export ZSH_TMUX_AUTOCONNECT=false
+
 
 ## Personal aliases ###########################################################
 
@@ -56,7 +58,8 @@ alias pip-upgrade-all="pip freeze --local | grep -v '^\-e' | cut -d = -f 1  | xa
 alias pdb="python -m pdb"
 
 # Git aliases
-alias gs="git --no-pager status"
+alias gs="git status -s"
+alias gss="git --no-pager status"
 alias ga="git add"
 alias gl="git --no-pager lv -50 --no-merges"
 alias gll="git lg"
@@ -78,7 +81,8 @@ alias mkdir='mkdir -pv'             # Create parent dirs on demand
 alias ports='netstat -tulanp'
 alias du="du -h"
 alias df="df -h"
-alias f="find . | grep"
+alias fzf="fzf-tmux"
+alias f="fzf-tmux -m"
 alias ssh="TERM=${TERM%-italic} ssh"
 
 # confirmation #
@@ -94,3 +98,10 @@ alias ln='ln -i'
 # Printing
 alias print-ls='lpstat -p -d'
 alias clipboard='pbcopy'
+
+#############################
+#  Load the fzf extensions  #
+#############################
+
+source /usr/local/Cellar/fzf/0.11.1/shell/completion.zsh
+source /usr/local/Cellar/fzf/0.11.1/shell/key-bindings.zsh
