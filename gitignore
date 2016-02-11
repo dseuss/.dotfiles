@@ -18,3 +18,10 @@
 *.synctex.gz
 *.bcf
 *.run.xml
+*.brf
+*.toc
+*.tdo
+
+## EDITOR
+*.sublime-project
+*.sublime-workspace
