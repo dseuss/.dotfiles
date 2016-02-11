@@ -74,7 +74,8 @@ vnoremap qö q:
 " APPERANCE & BEHAVIOR {{{1
 
 " vim-airline -- pure vimscript replacement for powerline {{{2
-Plugin 'bling/vim-airline'
+Plugin 'vim-airline/vim-airline'
+Plugin 'vim-airline/vim-airline-themes'
 
 "" Theme is set below together with colorscheme
 "" Use powerline fonts
@@ -112,7 +113,7 @@ endif
 if has('gui_running')
   colorscheme solarized
   set background=light
-  set guifont=Anonymous\ Pro\ for\ Powerline\ 12
+  set guifont=Anonymous\ Pro:h13
 endif
 
 "" show cursorline
@@ -255,7 +256,7 @@ endfunction
 
 "" Set quickfixwindow height to fit the number of errors, but 15 max, 3 min
 autocmd FileType qf call AdjustWindowHeight(3, 15)
-autocmd FileType qf set nowrap nolinebreak colorcolumn=0
+"autocmd FileType qf set nowrap nolinebreak colorcolumn=0
 "" ..and open on bottom of screen
 autocmd FileType qf wincmd J
 
@@ -514,7 +515,8 @@ inoremap <silent><C-k> <C-R>=OmniPopup('k')<CR>
 " YouCompleteMe -- autocompletion & more {{{2
 Plugin 'Valloric/YouCompleteMe'
 
-" let g:ycm_path_to_python_interpreter = '/usr/local/bin/python2.7'
+let g:ycm_python_binary_path = '/Users/dsuess/Library/conda3/bin/python3.4'
+" let g:ycm_python_binary_path = '/usr/local/bin/python2.7'
 " let g:ycm_path_to_python_interpreter = '/Users/dsuess/.dotfiles/python_for_ycmd'
 
 "" Tab completion is run through SuperTab
@@ -863,10 +865,12 @@ autocmd filetype help nnoremap <buffer> <cr> <C-]>
 Plugin 'LaTeX-Box-Team/LaTeX-Box'
 
 "" Use background-contious compilation
+let g:LatexBox_latexmk_env = "PATH=$PATH:/Library/TeX/texbin/"
 let g:LatexBox_latexmk_options = "-pdflatex='pdflatex -synctex=1 \%O \%S'"
 let g:LatexBox_latexmk_async = 1
 let g:LatexBox_latexmk_preview_continuously = 1
-let g:LatexBox_viewer = 'okular\ --unique'
+" let g:LatexBox_viewer = 'open -a Skim'
+let g:Tex_ViewRule_pdf = 'Skim'
 "" Show errors in quickfix but dont loose focus
 "" !! NEEDS RECENT VERSION OF LATEXMK TO WORK PROPERLY WITH CONTINOUS MODE !!
 let g:LatexBox_quickfix = 2
