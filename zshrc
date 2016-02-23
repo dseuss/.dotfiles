@@ -1,6 +1,6 @@
 export PYTHONPATH=~/Code/Pythonlibs:$PYTHONPATH
 export GOPATH=~/Code/Go/
-export PATH=~/bin/:$GOPATH/bin:$PATH
+export PATH=~/bin/:$GOPATH/bin:~/.cabal/bin:$PATH
 export EDITOR=vim
 export LC_ALL=en_US.UTF-8
 export LANG=en_US.UTF-8
@@ -67,10 +67,11 @@ alias gd="git difftool"
 alias gf="git fetch"
 alias gv="git difftool ...FETCH_HEAD"
 alias gr="git rm"
+alias gcd="cd \$(git rev-parse --show-cdup)"
 
 # Science stuff
 alias qtconsole="ipython qtconsole --pylab inline"
-alias nb="tmux new -s ipython -d; tmux new-window -t ipython 'ipython notebook'"
+alias nb="tmux new -s ipython -d; tmux new-window -t ipython 'jupyter notebook'"
 alias nb-kernels="tmux new -s ipython -d; tmux new-window -t ipython 'ipcluster start'"
 alias evalnb="ipython nbconvert --to html --ExecutePreprocessor.enabled=True"
 
@@ -105,3 +106,5 @@ alias clipboard='pbcopy'
 
 source /usr/local/Cellar/fzf/0.11.1/shell/completion.zsh
 source /usr/local/Cellar/fzf/0.11.1/shell/key-bindings.zsh
+
+test -e "${HOME}/.iterm2_shell_integration.zsh" && source "${HOME}/.iterm2_shell_integration.zsh"
