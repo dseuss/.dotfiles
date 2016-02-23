@@ -9,7 +9,7 @@
 [push]
    default = simple
 [merge]
-   tool = /usr/local/bin/vimdiff
+   tool = vimdiff
 [difftool]
 	prompt = false
 [diff]
@@ -31,3 +31,5 @@
 	required = true
 [gui]
 	recentrepo = /Users/dsuess/Code/mp numerics
+[rerere]
+	enabled = true
