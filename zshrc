@@ -85,6 +85,7 @@ alias df="df -h"
 alias fzf="fzf-tmux"
 alias f="fzf-tmux -m"
 alias ssh="TERM=${TERM%-italic} ssh"
+alias brew='TERM=xterm-256color brew'
 
 # confirmation #
 alias mv='mv -i'
