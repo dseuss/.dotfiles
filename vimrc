@@ -74,7 +74,8 @@ vnoremap qö q:
 " APPERANCE & BEHAVIOR {{{1
 
 " vim-airline -- pure vimscript replacement for powerline {{{2
-Plugin 'bling/vim-airline'
+Plugin 'vim-airline/vim-airline'
+Plugin 'vim-airline/vim-airline-themes'
 
 "" Theme is set below together with colorscheme
 "" Use powerline fonts
