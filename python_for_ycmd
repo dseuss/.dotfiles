@@ -1,3 +1,0 @@
-#!/bin/sh
-export PYTHONHOME=/Users/dsuess/Library/miniconda
-/usr/local/bin/python2.7 "$@"
