@@ -22,3 +22,6 @@
 [submodule "vim/bundle/Vundle.vim"]
 	path = vim/bundle/Vundle.vim
 	url = https://github.com/VundleVim/Vundle.vim.git
+[submodule "tmux-scroll-copy-mode"]
+	path = tmux-scroll-copy-mode
+	url = https://github.com/nhdaly/tmux-scroll-copy-mode
