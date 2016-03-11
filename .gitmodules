@@ -7,12 +7,6 @@
 [submodule "xcape"]
 	path = xcape
 	url = https://github.com/alols/xcape
-[submodule "ipython/extensions/vimception"]
-	path = ipython/extensions/vimception
-	url = git://github.com/ivanov/ipython-vimception
-[submodule "ipython/nbextensions"]
-	path = ipython/nbextensions
-	url = https://github.com/ipython-contrib/IPython-notebook-extensions
 [submodule "my-zsh/plugins/zsh-syntax-highlighting"]
 	path = my-zsh/plugins/zsh-syntax-highlighting
 	url = git://github.com/zsh-users/zsh-syntax-highlighting.git
