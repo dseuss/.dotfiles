@@ -1,0 +1,15 @@
+{
+  "load_extensions": {
+    "nbextension-scratchpad/main": true, 
+    "usability/notify/notify": true, 
+    "livereveal/main": true, 
+    "usability/move_selected_cells/main": true, 
+    "config/config_menu/main": true, 
+    "usability/dragdrop/main": true, 
+    "usability/scratchpad/main": true, 
+    "usability/autosavetime/main": true, 
+    "usability/qtconsole/qtconsole": true, 
+    "usability/python-markdown/main": true
+  }, 
+  "autosavetime_set_starting_interval": true
+}
