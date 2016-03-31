@@ -86,6 +86,7 @@ alias fzf="fzf-tmux"
 alias f="fzf-tmux -m"
 alias ssh="TERM=${TERM%-italic} ssh"
 alias brew='TERM=xterm-256color brew'
+alias ff='open -a Finder ./'
 
 # confirmation #
 alias mv='mv -i'
