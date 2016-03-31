@@ -375,7 +375,7 @@ let g:syntastic_always_populate_loc_list=1
 "" Syntastics for python, only use flake8
 let g:syntastic_python_checkers=['flake8', 'python']
 "" Ignore certain errors and check complexity
-let g:syntastic_python_flake8_post_args='--ignore=E127,E128,E226 --max-complexity 10'
+let g:syntastic_python_flake8_post_args='--ignore=E127,E128,E226,E501 --max-complexity 10'
 "" E127, E128 -- continuation line is over indented
 "" E226 -- white space around operator (since x**2 looks way better then x ** 2)
 
