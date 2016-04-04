@@ -66,10 +66,10 @@ nnoremap <leader>tn :tabnext<CR>
 nnoremap <leader>tN :tabnew<CR>
 
 "" Quickly open the command window
-nnoremap ö :
-vnoremap ö :
-nnoremap qö q:
-vnoremap qö q:
+nnoremap ; :
+vnoremap ; :
+nnoremap q; q:
+vnoremap q; q:
 
 " APPERANCE & BEHAVIOR {{{1
 
