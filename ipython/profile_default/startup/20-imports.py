@@ -1,6 +1,7 @@
 import sys
 sys.path.append('/home/dsuess/Documents/python')
 del sys
+
 # Start scipy libaries
 import numpy as np
 import numpy.random as rd
