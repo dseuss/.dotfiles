@@ -1,6 +1,6 @@
 export PYTHONPATH=~/Code/Pythonlibs:$PYTHONPATH
 export GOPATH=~/Code/Go/
-export PATH=~/bin/:$GOPATH/bin:~/.cabal/bin:$PATH
+export PATH=~/bin/:$GOPATH/bin:~/.cabal/bin:~/Library/Miniconda3/bin:$PATH
 export EDITOR=vim
 export LC_ALL=en_US.UTF-8
 export LANG=en_US.UTF-8
@@ -106,7 +106,7 @@ alias clipboard='pbcopy'
 #  Load the fzf extensions  #
 #############################
 
-source /usr/local/Cellar/fzf/0.11.1/shell/completion.zsh
-source /usr/local/Cellar/fzf/0.11.1/shell/key-bindings.zsh
+source /usr/local/Cellar/fzf/0.11.4/shell/completion.zsh
+source /usr/local/Cellar/fzf/0.11.4/shell/key-bindings.zsh
 
 test -e "${HOME}/.iterm2_shell_integration.zsh" && source "${HOME}/.iterm2_shell_integration.zsh"
