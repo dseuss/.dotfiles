@@ -66,10 +66,10 @@ nnoremap <leader>tn :tabnext<CR>
 nnoremap <leader>tN :tabnew<CR>
 
 "" Quickly open the command window
-nnoremap ö :
-vnoremap ö :
-nnoremap qö q:
-vnoremap qö q:
+nnoremap ; :
+vnoremap ; :
+nnoremap q; q:
+vnoremap q; q:
 
 " APPERANCE & BEHAVIOR {{{1
 
@@ -616,12 +616,6 @@ Plugin 'kshenoy/vim-signature'
 
 "2}}}
 
-"" Simulate US keyboard layout for brackets
-map ü [
-map + ]
-
-"" And for jump-key
-map # '
 
 "" Scroll through paragraphs with J/K
 noremap K {
@@ -632,6 +626,9 @@ noremap gt <c-]>
 "" Forward/back one jump
 noremap [j <c-O>
 noremap ]j <c-I>
+
+"" Alternate file
+nnoremap § <c-^>
 
 "" Define "inside <space>" motion
 onoremap i<space> iW
