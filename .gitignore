@@ -13,3 +13,5 @@ bin/conda3
 bin/py.test-3
 bin/python3
 bin/python3.4
+
+*.bak
