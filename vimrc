@@ -130,7 +130,6 @@ set noshowmode
 syntax on
 
 "" Better performance
-set nottyfast
 set lazyredraw
 
 "" dont beep, please
@@ -959,6 +958,9 @@ let g:jedi#show_call_signatures = "0"
 "" Automatically setup vim-jedi
 let g:jedi#auto_initialization = 1
 let g:jedi#auto_vim_configuration = 0
+if has('python3')
+  let g:jedi#force_py_version = 3
+endif
 
 
 " vim-ipython -- integration with ipython kernels
