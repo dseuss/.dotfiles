@@ -664,7 +664,9 @@ set foldopen=block,insert,jump,mark,percent,quickfix,search,tag,undo
 
 "" Use bash instead of default shell
 set shell=bash
-set shellcmdflag=-ic
+if ! has('nvim')
+  set shellcmdflag=-ic
+endif
 
 "" show the keyboard command entered
 set showcmd
