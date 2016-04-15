@@ -13,9 +13,9 @@
 [submodule "realpath-osx"]
 	path = realpath-osx
 	url = https://github.com/harto/realpath-osx
-[submodule "vim/bundle/Vundle.vim"]
-	path = vim/bundle/Vundle.vim
-	url = https://github.com/VundleVim/Vundle.vim.git
 [submodule "tmux-scroll-copy-mode"]
 	path = tmux-scroll-copy-mode
 	url = https://github.com/nhdaly/tmux-scroll-copy-mode
+[submodule "conda-zsh-completion"]
+	path = conda-zsh-completion
+	url = https://github.com/esc/conda-zsh-completion.git

@@ -40,6 +40,10 @@ stty start undef
 
 export ZSH_TMUX_AUTOCONNECT=false
 
+# setup conda completion
+zstyle ':completion::complete:*' use-cache 1
+fpath+=$HOME/.dotfiles/conda-zsh-completion
+compinit conda
 
 ## Personal aliases ###########################################################
 
