@@ -52,7 +52,7 @@ source ~/.dotfiles/commands.sh
 # Programming
 alias vi="vim -u ~/.virc"
 alias vim="vim_tmuxed"
-alias gvim="gvim --remote-silent"
+alias nvim="nvim_tmuxed"
 alias svi="sudo vi -u ~/.virc"
 alias cleanlatex="sh -c 'rm *.aux *.fdb_latexmk *.fls *.log *.synctex.gz *.out *.toc *.bib.bak *.end *.bbl *.blg *.toc *.auxlock *.table *.gnuplot'"
 alias conf="vim ~/.zshrc"

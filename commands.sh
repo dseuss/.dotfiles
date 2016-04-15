@@ -15,6 +15,23 @@ vim_tmuxed() {
    fi
 }
 
+nvim_tmuxed() {
+   VIM=nvim
+   if [ -z "$TMUX" ]; then
+      if [ -z "$1" ]; then
+         tmux new "${VIM}"
+      else
+         tmux new "${VIM} $(printf ' %q' "$@")"
+      fi
+   else
+      if [ -z "$1" ]; then
+         "${VIM}"
+      else
+         "${VIM}" $(printf ' %q' "$@")
+      fi
+   fi
+}
+
 
 multissh() {
    # Based on http://linuxpixies.blogspot.jp/2011/06/tmux-copy-mode-and-how-to-control.html
