@@ -335,12 +335,12 @@ set rtp+=~/.vim/sbundle/Mark--Karkat/
 
 "" mark with §, clear with <leader>§
 if !hasmapto('<Plug>MarkSet', 'n')
-  nmap <unique> <silent> § <Plug>MarkSet
+  nmap <unique> <silent> <leader>§ <Plug>MarkSet
 endif
 if !hasmapto('<Plug>MarkSet', 'v')
-  vmap <unique> <silent> § <Plug>MarkSet
+  vmap <unique> <silent> <leader>§ <Plug>MarkSet
 endif
-nnoremap <silent> <leader>§ :MarkClear<CR>
+nnoremap <silent> <leader>± :MarkClear<CR>
 
 
 " nerd-comment -- insert/delete/modify comments {{{2
