@@ -77,7 +77,7 @@ alias gcd="cd \$(git rev-parse --show-cdup)"
 alias qtconsole="ipython qtconsole --pylab inline"
 alias nb="tmux new -s ipython -d; tmux new-window -t ipython 'jupyter notebook'"
 alias nb-kernels="tmux new -s ipython -d; tmux new-window -t ipython 'ipcluster start'"
-alias evalnb="ipython nbconvert --to html --ExecutePreprocessor.enabled=True"
+alias evalnb="jupyter nbconvert --to html --ExecutePreprocessor.enabled=True"
 
 # Admin/Sudo-Stuff
 alias tardir='tar -zcvf'
