@@ -540,6 +540,11 @@ let g:ycm_semantic_triggers =  {
       \   'javascript': ['.']
       \ }
 
+nnoremap <leader>yd :YcmCompleter GoToDefinition<CR>
+nnoremap <leader>yc :YcmCompleter GoToDeclaration<CR>
+nnoremap <leader>yg :YcmCompleter GoTo<CR>
+nnoremap <leader>yh :YcmCompleter GetDoc<CR>
+
 
 " UltiSnips -- snippets {{{2
 Plug 'SirVer/ultisnips'
@@ -928,41 +933,6 @@ let g:pymode_syntax_highlight_equal_operator = g:pymode_syntax_all
 let g:pymode_syntax_highlight_stars_operator = g:pymode_syntax_all
 let g:pymode_syntax_highlight_self = g:pymode_syntax_all
 let g:pymode_syntax_slow_sync = 0
-
-
-" jedi.vim -- python completion and more
-Plug 'davidhalter/jedi-vim'
-
-"" Disable autocompletion key since we use YCM
-let g:jedi#completions_command = ""
-"" Better use the tags-based goto
-let g:jedi#goto_assignments_command = "<leader>rg"
-"" ... since get_definition works alot better
-let g:jedi#goto_definitions_command = "<leader>rd"
-"" Show the documentation
-let g:jedi#documentation_command = "<leader>rh"
-
-"" Show everything in the same tab using windows
-let g:jedi#use_tabs_not_buffers = 0
-
-"" Neocomplete does all the hard lifting!
-let g:jedi#popup_on_dot = 0
-let g:jedi#popup_select_first = 0
-
-"" Simple refactoring
-let g:jedi#rename_command = "<leader>rn"
-"" Show similar commands
-let g:jedi#usages_command = "<leader>rs"
-
-"" Dont show the information in the preview window
-let g:jedi#show_call_signatures = "0"
-
-"" Automatically setup vim-jedi
-let g:jedi#auto_initialization = 1
-let g:jedi#auto_vim_configuration = 0
-if has('python3')
-  let g:jedi#force_py_version = 3
-endif
 
 
 " vim-ipython -- integration with ipython kernels
