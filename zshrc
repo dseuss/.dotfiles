@@ -1,10 +1,4 @@
-export PYTHONPATH=~/Code/Pythonlibs:$PYTHONPATH
-export GOPATH=~/Code/Go/
-export PATH=~/bin/:$GOPATH/bin:~/.cabal/bin:~/Library/Miniconda3/bin:$PATH
-export EDITOR=vim
-export LC_ALL=en_US.UTF-8
-export LANG=en_US.UTF-8
-export MOSEKLM_LICENSE_FILE=$HOME/Library/mosek/mosek.lic
+source ~/.dotfiles/vars.sh
 
 ## OH-MY-ZSH SPECIFIC STUFF ###################################################
 ZSH=$HOME/.oh-my-zsh

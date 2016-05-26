@@ -1,1 +1,1 @@
-alias py="python"
+source ~/.dotfiles/vars.sh
