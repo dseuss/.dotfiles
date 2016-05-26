@@ -15,3 +15,4 @@ bin/python3
 bin/python3.4
 
 *.bak
+bin/realpath
