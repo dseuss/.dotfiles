@@ -51,8 +51,8 @@ let b:surround_100 = "\\left\\\{ \r \\right\\\}"
 let b:surround_102 = "\\\{\r\\\}"
 
 function! LatexForwardSearch()
-   execute "call system(\"okular --unique \'" . LatexBox_GetOutputFile() .
-            \ "\\\#src:" . line(".") . " " . expand('%:p') . "\' &\")"
+   execute "call system(\"/Applications/Skim.app/Contents/SharedSupport/displayline -g "
+        \ . line('.') . " " . LatexBox_GetOutputFile() . "\")"
 endfun
 command! LatexForwardSearch call LatexForwardSearch()
 

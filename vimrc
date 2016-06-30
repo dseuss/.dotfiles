@@ -869,6 +869,7 @@ let g:LatexBox_latexmk_async = 1
 let g:LatexBox_latexmk_preview_continuously = 1
 " let g:LatexBox_viewer = 'open -a Skim'
 let g:Tex_ViewRule_pdf = 'Skim'
+let g:LatexBox_viewer = "open -a Skim"
 "" Show errors in quickfix but dont loose focus
 "" !! NEEDS RECENT VERSION OF LATEXMK TO WORK PROPERLY WITH CONTINOUS MODE !!
 let g:LatexBox_quickfix = 2
@@ -962,6 +963,11 @@ Plug 'JuliaLang/julia-vim'
 
 " tern_for_vim -- JavaScript code completion
 Plug 'marijnh/tern_for_vim'
+
+
+" rust.vim -- syntax & co for julia {{{2
+Plug 'rust-lang/rust.vim'
+
 
 " MatchTagAlways -- Visual marking of HTML/XML/... tags {{{2
 Plug 'Valloric/MatchTagAlways'
