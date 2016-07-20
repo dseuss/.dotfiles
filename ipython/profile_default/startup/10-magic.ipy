@@ -3,5 +3,5 @@ import IPython
 try:
    %matplotlib inline
    %config InlineBackend.figure_format = 'retina'
-except IPython.core.error.UsageError:
+except:
    pass
