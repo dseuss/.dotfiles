@@ -750,7 +750,7 @@ let g:ctrlp_show_hidden = 0
 "" Jump to file if it is already open
 let g:ctrlp_switch_buffer = 'E'
 "" Speed up operations by caching
-let g:ctrlp_use_caching = 0
+let g:ctrlp_use_caching = 1
 let g:ctrlp_cache_dir = $HOME . '/.vim/.ctrlp/'
 let g:ctrlp_clear_cache_on_exit = 1
 
@@ -960,9 +960,6 @@ let g:necoghc_enable_detailed_browse = 1
 
 " julia-vim -- syntax & co for julia {{{2
 Plug 'JuliaLang/julia-vim'
-
-" tern_for_vim -- JavaScript code completion
-Plug 'marijnh/tern_for_vim'
 
 
 " rust.vim -- syntax & co for julia {{{2
