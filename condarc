@@ -1,5 +1,6 @@
-channels:
-   - defaults
-   - http://conda.binstar.org/dseuss
+anaconda_upload: yes
 
-binstar_upload: yes
+channels:
+  - dseuss
+  - defaults
+  - conda-forge
