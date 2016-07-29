@@ -42,6 +42,7 @@ compinit conda
 ## Personal aliases ###########################################################
 
 source ~/.dotfiles/commands.sh
+eval "$(hub alias -s)"
 
 # Programming
 alias vi="vim -u ~/.virc"
@@ -54,6 +55,7 @@ alias conf="vim ~/.zshrc"
 alias pip-upgrade="pip install --upgrade"
 alias pip-upgrade-all="pip freeze --local | grep -v '^\-e' | cut -d = -f 1  | xargs -n1 pip install -U"
 alias pdb="python -m pdb"
+alias acs="anaconda search -t conda"
 
 # Git aliases
 alias gs="git status -s"
@@ -108,3 +110,9 @@ source /usr/local/Cellar/fzf/0.11.4/shell/completion.zsh
 source /usr/local/Cellar/fzf/0.11.4/shell/key-bindings.zsh
 
 test -e "${HOME}/.iterm2_shell_integration.zsh" && source "${HOME}/.iterm2_shell_integration.zsh"
+
+###-tns-completion-start-###
+if [ -f /Users/dsuess/.tnsrc ]; then
+    source /Users/dsuess/.tnsrc
+fi
+###-tns-completion-end-###
