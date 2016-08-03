@@ -63,3 +63,11 @@ multissh() {
    sleep 5
    tmux select-layout tiled > /dev/null
 }
+
+add_to_path() {
+    export PATH=$PATH:$1
+}
+
+remove_from_path() {
+    export PATH=`echo ${PATH} | awk -v RS=: -v ORS=: $1' {next} {print}'`
+}
