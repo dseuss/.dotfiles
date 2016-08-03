@@ -299,8 +299,8 @@ legend.fancybox      : True  # if True, use a rounded box for the
 
 ### FIGURE
 # See http://matplotlib.org/api/figure_api.html#matplotlib.figure.Figure
-figure.figsize   : 15, 5    # figure size in inches
-figure.dpi       : 400     # figure dots per inch
+figure.figsize   : 8, 5    # figure size in inches
+# figure.dpi       : 400     # figure dots per inch
 #figure.facecolor : 0.75    # figure facecolor; 0.75 is scalar gray
 #figure.edgecolor : white   # figure edgecolor
 #figure.autolayout : False  # When True, automatically adjust subplot
