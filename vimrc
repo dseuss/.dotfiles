@@ -567,9 +567,6 @@ let g:ultisnips_python_style = "sphinx"
 
 set completeopt=menuone,longest
 
-"" File name completion
-inoremap <C-f> <C-x><C-f>
-
 "" Move digraphs out of the way of autocompletion
 inoremap <C-D> <C-K>
 
@@ -640,7 +637,10 @@ nnoremap <leader>p :cc<CR>
 nnoremap <leader>P :ll<CR>
 
 "" Escape from autocompleted brackets/quotes/etc
-inoremap <c-l> <Right>
+inoremap <c-f> <Right>
+inoremap <c-b> <Left>
+
+
 
 " FOLDING {{{1
 
@@ -947,6 +947,10 @@ Plug '5long/pytest-vim-compiler'
 " vim-isort -- sorting imports
 Plug 'fisadev/vim-isort'
 let g:vim_isort_map = ''
+
+" vim-conda
+Plug 'cjrh/vim-conda'
+
 
 " HASKELL {{{2
 " vim2hs -- Haskell for vim
