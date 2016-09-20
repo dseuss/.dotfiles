@@ -561,7 +561,7 @@ Plug 'SirVer/ultisnips'
 let g:ultisnips_python_style = "sphinx"
 
  "" from ftdetect/UltiSnips.vim
- autocmd FileType * call UltiSnips#FileTypeChanged()
+ " autocmd FileType * call UltiSnips#FileTypeChanged()
  autocmd BufNewFile,BufRead *.snippets setf snippets
 "2}}}
 
