@@ -1,5 +1,5 @@
 import sys
-sys.path.append('/home/dsuess/Documents/python')
+sys.path.append('/Users/dsuess/Code/Pythonlibs')
 del sys
 
 # Start scipy libaries
