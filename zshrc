@@ -56,6 +56,7 @@ alias pip-upgrade="pip install --upgrade"
 alias pip-upgrade-all="pip freeze --local | grep -v '^\-e' | cut -d = -f 1  | xargs -n1 pip install -U"
 alias pdb="python -m pdb"
 alias acs="anaconda search -t conda"
+alias ipy="ptipython"
 
 # Git aliases
 alias gs="git status -s"
