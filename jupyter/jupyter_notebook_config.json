@@ -1,11 +1,14 @@
 {
+  "version": 1,
   "NotebookApp": {
+    "nbserver_extensions": {
+      "jupyter_nbextensions_configurator": true
+    },
     "extra_template_paths": [
       "/Users/dsuess/Library/Jupyter/templates"
     ],
     "server_extensions": [
       "nbextensions"
     ]
-  },
-  "version": 1
+  }
 }

@@ -1,16 +1,19 @@
 {
+  "NbConvertApp": {
+    "postprocessor_class": "jupyter_contrib_nbextensions.nbconvert_support.EmbedPostProcessor"
+  },
+  "version": 1,
   "Exporter": {
-    "preprocessors": [
-      "pre_codefolding.CodeFoldingPreprocessor",
-      "pre_pymarkdown.PyMarkdownPreprocessor"
-    ],
     "template_path": [
       ".",
-      "/Users/dsuess/Library/Jupyter/templates"
+      "/Users/dsuess/Library/Jupyter/templates",
+      "/Users/dsuess/Library/Miniconda3/lib/python3.5/site-packages/jupyter_contrib_nbextensions/templates"
+    ],
+    "preprocessors": [
+      "pre_codefolding.CodeFoldingPreprocessor",
+      "pre_pymarkdown.PyMarkdownPreprocessor",
+      "jupyter_contrib_nbextensions.nbconvert_support.CodeFoldingPreprocessor",
+      "jupyter_contrib_nbextensions.nbconvert_support.PyMarkdownPreprocessor"
     ]
-  },
-  "NbConvertApp": {
-    "postprocessor_class": "post_embedhtml.EmbedPostProcessor"
-  },
-  "version": 1
+  }
 }
