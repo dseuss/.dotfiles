@@ -46,7 +46,7 @@ eval "$(hub alias -s)"
 
 # Programming
 alias vi="vim -u ~/.virc"
-alias vim="vim_tmuxed"
+alias vim="nvim_tmuxed"
 alias nvim="nvim_tmuxed"
 alias svi="sudo vi -u ~/.virc"
 alias cleanlatex="sh -c 'rm *.aux *.fdb_latexmk *.fls *.log *.synctex.gz *.out *.toc *.bib.bak *.end *.bbl *.blg *.toc *.auxlock *.table *.gnuplot'"
