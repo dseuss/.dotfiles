@@ -522,7 +522,7 @@ nnoremap <leader>di :YcmShowDetailedDiagnostic<CR>
 let g:ycm_collect_identifiers_from_tags_files = 1
 
 "" Enable autocompletion in comments
-let g:ycm_complete_in_comments = 1
+let g:ycm_complete_in_comments = 0
 "" Keep YCM from mapping to <CR>
 inoremap <expr><CR>  pumvisible() ? "\<CR>" : "\<CR>"
 

@@ -863,6 +863,42 @@ let g:LatexBox_ignore_warnings = [
       \'multiple pdfs with page group included in a single page']
 
 " PYTHON {{{2
+
+" jedi.vim -- python completion and more
+Plug 'davidhalter/jedi-vim'
+
+"" Disable autocompletion key since we use YCM
+let g:jedi#completions_command = ""
+"" Better use the tags-based goto
+let g:jedi#goto_assignments_command = "<leader>rg"
+"" ... since get_definition works alot better
+let g:jedi#goto_definitions_command = "<leader>rd"
+"" Show the documentation
+let g:jedi#documentation_command = "<leader>rh"
+
+"" Show everything in the same tab using windows
+let g:jedi#use_tabs_not_buffers = 0
+
+"" Neocomplete does all the hard lifting!
+let g:jedi#popup_on_dot = 0
+let g:jedi#popup_select_first = 0
+
+"" Simple refactoring
+let g:jedi#rename_command = "<leader>rn"
+"" Show similar commands
+let g:jedi#usages_command = "<leader>rs"
+
+"" Dont show the information in the preview window
+let g:jedi#show_call_signatures = 2
+
+"" Automatically setup vim-jedi
+let g:jedi#auto_initialization = 1
+let g:jedi#auto_vim_configuration = 0
+if has('python3')
+  let g:jedi#force_py_version = 3
+endif
+
+
 " python-mode -- the name says it all
 Plug 'klen/python-mode'
 
@@ -910,6 +946,8 @@ let g:pymode_syntax_highlight_stars_operator = g:pymode_syntax_all
 let g:pymode_syntax_highlight_self = g:pymode_syntax_all
 let g:pymode_syntax_slow_sync = 0
 
+
+Plug 'hdima/python-syntax'
 
 " vim-ipython -- integration with ipython kernels
 Plug 'ivanov/vim-ipython'
