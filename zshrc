@@ -39,6 +39,19 @@ zstyle ':completion::complete:*' use-cache 1
 fpath+=$HOME/.dotfiles/conda-zsh-completion
 compinit conda
 
+# setup ssh completion in the right order
+hosts=()
+if [[ -r ~/.ssh/config ]]; then
+  hosts=($hosts ${${${(@M)${(f)"$(cat ~/.ssh/config)"}:#Host *}#Host }:#*[*?]*})
+fi
+if [[ -r ~/.ssh/known_hosts ]]; then
+  hosts=($hosts ${${${(f)"$(cat ~/.ssh/known_hosts{,2} || true)"}%%\ *}%%,*}) 2>/dev/null
+fi
+if [[ $#hosts -gt 0 ]]; then
+  zstyle ':completion:*:ssh:*' hosts $hosts
+  zstyle ':completion:*:slogin:*' hosts $hosts
+fi
+
 ## Personal aliases ###########################################################
 
 source ~/.dotfiles/commands.sh
