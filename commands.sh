@@ -71,3 +71,7 @@ add_to_path() {
 remove_from_path() {
     export PATH=`echo ${PATH} | awk -v RS=: -v ORS=: $1' {next} {print}'`
 }
+
+ssh-ec2() {
+    ssh -i $HOME/.ssh/id_ec2.pem "ec2-user@$1"
+}

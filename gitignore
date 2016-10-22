@@ -25,3 +25,4 @@
 ## EDITOR
 *.sublime-project
 *.sublime-workspace
+*.orig
