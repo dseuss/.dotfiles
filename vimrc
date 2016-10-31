@@ -1060,3 +1060,4 @@ autocmd BufRead,BufNewFile *.md set filetype=markdown
 "" enable filetype detection
 filetype plugin indent on
 
+call plug#end()
