@@ -504,6 +504,10 @@ snippet pdb "Set PDB breakpoint" b
 import pdb; pdb.set_trace()  # XXX Breakpoint
 endsnippet
 
+snippet ppdb "Set PDB breakpoint" b
+import pytest; pytest.set_trace()  # XXX Breakpoint
+endsnippet
+
 snippet ipdb "Set IPDB breakpoint" b
 import ipdb; ipdb.set_trace()  # XXX Breakpoint
 endsnippet

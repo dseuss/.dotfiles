@@ -30,6 +30,8 @@
 	smudge = git lfs smudge %f
 	required = true
 [gui]
-	recentrepo = /Users/dsuess/Code/mp numerics
 [rerere]
 	enabled = true
+[gui]
+	recentrepo = /Users/dsuess/Documents/confidence
+	recentrepo = /Users/dsuess/Code/conda-recipes

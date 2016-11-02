@@ -1,0 +1,1 @@
+/Users/dsuess/.dotfiles/nvim/plugged/gocode/vim/autoload/gocomplete.vim

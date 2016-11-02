@@ -4,6 +4,8 @@
 ## PYTHON
 *.pyc
 .ipynb_checkpoints
+.eggs
+.cache
 
 ## TEX
 *.aux

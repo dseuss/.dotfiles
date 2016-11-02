@@ -374,7 +374,9 @@ let g:syntastic_python_flake8_post_args='--ignore=E127,E128,E226,E501 --max-comp
 "" E226 -- white space around operator (since x**2 looks way better then x ** 2)
 
 let g:syntastic_tex_chktex_post_args='--nowarn 1'
-"" 1 -- Command terminated with space
+let g:syntastic_go_checkers=['go', 'gofmt', 'govet']
+let g:syntastic_rust_checkers=['rustc']
+
 
 " vim-multiple-cursor -- many cursors, may good {{{2
 Plug 'terryma/vim-multiple-cursors'
@@ -509,6 +511,9 @@ inoremap <silent><C-k> <C-R>=OmniPopup('k')<CR>
 " deoplete -- auto completion ftw {{{2
 Plug 'Shougo/deoplete.nvim', { 'do': ':UpdateRemotePlugins' }
 Plug 'zchee/deoplete-jedi'
+Plug 'zchee/deoplete-go', { 'do': 'make' }
+Plug 'sebastianmarkow/deoplete-rust'
+
 
 let g:deoplete#enable_at_startup = 1
 let g:deoplete#enable_ignore_case = 'ignorecase'
@@ -520,6 +525,10 @@ if has("gui_running")
 else
     inoremap <silent><expr><C-@> deoplete#mappings#manual_complete()
 endif
+
+
+let g:deoplete#sources#rust#racer_binary = '/Users/dsuess/.cargo/bin/racer'
+let g:deoplete#sources#rust#rust_source_path = '/Users/dsuess/.cargo/rust/'
 
 " UltiSnips -- snippets {{{2
 Plug 'SirVer/ultisnips'
@@ -717,7 +726,7 @@ let g:ctrlp_match_window_bottom = 1
 let g:ctrlp_match_window_reversed = 1
 let g:ctrlp_reuse_window = 'startify'
 "" Ignore certain filetypes
-let g:ctrlp_custom_ignore = '\v\~$|\.(o|swp|pyc|wav|mp3|ogg|blend|idb|so|mod|aux|fls|blg|bbl)$|(^|[/\\])\.(hg|git|bzr)($|[/\\])|__init__\.py'
+let g:ctrlp_custom_ignore = '\v\~$|\.(o|swp|pyc|wav|mp3|ogg|blend|idb|so|mod|aux|fls|blg|bbl)$|(^|[/\\])\.(hg|git|bzr)($|[/\\])'
 "" Directory to start searching for files
 let g:ctrlp_working_path_mode = 'ra'
 "" Dont show hidden files

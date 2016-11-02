@@ -73,5 +73,5 @@ remove_from_path() {
 }
 
 ssh-ec2() {
-    ssh -i $HOME/.ssh/id_ec2.pem "ec2-user@$1"
+    TERM=xterm-256color ssh -i $HOME/.ssh/id_ec2.pem "ec2-user@$1" ${@:2}
 }

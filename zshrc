@@ -9,8 +9,13 @@ DISABLE_CORRECTION="false"
 COMPLETION_WAITING_DOTS="true"
 CASE_SENSETIVE="false"
 
+PATH=$PATH:/Developer/NVIDIA/CUDA-8.0/bin
+DYLD_LIBRARY_PATH=$DYLD_LIBRARY_PATH:/Developer/NVIDIA/CUDA-8.0/lib
+
+export GOPATH=$HOME/Code/Go
+
 # Load the oh-my-zsh plugins and settings
-plugins=(command-not-found pass git z brew pip sublime zsh-syntax-highlighting tmux)
+plugins=(command-not-found pass git z brew pip sublime zsh-syntax-highlighting tmux go)
 source $ZSH/oh-my-zsh.sh
 
 
@@ -98,7 +103,7 @@ alias du="du -h"
 alias df="df -h"
 alias fzf="fzf-tmux"
 alias f="fzf-tmux -m"
-alias ssh="TERM=${TERM%-italic} ssh"
+alias ssh="TERM=xterm-256color ssh -i ~/.ssh/id_rsa"
 alias brew='TERM=xterm-256color brew'
 alias ff='open -a Finder ./'
 
@@ -120,8 +125,8 @@ alias clipboard='pbcopy'
 #  Load the fzf extensions  #
 #############################
 
-source /usr/local/Cellar/fzf/0.11.4/shell/completion.zsh
-source /usr/local/Cellar/fzf/0.11.4/shell/key-bindings.zsh
+source /usr/local/Cellar/fzf/0.15.5/shell/completion.zsh
+source /usr/local/Cellar/fzf/0.15.5/shell/key-bindings.zsh
 
 test -e "${HOME}/.iterm2_shell_integration.zsh" && source "${HOME}/.iterm2_shell_integration.zsh"
 
