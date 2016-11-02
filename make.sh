@@ -8,7 +8,7 @@
 
 dir=~/.dotfiles                    # dotfiles directory
 olddir=~/.dotfiles/old             # old dotfiles backup directory
-files="zshrc virc vimrc vim tmux.conf oh-my-zsh gitconfig gitignore git_template gitattributes ctags latexmkrc ipython jupyter bashrc bin pdbrc"
+files="zshrc virc vimrc vim tmux.conf oh-my-zsh gitconfig gitignore git_template gitattributes ctags latexmkrc ipython jupyter bashrc bin pdbrc pypirc"
 
 ##########
 
