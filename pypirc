@@ -4,9 +4,13 @@ index-servers=
     pypitest
 
 [pypitest]
-repository=https://testpypi.python.org/pypi
-username=dsuess
+repository: https://testpypi.python.org/pypi
+username: dsuess
+password: zFgQAEY*#ZpPCSh86fTRzNZM4a8ffRx3
 
 [pypi]
-repository = https://pypi.python.org/pypi
-username=dsuess
+repository: https://pypi.python.org/pypi
+username: dsuess
+
+[server-login]
+username: dsuess

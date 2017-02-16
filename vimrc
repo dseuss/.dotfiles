@@ -105,11 +105,6 @@ if &t_Co >= 256
   colorscheme apprentice
   let g:airline_theme = 'zenburn'
 endif
-if has('gui_running')
-  colorscheme solarized
-  set background=light
-  set guifont=Anonymous\ Pro:h13
-endif
 
 "" show cursorline
 set cursorline
@@ -1114,3 +1109,10 @@ autocmd BufRead,BufNewFile *.jl set filetype=julia
 filetype plugin indent on
 
 call plug#end()
+
+
+if has('gui_running')
+  colorscheme solarized
+  set background=light
+  set guifont=Anonymous\ Pro:h13
+endif

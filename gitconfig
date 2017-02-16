@@ -1,6 +1,6 @@
 [user]
-   email = daniel@dsuess.me
-   name = Daniel Suess
+	email = daniel@dsuess.me
+	name = Daniel Suess
 [core]
    editor = vim -u ~/.virc
 	excludesfile = ~/.gitignore
@@ -9,11 +9,11 @@
 [push]
    default = simple
 [merge]
-   tool = vimdiff
+   tool = gvimdiff
 [difftool]
 	prompt = false
 [diff]
-   tool = vimdiff
+   tool = gvimdiff
 [alias]
 	lg = log --graph --pretty=format:'%Cred%h%Creset -%C(yellow)%d%Creset %s %Cgreen(%cr) %C(bold blue)<%an>%Creset' --abbrev-commit --date=relative
    lv = log --reverse --pretty=format:'%Cred%h%Creset -%C(yellow)%d%Creset %s %Cgreen(%cr) %C(bold blue)<%an>%Creset' --abbrev-commit --date=relative

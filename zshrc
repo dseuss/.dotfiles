@@ -20,6 +20,19 @@ source $ZSH/oh-my-zsh.sh
 
 
 ## Final customization of zsh #################################################
+function list_commands() {
+    result=$(echo "${(k)aliases} ${(k)builtnis} ${(k)commands}" | tr " " "\n" | fzf)
+    if [ $? -ne 0 ]; then
+        result=""
+    fi
+
+    zle reset-prompt
+    BUFFER+="$result "
+    zle end-of-line
+}
+
+zle -N list_commands
+bindkey "^[i" list_commands
 
 # Write history of multiple zsh-sessions chronologicaly ordered
 setopt inc_append_history
@@ -91,6 +104,7 @@ alias gcd="cd \$(git rev-parse --show-cdup)"
 # Science stuff
 alias qtconsole="ipython qtconsole --pylab inline"
 alias nb="tmux new -s ipython -d; tmux new-window -t ipython 'jupyter notebook'"
+alias pyspark-nb="tmux new -s ipython -d; tmux new-window -t ipython 'PYSPARK_DRIVER_PYTHON=\"jupyter\" PYSPARK_DRIVER_PYTHON_OPTS=\"notebook\" pyspark'"
 alias nb-kernels="tmux new -s ipython -d; tmux new-window -t ipython 'ipcluster start'"
 alias evalnb="jupyter nbconvert --to html --ExecutePreprocessor.enabled=True"
 
@@ -125,8 +139,8 @@ alias clipboard='pbcopy'
 #  Load the fzf extensions  #
 #############################
 
-source /usr/local/Cellar/fzf/0.15.5/shell/completion.zsh
-source /usr/local/Cellar/fzf/0.15.5/shell/key-bindings.zsh
+source /usr/local/Cellar/fzf/0.15.9/shell/completion.zsh
+source /usr/local/Cellar/fzf/0.15.9/shell/key-bindings.zsh
 
 test -e "${HOME}/.iterm2_shell_integration.zsh" && source "${HOME}/.iterm2_shell_integration.zsh"
 
