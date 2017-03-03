@@ -21,6 +21,9 @@ inoremap <c-s> <nop>
 set secure
 set exrc
 
+let g:python_host_prog='/usr/local/bin/python2'
+let g:python3_host_prog='/usr/local/bin/python3'
+
 
 " KEY SETTINGS {{{1
 " vim-repeat -- repeat commands in tpope plugins{{{2
@@ -511,8 +514,9 @@ inoremap <silent><C-k> <C-R>=OmniPopup('k')<CR>
 " deoplete -- auto completion ftw {{{2
 Plug 'Shougo/deoplete.nvim', { 'do': ':UpdateRemotePlugins' }
 Plug 'zchee/deoplete-jedi'
-Plug 'zchee/deoplete-go', { 'do': 'make' }
-Plug 'sebastianmarkow/deoplete-rust'
+" Plug 'zchee/deoplete-go', { 'do': 'make' }
+Plug 'zchee/deoplete-clang'
+" Plug 'sebastianmarkow/deoplete-rust'
 
 
 let g:deoplete#enable_at_startup = 1
@@ -529,6 +533,22 @@ endif
 
 let g:deoplete#sources#rust#racer_binary = '/Users/dsuess/.cargo/bin/racer'
 let g:deoplete#sources#rust#rust_source_path = '/Users/dsuess/.cargo/rust/'
+
+
+let g:deoplete#sources#clang#libclang_path = '/usr/local/Cellar/llvm/3.9.1/lib/libclang.dylib'
+let g:deoplete#sources#clang#clang_header = '/usr/local/Cellar/llvm/3.9.1/include'
+
+
+
+inoremap <silent><expr> <C-SPACE> deoplete#mappings#manual_complete()
+inoremap <silent><expr> <TAB>
+      \ pumvisible() ? "\<C-n>" :
+      \ <SID>check_back_space() ? "\<TAB>" :
+      \ deoplete#mappings#manual_complete()
+function! s:check_back_space() abort
+  let col = col('.') - 1
+  return !col || getline('.')[col - 1]  =~ '\s'
+endfunction
 
 " UltiSnips -- snippets {{{2
 Plug 'SirVer/ultisnips'
@@ -844,7 +864,7 @@ autocmd filetype help nnoremap <buffer> <cr> <C-]>
 
 
 " LaTeXBox {{{2
-Plug 'LaTeX-Box-Team/LaTeX-Box'
+" Plug 'LaTeX-Box-Team/LaTeX-Box'
 
 "" Use background-contious compilation
 let g:LatexBox_latexmk_env = "PATH=$PATH:/Library/TeX/texbin/"
@@ -981,22 +1001,22 @@ Plug 'dag/vim2hs'
 let g:haskell_conceal = 0
 " neco-ghc -- omni completion for Haskell
 "" Requires ghc-mod
-Plug 'eagletmt/neco-ghc'
+" Plug 'eagletmt/neco-ghc'
 let g:necoghc_enable_detailed_browse = 1
 
 " julia-vim -- syntax & co for julia {{{2
-Plug 'JuliaLang/julia-vim'
+" Plug 'JuliaLang/julia-vim'
 
 
 " rust.vim -- syntax & co for julia {{{2
-Plug 'rust-lang/rust.vim'
+" Plug 'rust-lang/rust.vim'
 
 
 " MatchTagAlways -- Visual marking of HTML/XML/... tags {{{2
 Plug 'Valloric/MatchTagAlways'
 
 " vim-fireplace -- Clojure needs you! {{{2
-Plug 'tpope/vim-fireplace'
+" Plug 'tpope/vim-fireplace'
 
 " vim-dispatch -- asynchroneous building {{{2
 Plug 'tpope/vim-dispatch'
