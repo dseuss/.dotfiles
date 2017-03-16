@@ -1,1 +1,0 @@
-../../../nbextensions/usability/hide_input.js

@@ -1,9 +1,6 @@
 [submodule "oh-my-zsh"]
 	path = oh-my-zsh
    url = https://github.com/robbyrussell/oh-my-zsh
-[submodule "ipython/IPython-notebook-extensions"]
-	path = ipython/IPython-notebook-extensions
-	url = https://github.com/ipython-contrib/IPython-notebook-extensions
 [submodule "xcape"]
 	path = xcape
 	url = https://github.com/alols/xcape
