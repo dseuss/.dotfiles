@@ -1,0 +1,7 @@
+import IPython
+%load_ext autoreload
+try:
+   %matplotlib inline
+   %config InlineBackend.figure_format = 'retina'
+except:
+   pass

@@ -9,31 +9,14 @@ DISABLE_CORRECTION="false"
 COMPLETION_WAITING_DOTS="true"
 CASE_SENSETIVE="false"
 
-PATH=$PATH:/Developer/NVIDIA/CUDA-8.0/bin
-DYLD_LIBRARY_PATH=$DYLD_LIBRARY_PATH:/Developer/NVIDIA/CUDA-8.0/lib
-
-export GOPATH=$HOME/Code/Go
-
 # Load the oh-my-zsh plugins and settings
 plugins=(command-not-found pass git z brew pip sublime zsh-syntax-highlighting tmux go)
 source $ZSH/oh-my-zsh.sh
 
+# since option doesnt seem to work
+bindkey "^I" expand-or-complete-with-dots
 
 ## Final customization of zsh #################################################
-function list_commands() {
-    result=$(echo "${(k)aliases} ${(k)builtnis} ${(k)commands}" | tr " " "\n" | fzf)
-    if [ $? -ne 0 ]; then
-        result=""
-    fi
-
-    zle reset-prompt
-    BUFFER+="$result "
-    zle end-of-line
-}
-
-zle -N list_commands
-bindkey "^[i" list_commands
-
 # Write history of multiple zsh-sessions chronologicaly ordered
 setopt inc_append_history
 
@@ -67,8 +50,26 @@ if [[ -r ~/.ssh/known_hosts ]]; then
 fi
 if [[ $#hosts -gt 0 ]]; then
   zstyle ':completion:*:ssh:*' hosts $hosts
+  zstyle ':completion:*:scp:*' hosts $hosts
   zstyle ':completion:*:slogin:*' hosts $hosts
 fi
+
+
+# Full command completion
+function list_commands() {
+    result=$(echo "${(k)aliases} ${(k)builtnis} ${(k)commands}" | tr " " "\n" | fzf)
+    if [ $? -ne 0 ]; then
+        result=""
+    fi
+
+    zle reset-prompt
+    BUFFER+="$result "
+    zle end-of-line
+}
+
+zle -N list_commands
+bindkey "^[\t" list_commands
+
 
 ## Personal aliases ###########################################################
 
@@ -76,8 +77,9 @@ source ~/.dotfiles/commands.sh
 eval "$(hub alias -s)"
 
 # Programming
-alias vi="vim -u ~/.virc"
+alias vi="/usr/local/bin/vim -u ~/.virc"
 alias vim="nvim_tmuxed"
+alias vmi="vim"
 alias nvim="nvim_tmuxed"
 alias svi="sudo vi -u ~/.virc"
 alias cleanlatex="sh -c 'rm *.aux *.fdb_latexmk *.fls *.log *.synctex.gz *.out *.toc *.bib.bak *.end *.bbl *.blg *.toc *.auxlock *.table *.gnuplot'"
@@ -88,6 +90,7 @@ alias pip-upgrade-all="pip freeze --local | grep -v '^\-e' | cut -d = -f 1  | xa
 alias pdb="python -m pdb"
 alias acs="anaconda search -t conda"
 alias ipy="ptipython"
+alias ghc="stack ghc"
 
 # Git aliases
 alias gs="git status -s"
@@ -103,7 +106,7 @@ alias gcd="cd \$(git rev-parse --show-cdup)"
 
 # Science stuff
 alias qtconsole="ipython qtconsole --pylab inline"
-alias nb="tmux new -s ipython -d; tmux new-window -t ipython 'jupyter notebook'"
+alias nb="tmux new -s ipython -d; tmux new-window -t ipython 'reattach-to-user-namespace -l jupyter notebook'"
 alias pyspark-nb="tmux new -s ipython -d; tmux new-window -t ipython 'PYSPARK_DRIVER_PYTHON=\"jupyter\" PYSPARK_DRIVER_PYTHON_OPTS=\"notebook\" pyspark'"
 alias nb-kernels="tmux new -s ipython -d; tmux new-window -t ipython 'ipcluster start'"
 alias evalnb="jupyter nbconvert --to html --ExecutePreprocessor.enabled=True"
@@ -139,8 +142,8 @@ alias clipboard='pbcopy'
 #  Load the fzf extensions  #
 #############################
 
-source /usr/local/Cellar/fzf/0.15.9/shell/completion.zsh
-source /usr/local/Cellar/fzf/0.15.9/shell/key-bindings.zsh
+# source /usr/local/Cellar/fzf/0.15.9/shell/completion.zsh
+source /usr/local/Cellar/fzf/0.16.5/shell/key-bindings.zsh
 
 test -e "${HOME}/.iterm2_shell_integration.zsh" && source "${HOME}/.iterm2_shell_integration.zsh"
 

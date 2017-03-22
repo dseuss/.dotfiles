@@ -77,7 +77,7 @@ Plug 'vim-airline/vim-airline' | Plug 'vim-airline/vim-airline-themes'
 
 "" Theme is set below together with colorscheme
 "" Use powerline fonts
-let g:airline_powerline_fonts = 0
+let g:airline_powerline_fonts = 1
 "" Disable python-virtualenv plugin
 let g:airline#extensions#virtualenv#enabled = 0
 "" Hide lineending type info
@@ -379,6 +379,8 @@ let g:syntastic_python_flake8_post_args='--ignore=E127,E128,E226,E501 --max-comp
 let g:syntastic_tex_chktex_post_args='--nowarn 1'
 let g:syntastic_go_checkers=['go', 'gofmt', 'govet']
 let g:syntastic_rust_checkers=['rustc']
+
+let g:syntastic_haskell_checkers=['hlint']
 
 
 " vim-multiple-cursor -- many cursors, may good {{{2
@@ -1001,8 +1003,9 @@ Plug 'dag/vim2hs'
 let g:haskell_conceal = 0
 " neco-ghc -- omni completion for Haskell
 "" Requires ghc-mod
-" Plug 'eagletmt/neco-ghc'
+Plug 'eagletmt/neco-ghc'
 let g:necoghc_enable_detailed_browse = 1
+
 
 " julia-vim -- syntax & co for julia {{{2
 " Plug 'JuliaLang/julia-vim'
@@ -1020,6 +1023,7 @@ Plug 'Valloric/MatchTagAlways'
 
 " vim-dispatch -- asynchroneous building {{{2
 Plug 'tpope/vim-dispatch'
+" Plug 'radenling/vim-dispatch-neovim'
 
 let g:dispatch_compilers = {
       \ 'python': 'python',
