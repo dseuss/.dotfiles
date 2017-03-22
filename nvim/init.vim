@@ -363,25 +363,19 @@ endfun
 autocmd BufWritePre * :call <SID>StripTrailingWhitespaces()
 
 
-" synastic -- on-the-fly code checking {{{2
-Plug 'scrooloose/syntastic'
+" neomake -- on-the-fly code checking {{{2
+Plug 'neomake/neomake'
 
 "" Always show errors on save
-let g:syntastic_always_populate_loc_list=1
 
 "" Syntastics for python, only use flake8
-let g:syntastic_python_checkers=['flake8', 'python']
+let g:neomake_python_enabled_makers=['flake8', 'python']
 "" Ignore certain errors and check complexity
-let g:syntastic_python_flake8_post_args='--ignore=E127,E128,E226,E501 --max-complexity 10'
+" let g:syntastic_python_flake8_post_args='--ignore=E127,E128,E226,E501 --max-complexity 10'
 "" E127, E128 -- continuation line is over indented
 "" E226 -- white space around operator (since x**2 looks way better then x ** 2)
 
-let g:syntastic_tex_chktex_post_args='--nowarn 1'
-let g:syntastic_go_checkers=['go', 'gofmt', 'govet']
-let g:syntastic_rust_checkers=['rustc']
-
-let g:syntastic_haskell_checkers=['hlint']
-
+autocmd! BufWritePost * Neomake
 
 " vim-multiple-cursor -- many cursors, may good {{{2
 Plug 'terryma/vim-multiple-cursors'
