@@ -87,6 +87,16 @@ nnoremap coa :AirlineToggle<CR>
 
 " vim-colors-solarized -- solarized color scheme {{{2
 Plug 'altercation/vim-colors-solarized'
+Plug 'iCyMind/NeoSolarized'
+
+set termguicolors
+
+let g:neosolarized_contrast = "normal"
+let g:neosolarized_visibility = "normal"
+let g:neosolarized_vertSplitBgTrans = 1
+let g:neosolarized_bold = 1
+let g:neosolarized_underline = 0
+let g:neosolarized_italic = 1
 
 " vim-startify -- startup screen {{{2
 Plug 'mhinz/vim-startify'
@@ -100,19 +110,6 @@ let g:startify_skiplist = [
 "" session options -- dont save option
 set ssop-=options
 "2}}}
-
-"" Set colorscheme depending on terminal/gui-vim
-if &t_Co >= 256
-  "" 256-color terminal
-  "let g:airline_theme="powerlineish"
-  colorscheme apprentice
-  let g:airline_theme = 'zenburn'
-endif
-if has('gui_running')
-  colorscheme solarized
-  set background=light
-  set guifont=Anonymous\ Pro:h13
-endif
 
 "" show cursorline
 set cursorline
@@ -375,6 +372,8 @@ let g:neomake_python_enabled_makers=['flake8', 'python']
 "" E127, E128 -- continuation line is over indented
 "" E226 -- white space around operator (since x**2 looks way better then x ** 2)
 
+let g:neomake_haskell_enabled_makers=['hlint', 'ghcmod']
+
 autocmd! BufWritePost * Neomake
 
 " vim-multiple-cursor -- many cursors, may good {{{2
@@ -512,13 +511,14 @@ Plug 'Shougo/deoplete.nvim', { 'do': ':UpdateRemotePlugins' }
 Plug 'zchee/deoplete-jedi'
 " Plug 'zchee/deoplete-go', { 'do': 'make' }
 Plug 'zchee/deoplete-clang'
+Plug 'Shougo/neoinclude.vim'
 " Plug 'sebastianmarkow/deoplete-rust'
 
 
 let g:deoplete#enable_at_startup = 1
 let g:deoplete#enable_ignore_case = 'ignorecase'
 let g:deoplete#auto_completion_start_length = 0
-let g:deoplete#sources#jedi#python_path = '/Users/dsuess/Library/Miniconda3/bin/python'
+" let g:deoplete#sources#jedi#python_path = '/Users/dsuess/Library/Miniconda3/bin/python'
 
 if has("gui_running")
     inoremap <silent><expr><C-Space> deoplete#mappings#manual_complete()
@@ -531,8 +531,8 @@ let g:deoplete#sources#rust#racer_binary = '/Users/dsuess/.cargo/bin/racer'
 let g:deoplete#sources#rust#rust_source_path = '/Users/dsuess/.cargo/rust/'
 
 
-let g:deoplete#sources#clang#libclang_path = '/usr/local/Cellar/llvm/3.9.1/lib/libclang.dylib'
-let g:deoplete#sources#clang#clang_header = '/usr/local/Cellar/llvm/3.9.1/include'
+let g:deoplete#sources#clang#libclang_path = '/usr/local/opt/llvm/lib/libclang.dylib'
+let g:deoplete#sources#clang#clang_header = '/usr/local/opt/llvm/include'
 
 
 
@@ -563,8 +563,17 @@ let g:ultisnips_python_style = "sphinx"
  "" from ftdetect/UltiSnips.vim
  " autocmd FileType * call UltiSnips#FileTypeChanged()
  autocmd BufNewFile,BufRead *.snippets setf snippets
-"2}}}
 
+" vim-slime -- interact with tmux {{{2
+if exists('$TMUX')
+  Plug 'jpalardy/vim-slime'
+
+  let g:slime_target = "tmux"
+  let g:slime_default_config = {"socket_name": split($TMUX, ",")[0], "target_pane": ":.2"}
+endif
+
+
+"2}}}
 set completeopt=menuone,longest
 
 "" Move digraphs out of the way of autocompletion
@@ -1120,14 +1129,14 @@ set spellfile=$HOME/.vim/dictionary.add
 
 " edit the ftplugin file {{{2
 function! OpenFiletypeFile()
-  let path_to_file = '~/.vim/after/ftplugin/' .  &filetype . '.vim'
+  let path_to_file = '~/.config/nvim/after/ftplugin/' .  &filetype . '.vim'
   exe "edit " . path_to_file
 endfunction
 command! EditFiletype call OpenFiletypeFile()
 
 " and reload the thing
 function! ReloadFiletypeFile()
-  let path_to_file = '~/.vim/after/ftplugin/' .  &filetype . '.vim'
+  let path_to_file = '~/.config/nvim/after/ftplugin/' .  &filetype . '.vim'
   exe "source " . path_to_file
 endfunction
 command! ReloadFiletype call ReloadFiletypeFile()
@@ -1154,3 +1163,18 @@ autocmd BufRead,BufNewFile *.jl set filetype=julia
 filetype plugin indent on
 
 call plug#end()
+
+"" Set colorscheme depending on terminal/gui-vim
+if &t_Co >= 256
+  "" 256-color terminal
+  "let g:airline_theme="powerlineish"
+  set background=dark
+  colorscheme NeoSolarized
+  let g:airline_theme = 'solarized'
+endif
+if has('gui_running')
+  colorscheme NeoSolarized
+  set background=light
+  set guifont=Anonymous\ Pro:h13
+endif
+
