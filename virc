@@ -5,6 +5,7 @@
 
 
 set rtp=
+set nocompatible
 
 "" Set marks using Ü, since m is used by vim-seek
 noremap Ü m
@@ -53,16 +54,10 @@ vnoremap > >gv
 "" case toggling is an operator
 set tildeop
 
+"" sane tab completion in command mode
+set wildmode=longest,list
+set wildmenu
 
-"" Simulate US keyboard layout for brackets
-map ü [
-map + ]
-"" Scroll through paragraphs with J/K
-noremap K {
-noremap J }
-"" Forward/back one jump
-noremap [j <c-O>
-noremap ]j <c-I>
 "" Define "inside <space>" motion
 onoremap i<space> iW
 vnoremap i<space> iW
