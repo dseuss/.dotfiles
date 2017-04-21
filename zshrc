@@ -70,6 +70,9 @@ function list_commands() {
 zle -N list_commands
 bindkey "^[\t" list_commands
 
+# activate autoenv
+source $(brew --prefix autoenv)/activate.sh
+
 
 ## Personal aliases ###########################################################
 
