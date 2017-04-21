@@ -258,6 +258,9 @@ autocmd FileType qf wincmd J
 " vim-accordion -- manage vsplits {{{2
 Plug 'mattboehm/vim-accordion'
 
+" vim-tmux-navigator -- seamless integration of tmux and vim {{{2
+Plug 'christoomey/vim-tmux-navigator'
+
 "2}}}
 
 "" Scroll through windows with hjkl
@@ -559,6 +562,7 @@ Plug 'SirVer/ultisnips'
  let g:UltiSnipsSnippetsDir = "~/.vim/ultisnippets/"
 
 let g:ultisnips_python_style = "sphinx"
+let g:UltiSnipsUsePythonVersion = 2
 
  "" from ftdetect/UltiSnips.vim
  " autocmd FileType * call UltiSnips#FileTypeChanged()
