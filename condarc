@@ -1,6 +1,12 @@
-anaconda_upload: yes
+anaconda_upload: true
 
 channels:
   - dseuss
-  - defaults
   - conda-forge
+  - defaults
+
+create_default_packages:
+  - numpy
+  - nb_conda_kernels
+  - condamagic
+  - progressbar2
