@@ -263,12 +263,6 @@ Plug 'christoomey/vim-tmux-navigator'
 
 "2}}}
 
-"" Scroll through windows with hjkl
-nnoremap <c-h> <c-w>h
-nnoremap <c-j> <c-w>j
-nnoremap <c-k> <c-w>k
-nnoremap <c-l> <c-w>l
-
 "" close all but active window
 nnoremap <silent> <leader>q :only<CR>
 
@@ -681,9 +675,10 @@ set foldopen=block,insert,jump,mark,percent,quickfix,search,tag,undo
 " FILES & COMMANDS {{{1
 
 "" Use bash instead of default shell
-set shell=bash
+set shell=zsh
 if ! has('nvim')
   set shellcmdflag=-ic
+  set shell=bash
 endif
 
 "" show the keyboard command entered

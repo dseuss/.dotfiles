@@ -1,20 +1,3 @@
-vim_tmuxed() {
-   VIM=vim
-   if [ -z "$TMUX" ]; then
-      if [ -z "$1" ]; then
-         tmux new "reattach-to-user-namespace -l ${VIM}"
-      else
-         tmux new "reattach-to-user-namespace -l ${VIM} $(printf ' %q' "$@")"
-      fi
-   else
-      if [ -z "$1" ]; then
-         "${VIM}"
-      else
-         "${VIM}" $(printf ' %q' "$@")
-      fi
-   fi
-}
-
 nvim_tmuxed() {
    VIM=nvim
    if [ -z "$TMUX" ]; then
