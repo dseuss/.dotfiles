@@ -5,3 +5,4 @@ setlocal colorcolumn=0
 setlocal wrap
 setlocal noexpandtab
 setlocal conceallevel=0
+setlocal nofoldenable
