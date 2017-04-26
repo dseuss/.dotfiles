@@ -483,7 +483,7 @@ nnoremap com :DelimitMateSwitch<CR>
 
 " YouCompleteMe -- autocompletion & more {{{2
 Plug 'Valloric/YouCompleteMe'
-Plug 'rdnetto/YCM-Generator'
+Plug 'rdnetto/YCM-Generator', {'branch': 'stable'}
 
 " set python_binary to the one in the currently active conda env
 let g:ycm_python_binary_path = systemlist('which python')[0]
@@ -504,9 +504,8 @@ inoremap <expr><CR>  pumvisible() ? "\<CR>" : "\<CR>"
 "" use global clang config file
 let g:ycm_global_ycm_extra_conf = '~/.dotfiles/ycm_extra_conf.py'
 "" always ask if it's save to run
-let g:ycm_confirm_extra_conf = 1
+let g:ycm_confirm_extra_conf = 0
 
-"" My own tex plugin
 let g:ycm_semantic_triggers =  {
       \   'tex' : ['cite{'],
       \   'haskell': ['.'],
@@ -519,6 +518,8 @@ nnoremap <leader>yd :YcmCompleter GoToDefinition<CR>
 nnoremap <leader>yc :YcmCompleter GoToDeclaration<CR>
 nnoremap <leader>yg :YcmCompleter GoTo<CR>
 nnoremap <leader>yh :YcmCompleter GetDoc<CR>
+nnoremap <leader>yf :YcmCompleter FixIt<CR>
+nnoremap <leader>yt :YcmCompleter GetType<CR>
 " omnicomplete navigation using j/k {{{2
 function! OmniPopup(action)
   if pumvisible()
@@ -896,40 +897,6 @@ let g:LatexBox_ignore_warnings = [
 
 " PYTHON {{{2
 
-" jedi.vim -- python completion and more
-Plug 'davidhalter/jedi-vim'
-
-"" Disable autocompletion key since we use YCM
-let g:jedi#completions_command = ""
-"" Better use the tags-based goto
-let g:jedi#goto_assignments_command = "<leader>rg"
-"" ... since get_definition works alot better
-let g:jedi#goto_definitions_command = "<leader>rd"
-"" Show the documentation
-let g:jedi#documentation_command = "<leader>rh"
-
-"" Show everything in the same tab using windows
-let g:jedi#use_tabs_not_buffers = 0
-
-"" Neocomplete does all the hard lifting!
-let g:jedi#popup_on_dot = 0
-let g:jedi#popup_select_first = 0
-
-"" Simple refactoring
-let g:jedi#rename_command = "<leader>rn"
-"" Show similar commands
-let g:jedi#usages_command = "<leader>rs"
-
-"" Dont show the information in the preview window
-let g:jedi#show_call_signatures = 2
-
-"" Automatically setup vim-jedi
-let g:jedi#auto_initialization = 1
-let g:jedi#auto_vim_configuration = 0
-if has('python3')
-  let g:jedi#force_py_version = 3
-endif
-
 
 " python-mode -- the name says it all
 Plug 'klen/python-mode'
@@ -993,10 +960,6 @@ Plug '5long/pytest-vim-compiler'
 Plug 'fisadev/vim-isort'
 let g:vim_isort_map = ''
 
-" vim-conda
-Plug 'cjrh/vim-conda'
-
-let g:conda_startup_msg_suppress = 1
 
 " HASKELL {{{2
 " vim2hs -- Haskell for vim
@@ -1012,8 +975,6 @@ let g:necoghc_enable_detailed_browse = 1
 " clang-format
 Plug 'rhysd/vim-clang-format'
 let g:clang_format#code_style = 'google'
-let g:clang_format#style_options = {
-      \ "Standard" : "C++14"}
 let g:clang_format#detect_style_file = 1
 let g:clang_format#auto_format = 1
 
