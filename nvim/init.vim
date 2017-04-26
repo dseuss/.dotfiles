@@ -509,8 +509,10 @@ Plug 'zchee/deoplete-jedi'
 " Plug 'zchee/deoplete-go', { 'do': 'make' }
 Plug 'zchee/deoplete-clang'
 Plug 'Shougo/neoinclude.vim'
+
 " Plug 'sebastianmarkow/deoplete-rust'
 
+let g:neoinclude#paths = {'hpp' : '/usr/local/include/eigen3'}
 
 let g:deoplete#enable_at_startup = 1
 let g:deoplete#enable_ignore_case = 'ignorecase'
@@ -997,6 +999,7 @@ let g:vim_isort_map = ''
 " vim-conda
 Plug 'cjrh/vim-conda'
 
+let g:conda_startup_msg_suppress = 1
 
 " HASKELL {{{2
 " vim2hs -- Haskell for vim
@@ -1008,6 +1011,14 @@ let g:haskell_conceal = 0
 Plug 'eagletmt/neco-ghc'
 let g:necoghc_enable_detailed_browse = 1
 
+" C-family {{{2
+" clang-format
+Plug 'rhysd/vim-clang-format'
+let g:clang_format#code_style = 'google'
+let g:clang_format#style_options = {
+      \ "Standard" : "C++14"}
+let g:clang_format#detect_style_file = 1
+let g:clang_format#auto_format = 1
 
 " julia-vim -- syntax & co for julia {{{2
 " Plug 'JuliaLang/julia-vim'

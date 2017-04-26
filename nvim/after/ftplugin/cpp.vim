@@ -3,9 +3,9 @@ let b:fswitchlocs='reg:/src/src'
 " CINDENT
 set cindent
 "" dont indent private/public keywords
-set cinoptions+=g0
+" set cinoptions+=g0
 "" Indent additional function parameters to "("
-set cino+=(0
+" set cino+=(0
 
 " Add highlighting for function definition in C++
 function! EnhanceCppSyntax()
@@ -17,7 +17,7 @@ autocmd Syntax cpp call EnhanceCppSyntax()
 set number
 set relativenumber
 
-" Shortcuts for YCM-commands
-nnoremap <buffer> <leader>rd :YcmCompleter GoToDefinitionElseDeclaration<CR>
+compiler clang
 
-compiler icc
+setlocal softtabstop=2
+setlocal shiftwidth=2
