@@ -481,6 +481,44 @@ Plug 'kien/rainbow_parentheses.vim'
 nnoremap com :DelimitMateSwitch<CR>
 
 
+" YouCompleteMe -- autocompletion & more {{{2
+Plug 'Valloric/YouCompleteMe'
+Plug 'rdnetto/YCM-Generator'
+
+" set python_binary to the one in the currently active conda env
+let g:ycm_python_binary_path = systemlist('which python')[0]
+
+"" Tab completion is run through SuperTab
+let g:ycm_key_list_select_completion = ['<S-TAB>', '<Down>']
+let g:ycm_key_list_previous_completion = ['<UP>']
+nnoremap <leader>di :YcmShowDetailedDiagnostic<CR>
+
+"" Also use tag file entries
+let g:ycm_collect_identifiers_from_tags_files = 1
+
+"" Enable autocompletion in comments
+let g:ycm_complete_in_comments = 1
+"" Keep YCM from mapping to <CR>
+inoremap <expr><CR>  pumvisible() ? "\<CR>" : "\<CR>"
+
+"" use global clang config file
+let g:ycm_global_ycm_extra_conf = '~/.dotfiles/ycm_extra_conf.py'
+"" always ask if it's save to run
+let g:ycm_confirm_extra_conf = 1
+
+"" My own tex plugin
+let g:ycm_semantic_triggers =  {
+      \   'tex' : ['cite{'],
+      \   'haskell': ['.'],
+      \   'cython': ['.'],
+      \   'html': ['.'],
+      \   'javascript': ['.']
+      \ }
+
+nnoremap <leader>yd :YcmCompleter GoToDefinition<CR>
+nnoremap <leader>yc :YcmCompleter GoToDeclaration<CR>
+nnoremap <leader>yg :YcmCompleter GoTo<CR>
+nnoremap <leader>yh :YcmCompleter GetDoc<CR>
 " omnicomplete navigation using j/k {{{2
 function! OmniPopup(action)
   if pumvisible()
@@ -503,47 +541,6 @@ endfunction
 inoremap <silent><C-j> <C-R>=OmniPopup('j')<CR>
 inoremap <silent><C-k> <C-R>=OmniPopup('k')<CR>
 
-" deoplete -- auto completion ftw {{{2
-Plug 'Shougo/deoplete.nvim', { 'do': ':UpdateRemotePlugins' }
-Plug 'zchee/deoplete-jedi'
-" Plug 'zchee/deoplete-go', { 'do': 'make' }
-Plug 'zchee/deoplete-clang'
-Plug 'Shougo/neoinclude.vim'
-
-" Plug 'sebastianmarkow/deoplete-rust'
-
-let g:neoinclude#paths = {'hpp' : '/usr/local/include/eigen3'}
-
-let g:deoplete#enable_at_startup = 1
-let g:deoplete#enable_ignore_case = 'ignorecase'
-let g:deoplete#auto_completion_start_length = 0
-" let g:deoplete#sources#jedi#python_path = '/Users/dsuess/Library/Miniconda3/bin/python'
-
-if has("gui_running")
-    inoremap <silent><expr><C-Space> deoplete#mappings#manual_complete()
-else
-    inoremap <silent><expr><C-@> deoplete#mappings#manual_complete()
-endif
-
-
-let g:deoplete#sources#rust#racer_binary = '/Users/dsuess/.cargo/bin/racer'
-let g:deoplete#sources#rust#rust_source_path = '/Users/dsuess/.cargo/rust/'
-
-
-let g:deoplete#sources#clang#libclang_path = '/usr/local/opt/llvm/lib/libclang.dylib'
-let g:deoplete#sources#clang#clang_header = '/usr/local/opt/llvm/include'
-
-
-
-inoremap <silent><expr> <C-SPACE> deoplete#mappings#manual_complete()
-inoremap <silent><expr> <TAB>
-      \ pumvisible() ? "\<C-n>" :
-      \ <SID>check_back_space() ? "\<TAB>" :
-      \ deoplete#mappings#manual_complete()
-function! s:check_back_space() abort
-  let col = col('.') - 1
-  return !col || getline('.')[col - 1]  =~ '\s'
-endfunction
 
 " UltiSnips -- snippets {{{2
 Plug 'SirVer/ultisnips'
