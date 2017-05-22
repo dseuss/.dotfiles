@@ -348,7 +348,7 @@ let NERDSpaceDelims = 1
 
 " remove trailing whitspaces on save {{{2
 fun! <SID>StripTrailingWhitespaces()
-  if g:strip_trailing_whitespace
+  if g:strip_trailing_whitespaces
     let l = line(".")
     let c = col(".")
     %s/\s\+$//e
@@ -356,7 +356,7 @@ fun! <SID>StripTrailingWhitespaces()
   endif
 endfun
 
-let g:strip_trailing_whitespace = 1
+let g:strip_trailing_whitespaces = 1
 autocmd BufWritePre * :call <SID>StripTrailingWhitespaces()
 
 
