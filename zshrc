@@ -10,7 +10,7 @@ COMPLETION_WAITING_DOTS="true"
 CASE_SENSETIVE="false"
 
 # Load the oh-my-zsh plugins and settings
-plugins=(command-not-found pass git z brew pip sublime zsh-syntax-highlighting tmux go)
+plugins=(command-not-found git z brew pip zsh-syntax-highlighting tmux stack)
 source $ZSH/oh-my-zsh.sh
 
 # since option doesnt seem to work
@@ -87,6 +87,8 @@ alias nvim="nvim_tmuxed"
 alias svi="sudo vi -u ~/.virc"
 alias cleanlatex="sh -c 'rm *.aux *.fdb_latexmk *.fls *.log *.synctex.gz *.out *.toc *.bib.bak *.end *.bbl *.blg *.toc *.auxlock *.table *.gnuplot'"
 alias conf="vim ~/.zshrc"
+alias chrome="/Applications/Google\ Chrome.app/Contents/MacOS/Google\ Chrome"
+
 # alias nb="tmux new -d -s ipython; tmux new-window -t ipython 'ipython notebook'"
 alias pip-upgrade="pip install --upgrade"
 alias pip-upgrade-all="pip freeze --local | grep -v '^\-e' | cut -d = -f 1  | xargs -n1 pip install -U"
@@ -109,7 +111,7 @@ alias gcd="cd \$(git rev-parse --show-cdup)"
 
 # Science stuff
 alias qtconsole="ipython qtconsole --pylab inline"
-alias nb="tmux new -s ipython -d; tmux new-window -t ipython 'reattach-to-user-namespace -l jupyter notebook'"
+alias nb="tmux new -s ipython -d; tmux new-window -t ipython 'source deactivate; reattach-to-user-namespace -l jupyter notebook'"
 alias pyspark-nb="tmux new -s ipython -d; tmux new-window -t ipython 'PYSPARK_DRIVER_PYTHON=\"jupyter\" PYSPARK_DRIVER_PYTHON_OPTS=\"notebook\" pyspark'"
 alias nb-kernels="tmux new -s ipython -d; tmux new-window -t ipython 'ipcluster start'"
 alias evalnb="jupyter nbconvert --to html --ExecutePreprocessor.enabled=True"
