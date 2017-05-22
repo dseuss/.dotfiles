@@ -330,14 +330,14 @@ command! Gundo GundoToggle
 "" Dont use github, since we disabled all default mappings
 set rtp+=~/.vim/sbundle/Mark--Karkat/
 
-"" mark with §, clear with <leader>§
+"" mark with §, clear with <leader>±
 if !hasmapto('<Plug>MarkSet', 'n')
-  nmap <unique> <silent> <leader>§ <Plug>MarkSet
+  nmap <unique> <silent> <leader>± <Plug>MarkSet
 endif
 if !hasmapto('<Plug>MarkSet', 'v')
-  vmap <unique> <silent> <leader>§ <Plug>MarkSet
+  vmap <unique> <silent> <leader>± <Plug>MarkSet
 endif
-nnoremap <silent> <leader>± :MarkClear<CR>
+" nnoremap <silent> <leader>± :MarkClear<CR>
 
 
 " nerd-comment -- insert/delete/modify comments {{{2
@@ -348,12 +348,15 @@ let NERDSpaceDelims = 1
 
 " remove trailing whitspaces on save {{{2
 fun! <SID>StripTrailingWhitespaces()
-  let l = line(".")
-  let c = col(".")
-  %s/\s\+$//e
-  call cursor(l, c)
+  if g:strip_trailing_whitespace
+    let l = line(".")
+    let c = col(".")
+    %s/\s\+$//e
+    call cursor(l, c)
+  endif
 endfun
 
+let g:strip_trailing_whitespace = 1
 autocmd BufWritePre * :call <SID>StripTrailingWhitespaces()
 
 
@@ -447,6 +450,8 @@ set display+=lastline
 
 "" show hidden characters, but hide on default
 " set listchars=trail:⋅,eol:¬,tab:▸\
+set showbreak=↪\
+set listchars=tab:▸\ ,eol:¬,nbsp:␣,trail:·,extends:⟩,precedes:⟨
 set nolist
 
 "" use Q for formatting selection/paragraph
@@ -483,7 +488,7 @@ nnoremap com :DelimitMateSwitch<CR>
 
 " YouCompleteMe -- autocompletion & more {{{2
 Plug 'Valloric/YouCompleteMe'
-Plug 'rdnetto/YCM-Generator', {'branch': 'stable'}
+" Plug 'rdnetto/YCM-Generator', {'branch': 'stable'}
 
 " set python_binary to the one in the currently active conda env
 let g:ycm_python_binary_path = systemlist('which python')[0]
@@ -495,6 +500,8 @@ nnoremap <leader>di :YcmShowDetailedDiagnostic<CR>
 
 "" Also use tag file entries
 let g:ycm_collect_identifiers_from_tags_files = 1
+
+let g:ycm_show_diagnostics_ui = 1
 
 "" Enable autocompletion in comments
 let g:ycm_complete_in_comments = 1
@@ -594,7 +601,7 @@ Plug 'tmhedberg/matchit'
 " vim-easymotion -- even faster vim-motions {{{2
 Plug 'Lokaltog/vim-easymotion'
 "" Use , as its leader key
-let g:EasyMotion_leader_key = ','
+let g:EasyMotion_leader_key = '<leader><leader>'
 
 
 " Extened Text Motions (i$, i/,...) {{{2
@@ -664,9 +671,9 @@ let g:ip_skipfold = 1
 set foldmethod=marker
 set foldnestmax=1
 
-"" Folding/Unfolding using space
-nnoremap <leader><space> za
-vnoremap <leader><space> zf
+"" Folding/Unfolding using return
+" nnoremap <return> za<return>
+vnoremap <leader><space> zf<return>
 
 "" opening folds on occasion
 set foldopen=block,insert,jump,mark,percent,quickfix,search,tag,undo
@@ -729,7 +736,7 @@ Plug 'rking/ag.vim'
 nnoremap <leader>a :Ag |" Dont strip space!
 
 " ctrlp.vim -- file navigation, searching and much more {{{2
-Plug 'kien/ctrlp.vim'
+Plug 'ctrlpvim/ctrlp.vim'
 
 "" Key Settings
 let g:ctrlp_map = '<LEADER>e'
@@ -741,7 +748,7 @@ nnoremap <LEADER>. :CtrlPChange<CR>
 nnoremap <LEADER>tt :CtrlPTag<CR>
 nnoremap <LEADER>bm :CtrlPBookmarkDir<CR>
 nnoremap <LEADER>u :CtrlPUndo<CR>
-nnoremap <LEADER>BQ :CtrlPQuickfix<CR>
+nnoremap <LEADER>Q :CtrlPQuickfix<CR>
 nnoremap <LEADER>g :CtrlPLine<CR>
 nnoremap <LEADER>~ :CtrlPRoot<CR>
 
@@ -948,9 +955,6 @@ let g:pymode_syntax_slow_sync = 0
 
 Plug 'hdima/python-syntax'
 
-" vim-ipython -- integration with ipython kernels
-Plug 'ivanov/vim-ipython'
-
 nnoremap <F3> :call system('ipython qtconsole --pylab inline &')<CR>
 
 " pytest-vim-compiler
@@ -1062,6 +1066,8 @@ Plug 'closetag.vim'
 
 " vim-unstack -- nice representation of stack-traces{{{2
 Plug 'mattboehm/vim-unstack'
+
+let g:unstack_mapkey = '<F10>'
 
 " vim-makeshift -- switch makeprg
 Plug 'johnsyweb/vim-makeshift'
