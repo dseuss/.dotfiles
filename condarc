@@ -8,5 +8,4 @@ channels:
 create_default_packages:
   - numpy
   - nb_conda_kernels
-  - condamagic
   - progressbar2
