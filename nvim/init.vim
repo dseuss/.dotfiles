@@ -60,9 +60,9 @@ nnoremap [ov :set virtualedit=all<CR>
 nnoremap ]ov :set virtualedit=block<CR>
 
 "" switch between tabs
-nnoremap <leader>tp :tabprevious<CR>
-nnoremap <leader>tn :tabnext<CR>
-nnoremap <leader>tN :tabnew<CR>
+" nnoremap <leader>tp :tabprevious<CR>
+" nnoremap <leader>tn :tabnext<CR>
+" nnoremap <leader>tN :tabnew<CR>
 
 "" Quickly open the command window
 nnoremap ; :
@@ -737,52 +737,42 @@ nnoremap <silent> <leader><F12> :so $MYVIMRC<CR>
 " ag.vim -- advanced searching inside files {{{2
 Plug 'rking/ag.vim'
 
-nnoremap <leader>a :Ag |" Dont strip space!
+" nnoremap <leader>a :Ag |" Dont strip space!
 
 " ctrlp.vim -- file navigation, searching and much more {{{2
-Plug 'ctrlpvim/ctrlp.vim'
+Plug 'junegunn/fzf', { 'dir': '~/.fzf', 'do': './install --bin' }
+Plug 'junegunn/fzf.vim'
+
+" NOTE: Ignoring all files listed in .gitignore by using `fd` as default
+" command:
+" export FZF_DEFAULT_COMMAND='fd --type f'
 
 "" Key Settings
-let g:ctrlp_map = '<LEADER>e'
-nnoremap <LEADER>v :CtrlPBuffer<CR>
-nnoremap <LEADER>E :CtrlPMRUFiles<CR>
-nnoremap <LEADER>f :CtrlPBufTag<CR>
-nnoremap <LEADER>F :CtrlPBufTagAll<CR>
-nnoremap <LEADER>. :CtrlPChange<CR>
-nnoremap <LEADER>tt :CtrlPTag<CR>
-nnoremap <LEADER>bm :CtrlPBookmarkDir<CR>
-nnoremap <LEADER>u :CtrlPUndo<CR>
-nnoremap <LEADER>Q :CtrlPQuickfix<CR>
-nnoremap <LEADER>g :CtrlPLine<CR>
-nnoremap <LEADER>~ :CtrlPRoot<CR>
+nnoremap <LEADER>e :Files<CR>
+nnoremap <LEADER>E :History<CR>
+nnoremap <LEADER>M :Marks<CR>
+nnoremap <LEADER>v :Buffers<CR>
+nnoremap <LEADER>f :BTags<CR>
+nnoremap <LEADER>F :Tags<CR>
+nnoremap <LEADER>g :BLines<CR>
+nnoremap <LEADER>G :Lines<CR>
+nnoremap <LEADER>~ :Files ~<CR>
 
 "" Disply window on bottom
-let g:ctrlp_match_window_bottom = 1
-let g:ctrlp_match_window_reversed = 1
-let g:ctrlp_reuse_window = 'startify'
-"" Ignore certain filetypes
-let g:ctrlp_custom_ignore = '\v\~$|\.(o|swp|pyc|wav|mp3|ogg|blend|idb|so|mod|aux|fls|blg|bbl|toc|bcf|pdf|tdo)$|(^|[/\\])\.(hg|git|bzr)($|[/\\])'
-"" Directory to start searching for files
-let g:ctrlp_working_path_mode = 'ra'
-"" Dont show hidden files
-let g:ctrlp_show_hidden = 0
-"" Jump to file if it is already open
-let g:ctrlp_switch_buffer = 'E'
-"" Speed up operations by caching
-let g:ctrlp_use_caching = 1
-let g:ctrlp_cache_dir = $HOME . '/.vim/.ctrlp/'
-let g:ctrlp_clear_cache_on_exit = 1
+let g:fzf_layout = { 'down': '~30%' }
+let g:fzf_buffers_jump = 1
 
-"" list LaTeX tags correctly
-let tlist_tex_settings = 'latex;l:labels;s:sections;t:subsections;u:subsubsections'
 
-"" Define additional file types
-let g:ctrlp_buftag_types = {
-      \ 'cython': '--language-force=python'
-      \ }
-if executable('lushtags')
-  call extend(g:ctrlp_buftag_types, { 'haskell': { 'args': '--ignore-parse-error', 'bin': 'lushtags' } })
-end
+" "" list LaTeX tags correctly
+" let tlist_tex_settings = 'latex;l:labels;s:sections;t:subsections;u:subsubsections'
+
+" "" Define additional file types
+" let g:ctrlp_buftag_types = {
+"       \ 'cython': '--language-force=python'
+"       \ }
+" if executable('lushtags')
+"   call extend(g:ctrlp_buftag_types, { 'haskell': { 'args': '--ignore-parse-error', 'bin': 'lushtags' } })
+" end
 
 
 " SearchComplete -- Tab completion for searching {{{2

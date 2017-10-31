@@ -15,7 +15,6 @@
 *.fls
 *.log
 *.out
-*.pdf
 *.pdfsync
 *.synctex.gz
 *.bcf
