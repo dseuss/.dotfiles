@@ -3,9 +3,11 @@ anaconda_upload: true
 channels:
   - dseuss
   - conda-forge
+  - bioconda
   - defaults
+  - QuantStack
 
 create_default_packages:
   - numpy
   - nb_conda_kernels
-  - progressbar2
+  - tqdm

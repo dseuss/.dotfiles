@@ -69,6 +69,13 @@ Copy to ~/Library/KeyBindings/
             "u" = ("insertText:", "ü");
             "s" = ("insertText:", "ß");
         };
+
+        "m" = {
+            "|" = ("insertText:", "‖");
+            "<" = ("insertText:", "≤");
+            ">" = ("insertText:", "≥");
+            "." = ("insertText:", "·");
+        };
     };
 }
 

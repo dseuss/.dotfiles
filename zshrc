@@ -82,12 +82,16 @@ eval "$(hub alias -s)"
 # Programming
 alias vi="/usr/local/bin/vim -u ~/.virc"
 alias vim="nvim_tmuxed"
+alias nvim="nvim_tmuxed"
+alias texvim="nvr_tmuxed"
 alias vmi="vim"
 alias nvim="nvim_tmuxed"
 alias svi="sudo vi -u ~/.virc"
 alias cleanlatex="sh -c 'rm *.aux *.fdb_latexmk *.fls *.log *.synctex.gz *.out *.toc *.bib.bak *.end *.bbl *.blg *.toc *.auxlock *.table *.gnuplot'"
 alias conf="vim ~/.zshrc"
 alias chrome="/Applications/Google\ Chrome.app/Contents/MacOS/Google\ Chrome"
+# gem install terminal-share
+alias share=terminal-share
 
 # alias nb="tmux new -d -s ipython; tmux new-window -t ipython 'ipython notebook'"
 alias pip-upgrade="pip install --upgrade"
@@ -96,6 +100,8 @@ alias pdb="python -m pdb"
 alias acs="anaconda search -t conda"
 alias ipy="ptipython"
 alias ghc="stack ghc"
+alias sa="source activate"
+alias da="source deactivate"
 
 # Git aliases
 alias gs="git status -s"
@@ -111,7 +117,7 @@ alias gcd="cd \$(git rev-parse --show-cdup)"
 
 # Science stuff
 alias qtconsole="ipython qtconsole --pylab inline"
-alias nb="tmux new -s ipython -d; tmux new-window -t ipython 'source deactivate; reattach-to-user-namespace -l jupyter notebook'"
+alias nb="tmux new -s ipython -d; tmux new-window -t ipython 'reattach-to-user-namespace -l /Users/dsuess/Library/Miniconda3/bin/jupyter notebook'"
 alias pyspark-nb="tmux new -s ipython -d; tmux new-window -t ipython 'PYSPARK_DRIVER_PYTHON=\"jupyter\" PYSPARK_DRIVER_PYTHON_OPTS=\"notebook\" pyspark'"
 alias nb-kernels="tmux new -s ipython -d; tmux new-window -t ipython 'ipcluster start'"
 alias evalnb="jupyter nbconvert --to html --ExecutePreprocessor.enabled=True"
@@ -147,8 +153,7 @@ alias clipboard='pbcopy'
 #  Load the fzf extensions  #
 #############################
 
-# source /usr/local/Cellar/fzf/0.15.9/shell/completion.zsh
-source /usr/local/Cellar/fzf/0.16.5/shell/key-bindings.zsh
+source /usr/local/Cellar/fzf/0.16.8_1/shell/key-bindings.zsh
 
 test -e "${HOME}/.iterm2_shell_integration.zsh" && source "${HOME}/.iterm2_shell_integration.zsh"
 

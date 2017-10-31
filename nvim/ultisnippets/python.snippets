@@ -102,7 +102,7 @@ def write_init_body(args, parents, snip):
 		snip.rv += '\n' + snip.mkline('', indent='')
 
 	for arg in args:
-		snip += "self._%s = %s" % (arg, arg)
+		snip += "self.%s = %s" % (arg, arg)
 
 
 def write_slots_args(args, snip):

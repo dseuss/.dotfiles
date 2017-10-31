@@ -50,13 +50,14 @@ let b:surround_100 = "\\left\\\{ \r \\right\\\}"
 " f
 let b:surround_102 = "\\\{\r\\\}"
 
-function! LatexForwardSearch()
-   execute "call system(\"/Applications/Skim.app/Contents/SharedSupport/displayline -g "
-        \ . line('.') . " " . LatexBox_GetOutputFile() . "\")"
-endfun
-command! LatexForwardSearch call LatexForwardSearch()
+" function! LatexForwardSearch()
+"    execute "call system(\"/Applications/Skim.app/Contents/SharedSupport/displayline -g "
+"         \ . line('.') . " " . LatexBox_GetOutputFile() . "\")"
+" endfun
+" command! LatexForwardSearch call LatexForwardSearch()
 
-nnoremap <buffer> <silent> <leader>ls :call LatexForwardSearch()<CR>
-nnoremap <buffer> <leader>ll :Latexmk<CR>
-nnoremap <buffer> <leader>lv :LatexView<CR>
-nnoremap <buffer> <leader>le :LatexErrors<CR>
+" nnoremap <buffer> <silent> <leader>ls :call LatexForwardSearch()<CR>
+nnoremap <buffer> <leader>ll :VimtexCompile<CR>
+nnoremap <buffer> <leader>lv :VimtexView<CR>
+nnoremap <buffer> <leader>le :VimtexErrors<CR>
+nnoremap <buffer> <leader>ls :VimtexCompileSelected<CR>

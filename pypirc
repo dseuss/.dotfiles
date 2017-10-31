@@ -4,7 +4,7 @@ index-servers=
     pypitest
 
 [pypitest]
-repository: https://testpypi.python.org/pypi
+repository: https://test.pypi.org/legacy/
 username: dsuess
 password: zFgQAEY*#ZpPCSh86fTRzNZM4a8ffRx3
 

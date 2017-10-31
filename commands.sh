@@ -1,5 +1,24 @@
+it2prof() { echo -e "\033]50;SetProfile=$1\a" }
+
+nvr_tmuxed() {
+   VIM=/usr/local/bin/nvr
+   if [ -z "$TMUX" ]; then
+      if [ -z "$1" ]; then
+         tmux new "reattach-to-user-namespace -l ${VIM}"
+      else
+         tmux new "reattach-to-user-namespace -l ${VIM} $(printf '%q' "$@")"
+      fi
+   else
+      if [ -z "$1" ]; then
+         "${VIM}"
+      else
+         "${VIM}" $(printf '%q' "$@")
+      fi
+   fi
+}
+
 nvim_tmuxed() {
-   VIM=nvim
+   VIM=/usr/local/bin/nvim
    if [ -z "$TMUX" ]; then
       if [ -z "$1" ]; then
          tmux new "reattach-to-user-namespace -l ${VIM}"
@@ -57,4 +76,8 @@ remove_from_path() {
 
 ssh-ec2() {
     TERM=xterm-256color ssh -i $HOME/.ssh/id_ec2.pem "ec2-user@$1" ${@:2}
+}
+
+change-mac() {
+    sudo ifconfig en0 ether $(openssl rand -hex 6 | sed 's/\(..\)/\1:/g; s/.$//')
 }

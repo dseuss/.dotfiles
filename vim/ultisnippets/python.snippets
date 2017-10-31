@@ -102,7 +102,7 @@ def write_init_body(args, parents, snip):
 		snip.rv += '\n' + snip.mkline('', indent='')
 
 	for arg in args:
-		snip += "self._%s = %s" % (arg, arg)
+		snip += "self.%s = %s" % (arg, arg)
 
 
 def write_slots_args(args, snip):
@@ -505,7 +505,7 @@ import pdb; pdb.set_trace()  # XXX Breakpoint
 endsnippet
 
 snippet ppdb "Set PDB breakpoint" b
-import pytest; pytest.set_trace()  # XXX Breakpoint
+import pdb; pdb.set_trace()  # XXX Breakpoint
 endsnippet
 
 snippet ipdb "Set IPDB breakpoint" b

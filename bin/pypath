@@ -10,10 +10,10 @@ if __name__ == '__main__':
             imported_mod = __import__(module)
             path = imported_mod.__file__
         except ModuleNotFoundError:
-            print("Could not find module {}".format(module))
+            print("Could not find module {}".format(module), file=sys.stderr)
             sys.exit(-1)
         except AttributeError:
-            print("{} does not specify path".format(module))
+            print("{} does not specify path".format(module), file=sys.stderr)
             sys.exit(-1)
 
     else:

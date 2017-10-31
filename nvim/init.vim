@@ -356,7 +356,9 @@ fun! <SID>StripTrailingWhitespaces()
   endif
 endfun
 
-let g:strip_trailing_whitespaces = 1
+if !exists("g:strip_trailing_whitespaces")
+  let g:strip_trailing_whitespaces = 1
+endif
 autocmd BufWritePre * :call <SID>StripTrailingWhitespaces()
 
 
@@ -373,6 +375,8 @@ let g:neomake_python_enabled_makers=['flake8', 'python']
 "" E226 -- white space around operator (since x**2 looks way better then x ** 2)
 
 let g:neomake_haskell_enabled_makers=['hlint', 'ghcmod']
+
+let g:neomake_cpp_enabled_makers=['clangcheck', 'clangtidy']
 
 autocmd! BufWritePost * Neomake
 
@@ -560,7 +564,7 @@ Plug 'SirVer/ultisnips'
 
  "" set directories
  let g:UltiSnipsSnippetDirectories = ["ultisnippets"]
- let g:UltiSnipsSnippetsDir = "~/.vim/ultisnippets/"
+ let g:UltiSnipsSnippetsDir = "~/.config/nvim/ultisnippets/"
 
 let g:ultisnips_python_style = "sphinx"
 let g:UltiSnipsUsePythonVersion = 2
@@ -757,7 +761,7 @@ let g:ctrlp_match_window_bottom = 1
 let g:ctrlp_match_window_reversed = 1
 let g:ctrlp_reuse_window = 'startify'
 "" Ignore certain filetypes
-let g:ctrlp_custom_ignore = '\v\~$|\.(o|swp|pyc|wav|mp3|ogg|blend|idb|so|mod|aux|fls|blg|bbl)$|(^|[/\\])\.(hg|git|bzr)($|[/\\])'
+let g:ctrlp_custom_ignore = '\v\~$|\.(o|swp|pyc|wav|mp3|ogg|blend|idb|so|mod|aux|fls|blg|bbl|toc|bcf|pdf|tdo)$|(^|[/\\])\.(hg|git|bzr)($|[/\\])'
 "" Directory to start searching for files
 let g:ctrlp_working_path_mode = 'ra'
 "" Dont show hidden files
@@ -857,6 +861,7 @@ nnoremap <leader>GS :Gstatus<CR>
 nnoremap <leader>GW :Gwrite<CR>
 nnoremap <leader>GL :Glog<CR>
 nnoremap <leader>GC :Gcommit<CR>
+nnoremap <leader>GD :Gdiff<CR>
 
 "" automatically delete fugitive buffers on close
 autocmd BufReadPost fugitive://* set bufhidden=delete
@@ -875,32 +880,9 @@ autocmd filetype help nnoremap <buffer> <cr> <C-]>
 
 
 " LaTeXBox {{{2
-" Plug 'LaTeX-Box-Team/LaTeX-Box'
+Plug 'lervag/vimtex'
 
-"" Use background-contious compilation
-let g:LatexBox_latexmk_env = "PATH=$PATH:/Library/TeX/texbin/"
-let g:LatexBox_latexmk_options = "-pdflatex='pdflatex -synctex=1 \%O \%S'"
-let g:LatexBox_latexmk_async = 1
-let g:LatexBox_latexmk_preview_continuously = 1
-" let g:LatexBox_viewer = 'open -a Skim'
-let g:Tex_ViewRule_pdf = 'Skim'
-let g:LatexBox_viewer = "open -a Skim"
-"" Show errors in quickfix but dont loose focus
-"" !! NEEDS RECENT VERSION OF LATEXMK TO WORK PROPERLY WITH CONTINOUS MODE !!
-let g:LatexBox_quickfix = 2
-"" TOC on the right side
-let g:LatexBox_split_side = 'rightbelow'
-
-let g:LatexBox_ignore_warnings = [
-      \'Underfull',
-      \'Overfull',
-      \'specifier changed to',
-      \'Package natbib Warning',
-      \'A float is stuck',
-      \'Package hyperref Warning',
-      \'LaTeX Font Warning',
-      \'** WARNING: IEEEtran.bst: No hyphenation',
-      \'multiple pdfs with page group included in a single page']
+let g:vimtex_view_method = 'skim'
 
 " PYTHON {{{2
 
@@ -1060,31 +1042,29 @@ endfunction
 
 nnoremap <leader>sm :call SetMake()<CR>
 
-
-" closetag.vim -- close xml tags {{{2
-Plug 'closetag.vim'
-
 " vim-unstack -- nice representation of stack-traces{{{2
 Plug 'mattboehm/vim-unstack'
 
 let g:unstack_mapkey = '<F10>'
 
 " vim-makeshift -- switch makeprg
-Plug 'johnsyweb/vim-makeshift'
+" Plug 'johnsyweb/vim-makeshift'
 " Plug 'dseuss/vim-makeshift'
-let g:makeshift_on_startup = 1
-let g:makeshift_on_bufread = 1
-let g:makeshift_on_bufnewfile = 1
-let g:makeshift_on_bufenter = 1
-let g:makeshift_chdir = 0
+" let g:makeshift_on_startup = 1
+" let g:makeshift_on_bufread = 1
+" let g:makeshift_on_bufnewfile = 1
+" let g:makeshift_on_bufenter = 1
+" let g:makeshift_chdir = 0
 
-let g:makeshift_systems = {
-    \'Main.hs': 'source ~/.dotfiles/zsh/cabal.zsh;runhaskell Main.hs',
-    \}
+" let g:makeshift_systems = {
+"     \'Main.hs': 'source ~/.dotfiles/zsh/cabal.zsh;runhaskell Main.hs',
+"     \}
 
 " vim-rooter -- switch pwd smarter
 Plug 'airblade/vim-rooter'
 
+" typescript-vim {{{2
+Plug 'leafgarland/typescript-vim'
 
 "2}}}
 
@@ -1130,6 +1110,7 @@ autocmd BufRead,BufNewFile SConstruct set filetype=python
 autocmd BufRead,BufNewFile SConscript set filetype=python
 "" jl -- Julia source files
 autocmd BufRead,BufNewFile *.jl set filetype=julia
+autocmd BufRead,BufNewFile *.ts set filetype=typescript
 
 "2}}}
 
@@ -1142,13 +1123,17 @@ call plug#end()
 if &t_Co >= 256
   "" 256-color terminal
   "let g:airline_theme="powerlineish"
-  set background=dark
-  colorscheme NeoSolarized
-  let g:airline_theme = 'solarized'
+  if has('nvim')
+    set background=dark
+    colorscheme NeoSolarized
+    let g:airline_theme = 'solarized'
+  else
+    colorscheme sorcerer
+  endif
 endif
 if has('gui_running')
   colorscheme NeoSolarized
   set background=light
-  set guifont=Anonymous\ Pro:h13
+  set guifont=Anonymice\ Powerline:h15
 endif
 
