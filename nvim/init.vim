@@ -70,6 +70,16 @@ vnoremap ; :
 nnoremap q; q:
 vnoremap q; q:
 
+"" terminal specific binding
+tnoremap <silent> <ESC><ESC> <C-\><C-n>
+tnoremap <C-h> <C-\><C-n><C-w>h
+tnoremap <C-j> <C-\><C-n><C-w>j
+tnoremap <C-k> <C-\><C-n><C-w>k
+tnoremap <C-l> <C-\><C-n><C-w>l
+
+autocmd BufWinEnter,WinEnter term://* startinsert
+
+
 " APPERANCE & BEHAVIOR {{{1
 
 " vim-airline -- pure vimscript replacement for powerline {{{2
@@ -136,12 +146,6 @@ set lazyredraw
 set novisualbell
 
 " MOUSE & GUI {{{1
-
-"" Show a shell in gvim (since c-z suspends in terminal session)
-if has('gui_running')
-  " for gvim
-  nnoremap <silent> <c-z> :shell<CR>
-endif
 
 "" autoselect in visual mode, use simple dialogs, icon, grey menus
 set guioptions=acig
@@ -756,6 +760,7 @@ nnoremap <LEADER>f :BTags<CR>
 nnoremap <LEADER>F :Tags<CR>
 nnoremap <LEADER>g :BLines<CR>
 nnoremap <LEADER>G :Lines<CR>
+nnoremap <LEADER>H :Helptags<CR>
 nnoremap <LEADER>~ :Files ~<CR>
 
 "" Disply window on bottom
@@ -1121,9 +1126,8 @@ if &t_Co >= 256
     colorscheme sorcerer
   endif
 endif
-if has('gui_running')
+if has('gui_vimr')
   colorscheme NeoSolarized
   set background=light
-  set guifont=Anonymice\ Powerline:h15
 endif
 
