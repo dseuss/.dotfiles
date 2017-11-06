@@ -1,0 +1,3 @@
+#!/bin/bash
+
+NVR_CMD=vimr /usr/local/bin/nvr "$@"

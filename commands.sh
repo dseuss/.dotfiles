@@ -1,22 +1,5 @@
 it2prof() { echo -e "\033]50;SetProfile=$1\a" }
 
-nvr_tmuxed() {
-   VIM=/usr/local/bin/nvr
-   if [ -z "$TMUX" ]; then
-      if [ -z "$1" ]; then
-         tmux new "reattach-to-user-namespace -l ${VIM}"
-      else
-         tmux new "reattach-to-user-namespace -l ${VIM} $(printf '%q' "$@")"
-      fi
-   else
-      if [ -z "$1" ]; then
-         "${VIM}"
-      else
-         "${VIM}" $(printf '%q' "$@")
-      fi
-   fi
-}
-
 nvim_tmuxed() {
    VIM=/usr/local/bin/nvim
    if [ -z "$TMUX" ]; then
