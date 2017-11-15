@@ -1,3 +1,4 @@
 #!/bin/sh
 
+echo "=====> Opening SKIM"
 open $1 -a Skim --args --background

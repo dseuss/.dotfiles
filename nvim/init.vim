@@ -71,7 +71,6 @@ nnoremap q; q:
 vnoremap q; q:
 
 "" terminal specific binding
-tnoremap <silent> <ESC><ESC> <C-\><C-n>
 tnoremap <C-h> <C-\><C-n><C-w>h
 tnoremap <C-j> <C-\><C-n><C-w>j
 tnoremap <C-k> <C-\><C-n><C-w>k
@@ -876,8 +875,12 @@ autocmd filetype help nnoremap <buffer> <cr> <C-]>
 
 " LaTeXBox {{{2
 Plug 'lervag/vimtex'
+Plug 'donRaphaco/neotex', { 'for': 'tex' }
 
+
+let g:vimtex_compiler_progname = '/Users/dsuess/bin/nvr_vimr'
 let g:vimtex_view_method = 'skim'
+let g:vimtex_quickfix_latexlog = {'default' : 0}
 
 " PYTHON {{{2
 
