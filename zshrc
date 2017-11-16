@@ -70,9 +70,9 @@ function list_commands() {
 zle -N list_commands
 bindkey "^[\t" list_commands
 
-# activate autoenv; use fixed path sicnce its much faster
-# source $(brew --prefix autoenv)/activate.sh
-source /usr/local/opt/autoenv/activate.sh
+# activate direnv
+eval "$(direnv hook zsh)"
+
 
 
 ## Personal aliases ###########################################################
@@ -93,6 +93,7 @@ alias conf="vim ~/.zshrc"
 alias chrome="/Applications/Google\ Chrome.app/Contents/MacOS/Google\ Chrome"
 # gem install terminal-share
 alias share=terminal-share
+alias tmux="direnv exec / tmux"
 
 # alias nb="tmux new -d -s ipython; tmux new-window -t ipython 'ipython notebook'"
 alias pip-upgrade="pip install --upgrade"

@@ -1,0 +1,6 @@
+layout_anaconda() {
+  local ANACONDA_HOME="$HOME/Library/Miniconda3"
+  PATH_add "$ANACONDA_HOME/bin"
+  source activate $1
+  echo "$1 conda env loaded"
+}
