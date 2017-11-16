@@ -972,7 +972,7 @@ nmap <silent> <Leader>oJ :FSSplitBelow<cr>
 
 
 " MatchTagAlways -- Visual marking of HTML/XML/... tags {{{2
-Plug 'Valloric/MatchTagAlways'
+Plug 'Valloric/MatchTagAlways', { 'for': ['html', 'xml'] }
 
 " vim-dispatch -- asynchroneous building {{{2
 Plug 'tpope/vim-dispatch'
