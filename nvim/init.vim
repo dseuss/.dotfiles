@@ -95,7 +95,7 @@ let g:airline_section_y = ''
 nnoremap coa :AirlineToggle<CR>
 
 " vim-colors-solarized -- solarized color scheme {{{2
-Plug 'altercation/vim-colors-solarized'
+" Plug 'altercation/vim-colors-solarized'
 Plug 'iCyMind/NeoSolarized'
 
 set termguicolors
@@ -160,7 +160,7 @@ set mousehide
 " WINDOW & BUFFER MANAGMENT {{{1
 
 " bclose -- close current buffer, open empty file if it's the last {{{2
-Plug 'rbgrouleff/bclose.vim'
+Plug 'rbgrouleff/bclose.vim', { 'on': 'Bclose' }
 
 " Close active window buffer file
 nnoremap <silent> <LEADER>bc :Bclose<CR>
@@ -259,7 +259,7 @@ autocmd FileType qf wincmd J
 
 
 " vim-accordion -- manage vsplits {{{2
-Plug 'mattboehm/vim-accordion'
+Plug 'mattboehm/vim-accordion', { 'on': 'Accordion' }
 
 " vim-tmux-navigator -- seamless integration of tmux and vim {{{2
 Plug 'christoomey/vim-tmux-navigator'
@@ -386,6 +386,8 @@ autocmd! BufWritePost * Neomake
 " vim-multiple-cursor -- many cursors, may good {{{2
 Plug 'terryma/vim-multiple-cursors'
 
+" far.vim -- Find and replace {{{2
+Plug 'brooth/far.vim', { 'on': 'Far' }
 
 " vim-surround -- handling quotes, parentheses, tags, ... {{{2
 Plug 'tpope/vim-surround'
@@ -484,13 +486,10 @@ vnoremap L J
 " INPUT HELPS {{{1
 
 " delimitMate -- insert pairs (like brackets) automatically {{{2
-Plug 'Raimondi/delimitMate'
+Plug 'jiangmiao/auto-pairs'
 
 " rainbox_parentheses -- nice coloring for parentheses {{{2
 Plug 'kien/rainbow_parentheses.vim'
-
-"" Enable/Disable
-nnoremap com :DelimitMateSwitch<CR>
 
 
 " YouCompleteMe -- autocompletion & more {{{2
@@ -738,7 +737,7 @@ nnoremap <silent> <leader><F12> :so $MYVIMRC<CR>
 " NAVIGATION & SEARCHING {{{1
 
 " ag.vim -- advanced searching inside files {{{2
-Plug 'rking/ag.vim'
+Plug 'rking/ag.vim', { 'on': 'Ag' }
 
 " nnoremap <leader>a :Ag |" Dont strip space!
 
@@ -782,22 +781,8 @@ let g:fzf_buffers_jump = 1
 " SearchComplete -- Tab completion for searching {{{2
 Plug 'vim-scripts/SearchComplete'
 
-" " vim-signify -- show changes in gutter {{{2
-" Plug 'mhinz/vim-signify'
-
-" let g:signify_vcs_list = ['git']
-" let g:signify_mapping_next_hunk = ']h'
-" let g:signify_mapping_prev_hunk = '[h'
-" let g:signify_mapping_toggle = 'coS'
-" let g:signify_mapping_toggle_highlight = '<space>h'
-
-" let g:signify_sign_add               = '+'
-" let g:signify_sign_change            = '~'
-" let g:signify_sign_delete            = '_'
-" let g:signify_sign_delete_first_line = '‾'
-
-" let g:signify_cursorhold_normal = 0
-" let g:signify_cursorhold_insert = 0
+" highlightedyank -- Highlight yanked region briefly {{{2
+Plug 'machakann/vim-highlightedyank'
 
 " vim-gitgutter -- show changes in gutter {{{2
 Plug 'airblade/vim-gitgutter'
@@ -811,6 +796,7 @@ set smartcase
 "" Highlight search result and clear with <leader>/
 set hlsearch
 nnoremap <silent> <leader>/ :nohlsearch<CR>
+set inccommand=nosplit
 
 "" Always center search results (and force fold opening)
 nnoremap n nzzzO
@@ -874,7 +860,7 @@ autocmd filetype help nnoremap <buffer> <cr> <C-]>
 
 
 " LaTeXBox {{{2
-Plug 'lervag/vimtex'
+Plug 'lervag/vimtex', { 'for': 'tex' }
 Plug 'donRaphaco/neotex', { 'for': 'tex' }
 
 
@@ -884,9 +870,8 @@ let g:vimtex_quickfix_latexlog = {'default' : 0}
 
 " PYTHON {{{2
 
-
 " python-mode -- the name says it all
-Plug 'klen/python-mode'
+Plug 'klen/python-mode', { 'for': 'python' }
 
 "" Disable all unused stuff
 let g:pymode_doc = 0
@@ -932,72 +917,39 @@ let g:pymode_syntax_highlight_stars_operator = g:pymode_syntax_all
 let g:pymode_syntax_highlight_self = g:pymode_syntax_all
 let g:pymode_syntax_slow_sync = 0
 
-
-Plug 'hdima/python-syntax'
+" python-syntax {{{2
+Plug 'hdima/python-syntax', { 'for': 'python' }
 
 nnoremap <F3> :call system('ipython qtconsole --pylab inline &')<CR>
 
-" pytest-vim-compiler
-Plug '5long/pytest-vim-compiler'
+" pytest-vim-compiler {{{2
+Plug '5long/pytest-vim-compiler', { 'for': 'python' }
 
 " vim-isort -- sorting imports
-Plug 'fisadev/vim-isort'
+Plug 'fisadev/vim-isort', { 'for': 'python' }
 let g:vim_isort_map = ''
 
 
 " HASKELL {{{2
 " vim2hs -- Haskell for vim
-Plug 'dag/vim2hs'
+Plug 'dag/vim2hs', { 'for': 'haskell' }
 
 let g:haskell_conceal = 0
-" neco-ghc -- omni completion for Haskell
+" neco-ghc -- omni completion for Haskell {{{2
 "" Requires ghc-mod
-Plug 'eagletmt/neco-ghc'
+Plug 'eagletmt/neco-ghc', { 'for': 'haskell' }
 let g:necoghc_enable_detailed_browse = 1
 
 " C-family {{{2
 " clang-format
-Plug 'rhysd/vim-clang-format'
+Plug 'rhysd/vim-clang-format', { 'for': ['c', 'cpp'] }
 let g:clang_format#code_style = 'google'
 let g:clang_format#detect_style_file = 1
 let g:clang_format#auto_format = 1
 
-" julia-vim -- syntax & co for julia {{{2
-" Plug 'JuliaLang/julia-vim'
 
-
-" rust.vim -- syntax & co for julia {{{2
-" Plug 'rust-lang/rust.vim'
-
-
-" MatchTagAlways -- Visual marking of HTML/XML/... tags {{{2
-Plug 'Valloric/MatchTagAlways'
-
-" vim-fireplace -- Clojure needs you! {{{2
-" Plug 'tpope/vim-fireplace'
-
-" vim-dispatch -- asynchroneous building {{{2
-Plug 'tpope/vim-dispatch'
-" Plug 'radenling/vim-dispatch-neovim'
-
-let g:dispatch_compilers = {
-      \ 'python': 'python',
-      \ 'haskell': 'ghc'
-      \ }
-
-"" start a shell in a new window
-nnoremap <leader>ds :Dispatch zsh<CR>
-nnoremap <leader>dd :Dispatch<CR>
-nnoremap <leader>dm :Make!<CR>
-nnoremap <leader>DD :Dispatch!<CR>
-
-"" shortcut to build with dispatch
-map <silent> <LEADER>m :Make<CR>
-map <silent> <LEADER>M :Dispatch make<CR>
-
-
-" vim-fswitch -- Easily switch between header and cpp file
-Plug 'derekwyatt/vim-fswitch'
+" vim-fswitch -- Easily switch between header and cpp file {{{2
+Plug 'derekwyatt/vim-fswitch', { 'for': ['c', 'cpp'] }
 
 "" Switch to the file and load it into the current window >
 nmap <silent> <Leader>oo :FSHere<cr>
@@ -1019,6 +971,29 @@ nmap <silent> <Leader>oj :FSBelow<cr>
 nmap <silent> <Leader>oJ :FSSplitBelow<cr>
 
 
+" MatchTagAlways -- Visual marking of HTML/XML/... tags {{{2
+Plug 'Valloric/MatchTagAlways'
+
+" vim-dispatch -- asynchroneous building {{{2
+Plug 'tpope/vim-dispatch'
+
+let g:dispatch_compilers = {
+      \ 'python': 'python',
+      \ 'haskell': 'ghc'
+      \ }
+
+"" start a shell in a new window
+nnoremap <leader>ds :Dispatch zsh<CR>
+nnoremap <leader>dd :Dispatch<CR>
+nnoremap <leader>dm :Make!<CR>
+nnoremap <leader>DD :Dispatch!<CR>
+
+"" shortcut to build with dispatch
+map <silent> <LEADER>m :Make<CR>
+map <silent> <LEADER>M :Dispatch make<CR>
+
+
+
 autocmd BufRead,BufNewFile *.pxd let b:fswitchdst = 'pyx'
 autocmd BufRead,BufNewFile *.pyx let b:fswitchdst = 'pyd'
 autocmd BufRead,BufNewFile *.pyx,*.pxd let b:fswitchlocs = 'rel:.'
@@ -1030,7 +1005,7 @@ autocmd BufRead,BufNewFile *.pyx,*.pxd let b:fswitchlocs = 'rel:.'
 Plug 'tristen/vim-sparkup'
 
 " vim-markup -- syntax and matching for markdown {{{2
-Plug 'plasticboy/vim-markdown'
+Plug 'plasticboy/vim-markdown', { 'for': 'markdown' }
 
 "set a custom make target {{{2
 function! SetMake()
@@ -1041,28 +1016,15 @@ endfunction
 nnoremap <leader>sm :call SetMake()<CR>
 
 " vim-unstack -- nice representation of stack-traces{{{2
-Plug 'mattboehm/vim-unstack'
+Plug 'mattboehm/vim-unstack', { 'for': ['python', 'go', 'javascript']}
 
-let g:unstack_mapkey = '<F10>'
+let g:unstack_mapkey = '<leader>us'
 
-" vim-makeshift -- switch makeprg
-" Plug 'johnsyweb/vim-makeshift'
-" Plug 'dseuss/vim-makeshift'
-" let g:makeshift_on_startup = 1
-" let g:makeshift_on_bufread = 1
-" let g:makeshift_on_bufnewfile = 1
-" let g:makeshift_on_bufenter = 1
-" let g:makeshift_chdir = 0
-
-" let g:makeshift_systems = {
-"     \'Main.hs': 'source ~/.dotfiles/zsh/cabal.zsh;runhaskell Main.hs',
-"     \}
-
-" vim-rooter -- switch pwd smarter
+" vim-rooter -- switch pwd smarter {{{2
 Plug 'airblade/vim-rooter'
 
 " typescript-vim {{{2
-Plug 'leafgarland/typescript-vim'
+Plug 'leafgarland/typescript-vim', { 'for': 'typescript' }
 
 "2}}}
 
