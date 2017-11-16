@@ -10,7 +10,7 @@ COMPLETION_WAITING_DOTS="true"
 CASE_SENSETIVE="false"
 
 # Load the oh-my-zsh plugins and settings
-plugins=(command-not-found git z brew pip zsh-syntax-highlighting tmux stack)
+plugins=(git z brew pip zsh-syntax-highlighting tmux stack)
 source $ZSH/oh-my-zsh.sh
 
 # since option doesnt seem to work
@@ -70,8 +70,9 @@ function list_commands() {
 zle -N list_commands
 bindkey "^[\t" list_commands
 
-# activate autoenv
-source $(brew --prefix autoenv)/activate.sh
+# activate autoenv; use fixed path sicnce its much faster
+# source $(brew --prefix autoenv)/activate.sh
+source /usr/local/opt/autoenv/activate.sh
 
 
 ## Personal aliases ###########################################################
