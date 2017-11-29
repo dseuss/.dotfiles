@@ -7,3 +7,4 @@ plugged
 .view
 .ctrlp
 .init.vim-rplugin~
+localvimrc_persistent

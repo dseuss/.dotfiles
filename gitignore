@@ -29,3 +29,4 @@
 *.orig
 .vscode/
 .env
+.lvimrc

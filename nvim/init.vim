@@ -833,7 +833,7 @@ nnoremap N NzzzO
 
 
 " tagbar -- show tag structure in side bar {{{2
-Plug 'majutsushi/tagbar'
+Plug 'majutsushi/tagbar', { 'for': ['python', 'cpp'] }
 
 "" open/close similar to vim-unimpaired
 nnoremap <silent> cot :TagbarToggle<CR>
@@ -860,6 +860,12 @@ nnoremap <leader>GD :Gdiff<CR>
 "" automatically delete fugitive buffers on close
 autocmd BufReadPost fugitive://* set bufhidden=delete
 
+
+" vim-localvimrc -- load local vimrc files {{{2
+Plug 'embear/vim-localvimrc'
+
+let g:localvimrc_persistent = 1
+let g:localvimrc_persistence_file = '/Users/dsuess/.config/nvim/localvimrc_persistent'
 "2}}}
 
 "" location of tag files (use first existend one)
