@@ -533,7 +533,8 @@ nnoremap <leader>yg :YcmCompleter GoTo<CR>
 nnoremap <leader>yh :YcmCompleter GetDoc<CR>
 nnoremap <leader>yf :YcmCompleter FixIt<CR>
 nnoremap <leader>yt :YcmCompleter GetType<CR>
-" omnicomplete navigation using j/k {{{2
+
+" completion menu navigation using j/k {{{2
 function! OmniPopup(action)
   if pumvisible()
     if a:action == 'j'
@@ -686,6 +687,19 @@ set foldopen=block,insert,jump,mark,percent,quickfix,search,tag,undo
 
 
 " FILES & COMMANDS {{{1
+
+" Nerdtree -- A tree explorer plugin for vim {{{2
+Plug 'scrooloose/nerdtree'
+Plug 'Xuyuanp/nerdtree-git-plugin'
+"" set wildignore from gitignore (e.g. to exlude ignored files from NERD tree)
+Plug 'octref/RootIgnore'
+
+let NERDTreeRespectWildIgnore = 1
+
+"" open/close similar to vim-unimpaired
+nnoremap <silent> cof :NERDTreeToggle<CR>
+nnoremap <silent> [of :NERDTree<CR>
+nnoremap <silent> ]of :NERDTreeClose<CR>
 
 "" Use bash instead of default shell
 set shell=zsh
@@ -867,6 +881,25 @@ Plug 'donRaphaco/neotex', { 'for': 'tex' }
 let g:vimtex_compiler_progname = '/Users/dsuess/bin/nvr_vimr'
 let g:vimtex_view_method = 'skim'
 let g:vimtex_quickfix_latexlog = {'default' : 0}
+"
+" let g:vimtex_quickfix_latexlog = {
+"           \ 'default' : 1,
+"           \ 'general' : 1,
+"           \ 'references' : 1,
+"           \ 'overfull' : 0,
+"           \ 'underfull' : 0,
+"           \ 'font' : 1,
+"           \ 'packages' : {
+"           \   'default' : 1,
+"           \   'natbib' : 1,
+"           \   'biblatex' : 1,
+"           \   'babel' : 1,
+"           \   'hyperref' : 1,
+"           \   'scrreprt' : 1,
+"           \   'fixltx2e' : 1,
+"           \   'titlesec' : 1,
+"           \ },
+"           \}
 
 " PYTHON {{{2
 
@@ -941,6 +974,7 @@ Plug 'eagletmt/neco-ghc', { 'for': 'haskell' }
 let g:necoghc_enable_detailed_browse = 1
 
 " C-family {{{2
+"
 " clang-format
 Plug 'rhysd/vim-clang-format', { 'for': ['c', 'cpp'] }
 let g:clang_format#code_style = 'google'
@@ -948,7 +982,7 @@ let g:clang_format#detect_style_file = 1
 let g:clang_format#auto_format = 1
 
 
-" vim-fswitch -- Easily switch between header and cpp file {{{2
+" vim-fswitch -- Easily switch between header and cpp file
 Plug 'derekwyatt/vim-fswitch', { 'for': ['c', 'cpp'] }
 
 "" Switch to the file and load it into the current window >
@@ -969,6 +1003,10 @@ nmap <silent> <Leader>oK :FSSplitAbove<cr>
 nmap <silent> <Leader>oj :FSBelow<cr>
 "" Switch to the file and load it into a new window split below >
 nmap <silent> <Leader>oJ :FSSplitBelow<cr>
+
+" RUST {{{2
+
+Plug 'rust-lang/rust.vim', { 'for': 'rust' }
 
 
 " MatchTagAlways -- Visual marking of HTML/XML/... tags {{{2
@@ -1002,7 +1040,7 @@ autocmd BufRead,BufNewFile *.pyx,*.pxd let b:fswitchlocs = 'rel:.'
 "" shortcut config in ftplugin/python.vim
 
 " vim-sparkup -- zen coding with html/xml {{{2
-Plug 'tristen/vim-sparkup'
+Plug 'tristen/vim-sparkup', { 'for': ['xml', 'html'] }
 
 " vim-markup -- syntax and matching for markdown {{{2
 Plug 'plasticboy/vim-markdown', { 'for': 'markdown' }
@@ -1071,6 +1109,7 @@ autocmd BufRead,BufNewFile SConscript set filetype=python
 "" jl -- Julia source files
 autocmd BufRead,BufNewFile *.jl set filetype=julia
 autocmd BufRead,BufNewFile *.ts set filetype=typescript
+autocmd BufRead,BufNewFile *.tex set filetype=tex
 
 "2}}}
 
