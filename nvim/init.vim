@@ -371,7 +371,7 @@ Plug 'neomake/neomake'
 "" Always show errors on save
 
 "" Syntastics for python, only use flake8
-let g:neomake_python_enabled_makers=['flake8', 'python']
+let g:neomake_python_enabled_makers=['flake8', 'python', 'mypy']
 "" Ignore certain errors and check complexity
 " let g:syntastic_python_flake8_post_args='--ignore=E127,E128,E226,E501 --max-complexity 10'
 "" E127, E128 -- continuation line is over indented
@@ -689,8 +689,8 @@ set foldopen=block,insert,jump,mark,percent,quickfix,search,tag,undo
 " FILES & COMMANDS {{{1
 
 " Nerdtree -- A tree explorer plugin for vim {{{2
-Plug 'scrooloose/nerdtree'
-Plug 'Xuyuanp/nerdtree-git-plugin'
+Plug 'scrooloose/nerdtree', { 'on': ['NERDTree', 'NERDTreeToggle'] }
+Plug 'Xuyuanp/nerdtree-git-plugin', { 'on': ['NERDTree', 'NERDTreeToggle'] }
 "" set wildignore from gitignore (e.g. to exlude ignored files from NERD tree)
 Plug 'octref/RootIgnore'
 
@@ -910,7 +910,7 @@ let g:vimtex_quickfix_latexlog = {'default' : 0}
 " PYTHON {{{2
 
 " python-mode -- the name says it all
-Plug 'klen/python-mode', { 'for': 'python' }
+Plug 'klen/python-mode'
 
 "" Disable all unused stuff
 let g:pymode_doc = 0
