@@ -1010,6 +1010,10 @@ nmap <silent> <Leader>oj :FSBelow<cr>
 "" Switch to the file and load it into a new window split below >
 nmap <silent> <Leader>oJ :FSSplitBelow<cr>
 
+autocmd BufRead,BufNewFile *.pxd let b:fswitchdst = 'pyx'
+autocmd BufRead,BufNewFile *.pyx let b:fswitchdst = 'pyd'
+autocmd BufRead,BufNewFile *.pyx,*.pxd let b:fswitchlocs = 'rel:.'
+
 " RUST {{{2
 
 Plug 'rust-lang/rust.vim', { 'for': 'rust' }
@@ -1020,6 +1024,10 @@ Plug 'Valloric/MatchTagAlways', { 'for': ['html', 'xml'] }
 
 " vim-dispatch -- asynchroneous building {{{2
 Plug 'tpope/vim-dispatch'
+
+if has('gui_vimr')
+  Plug 'radenling/vim-dispatch-neovim'
+endif
 
 let g:dispatch_compilers = {
       \ 'python': 'python',
@@ -1035,12 +1043,6 @@ nnoremap <leader>DD :Dispatch!<CR>
 "" shortcut to build with dispatch
 map <silent> <LEADER>m :Make<CR>
 map <silent> <LEADER>M :Dispatch make<CR>
-
-
-
-autocmd BufRead,BufNewFile *.pxd let b:fswitchdst = 'pyx'
-autocmd BufRead,BufNewFile *.pyx let b:fswitchdst = 'pyd'
-autocmd BufRead,BufNewFile *.pyx,*.pxd let b:fswitchlocs = 'rel:.'
 
 
 "" shortcut config in ftplugin/python.vim
