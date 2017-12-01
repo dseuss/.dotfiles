@@ -16,3 +16,4 @@ bin/python3.4
 
 *.bak
 bin/realpath
+jupyter/nbconfig
