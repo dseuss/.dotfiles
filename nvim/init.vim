@@ -365,23 +365,30 @@ endif
 autocmd BufWritePre * :call <SID>StripTrailingWhitespaces()
 
 
-" neomake -- on-the-fly code checking {{{2
-Plug 'neomake/neomake'
+" ale -- on-the-fly code checking {{{2
+Plug 'w0rp/ale'
 
-"" Always show errors on save
+"" Support for airline
+let g:airline#extensions#ale#enabled = 1
+
+"" Disable continious linting to save some battery
+let g:ale_lint_on_text_changed = 'never'
+let g:ale_lint_on_enter = 0
+let g:ale_lint_on_save = 1
 
 "" Syntastics for python, only use flake8
-let g:neomake_python_enabled_makers=['flake8', 'python', 'mypy']
-"" Ignore certain errors and check complexity
-" let g:syntastic_python_flake8_post_args='--ignore=E127,E128,E226,E501 --max-complexity 10'
-"" E127, E128 -- continuation line is over indented
-"" E226 -- white space around operator (since x**2 looks way better then x ** 2)
+let g:ale_linters = {
+      \ 'python':  ['flake8', 'python'],
+      \ 'haskell': ['hlint', 'ghcmod'],
+      \ 'cpp':     ['clangcheck', 'clangtidy'],
+      \ 'tex':     ['chktex', 'proselint', 'write-good'],
+      \ 'rust':    ['rustc', 'cargo']
+      \}
 
-let g:neomake_haskell_enabled_makers=['hlint', 'ghcmod']
+let g:ale_fixers = {
+      \ 'python':  ['autopep8', 'yapf'],
+      \}
 
-let g:neomake_cpp_enabled_makers=['clangcheck', 'clangtidy']
-
-autocmd! BufWritePost * Neomake
 
 " vim-multiple-cursor -- many cursors, may good {{{2
 Plug 'terryma/vim-multiple-cursors'
@@ -887,6 +894,7 @@ Plug 'donRaphaco/neotex', { 'for': 'tex' }
 let g:vimtex_compiler_progname = '/Users/dsuess/bin/nvr_vimr'
 let g:vimtex_view_method = 'skim'
 let g:vimtex_quickfix_latexlog = {'default' : 0}
+let g:vimtex_quickfix_blgparser  = {'disable': 1}
 "
 " let g:vimtex_quickfix_latexlog = {
 "           \ 'default' : 1,
@@ -1017,7 +1025,7 @@ autocmd BufRead,BufNewFile *.pyx,*.pxd let b:fswitchlocs = 'rel:.'
 " RUST {{{2
 
 Plug 'rust-lang/rust.vim', { 'for': 'rust' }
-
+let g:rustfmt_autosave = 1
 
 " MatchTagAlways -- Visual marking of HTML/XML/... tags {{{2
 Plug 'Valloric/MatchTagAlways', { 'for': ['html', 'xml'] }
