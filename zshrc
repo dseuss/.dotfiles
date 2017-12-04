@@ -158,12 +158,6 @@ alias clipboard='pbcopy'
 ##############################
 source /usr/local/Cellar/fzf/0.16.8_1/shell/key-bindings.zsh
 test -e "${HOME}/.iterm2_shell_integration.zsh" && source "${HOME}/.iterm2_shell_integration.zsh"
-
-###-tns-completion-start-###
-if [ -f /Users/dsuess/.dotfiles/tnsrc.sh ]; then
-    source /Users/dsuess/.dotfiles/tnsrc.sh
-fi
-###-tns-completion-end-###
 if [ -f /Users/dsuess/.dotfiles/tmux_startup.sh ]; then
     source /Users/dsuess/.dotfiles/tmux_startup.sh
 fi
