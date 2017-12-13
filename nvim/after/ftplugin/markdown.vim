@@ -3,5 +3,4 @@ setlocal sw=2
 setlocal textwidth=0
 setlocal colorcolumn=0
 setlocal wrap
-setlocal noexpandtab
 setlocal conceallevel=0
