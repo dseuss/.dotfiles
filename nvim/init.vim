@@ -331,7 +331,7 @@ command! Gundo GundoToggle
 
 " Mark--Karkat -- mark text, words with colors {{{2
 "" Dont use github, since we disabled all default mappings
-set rtp+=~/.vim/sbundle/Mark--Karkat/
+set rtp+=$HOME/.config/nvim/sbundle/Mark--Karkat/
 
 "" mark with §, clear with <leader>±
 if !hasmapto('<Plug>MarkSet', 'n')
@@ -409,12 +409,10 @@ nmap SS yss
 set matchpairs=(:),[:],{:}
 
 " persistent undo files after closing
-if exists('+undofile')
-  set undofile
-  set undodir=$HOME/.vim/undo
-  if !isdirectory($HOME.'/.vim/undo')
-    call mkdir($HOME.'/.vim/undo', "p")
-  endif
+set undofile
+set undodir=$HOME/.config/nvim/undo
+if !isdirectory($HOME.'/.config/nvim/undo')
+  call mkdir($HOME.'/.config/nvim/undo', "p")
 endif
 
 
@@ -574,7 +572,7 @@ Plug 'SirVer/ultisnips'
 
  "" set directories
  let g:UltiSnipsSnippetDirectories = ["ultisnippets"]
- let g:UltiSnipsSnippetsDir = "~/.config/nvim/ultisnippets/"
+ let g:UltiSnipsSnippetsDir = "$HOME/.config/nvim/ultisnippets/"
 
 let g:ultisnips_python_style = "sphinx"
 let g:UltiSnipsUsePythonVersion = 2
@@ -674,7 +672,7 @@ inoremap <c-b> <Left>
 
 " improved-paragraph-motion -- pargraph motions work well with folding {{{2
 "" Dont use github repository since files contain windows-newlines
-set rtp+=~/.vim/sbundle/Improved-paragraph-motion/
+set rtp+=~/.config/nvim/sbundle/Improved-paragraph-motion/
 
 "" Skip all folded paragraphs
 let g:ip_skipfold = 1
@@ -699,7 +697,7 @@ set foldopen=block,insert,jump,mark,percent,quickfix,search,tag,undo
 Plug 'scrooloose/nerdtree', { 'on': ['NERDTree', 'NERDTreeToggle'] }
 Plug 'Xuyuanp/nerdtree-git-plugin', { 'on': ['NERDTree', 'NERDTreeToggle'] }
 "" set wildignore from gitignore (e.g. to exlude ignored files from NERD tree)
-Plug 'octref/RootIgnore'
+" Plug 'octref/RootIgnore'
 
 let NERDTreeRespectWildIgnore = 1
 
@@ -735,6 +733,7 @@ set hidden
 set nobackup
 set nowritebackup
 set noswapfile
+set backupdir=$HOME/.config/nvim/backup
 
 
 "" Save & Load view automatically
@@ -758,7 +757,7 @@ nnoremap <silent> <leader><F12> :so $MYVIMRC<CR>
 " NAVIGATION & SEARCHING {{{1
 
 " ag.vim -- advanced searching inside files {{{2
-Plug 'rking/ag.vim', { 'on': 'Ag' }
+Plug 'rking/ag.vim'
 
 " nnoremap <leader>a :Ag |" Dont strip space!
 
@@ -840,7 +839,7 @@ nnoremap N NzzzO
 
 
 " tagbar -- show tag structure in side bar {{{2
-Plug 'majutsushi/tagbar', { 'for': ['python', 'cpp'] }
+Plug 'majutsushi/tagbar', { 'on': ['TagbarToggle', 'TagbarOpen'] }
 
 "" open/close similar to vim-unimpaired
 nnoremap <silent> cot :TagbarToggle<CR>
