@@ -1,4 +1,15 @@
 #!/bin/sh
 
-echo "=====> Opening SKIM"
-open $1 -a Skim --args --background
+if [ "$#" -ne 1 ]; then
+    echo "Please provide path to PDF file"
+fi
+FILENAME=$(realpath "$1")
+
+/usr/bin/osascript << EOF
+  set theFile to POSIX file "${FILENAME}" as alias
+  tell application "Skim"
+  set theDocs to get documents whose path is (get POSIX path of theFile)
+  if (count of theDocs) > 0 then revert theDocs
+  open theFile
+  end tell
+EOF
