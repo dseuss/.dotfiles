@@ -1,0 +1,12 @@
+anaconda_upload: true
+
+channels:
+  - dseuss
+  - conda-forge
+  - bioconda
+  - defaults
+  - QuantStack
+
+create_default_packages:
+  - nb_conda_kernels
+  - tqdm

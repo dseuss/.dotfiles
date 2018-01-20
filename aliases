@@ -1,0 +1,26 @@
+alias pip-upgrade="pip install --upgrade"
+alias pip-upgrade-all="pip freeze --local | grep -v '^\-e' | cut -d = -f 1  | xargs -n1 pip install -U"
+alias pdb="python -m pdb"
+alias nb="tmux new -s ipython -d; tmux new-window -t ipython 'jupyter notebook'"
+
+
+# Git aliases
+alias gs="git status -s"
+alias gss="git --no-pager status"
+alias ga="git add"
+alias gl="git --no-pager lv -50 --no-merges"
+alias gll="git lg"
+alias gd="git difftool"
+alias gf="git fetch"
+alias gv="git difftool ...FETCH_HEAD"
+alias gr="git rm"
+alias gcd="cd \$(git rev-parse --show-cdup)"
+
+
+# confirmation #
+alias mv='mv -i'
+alias cp='cp -i'
+alias ln='ln -i'
+
+
+alias scp="noglob scp"

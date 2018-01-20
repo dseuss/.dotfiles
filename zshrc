@@ -33,34 +33,5 @@ stty stop undef
 stty start undef
 
 
-## Personal aliases ###########################################################
-
-# Programming
-alias conf="vim ~/.zshrc"
-alias nb="tmux new -s ipython -d; tmux new-window -t ipython 'source deactivate; reattach-to-user-namespace -l jupyter notebook'"
-
-# Git aliases
-alias gs="git --no-pager status"
-alias ga="git add"
-alias gl="git --no-pager lv -50 --no-merges"
-alias gll="git lg"
-alias gd="git difftool"
-alias gf="git fetch"
-alias gv="git difftool ...FETCH_HEAD"
-
-# Admin/Sudo-Stuff
-alias l.='ls -d .* --color=auto'    # Display hidden files
-alias tardir='tar -zcvf'
-alias untar='tar -zxvf'
-alias mkdir='mkdir -pv'             # Create parent dirs on demand
-alias ports='netstat -tulanp'
-
-# confirmation #
-alias mv='mv -i'
-alias cp='cp -i'
-alias ln='ln -i'
-
-# Parenting changing perms on / #
-alias chown='chown --preserve-root'
-alias chmod='chmod --preserve-root'
-alias chgrp='chgrp --preserve-root'
+# Personal aliases ###########################################################
+source ~/.dotfiles/aliases
