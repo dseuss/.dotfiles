@@ -35,3 +35,7 @@ stty start undef
 
 # Personal aliases ###########################################################
 source ~/.dotfiles/aliases
+
+if [ -e ~/.bashrc.local ]; then
+   source ~/.bashrc.local
+fi
