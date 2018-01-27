@@ -136,6 +136,7 @@ alias df="df -h"
 alias fzf="fzf-tmux"
 alias f="fzf-tmux -m"
 alias ssh="TERM=xterm-256color ssh -i ~/.ssh/id_rsa"
+alias scp="noglob scp"
 alias brew='TERM=xterm-256color brew'
 alias ff='open -a Finder ./'
 
