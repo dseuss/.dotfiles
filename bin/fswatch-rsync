@@ -24,7 +24,7 @@ FSWATCH_PATH="fswatch"
 LATENCY="3"
 
 # default server setup
-TARGET="work" # target ssh server
+TARGET="zeus" # target ssh server
 
 # check color support
 colors=$(tput colors)
@@ -42,7 +42,7 @@ fi
 if [[ "$1" = "" || "$2" = "" || "$3" = "" ]]; then
   echo -e "${red}Error: $PROJECT takes 3 compulsory arguments.${nocolor}"
   echo -n "Usage: fswatch-rsync.sh /local/path /targetserver/path ssh_user "
-  echo    "[middleserver] [targetserver] [target_ssh_user]"
+  echo    "[targetserver] [target_ssh_user]"
   exit
 else
   LOCAL_PATH="$1"
@@ -76,21 +76,20 @@ read -n1 -r -p "Press any key to continue (or abort with Ctrl-C)... " key
 echo      ""
 echo -n   "Synchronizing... "
 rsync -avzr -q --delete --force --exclude=".*" \
--e "ssh" $LOCAL_PATH $TARGET_SSH_USER@$TARGET:$TARGET_PATH
+-e "ssh" "$LOCAL_PATH" "$TARGET_SSH_USER@$TARGET:$TARGET_PATH"
 echo      "done."
 echo      ""
 
 # Watch for changes and sync (exclude hidden files)
 echo    "Watching for changes. Quit anytime with Ctrl-C."
-${FSWATCH_PATH} -0 -r -l $LATENCY $LOCAL_PATH --exclude="/\.[^/]*$" \
+${FSWATCH_PATH} -0 -r -l $LATENCY $LOCAL_PATH --exclude="/\.[^/]*$" --exclude="/.git/*"\
 | while read -d "" event
   do
     echo $event > .tmp_files
     echo -en "${green}" `date` "${nocolor}\"$event\" changed. Synchronizing... "
-    rsync -avzr -q --delete --force \
+    rsync -avzr -q --delete --force --exclude=".*" \
     --include-from=.tmp_files \
-    -e "ssh" \
-    $LOCAL_PATH $TARGET_SSH_USER@$TARGET:$TARGET_PATH
+    -e ssh "$LOCAL_PATH" "$TARGET_SSH_USER@$TARGET:$TARGET_PATH"
   echo "done."
     rm -rf .tmp_files
   done
