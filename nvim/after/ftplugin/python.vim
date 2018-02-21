@@ -54,3 +54,5 @@ let b:dispatch = 'python %'
 
 " Surround with block (i.e. if:, else:, ...)
 let b:surround_98 = "\1block: \1:\n\r"
+
+setlocal equalprg=yapf
