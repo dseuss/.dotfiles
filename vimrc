@@ -248,6 +248,9 @@ autocmd FileType qf wincmd J
 " vim-accordion -- manage vsplits {{{2
 Plug 'mattboehm/vim-accordion'
 
+" {{{2
+Plug 'christoomey/vim-tmux-navigator'
+
 "2}}}
 
 "" Scroll through windows with hjkl

@@ -1,12 +1,8 @@
 anaconda_upload: true
 
 channels:
-  - dseuss
   - conda-forge
+  - dseuss
   - bioconda
   - defaults
   - QuantStack
-
-create_default_packages:
-  - nb_conda_kernels
-  - tqdm
