@@ -21,7 +21,7 @@ inoremap <c-s> <nop>
 set secure
 set exrc
 
-let g:python_host_prog='/usr/local/bin/python2'
+let g:python_host_prog='/usr/local/opt/python@2/bin/python2'
 let g:python3_host_prog='/usr/local/bin/python3'
 
 
@@ -561,6 +561,16 @@ endfunction
 inoremap <silent><C-j> <C-R>=OmniPopup('j')<CR>
 inoremap <silent><C-k> <C-R>=OmniPopup('k')<CR>
 
+" dash.vim -- Dash integration {{{2
+Plug 'rizzatti/dash.vim'
+
+nmap <silent> <leader>yH <Plug>DashSearch
+let g:dash_activate = 0
+
+let g:dash_map = {
+  \ 'python': ['py', 'numpy', 'scipy', 'pandas', 'matplotlib', 'seaborn', 'tf', 'pytorch']
+  \}
+
 
 " UltiSnips -- snippets {{{2
 Plug 'SirVer/ultisnips'
@@ -572,7 +582,7 @@ Plug 'SirVer/ultisnips'
 
  "" set directories
  let g:UltiSnipsSnippetDirectories = ["ultisnippets"]
- let g:UltiSnipsSnippetsDir = "$HOME/.config/nvim/ultisnippets/"
+ let g:UltiSnipsSnippetsDir = "/Users/dsuess/.config/nvim/ultisnippets/"
 
 let g:ultisnips_python_style = "sphinx"
 let g:UltiSnipsUsePythonVersion = 2
@@ -650,7 +660,7 @@ noremap [j <c-O>
 noremap ]j <c-I>
 
 "" Alternate file
-nnoremap § <c-^>
+nnoremap ± <c-^>
 
 "" Define "inside <space>" motion
 onoremap i<space> iW

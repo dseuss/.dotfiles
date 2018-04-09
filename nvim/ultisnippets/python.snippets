@@ -516,6 +516,12 @@ snippet pudb "Set PUDB breakpoint" b
 import pudb; pudb.set_trace()  # XXX Breakpoint
 endsnippet
 
+snippet tfdb "Set tensorflow debug session" b
+from tensorflow.python import debug as tf_debug
+${1:sess} = tf_debug.LocalCLIDebugWrapperSession(${1///})
+${0}
+endsnippet
+
 snippet ae "Assert equal" b
 self.assertEqual(${1:first},${2:second})
 endsnippet
@@ -563,4 +569,9 @@ endsnippet
 
 snippet ee "Display math for SPHINX" b
 .. math:: $0
+endsnippet
+
+snippet use "Matplotlib use" b
+import matplotlib; matplotlib.use('${1:Agg}')  # isort:skip
+$0
 endsnippet
