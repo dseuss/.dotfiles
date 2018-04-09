@@ -8,7 +8,7 @@ COMPLETION_WAITING_DOTS="true"
 CASE_SENSETIVE="false"
 
 # Load the oh-my-zsh plugins and settings
-plugins=(git z brew pip zsh-syntax-highlighting tmux stack)
+plugins=(git z brew pip zsh-syntax-highlighting tmux)
 source $ZSH/oh-my-zsh.sh
 
 # since option doesnt seem to work
@@ -32,11 +32,6 @@ stty stop undef
 stty start undef
 
 export ZSH_TMUX_AUTOCONNECT=false
-
-# setup conda completion
-zstyle ':completion::complete:*' use-cache 1
-fpath+=$HOME/.dotfiles/conda-zsh-completion
-compinit conda
 
 # setup ssh completion in the right order
 hosts=()
@@ -65,6 +60,7 @@ function list_commands() {
     zle end-of-line
 }
 
+# bind ESC-TAB
 zle -N list_commands
 bindkey "^[\t" list_commands
 
@@ -144,9 +140,9 @@ alias cp='cp -i'
 alias ln='ln -i'
 
 # Parenting changing perms on / #
-# alias chown='chown --reserve-root'
-# alias chmod='chmod --preserve-root'
-# alias chgrp='chgrp --preserve-root'
+alias chown='chown --reserve-root'
+alias chmod='chmod --preserve-root'
+alias chgrp='chgrp --preserve-root'
 
 # Printing
 alias print-ls='lpstat -p -d'
