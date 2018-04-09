@@ -1,5 +1,3 @@
-source ~/.dotfiles/vars.sh
-
 ## OH-MY-ZSH SPECIFIC STUFF ###################################################
 ZSH=$HOME/.oh-my-zsh
 ZSH_CUSTOM=$HOME/.dotfiles/my-zsh
