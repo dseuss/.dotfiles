@@ -24,7 +24,7 @@ FSWATCH_PATH="fswatch"
 LATENCY="3"
 
 # default server setup
-TARGET="zeus" # target ssh server
+TARGET="zeus.local" # target ssh server
 
 # check color support
 colors=$(tput colors)
@@ -75,7 +75,7 @@ echo      "with local version if differences occur)."
 read -n1 -r -p "Press any key to continue (or abort with Ctrl-C)... " key
 echo      ""
 echo -n   "Synchronizing... "
-rsync -avzr -q --delete --force --exclude=".*" \
+rsync -avzr -q --delete --force --exclude-from=.gitignore --exclude=.git \
 -e "ssh" "$LOCAL_PATH" "$TARGET_SSH_USER@$TARGET:$TARGET_PATH"
 echo      "done."
 echo      ""
@@ -87,8 +87,7 @@ ${FSWATCH_PATH} -0 -r -l $LATENCY $LOCAL_PATH --exclude="/\.[^/]*$" --exclude="/
   do
     echo $event > .tmp_files
     echo -en "${green}" `date` "${nocolor}\"$event\" changed. Synchronizing... "
-    rsync -avzr -q --delete --force --exclude=".*" \
-    --include-from=.tmp_files \
+    rsync -avzr -q --delete --force --exclude-from=.gitignore --exclude=.git \
     -e ssh "$LOCAL_PATH" "$TARGET_SSH_USER@$TARGET:$TARGET_PATH"
   echo "done."
     rm -rf .tmp_files
