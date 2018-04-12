@@ -1062,6 +1062,10 @@ map <silent> <LEADER>m :Make<CR>
 map <silent> <LEADER>M :Dispatch make<CR>
 
 
+" neoterm -- better support of neovims terminal {{{2
+Plug 'kassio/neoterm'
+
+
 "" shortcut config in ftplugin/python.vim
 
 " vim-sparkup -- zen coding with html/xml {{{2
