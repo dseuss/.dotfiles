@@ -23,9 +23,6 @@ FSWATCH_PATH="fswatch"
 # Sync latency / speed in seconds
 LATENCY="3"
 
-# default server setup
-TARGET="zeus.local" # target ssh server
-
 # check color support
 colors=$(tput colors)
 if (($colors >= 8)); then
@@ -47,17 +44,7 @@ if [[ "$1" = "" || "$2" = "" || "$3" = "" ]]; then
 else
   LOCAL_PATH="$1"
   TARGET_PATH="$2"
-  SSH_USER="$3"
-fi
-
-# Check optional arguments
-if [[ "$4" != "" ]]; then
-  TARGET="$4"
-fi
-if [[ "$5" != "" ]]; then
-  TARGET_SSH_USER="$5"
-else
-  TARGET_SSH_USER="$SSH_USER"
+  TARGET="$3"
 fi
 
 # Welcome
@@ -65,7 +52,7 @@ echo      ""
 echo -e   "${green}Hei! This is $PROJECT v$VERSION.${nocolor}"
 echo      "Local source path:  \"$LOCAL_PATH\""
 echo      "Remote target path: \"$TARGET_PATH\""
-echo      "To target server:   \"$TARGET_SSH_USER@$TARGET\""
+echo      "To target server:   \"$TARGET\""
 echo      ""
 echo -n   "Performing initial complete synchronization "
 echo -n   "(Warning: Target directory will be overwritten "
@@ -76,7 +63,7 @@ read -n1 -r -p "Press any key to continue (or abort with Ctrl-C)... " key
 echo      ""
 echo -n   "Synchronizing... "
 rsync -avzr -q --delete --force --exclude-from=.gitignore --exclude=.git \
--e "ssh" "$LOCAL_PATH" "$TARGET_SSH_USER@$TARGET:$TARGET_PATH"
+-e "ssh" "$LOCAL_PATH" "$TARGET:$TARGET_PATH"
 echo      "done."
 echo      ""
 
@@ -88,7 +75,7 @@ ${FSWATCH_PATH} -0 -r -l $LATENCY $LOCAL_PATH --exclude="/\.[^/]*$" --exclude="/
     echo $event > .tmp_files
     echo -en "${green}" `date` "${nocolor}\"$event\" changed. Synchronizing... "
     rsync -avzr -q --delete --force --exclude-from=.gitignore --exclude=.git \
-    -e ssh "$LOCAL_PATH" "$TARGET_SSH_USER@$TARGET:$TARGET_PATH"
+    -e ssh "$LOCAL_PATH" "$TARGET:$TARGET_PATH"
   echo "done."
     rm -rf .tmp_files
   done
