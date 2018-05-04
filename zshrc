@@ -1,3 +1,4 @@
+source ~/.dotfiles/vars.sh
 ## OH-MY-ZSH SPECIFIC STUFF ###################################################
 ZSH=$HOME/.oh-my-zsh
 ZSH_CUSTOM=$HOME/.dotfiles/my-zsh
@@ -67,6 +68,8 @@ bindkey "^[\t" list_commands
 # activate direnv
 eval "$(direnv hook zsh)"
 
+alias fuck="unalias fuck; eval $(thefuck --alias); fuck"
+
 
 ## Personal aliases ###########################################################
 
@@ -75,10 +78,10 @@ eval "$(hub alias -s)"
 
 # Programming
 alias vi="/usr/local/bin/vim -u ~/.virc"
-alias vim="nvim_tmuxed"
-alias nvim="nvim_tmuxed"
+alias vim=nvim
+# alias vim="nvim_tmuxed"
+# alias nvim="nvim_tmuxed"
 alias vmi="vim"
-alias nvim="nvim_tmuxed"
 alias vimr="$HOME/bin/nvr_vimr"
 alias svi="sudo vi -u ~/.virc"
 alias cleanlatex="sh -c 'rm *.aux *.fdb_latexmk *.fls *.log *.synctex.gz *.out *.toc *.bib.bak *.end *.bbl *.blg *.toc *.auxlock *.table *.gnuplot'"
@@ -88,6 +91,8 @@ alias chrome="/Applications/Google\ Chrome.app/Contents/MacOS/Google\ Chrome"
 alias share=terminal-share
 alias tmux="direnv exec / tmux"
 alias ccat='pygmentize -O style=monokai -f console256 -g'
+
+alias !=fuck
 
 
 # alias nb="tmux new -d -s ipython; tmux new-window -t ipython 'ipython notebook'"
@@ -141,7 +146,7 @@ alias ln='ln -i'
 
 # Parenting changing perms on / #
 alias chown='chown --reserve-root'
-alias chmod='chmod --preserve-root'
+# alias chmod='chmod --preserve-root'
 alias chgrp='chgrp --preserve-root'
 
 # Printing
