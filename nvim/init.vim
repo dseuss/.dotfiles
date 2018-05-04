@@ -107,6 +107,14 @@ let g:neosolarized_bold = 1
 let g:neosolarized_underline = 0
 let g:neosolarized_italic = 1
 
+" tender colorscheme {{{2
+Plug 'jacoborus/tender.vim'
+
+" onedark.vim -- another colorscheme {{{2
+Plug 'joshdick/onedark.vim'
+
+let g:onedark_terminal_italics = 1
+
 " vim-startify -- startup screen {{{2
 Plug 'mhinz/vim-startify'
 
@@ -502,7 +510,9 @@ Plug 'Valloric/YouCompleteMe'
 " Plug 'rdnetto/YCM-Generator', {'branch': 'stable'}
 
 " set python_binary to the one in the currently active conda env
-let g:ycm_python_binary_path = systemlist('which python')[0]
+if !empty($CONDA_PREFIX)
+  let g:ycm_python_binary_path = $CONDA_PREFIX . '/bin/python'
+endif
 
 "" Tab completion is run through SuperTab
 let g:ycm_key_list_select_completion = ['<S-TAB>', '<Down>']
@@ -1160,7 +1170,8 @@ if &t_Co >= 256
   endif
 endif
 if has('gui_vimr')
-  colorscheme NeoSolarized
+  colorscheme onedark
   set background=dark
+  let g:airline_theme = 'onedark'
 endif
 
