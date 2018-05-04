@@ -591,13 +591,13 @@ let g:UltiSnipsUsePythonVersion = 2
  " autocmd FileType * call UltiSnips#FileTypeChanged()
  autocmd BufNewFile,BufRead *.snippets setf snippets
 
-" vim-slime -- interact with tmux {{{2
-if exists('$TMUX')
-  Plug 'jpalardy/vim-slime'
+" " vim-slime -- interact with tmux {{{2
+" if exists('$TMUX')
+"   Plug 'jpalardy/vim-slime'
 
-  let g:slime_target = "tmux"
-  let g:slime_default_config = {"socket_name": split($TMUX, ",")[0], "target_pane": ":.2"}
-endif
+"   let g:slime_target = "tmux"
+"   let g:slime_default_config = {"socket_name": split($TMUX, ",")[0], "target_pane": ":.2"}
+" endif
 
 
 "2}}}
@@ -1161,6 +1161,6 @@ if &t_Co >= 256
 endif
 if has('gui_vimr')
   colorscheme NeoSolarized
-  set background=light
+  set background=dark
 endif
 
