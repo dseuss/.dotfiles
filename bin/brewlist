@@ -1,0 +1,9 @@
+#!/bin/sh
+# make a catalog of Homebrew-installed packages by package
+brew list |\
+  while read formula; do
+    brew list $formula |\
+    while read file; do
+      echo "$formula\t$file"
+    done
+done
