@@ -10,3 +10,4 @@ channels:
 create_default_packages:
   - nb_conda_kernels
   - tqdm
+  - ipywidgets
