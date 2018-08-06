@@ -386,11 +386,12 @@ let g:ale_lint_on_save = 1
 
 "" Syntastics for python, only use flake8
 let g:ale_linters = {
-      \ 'python':  ['flake8', 'python'],
+      \ 'python':  ['black', 'flake8', 'python'],
       \ 'haskell': ['hlint', 'stack-ghc-mod', 'stack-ghc'],
       \ 'cpp':     ['clangcheck', 'clangtidy'],
       \ 'tex':     ['chktex', 'proselint', 'write-good'],
-      \ 'rust':    ['rustc', 'cargo']
+      \ 'rust':    ['rustc', 'cargo'],
+      \ 'javascript': ['eslint', 'flow']
       \}
 
 let g:ale_fixers = {
@@ -913,7 +914,7 @@ Plug 'donRaphaco/neotex', { 'for': 'tex' }
 let g:vimtex_compiler_progname = '/Users/dsuess/bin/nvr_vimr'
 let g:vimtex_view_method = 'skim'
 let g:vimtex_quickfix_latexlog = {'default' : 0}
-let g:vimtex_quickfix_blgparser  = {'disable': 1}
+let g:vimtex_quickfix_blgparser  = {'disable': 0}
 "
 " let g:vimtex_quickfix_latexlog = {
 "           \ 'default' : 1,
@@ -1170,8 +1171,8 @@ if &t_Co >= 256
   endif
 endif
 if has('gui_vimr')
-  colorscheme onedark
+  colorscheme NeoSolarized
+  let g:airline_theme = 'solarized'
   set background=dark
-  let g:airline_theme = 'onedark'
 endif
 
