@@ -82,7 +82,6 @@ alias vim=nvim
 # alias vim="nvim_tmuxed"
 # alias nvim="nvim_tmuxed"
 alias vmi="vim"
-alias vimr="$HOME/bin/nvr_vimr"
 alias svi="sudo vi -u ~/.virc"
 alias cleanlatex="sh -c 'rm *.aux *.fdb_latexmk *.fls *.log *.synctex.gz *.out *.toc *.bib.bak *.end *.bbl *.blg *.toc *.auxlock *.table *.gnuplot'"
 alias conf="vim ~/.zshrc"
@@ -158,4 +157,8 @@ source /usr/local/Cellar/fzf/0.16.8_1/shell/key-bindings.zsh
 test -e "${HOME}/.iterm2_shell_integration.zsh" && source "${HOME}/.iterm2_shell_integration.zsh"
 if [ -f /Users/dsuess/.dotfiles/tmux_startup.sh ]; then
     source /Users/dsuess/.dotfiles/tmux_startup.sh
+fi
+
+if [[ ! -z "$DIRENV_DIR" ]]; then
+   direnv reload
 fi
