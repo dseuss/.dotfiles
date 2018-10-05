@@ -905,36 +905,6 @@ autocmd filetype help nnoremap <buffer> <cr> <C-]>
 
 " BUILDING & LANGUAGE SPECIFICS {{{1
 
-
-" LaTeXBox {{{2
-Plug 'lervag/vimtex', { 'for': 'tex' }
-Plug 'donRaphaco/neotex', { 'for': 'tex' }
-
-
-let g:vimtex_compiler_progname = '/Users/dsuess/bin/nvr_vimr'
-let g:vimtex_view_method = 'skim'
-let g:vimtex_quickfix_latexlog = {'default' : 0}
-let g:vimtex_quickfix_blgparser  = {'disable': 0}
-"
-" let g:vimtex_quickfix_latexlog = {
-"           \ 'default' : 1,
-"           \ 'general' : 1,
-"           \ 'references' : 1,
-"           \ 'overfull' : 0,
-"           \ 'underfull' : 0,
-"           \ 'font' : 1,
-"           \ 'packages' : {
-"           \   'default' : 1,
-"           \   'natbib' : 1,
-"           \   'biblatex' : 1,
-"           \   'babel' : 1,
-"           \   'hyperref' : 1,
-"           \   'scrreprt' : 1,
-"           \   'fixltx2e' : 1,
-"           \   'titlesec' : 1,
-"           \ },
-"           \}
-
 " PYTHON {{{2
 
 " python-mode -- the name says it all
@@ -1164,10 +1134,10 @@ if &t_Co >= 256
   "let g:airline_theme="powerlineish"
   if has('nvim')
     set background=dark
-    colorscheme NeoSolarized
+    colorscheme Tomorrow-Night
     let g:airline_theme = 'solarized'
   else
-    colorscheme sorcerer
+    colorscheme Tomorrow-Night
   endif
 endif
 if has('gui_vimr')
