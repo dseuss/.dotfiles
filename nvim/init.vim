@@ -98,8 +98,6 @@ nnoremap coa :AirlineToggle<CR>
 " Plug 'altercation/vim-colors-solarized'
 Plug 'iCyMind/NeoSolarized'
 
-set termguicolors
-
 let g:neosolarized_contrast = "normal"
 let g:neosolarized_visibility = "normal"
 let g:neosolarized_vertSplitBgTrans = 1
@@ -1135,7 +1133,7 @@ if &t_Co >= 256
   if has('nvim')
     set background=dark
     colorscheme Tomorrow-Night
-    let g:airline_theme = 'solarized'
+    " let g:airline_theme = 'solarized'
   else
     colorscheme Tomorrow-Night
   endif
