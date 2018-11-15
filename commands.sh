@@ -64,3 +64,32 @@ ssh-ec2() {
 change-mac() {
     sudo ifconfig en0 ether $(openssl rand -hex 6 | sed 's/\(..\)/\1:/g; s/.$//')
 }
+
+ssh-sync() {
+    if [ -z ${1+x} ]; then
+        echo "Please specify target server"
+        return -1
+    fi
+    if [ -z ${SSH_SYNC_SRC_DIR+x} ]; then
+        echo "SSH_SYNC_SRC_DIR not set"
+        return -1
+    fi
+    if [ -z ${SSH_SYNC_DEST_DIR+x} ]; then
+        echo "SSH_SYNC_DEST_DIR not set"
+        return -1
+    fi
+
+    tmux new -d -s tasks
+    tmux new-window -t tasks "/Users/dsuess/bin/fswatch-rsync $SSH_SYNC_SRC_DIR $SSH_SYNC_DEST_DIR $1"
+    tmux rename-window -t tasks "ssh-sync $1"
+}
+
+nb () {
+    tmux new -d -s tasks
+    tmux new-window -t tasks 'reattach-to-user-namespace -l /Users/dsuess/Library/Conda/bin/jupyter notebook'
+}
+
+jl () {
+    tmux new -d -s tasks
+    tmux new-window -t tasks 'reattach-to-user-namespace -l /Users/dsuess/Library/Conda/bin/jupyter lab'
+}

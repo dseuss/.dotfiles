@@ -59,7 +59,6 @@ echo -n   "(Warning: Target directory will be overwritten "
 echo      "with local version if differences occur)."
 
 # Perform initial complete sync
-read -n1 -r -p "Press any key to continue (or abort with Ctrl-C)... " key
 echo      ""
 echo -n   "Synchronizing... "
 rsync -avzr -q --delete --force --exclude-from=.gitignore --exclude=.git \
