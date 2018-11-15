@@ -92,7 +92,7 @@ alias tmux="direnv exec / tmux"
 alias ccat='pygmentize -O style=monokai -f console256 -g'
 
 
-# alias nb="tmux new -d -s ipython; tmux new-window -t ipython 'ipython notebook'"
+alias nb="tmux new -d -s tasks; tmux new-window -t tasks 'ipython notebook'"
 alias pip-upgrade="pip install --upgrade"
 alias pip-upgrade-all="pip freeze --local | grep -v '^\-e' | cut -d = -f 1  | xargs -n1 pip install -U"
 alias pdb="python -m pdb"
@@ -116,9 +116,6 @@ alias gcd="cd \$(git rev-parse --show-cdup)"
 
 # Science stuff
 alias qtconsole="ipython qtconsole --pylab inline"
-alias nb="tmux new -s ipython -d; tmux new-window -t ipython 'reattach-to-user-namespace -l /Users/dsuess/Library/Miniconda3/bin/jupyter notebook'"
-alias jl="tmux new -s ipython -d; tmux new-window -t ipython 'reattach-to-user-namespace -l /Users/dsuess/Library/Miniconda3/bin/jupyter lab'"
-alias pyspark-nb="tmux new -s ipython -d; tmux new-window -t ipython 'PYSPARK_DRIVER_PYTHON=\"jupyter\" PYSPARK_DRIVER_PYTHON_OPTS=\"notebook\" pyspark'"
 alias nb-kernels="tmux new -s ipython -d; tmux new-window -t ipython 'ipcluster start'"
 alias evalnb="jupyter nbconvert --to html --ExecutePreprocessor.enabled=True"
 
@@ -153,7 +150,7 @@ alias clipboard='pbcopy'
 ##############################
 #  Load the more extensions  #
 ##############################
-source /usr/local/Cellar/fzf/0.16.8_1/shell/key-bindings.zsh
+source /usr/local/Cellar/fzf/0.17.5/shell/key-bindings.zsh
 test -e "${HOME}/.iterm2_shell_integration.zsh" && source "${HOME}/.iterm2_shell_integration.zsh"
 if [ -f /Users/dsuess/.dotfiles/tmux_startup.sh ]; then
     source /Users/dsuess/.dotfiles/tmux_startup.sh
