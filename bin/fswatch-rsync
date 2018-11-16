@@ -68,7 +68,7 @@ echo      ""
 
 # Watch for changes and sync (exclude hidden files)
 echo    "Watching for changes. Quit anytime with Ctrl-C."
-${FSWATCH_PATH} -0 -r -l $LATENCY $LOCAL_PATH --exclude="/\.[^/]*$" --exclude="/.git/*"\
+${FSWATCH_PATH} -0 -r -l $LATENCY "$LOCAL_PATH" --exclude="/\.[^/]*$" --exclude="/.git/*"\
 | while read -d "" event
   do
     echo $event > .tmp_files
