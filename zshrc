@@ -91,8 +91,6 @@ alias share=terminal-share
 alias tmux="direnv exec / tmux"
 alias ccat='pygmentize -O style=monokai -f console256 -g'
 
-
-alias nb="tmux new -d -s tasks; tmux new-window -t tasks 'ipython notebook'"
 alias pip-upgrade="pip install --upgrade"
 alias pip-upgrade-all="pip freeze --local | grep -v '^\-e' | cut -d = -f 1  | xargs -n1 pip install -U"
 alias pdb="python -m pdb"

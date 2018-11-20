@@ -1,9 +1,9 @@
 anaconda_upload: true
 
 channels:
-  - dseuss
   - conda-forge
-  - bioconda
+  - pytorch
+  - dseuss
   - defaults
   - QuantStack
 

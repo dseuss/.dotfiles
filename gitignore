@@ -1,5 +1,6 @@
 ## SYSTEM
 .DS_STORE
+.tmp_files
 
 ## PYTHON
 *.pyc

@@ -783,7 +783,7 @@ Plug 'rking/ag.vim'
 " nnoremap <leader>a :Ag |" Dont strip space!
 
 " ctrlp.vim -- file navigation, searching and much more {{{2
-Plug 'junegunn/fzf', { 'dir': '~/.fzf', 'do': './install --bin' }
+Plug 'junegunn/fzf', { 'dir': '~/.config/fzf', 'do': './install --bin' }
 Plug 'junegunn/fzf.vim'
 
 " NOTE: Ignoring all files listed in .gitignore by using `fd` as default

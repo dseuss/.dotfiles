@@ -46,7 +46,7 @@ c = get_config()
 # platform dependent and determined by the python standard library `webbrowser`
 # module, unless it is overridden using the --browser (NotebookApp.browser)
 # configuration option.
-# c.NotebookApp.open_browser = True
+c.NotebookApp.open_browser = False
 
 # The date format used by logging formatters for %(asctime)s
 # c.NotebookApp.log_datefmt = '%Y-%m-%d %H:%M:%S'
