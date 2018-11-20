@@ -11,7 +11,7 @@ COMPLETION_WAITING_DOTS="true"
 CASE_SENSETIVE="true"
 
 # Load the oh-my-zsh plugins and settings
-plugins=(command-not-found git pip zsh-syntax-highlighting tmux)
+plugins=(git pip zsh-syntax-highlighting tmux)
 source $ZSH/oh-my-zsh.sh
 
 ## Final customization of zsh #################################################
