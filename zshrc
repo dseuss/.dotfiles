@@ -34,8 +34,6 @@ stty start undef
 
 
 # Personal aliases ###########################################################
-source ~/.dotfiles/aliases
-
 if [ -e ~/.zshrc.local ]; then
    source ~/.zshrc.local
 fi
@@ -43,3 +41,5 @@ fi
 if [[ ! -z "$DIRENV_DIR" ]]; then
    direnv reload
 fi
+
+source ~/.dotfiles/aliases
