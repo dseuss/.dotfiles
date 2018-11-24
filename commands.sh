@@ -93,3 +93,8 @@ jl () {
     tmux new -d -s tasks
     tmux new-window -t tasks 'reattach-to-user-namespace -l /Users/dsuess/Library/Conda/bin/jupyter lab'
 }
+
+taskr () {
+    tmux new -d -s tasks
+    tmux new-window -t tasks "$@"
+}
