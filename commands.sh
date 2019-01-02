@@ -80,7 +80,8 @@ ssh-sync() {
     fi
 
     tmux new -d -s tasks
-    tmux new-window -t tasks "/Users/dsuess/bin/fswatch-rsync \"$SSH_SYNC_SRC_DIR\" \"$SSH_SYNC_DEST_DIR\" \"$1\""
+    echo ---- $SSH_SYNC_ARGS
+    tmux new-window -t tasks "/Users/dsuess/bin/fswatch-rsync \"$SSH_SYNC_SRC_DIR\" \"$SSH_SYNC_DEST_DIR\" \"$1\" \"$SSH_SYNC_ARGS\""
     tmux rename-window -t tasks "ssh-sync $1"
 }
 
