@@ -386,7 +386,7 @@ let g:ale_lint_on_save = 1
 
 "" Syntastics for python, only use flake8
 let g:ale_linters = {
-      \ 'python':  ['black', 'flake8', 'python'],
+      \ 'python':  ['black', 'prospector', 'vulture', 'flake8', 'python'],
       \ 'haskell': ['hlint', 'stack-ghc-mod', 'stack-ghc'],
       \ 'cpp':     ['clangcheck', 'clangtidy'],
       \ 'tex':     ['chktex', 'proselint', 'write-good'],
@@ -910,8 +910,14 @@ autocmd filetype help nnoremap <buffer> <cr> <C-]>
 Plug 'lervag/vimtex', { 'for': 'tex' }
 Plug 'donRaphaco/neotex', { 'for': 'tex' }
 
+let g:vimtex_compiler_latexrun = {
+      \ 'options' : [
+      \    '--bibtex-cmd biber'
+      \  ]
+      \}
 
 let g:vimtex_compiler_progname = '/Users/dsuess/bin/nvr_vimr'
+let g:vimtex_compiler_method = 'latexrun'
 let g:vimtex_view_method = 'skim'
 let g:vimtex_quickfix_latexlog = {'default' : 0}
 let g:vimtex_quickfix_blgparser  = {'disable': 0}
@@ -995,6 +1001,8 @@ Plug '5long/pytest-vim-compiler', { 'for': 'python' }
 " vim-isort -- sorting imports
 Plug 'fisadev/vim-isort', { 'for': 'python' }
 let g:vim_isort_map = ''
+
+nnoremap <leader>IS :Isort<CR>
 
 
 " HASKELL {{{2
@@ -1083,7 +1091,15 @@ Plug 'kassio/neoterm'
 Plug 'tristen/vim-sparkup', { 'for': ['xml', 'html'] }
 
 " vim-markup -- syntax and matching for markdown {{{2
-Plug 'plasticboy/vim-markdown', { 'for': 'markdown' }
+Plug 'plasticboy/vim-markdown', {'for': 'markdown'}
+
+" zotcite -- completion from zotero {{{2
+Plug 'jalvesaq/zotcite'
+
+let $ZoteroSQLpath = '/Users/dsuess/Library/Zotero/zotero.sqlite'
+let $ZCitationTemplate = '{Author}_{Year}_{Title}'
+let g:citation_vim_key_format = "{author}_{'_'.join(title.split()[:3])}_{date}"
+
 
 "set a custom make target {{{2
 function! SetMake()
