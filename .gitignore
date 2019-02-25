@@ -18,3 +18,5 @@ bin/python3.4
 bin/realpath
 jupyter/nbconfig
 ipython/kernels
+
+jupyter/migrated
