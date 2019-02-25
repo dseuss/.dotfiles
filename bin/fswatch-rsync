@@ -53,9 +53,6 @@ else
     RSYNC_ARGS=$4
 fi
 
-echo RSYNC_ARGS=$RSYNC_ARGS
-
-
 # Welcome
 echo      ""
 echo -e   "${green}Hei! This is $PROJECT v$VERSION.${nocolor}"
@@ -82,7 +79,7 @@ ${FSWATCH_PATH} -0 -r -l $LATENCY "$LOCAL_PATH" --exclude="/\.[^/]*$" --exclude=
   do
     echo $event > .tmp_files
     echo -en "${green}" `date` "${nocolor}\"$event\" changed. Synchronizing... "
-    rsync -avzr -q --delete --force --exclude-from=.gitignore --exclude=.git $RSYNC_ARGS \
+    rsync -avzr -q --force --exclude-from=.gitignore --exclude=.git $RSYNC_ARGS \
     -e ssh "$LOCAL_PATH" "$TARGET:$TARGET_PATH"
   echo "done."
     rm -rf .tmp_files
