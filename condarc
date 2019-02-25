@@ -1,13 +1,5 @@
-anaconda_upload: true
-
 channels:
   - conda-forge
   - pytorch
-  - dseuss
   - defaults
-  - QuantStack
-
-create_default_packages:
-  - nb_conda_kernels
-  - tqdm
-  - ipywidgets
+changeps1: false

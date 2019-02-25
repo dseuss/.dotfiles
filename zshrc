@@ -91,11 +91,12 @@ alias share=terminal-share
 alias tmux="direnv exec / tmux"
 alias ccat='pygmentize -O style=monokai -f console256 -g'
 
-alias nb="tmux new -d -s tasks; tmux new-window -t tasks 'ipython notebook'"
+alias nb="tmux new -d -s tasks; tmux new-window -t tasks '/Users/dsuess/Library/Conda/bin/jupyter notebook'"
 alias pip-upgrade="pip install --upgrade"
 alias pip-upgrade-all="pip freeze --local | grep -v '^\-e' | cut -d = -f 1  | xargs -n1 pip install -U"
+alias ci="conda install"
+alias ca="conda activate"
 alias pdb="python -m pdb"
-alias acs="anaconda search -t conda"
 alias ipy="ptipython"
 alias ghc="stack ghc"
 alias sa="source activate"
@@ -158,3 +159,18 @@ fi
 if [[ ! -z "$DIRENV_DIR" ]]; then
    direnv reload
 fi
+
+# >>> conda initialize >>>
+# !! Contents within this block are managed by 'conda init' !!
+__conda_setup="$('/Users/dsuess/Library/conda/bin/conda' 'shell.zsh' 'hook' 2> /dev/null)"
+if [ $? -eq 0 ]; then
+    eval "$__conda_setup"
+else
+    if [ -f "/Users/dsuess/Library/conda/etc/profile.d/conda.sh" ]; then
+        . "/Users/dsuess/Library/conda/etc/profile.d/conda.sh"
+    else
+        export PATH="/home/users/daniel/.local/conda/bin:$PATH"
+    fi
+fi
+unset __conda_setup
+# <<< conda initialize <<<
