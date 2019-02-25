@@ -32,3 +32,5 @@
 .env
 .lvimrc
 .envrc
+.latexrun.db
+.latexrun.db.lock
