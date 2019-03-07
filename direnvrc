@@ -1,6 +1,9 @@
-layout_anaconda() {
-  local ANACONDA_HOME="$HOME/Library/Miniconda3"
-  PATH_add "$ANACONDA_HOME/bin"
-  source activate $1
-  echo "$1 conda env loaded"
+load_database_conda() {
+  CONDA_HOME=/Users/dsuess/Library/Conda
+  source "$CONDA_HOME/etc/profile.d/conda.sh"
+}
+
+conda_activate() {
+  load_database_conda
+  conda activate $1
 }
