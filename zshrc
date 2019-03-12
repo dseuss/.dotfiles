@@ -13,6 +13,10 @@ CASE_SENSETIVE="true"
 # Load the oh-my-zsh plugins and settings
 plugins=(git pip zsh-syntax-highlighting tmux)
 source $ZSH/oh-my-zsh.sh
+fpath+=~/.dotfiles/conda-zsh-completion
+compinit conda
+zstyle ':completion::complete:*' use-cache 1
+
 
 ## Final customization of zsh #################################################
 
