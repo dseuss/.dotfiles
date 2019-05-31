@@ -388,15 +388,18 @@ let g:ale_lint_on_save = 1
 let g:ale_linters = {
       \ 'python':  ['black', 'prospector', 'vulture', 'flake8', 'python'],
       \ 'haskell': ['hlint', 'stack-ghc-mod', 'stack-ghc'],
-      \ 'cpp':     ['clangcheck', 'clangtidy'],
+      \ 'c':     [],
+      \ 'cpp':     ['clangcheck', 'clangtidy', 'flawfinder'],
       \ 'tex':     ['chktex', 'proselint', 'write-good'],
-      \ 'rust':    ['rustc', 'cargo'],
+      \ 'rust':    ['rls', 'cargo'],
       \ 'javascript': ['eslint', 'flow']
       \}
 
 let g:ale_fixers = {
       \ 'python':  ['autopep8', 'yapf'],
       \}
+
+let g:ale_c_build_dir_names = ['build']
 
 
 " vim-multiple-cursor -- many cursors, may good {{{2
@@ -887,6 +890,8 @@ nnoremap <leader>GD :Gdiff<CR>
 "" automatically delete fugitive buffers on close
 autocmd BufReadPost fugitive://* set bufhidden=delete
 
+" linediff -- diff two blocks of text in arbitrary files {{{2
+Plug 'AndrewRadev/linediff.vim'
 
 " vim-localvimrc -- load local vimrc files {{{2
 Plug 'embear/vim-localvimrc'

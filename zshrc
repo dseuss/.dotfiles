@@ -34,6 +34,11 @@ stty start undef
 
 export ZSH_TMUX_AUTOCONNECT=false
 
+# setup conda completion
+fpath+=~/.dotfiles/conda-zsh-completion
+compinit conda
+zstyle ':completion::complete:*' use-cache 1
+
 # setup ssh completion in the right order
 hosts=()
 if [[ -r ~/.ssh/config ]]; then
@@ -132,6 +137,7 @@ alias ssh="TERM=xterm-256color ssh -i ~/.ssh/id_rsa"
 alias scp="noglob scp"
 alias brew='TERM=xterm-256color brew'
 alias ff='open -a Finder ./'
+alias dcd='cd "$DUCK"'
 
 # confirmation #
 alias mv='mv -i'

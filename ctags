@@ -8,15 +8,6 @@
 --regex-latex=/\\subsection\*\{([^}]*)\}/\1/t,subsection/
 --regex-latex=/\\subsubsection\*\{([^}]*)\}/\1/u,subsubsection/
 
---langdef=tex
---regex-tex=/\\label\{([^}]*)\}/\1/l,label/
---regex-tex=/\\section\{([^}]*)\}/\1/s,section/
---regex-tex=/\\subsection\{([^}]*)\}/\1/t,subsection/
---regex-tex=/\\subsubsection\{([^}]*)\}/\1/u,subsubsection/
---regex-tex=/\\section\*\{([^}]*)\}/\1/s,section/
---regex-tex=/\\subsection\*\{([^}]*)\}/\1/t,subsection/
---regex-tex=/\\subsubsection\*\{([^}]*)\}/\1/u,subsubsection/
-
 --langdef=bib
 --langmap=bib:.bib
 --regex-bib=/^@[A-Za-z]+\{([^,]*)/\1/b,bib/

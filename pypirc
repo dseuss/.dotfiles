@@ -6,10 +6,9 @@ index-servers=
 [pypitest]
 repository: https://test.pypi.org/legacy/
 username: dsuess
-password: zFgQAEY*#ZpPCSh86fTRzNZM4a8ffRx3
 
 [pypi]
-repository: https://pypi.python.org/pypi
+repository: https://upload.pypi.org/legacy/
 username: dsuess
 
 [server-login]

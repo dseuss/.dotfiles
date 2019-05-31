@@ -12,3 +12,5 @@ export CXX=clang++
 #export RUST_SRC_PATH=$(rustc --print sysroot)/lib/rustlib/src/rust/src
 
 export FZF_DEFAULT_COMMAND='fd --type f'
+
+export DUCK="/Users/dsuess/Library/Group Containers/G69SCX94XU.duck/Library/Application Support/duck/Volumes/"

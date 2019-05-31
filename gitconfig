@@ -30,14 +30,13 @@
 [github]
     user = dseuss
     token = 696699226924a36484ec6d211afe866350c4f910
-[filter "lfs"]
-    clean = git-lfs clean -- %f
-    smudge = git-lfs smudge -- %f
-    process = git-lfs filter-process
-    required = true
 [gui]
 [rerere]
     enabled = true
 [gui]
     recentrepo = /Users/dsuess/Documents/confidence
-    recentrepo = /Users/dsuess/Code/conda-recipes
+[filter "lfs"]
+	clean = git-lfs clean -- %f
+	smudge = git-lfs smudge -- %f
+	process = git-lfs filter-process
+	required = true
