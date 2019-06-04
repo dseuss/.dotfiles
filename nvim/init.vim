@@ -386,7 +386,7 @@ let g:ale_lint_on_save = 1
 
 "" Syntastics for python, only use flake8
 let g:ale_linters = {
-      \ 'python':  ['black', 'prospector', 'vulture', 'flake8', 'python'],
+      \ 'python':  ['black', 'prospector', 'vulture', 'flake8', 'python', 'pyre'],
       \ 'haskell': ['hlint', 'stack-ghc-mod', 'stack-ghc'],
       \ 'c':     [],
       \ 'cpp':     ['clangcheck', 'clangtidy', 'flawfinder'],
