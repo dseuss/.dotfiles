@@ -376,6 +376,8 @@ autocmd BufWritePre * :call <SID>StripTrailingWhitespaces()
 " ale -- on-the-fly code checking {{{2
 Plug 'w0rp/ale'
 
+" let g:ale_python_mypy_options = '--ignore-missing-imports'
+
 "" Support for airline
 let g:airline#extensions#ale#enabled = 1
 
@@ -386,7 +388,7 @@ let g:ale_lint_on_save = 1
 
 "" Syntastics for python, only use flake8
 let g:ale_linters = {
-      \ 'python':  ['black', 'prospector', 'vulture', 'flake8', 'python', 'pyre'],
+      \ 'python':  ['black', 'vulture', 'prospector', 'python', 'pylint', 'mypy'],
       \ 'haskell': ['hlint', 'stack-ghc-mod', 'stack-ghc'],
       \ 'c':     [],
       \ 'cpp':     ['clangcheck', 'clangtidy', 'flawfinder'],
@@ -598,8 +600,8 @@ Plug 'SirVer/ultisnips'
  let g:UltiSnipsSnippetDirectories = ["ultisnippets"]
  let g:UltiSnipsSnippetsDir = "/Users/dsuess/.config/nvim/ultisnippets/"
 
-let g:ultisnips_python_style = "sphinx"
-let g:UltiSnipsUsePythonVersion = 2
+let g:ultisnips_python_style = "google"
+let g:UltiSnipsUsePythonVersion = 3
 
  "" from ftdetect/UltiSnips.vim
  " autocmd FileType * call UltiSnips#FileTypeChanged()
@@ -949,7 +951,7 @@ let g:vimtex_quickfix_blgparser  = {'disable': 0}
 " PYTHON {{{2
 
 " python-mode -- the name says it all
-Plug 'klen/python-mode'
+Plug 'klen/python-mode', { 'for': ['python'] }
 
 "" Disable all unused stuff
 let g:pymode_doc = 0
@@ -994,6 +996,10 @@ let g:pymode_syntax_highlight_equal_operator = g:pymode_syntax_all
 let g:pymode_syntax_highlight_stars_operator = g:pymode_syntax_all
 let g:pymode_syntax_highlight_self = g:pymode_syntax_all
 let g:pymode_syntax_slow_sync = 0
+
+" vim-pydocstring
+Plug 'heavenshell/vim-pydocstring', { 'for': 'python' }
+let g:pydocstring_templates_dir = '/Users/dsuess/.config/nvim/pydocstring'
 
 " python-syntax {{{2
 Plug 'hdima/python-syntax', { 'for': 'python' }
@@ -1099,7 +1105,7 @@ Plug 'tristen/vim-sparkup', { 'for': ['xml', 'html'] }
 Plug 'plasticboy/vim-markdown', {'for': 'markdown'}
 
 " zotcite -- completion from zotero {{{2
-Plug 'jalvesaq/zotcite'
+Plug 'jalvesaq/zotcite', { 'for': ['markdown'] }
 
 let $ZoteroSQLpath = '/Users/dsuess/Library/Zotero/zotero.sqlite'
 let $ZCitationTemplate = '{Author}_{Year}_{Title}'

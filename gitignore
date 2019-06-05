@@ -7,6 +7,9 @@
 .ipynb_checkpoints
 .eggs
 .cache
+.pyre/
+.pyre_configuration
+.watchmanconfig
 
 ## TEX
 *.aux
