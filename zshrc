@@ -47,3 +47,6 @@ if [[ ! -z "$DIRENV_DIR" ]]; then
 fi
 
 source ~/.dotfiles/aliases
+
+test -e "${HOME}/.iterm2_shell_integration.zsh" && source "${HOME}/.iterm2_shell_integration.zsh"
+

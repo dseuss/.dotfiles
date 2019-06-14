@@ -21,8 +21,8 @@ inoremap <c-s> <nop>
 set secure
 set exrc
 
-let g:python_host_prog='/usr/bin/python2'
-let g:python3_host_prog='/usr/bin/python3'
+" let g:python_host_prog='/usr/bin/python2'
+let g:python3_host_prog='/home/users/daniel/.local/conda/bin/python3'
 
 
 " KEY SETTINGS {{{1
@@ -594,7 +594,7 @@ Plug 'SirVer/ultisnips'
  let g:UltiSnipsSnippetsDir = "/Users/dsuess/.config/nvim/ultisnippets/"
 
 let g:ultisnips_python_style = "sphinx"
-let g:UltiSnipsUsePythonVersion = 2
+let g:UltiSnipsUsePythonVersion = 3
 
  "" from ftdetect/UltiSnips.vim
  " autocmd FileType * call UltiSnips#FileTypeChanged()
@@ -1132,10 +1132,10 @@ if &t_Co >= 256
   "let g:airline_theme="powerlineish"
   if has('nvim')
     set background=dark
-    colorscheme Tomorrow-Night
+    colorscheme molokai
     " let g:airline_theme = 'solarized'
   else
-    colorscheme Tomorrow-Night
+    colorscheme molokai
   endif
 endif
 if has('gui_vimr')
