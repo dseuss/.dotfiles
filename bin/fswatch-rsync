@@ -67,7 +67,7 @@ echo      "with local version if differences occur)."
 # Perform initial complete sync
 echo      ""
 echo -n   "Synchronizing... "
-rsync -avzr -q --delete --force --exclude-from=.gitignore --exclude=.git $RSYNC_ARGS \
+rsync -avzr -q --force --exclude-from=.gitignore --exclude=.git $RSYNC_ARGS \
 -e "ssh" "$LOCAL_PATH" "$TARGET:$TARGET_PATH"
 echo      "done."
 echo      ""
