@@ -99,3 +99,8 @@ taskr () {
     tmux new -d -s tasks
     tmux new-window -t tasks "$@"
 }
+
+taskrpf() {
+    echo taskr ssh -L "$1":localhost:"$1" "$2"
+    taskr ssh -L "$1":localhost:"$1" "$2"
+}
