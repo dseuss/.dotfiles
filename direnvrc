@@ -1,0 +1,9 @@
+load_database_conda() {
+  CONDA_HOME=/home/users/daniel/.local/conda
+  source "$CONDA_HOME/etc/profile.d/conda.sh"
+}
+
+conda_activate() {
+  load_database_conda
+  conda activate $1
+}
