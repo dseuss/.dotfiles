@@ -35,8 +35,9 @@ stty start undef
 export ZSH_TMUX_AUTOCONNECT=false
 
 # setup conda completion
+fpath+=~/.dotfiles/my-zsh/plugins/dvc/
 fpath+=~/.dotfiles/conda-zsh-completion
-compinit conda
+compinit -i
 zstyle ':completion::complete:*' use-cache 1
 
 # setup ssh completion in the right order
@@ -87,6 +88,7 @@ alias vim=nvim
 # alias vim="nvim_tmuxed"
 # alias nvim="nvim_tmuxed"
 alias vmi="vim"
+alias vimr="vimr --cur-env"
 alias svi="sudo vi -u ~/.virc"
 alias cleanlatex="sh -c 'rm *.aux *.fdb_latexmk *.fls *.log *.synctex.gz *.out *.toc *.bib.bak *.end *.bbl *.blg *.toc *.auxlock *.table *.gnuplot'"
 alias conf="vim ~/.zshrc"
@@ -181,4 +183,11 @@ fi
 unset __conda_setup
 # <<< conda initialize <<<
 
+export PATH="/home/users/daniel/library/conda/bin:$PATH"
 export PATH="$HOME/.yarn/bin:$HOME/.config/yarn/global/node_modules/.bin:$PATH"
+
+# The next line updates PATH for the Google Cloud SDK.
+if [ -f '/Users/dsuess/Downloads/google-cloud-sdk/path.zsh.inc' ]; then . '/Users/dsuess/Downloads/google-cloud-sdk/path.zsh.inc'; fi
+
+# The next line enables shell command completion for gcloud.
+if [ -f '/Users/dsuess/Downloads/google-cloud-sdk/completion.zsh.inc' ]; then . '/Users/dsuess/Downloads/google-cloud-sdk/completion.zsh.inc'; fi
