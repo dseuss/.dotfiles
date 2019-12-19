@@ -20,6 +20,7 @@ inoremap <c-s> <nop>
 "" Enable (secure) local configuration
 set secure
 set exrc
+set nomodeline
 
 let g:python_host_prog='/usr/local/opt/python@2/bin/python2'
 let g:python3_host_prog='/usr/local/bin/python3'
@@ -60,9 +61,8 @@ nnoremap [ov :set virtualedit=all<CR>
 nnoremap ]ov :set virtualedit=block<CR>
 
 "" switch between tabs
-" nnoremap <leader>tp :tabprevious<CR>
-" nnoremap <leader>tn :tabnext<CR>
-" nnoremap <leader>tN :tabnew<CR>
+nnoremap <C-TAB> :tabprevious<CR>
+nnoremap <C-S-TAB> :tabnext<CR>
 
 "" Quickly open the command window
 nnoremap ; :
@@ -385,10 +385,11 @@ let g:airline#extensions#ale#enabled = 1
 let g:ale_lint_on_text_changed = 'never'
 let g:ale_lint_on_enter = 0
 let g:ale_lint_on_save = 1
+let g:ale_fix_on_save = 1
 
 "" Syntastics for python, only use flake8
 let g:ale_linters = {
-      \ 'python':  ['black', 'vulture', 'prospector', 'python', 'pylint', 'mypy'],
+      \ 'python':  ['pylint', 'mypy', 'pyflakes'],
       \ 'haskell': ['hlint', 'stack-ghc-mod', 'stack-ghc'],
       \ 'c':     [],
       \ 'cpp':     ['clangcheck', 'clangtidy', 'flawfinder'],
@@ -398,8 +399,15 @@ let g:ale_linters = {
       \}
 
 let g:ale_fixers = {
-      \ 'python':  ['autopep8', 'yapf'],
+      \ 'python':  ['black', 'isort'],
+      \ 'go':  ['gofmt'],
       \}
+
+let g:ale_python_black_executable = $CONDA_PREFIX . '/bin/black'
+let g:ale_python_black_change_directory = 0
+let g:ale_python_isort_executable = $CONDA_PREFIX . '/bin/isort'
+let g:ale_python_mypy_executable = $CONDA_PREFIX . '/bin/mypy'
+let g:ale_python_pylint_executable = $CONDA_PREFIX . '/bin/pylint'
 
 let g:ale_c_build_dir_names = ['build']
 
@@ -743,7 +751,7 @@ endif
 set showcmd
 
 "" sane tab completion in command mode
-set wildmode=longest,list
+set wildmode=list:longest,full
 set wildmenu
 
 "" Sync working dir to current file
@@ -822,10 +830,6 @@ let g:fzf_buffers_jump = 1
 " if executable('lushtags')
 "   call extend(g:ctrlp_buftag_types, { 'haskell': { 'args': '--ignore-parse-error', 'bin': 'lushtags' } })
 " end
-
-
-" SearchComplete -- Tab completion for searching {{{2
-Plug 'vim-scripts/SearchComplete'
 
 " highlightedyank -- Highlight yanked region briefly {{{2
 Plug 'machakann/vim-highlightedyank'
@@ -1000,13 +1004,12 @@ let g:pymode_syntax_slow_sync = 0
 " vim-pydocstring
 Plug 'heavenshell/vim-pydocstring', { 'for': 'python' }
 let g:pydocstring_templates_dir = '/Users/dsuess/.config/nvim/pydocstring'
+let g:pydocstring_enable_mapping = 0
 
-" python-syntax {{{2
+" python-syntax
 Plug 'hdima/python-syntax', { 'for': 'python' }
 
-nnoremap <F3> :call system('ipython qtconsole --pylab inline &')<CR>
-
-" pytest-vim-compiler {{{2
+" pytest-vim-compiler
 Plug '5long/pytest-vim-compiler', { 'for': 'python' }
 
 " vim-isort -- sorting imports
@@ -1014,6 +1017,8 @@ Plug 'fisadev/vim-isort', { 'for': 'python' }
 let g:vim_isort_map = ''
 
 nnoremap <leader>IS :Isort<CR>
+
+Plug 'cjrh/vim-conda', { 'for': 'python' }
 
 
 " HASKELL {{{2
@@ -1103,14 +1108,6 @@ Plug 'tristen/vim-sparkup', { 'for': ['xml', 'html'] }
 
 " vim-markup -- syntax and matching for markdown {{{2
 Plug 'plasticboy/vim-markdown', {'for': 'markdown'}
-
-" zotcite -- completion from zotero {{{2
-Plug 'jalvesaq/zotcite', { 'for': ['markdown'] }
-
-let $ZoteroSQLpath = '/Users/dsuess/Library/Zotero/zotero.sqlite'
-let $ZCitationTemplate = '{Author}_{Year}_{Title}'
-let g:citation_vim_key_format = "{author}_{'_'.join(title.split()[:3])}_{date}"
-
 
 "set a custom make target {{{2
 function! SetMake()

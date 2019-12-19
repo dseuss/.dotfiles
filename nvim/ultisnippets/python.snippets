@@ -494,7 +494,7 @@ def __coerce__(self, other):
 endsnippet
 
 snippet deff
-def ${1:fname}(`!p snip.rv = vim.eval('indent(".") ? "self" : ""')`$2):
+def ${1:fname}($2):
 	$0
 endsnippet
 
@@ -653,7 +653,7 @@ endsnippet
 # Assertions & Tests #
 ######################
 snippet pdb "Set PDB breakpoint" b
-import pdb; pdb.set_trace()  # XXX Breakpoint
+__import__("pdb").set_trace()  # FIXME
 endsnippet
 
 snippet ae "Assert equal" b

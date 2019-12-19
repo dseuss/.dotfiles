@@ -8,6 +8,7 @@ export PYTHONPATH=$HOME/Code/Pythonlibs:$PYTHONPATH
 
 export CC=clang
 export CXX=clang++
+export CFLAGS="-isysroot /Library/Developer/CommandLineTools/SDKs/MacOSX10.15.sdk/ $CFLAGS"
 
 #export RUST_SRC_PATH=$(rustc --print sysroot)/lib/rustlib/src/rust/src
 

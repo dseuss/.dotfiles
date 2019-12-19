@@ -3,5 +3,5 @@
 {{_indent_}}Args:
 {{_nested_indent_}}{{_args_}}:
 
-Returns: {{_return_type_}}
+Returns ({{_return_type_}}):
 """
