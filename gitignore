@@ -17,3 +17,5 @@
 *.bcf
 *.run.xml
 
+.vscode
+.envrc

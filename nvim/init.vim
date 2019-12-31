@@ -21,7 +21,7 @@ inoremap <c-s> <nop>
 set secure
 set exrc
 
-" let g:python_host_prog='/usr/bin/python2'
+""let g:python_host_prog='/usr/local/opt/python@2/bin/python2'
 let g:python3_host_prog='/home/users/daniel/.local/conda/bin/python3'
 
 
@@ -97,6 +97,8 @@ nnoremap coa :AirlineToggle<CR>
 " vim-colors-solarized -- solarized color scheme {{{2
 " Plug 'altercation/vim-colors-solarized'
 Plug 'iCyMind/NeoSolarized'
+
+set termguicolors
 
 let g:neosolarized_contrast = "normal"
 let g:neosolarized_visibility = "normal"
@@ -384,17 +386,20 @@ let g:ale_lint_on_save = 1
 
 "" Syntastics for python, only use flake8
 let g:ale_linters = {
-      \ 'python':  ['black', 'flake8', 'python'],
+      \ 'python':  ['black', 'prospector', 'vulture', 'flake8', 'python'],
       \ 'haskell': ['hlint', 'stack-ghc-mod', 'stack-ghc'],
-      \ 'cpp':     ['clangcheck', 'clangtidy'],
+      \ 'c':     [],
+      \ 'cpp':     ['clangcheck', 'clangtidy', 'flawfinder'],
       \ 'tex':     ['chktex', 'proselint', 'write-good'],
-      \ 'rust':    ['rustc', 'cargo'],
+      \ 'rust':    ['rls', 'cargo'],
       \ 'javascript': ['eslint', 'flow']
       \}
 
 let g:ale_fixers = {
       \ 'python':  ['autopep8', 'yapf'],
       \}
+
+let g:ale_c_build_dir_names = ['build']
 
 
 " vim-multiple-cursor -- many cursors, may good {{{2
@@ -781,7 +786,7 @@ Plug 'rking/ag.vim'
 " nnoremap <leader>a :Ag |" Dont strip space!
 
 " ctrlp.vim -- file navigation, searching and much more {{{2
-Plug 'junegunn/fzf', { 'dir': '~/.fzf', 'do': './install --bin' }
+Plug 'junegunn/fzf', { 'dir': '~/.config/fzf', 'do': './install --bin' }
 Plug 'junegunn/fzf.vim'
 
 " NOTE: Ignoring all files listed in .gitignore by using `fd` as default
@@ -885,6 +890,8 @@ nnoremap <leader>GD :Gdiff<CR>
 "" automatically delete fugitive buffers on close
 autocmd BufReadPost fugitive://* set bufhidden=delete
 
+" linediff -- diff two blocks of text in arbitrary files {{{2
+Plug 'AndrewRadev/linediff.vim'
 
 " vim-localvimrc -- load local vimrc files {{{2
 Plug 'embear/vim-localvimrc'
@@ -902,6 +909,42 @@ nnoremap gT :exe "ptjump " . expand("<cword>")<CR>
 autocmd filetype help nnoremap <buffer> <cr> <C-]>
 
 " BUILDING & LANGUAGE SPECIFICS {{{1
+
+
+" LaTeXBox {{{2
+Plug 'lervag/vimtex', { 'for': 'tex' }
+Plug 'donRaphaco/neotex', { 'for': 'tex' }
+
+let g:vimtex_compiler_latexrun = {
+      \ 'options' : [
+      \    '--bibtex-cmd biber'
+      \  ]
+      \}
+
+let g:vimtex_compiler_progname = '/Users/dsuess/bin/nvr_vimr'
+let g:vimtex_compiler_method = 'latexrun'
+let g:vimtex_view_method = 'skim'
+let g:vimtex_quickfix_latexlog = {'default' : 0}
+let g:vimtex_quickfix_blgparser  = {'disable': 0}
+"
+" let g:vimtex_quickfix_latexlog = {
+"           \ 'default' : 1,
+"           \ 'general' : 1,
+"           \ 'references' : 1,
+"           \ 'overfull' : 0,
+"           \ 'underfull' : 0,
+"           \ 'font' : 1,
+"           \ 'packages' : {
+"           \   'default' : 1,
+"           \   'natbib' : 1,
+"           \   'biblatex' : 1,
+"           \   'babel' : 1,
+"           \   'hyperref' : 1,
+"           \   'scrreprt' : 1,
+"           \   'fixltx2e' : 1,
+"           \   'titlesec' : 1,
+"           \ },
+"           \}
 
 " PYTHON {{{2
 
@@ -963,6 +1006,8 @@ Plug '5long/pytest-vim-compiler', { 'for': 'python' }
 " vim-isort -- sorting imports
 Plug 'fisadev/vim-isort', { 'for': 'python' }
 let g:vim_isort_map = ''
+
+nnoremap <leader>IS :Isort<CR>
 
 
 " HASKELL {{{2
@@ -1051,7 +1096,15 @@ Plug 'kassio/neoterm'
 Plug 'tristen/vim-sparkup', { 'for': ['xml', 'html'] }
 
 " vim-markup -- syntax and matching for markdown {{{2
-Plug 'plasticboy/vim-markdown', { 'for': 'markdown' }
+Plug 'plasticboy/vim-markdown', {'for': 'markdown'}
+
+" zotcite -- completion from zotero {{{2
+Plug 'jalvesaq/zotcite'
+
+let $ZoteroSQLpath = '/Users/dsuess/Library/Zotero/zotero.sqlite'
+let $ZCitationTemplate = '{Author}_{Year}_{Title}'
+let g:citation_vim_key_format = "{author}_{'_'.join(title.split()[:3])}_{date}"
+
 
 "set a custom make target {{{2
 function! SetMake()
@@ -1132,10 +1185,10 @@ if &t_Co >= 256
   "let g:airline_theme="powerlineish"
   if has('nvim')
     set background=dark
-    colorscheme molokai
-    " let g:airline_theme = 'solarized'
+    colorscheme NeoSolarized
+    let g:airline_theme = 'solarized'
   else
-    colorscheme molokai
+    colorscheme sorcerer
   endif
 endif
 if has('gui_vimr')
