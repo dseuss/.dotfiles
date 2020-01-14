@@ -1,2 +1,5 @@
 # add shell variables to this file
-export PATH=$PATH:$HOME/.linuxbrew/bin
+
+if [[ ! ":$PATH:" == *"$HOME/.linuxbrew/bin:"* ]]; then
+    export PATH=$HOME/.linuxbrew/bin:$PATH
+fi

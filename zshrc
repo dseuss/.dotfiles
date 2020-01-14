@@ -13,8 +13,10 @@ CASE_SENSETIVE="true"
 # Load the oh-my-zsh plugins and settings
 plugins=(git pip zsh-syntax-highlighting tmux)
 source $ZSH/oh-my-zsh.sh
+# setup conda completion
+fpath+=~/.dotfiles/my-zsh/plugins/dvc/
 fpath+=~/.dotfiles/conda-zsh-completion
-compinit conda
+compinit -i
 zstyle ':completion::complete:*' use-cache 1
 
 
@@ -49,4 +51,3 @@ fi
 source ~/.dotfiles/aliases
 
 test -e "${HOME}/.iterm2_shell_integration.zsh" && source "${HOME}/.iterm2_shell_integration.zsh"
-
