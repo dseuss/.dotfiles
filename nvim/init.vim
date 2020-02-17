@@ -76,6 +76,14 @@ tnoremap <C-j> <C-\><C-n><C-w>j
 tnoremap <C-k> <C-\><C-n><C-w>k
 tnoremap <C-l> <C-\><C-n><C-w>l
 
+"" Since VSCode doesn't use the tmux-navigator
+if exists('g:vscode')
+    nnoremap <C-h> <C-w>h
+    nnoremap <C-j> <C-w>j
+    nnoremap <C-k> <C-w>k
+    nnoremap <C-l> <C-w>l
+endif
+
 autocmd BufWinEnter,WinEnter term://* startinsert
 
 
@@ -374,7 +382,9 @@ autocmd BufWritePre * :call <SID>StripTrailingWhitespaces()
 
 
 " ale -- on-the-fly code checking {{{2
-Plug 'w0rp/ale'
+if ! exists('g:vscode')
+    Plug 'w0rp/ale'
+endif
 
 " let g:ale_python_mypy_options = '--ignore-missing-imports'
 
