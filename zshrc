@@ -11,7 +11,7 @@ COMPLETION_WAITING_DOTS="true"
 CASE_SENSETIVE="true"
 
 # Load the oh-my-zsh plugins and settings
-plugins=(git pip zsh-syntax-highlighting tmux)
+plugins=(git pip tmux)
 source $ZSH/oh-my-zsh.sh
 # setup conda completion
 fpath+=~/.dotfiles/my-zsh/plugins/dvc/
