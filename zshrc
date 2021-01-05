@@ -95,7 +95,6 @@ alias conf="vim ~/.zshrc"
 alias chrome="/Applications/Google\ Chrome.app/Contents/MacOS/Google\ Chrome"
 # gem install terminal-share
 alias share=terminal-share
-alias tmux="direnv exec / tmux"
 alias ccat='pygmentize -O style=monokai -f console256 -g'
 
 alias nb="tmux new -d -s tasks; tmux new-window -t tasks '/Users/dsuess/Library/Conda/bin/jupyter notebook'"
@@ -158,7 +157,7 @@ alias clipboard='pbcopy'
 ##############################
 #  Load the more extensions  #
 ##############################
-source /usr/local/Cellar/fzf/0.17.5/shell/key-bindings.zsh
+source /usr/local/Cellar/fzf/0.25.0/shell/key-bindings.zsh
 test -e "${HOME}/.iterm2_shell_integration.zsh" && source "${HOME}/.iterm2_shell_integration.zsh"
 if [ -f /Users/dsuess/.dotfiles/tmux_startup.sh ]; then
     source /Users/dsuess/.dotfiles/tmux_startup.sh
