@@ -1,0 +1,11 @@
+{
+    "shortcuts": [
+        {
+            "command": "apputils:activate-command-palette",
+            "keys": [
+                "Accel Shift P"
+            ],
+            "selector": "body"
+        }
+    ]
+}
