@@ -2,13 +2,16 @@ export EDITOR=/usr/local/bin/nvim
 export LC_ALL=en_US.UTF-8
 export LANG=en_US.UTF-8
 
-export PATH=$HOME/bin/:$HOME/.local/bin/:$HOME/.cargo/bin/:/usr/local/opt/llvm/bin:$PATH
+export PATH=$HOME/bin/:$HOME/.local/bin/:$PATH
 
 export PYTHONPATH=$HOME/Code/Pythonlibs:$PYTHONPATH
 
 export CC=clang
 export CXX=clang++
-export CFLAGS="-isysroot /Library/Developer/CommandLineTools/SDKs/MacOSX10.15.sdk/ $CFLAGS"
+export PATH="/usr/local/opt/llvm/bin:$PATH"
+export LDFLAGS="-L/usr/local/opt/llvm/lib"
+export CPPFLAGS="-I/usr/local/opt/llvm/include"
+export CFLAGS="-isysroot /Library/Developer/CommandLineTools/SDKs/MacOSX11.1.sdk// $CFLAGS"
 
 #export RUST_SRC_PATH=$(rustc --print sysroot)/lib/rustlib/src/rust/src
 

@@ -167,26 +167,6 @@ if [[ ! -z "$DIRENV_DIR" ]]; then
    direnv reload
 fi
 
-# >>> conda initialize >>>
-# !! Contents within this block are managed by 'conda init' !!
-__conda_setup="$('/Users/dsuess/Library/conda/bin/conda' 'shell.zsh' 'hook' 2> /dev/null)"
-if [ $? -eq 0 ]; then
-    eval "$__conda_setup"
-else
-    if [ -f "/Users/dsuess/Library/conda/etc/profile.d/conda.sh" ]; then
-        . "/Users/dsuess/Library/conda/etc/profile.d/conda.sh"
-    else
-        export PATH="/home/users/daniel/.local/conda/bin:$PATH"
-    fi
+if [ -f "/Users/dsuess/.zshrc.local" ]; then
+    source /Users/dsuess/.zshrc.local
 fi
-unset __conda_setup
-# <<< conda initialize <<<
-
-export PATH="/home/users/daniel/library/conda/bin:$PATH"
-export PATH="$HOME/.yarn/bin:$HOME/.config/yarn/global/node_modules/.bin:$PATH"
-
-# The next line updates PATH for the Google Cloud SDK.
-if [ -f '/Users/dsuess/Downloads/google-cloud-sdk/path.zsh.inc' ]; then . '/Users/dsuess/Downloads/google-cloud-sdk/path.zsh.inc'; fi
-
-# The next line enables shell command completion for gcloud.
-if [ -f '/Users/dsuess/Downloads/google-cloud-sdk/completion.zsh.inc' ]; then . '/Users/dsuess/Downloads/google-cloud-sdk/completion.zsh.inc'; fi
